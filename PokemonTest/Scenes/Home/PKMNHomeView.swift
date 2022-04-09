@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNHomeView: PKMNView {
+public class PKMNHomeView: PKMNView {
   var collectionView: UICollectionView = {
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     collectionView.backgroundColor = PKMNThemeManager.currentTheme().backgroundColor

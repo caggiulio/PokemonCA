@@ -17,34 +17,17 @@ public protocol PKMNHomeViewControllerProtocol {
 
 // MARK: - PKMNHomeViewController
 
-public class PKMNHomeViewController: PKMNViewController, PKMNHomeViewControllerProtocol {
+public class PKMNHomeViewController: PKMNViewController<PKMNHomeView, PKMNHomeViewModel>, PKMNHomeViewControllerProtocol {
   // MARK: - Business logic properties
-
-  private var viewModel: PKMNHomeViewModelProtocol
 
   public weak var homeCoordinator: PKMNPokemonCoordinatorProtocol?
 
-  var _view: PKMNHomeView? {
-    guard let view = view as? PKMNHomeView else { preconditionFailure("Unable to cast view to \(PKMNHomeView.self)") }
-    return view
-  }
-
   // MARK: - Object lifecycle
 
-  public init(viewModel: PKMNHomeViewModelProtocol) {
-    self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
+  public override init(viewModel: PKMNHomeViewModel) {
+    super.init(viewModel: viewModel)
   }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  override public func loadView() {
-    view = PKMNHomeView()
-  }
-
+  
   public func loadHome() {
     viewModel.loadHome(queryItems: nil)
   }
@@ -65,29 +48,20 @@ public class PKMNHomeViewController: PKMNViewController, PKMNHomeViewControllerP
 
   private func configureBinds() {
     viewModel.updateStatus = { [weak self] status in
-      switch status {
-        case .idle:
-          self?._view?.hideLoader()
-        case let .loading(isFirstLoading):
-          isFirstLoading ? self?._view?.showLoader() : nil
-        case .success:
-          self?._view?.hideLoader()
-          self?.reloadData()
-        case let .failure(error):
-          self?._view?.hideLoader()
-          self?.handleError(error: error)
-      }
+      self?.handle(status, success: { _ in
+        self?.reloadData()
+      })
     }
   }
 
   private func setDelegates() {
-    _view?.collectionView.dataSource = self
-    _view?.collectionView.delegate = self
+    _view.collectionView.dataSource = self
+    _view.collectionView.delegate = self
   }
 
   private func reloadData() {
     DispatchQueue.main.async {
-      self._view?.collectionView.reloadData()
+      self._view.collectionView.reloadData()
     }
   }
 }

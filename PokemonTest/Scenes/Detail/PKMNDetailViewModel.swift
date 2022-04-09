@@ -17,7 +17,7 @@ public protocol PKMNDetailViewModelProtocol {
 
 // MARK: - PKMNDetailViewModel
 
-public class PKMNDetailViewModel: PKMNDetailViewModelProtocol {
+public class PKMNDetailViewModel: PKMNViewModel, PKMNDetailViewModelProtocol {
   /// The loading state updates the closure `updateStatus`
   private var loadingState: LoadingState<Pokemon, PKMNError> = .idle {
     didSet {

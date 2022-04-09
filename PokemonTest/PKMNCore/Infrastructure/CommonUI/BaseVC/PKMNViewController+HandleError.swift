@@ -9,9 +9,12 @@ import Foundation
 
 public extension PKMNViewController {
   func handleError(error: PKMNError) {
-    switch error {
+    /// Initialization of `errorHandler`
+    errorHandler = PKMNMainErrorManager().listen(PKMNError.self, action: { [self] error in
+      switch error {
       default:
         showToast(color: .systemRed, text: error.localizedDescription, completion: nil)
-    }
+      }
+    })
   }
 }

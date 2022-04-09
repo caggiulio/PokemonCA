@@ -22,15 +22,26 @@ public enum PKMNThemeManager {
     /// You get your current (selected) theme and apply the main color to the tintColor property of your application’s window.
     let sharedApplication = UIApplication.shared
     sharedApplication.delegate?.window??.tintColor = theme.primaryColor
+    
+    let navigationBarAppeareance = UINavigationBarAppearance()
+    
+    navigationBarAppeareance.backgroundColor = theme.navigationBarBackgroundColor
+    navigationBarAppeareance.shadowImage = UIImage()
+    navigationBarAppeareance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.navigationBarForegroundColor, NSAttributedString.Key.font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 20)]
+    navigationBarAppeareance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.navigationBarForegroundColor, NSAttributedString.Key.font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 40)]
 
-    UINavigationBar.appearance().backgroundColor = theme.navigationBarBackgroundColor
+    // MARK: - UINavigationBar Appearance
     UINavigationBar.appearance().isTranslucent = false
-    UINavigationBar.appearance().shadowImage = UIImage()
     UINavigationBar.appearance().tintColor = theme.navigationBarForegroundColor
     UINavigationBar.appearance().barTintColor = theme.navigationBarBackgroundColor
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.navigationBarForegroundColor, NSAttributedString.Key.font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 20)]
-    UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.navigationBarForegroundColor, NSAttributedString.Key.font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 40)]
-
+    if #available(iOS 15.0, *) {
+      UINavigationBar.appearance().compactScrollEdgeAppearance = navigationBarAppeareance
+    }
+    UINavigationBar.appearance().compactAppearance = navigationBarAppeareance
+    UINavigationBar.appearance().standardAppearance = navigationBarAppeareance
+    UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppeareance
+    
+    // MARK: - UITextField Appearance
     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: PKMNThemeManager.currentTheme().tertiaryColor]
   }
 }

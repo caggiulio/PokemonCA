@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNDetailView: PKMNView {
+public class PKMNDetailView: PKMNView {
   private var nameLabel: UILabel = {
     var label = UILabel()
     LabelStyles.titleLabel.apply(to: label)

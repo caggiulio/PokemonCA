@@ -30,7 +30,7 @@ public protocol PKMNDetailAssemblerInjector {
 
 public extension PKMNDetailAssembler {
   func resolve() -> _InjectableViewControllerHost<PKMNDetailViewController> {
-    return Inject.ViewControllerHost(PKMNDetailViewController(viewModel: resolve()))
+    return Inject.ViewControllerHost(PKMNDetailViewController(viewModel: self.resolve()))
   }
 
   func resolve() -> PKMNDetailViewModel {

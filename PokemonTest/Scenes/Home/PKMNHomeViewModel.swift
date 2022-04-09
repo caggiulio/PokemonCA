@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - PKMNHomeViewModelProtocol
 
-public protocol PKMNHomeViewModelProtocol {
+public protocol PKMNHomeViewModelProtocol: PKMNViewModel {
   func loadHome(queryItems: [URLQueryItem]?)
   func searchPokemon(name: String)
   func getNextPage()
@@ -21,7 +21,7 @@ public protocol PKMNHomeViewModelProtocol {
 
 // MARK: - PKMNHomeViewModel
 
-public class PKMNHomeViewModel: PKMNHomeViewModelProtocol {
+public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
   /// The loading state updates the closure `updateStatus`
   private var loadingState: LoadingState<Void, PKMNError> = .idle {
     didSet {

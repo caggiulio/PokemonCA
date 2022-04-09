@@ -21,7 +21,7 @@ public extension PKMNViewController {
       setToastConstraints(_view: self.view)
 
       UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut) {
-        toast.transform = .init(translationX: 0, y: 80 + (UIApplication.shared.statusBarFrame.height))
+        toast.transform = .init(translationX: 0, y: 80 + (self.view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0))
       }
 
       DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {

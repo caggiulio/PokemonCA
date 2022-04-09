@@ -111,8 +111,13 @@
 		4D757F9F279ED872000E79E5 /* PKMNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F9E279ED872000E79E5 /* PKMNView.swift */; };
 		4D757FA1279ED8B5000E79E5 /* PKMNView+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757FA0279ED8B5000E79E5 /* PKMNView+Modal.swift */; };
 		4D757FA4279EDDBE000E79E5 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757FA3279EDDBE000E79E5 /* UICollectionView+Extensions.swift */; };
+		4DA02D7D2801810B00BB6CE5 /* Pods_PokemonTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF1B7EA5341611A1250041 /* Pods_PokemonTest.framework */; };
+		4DA02D812801822400BB6CE5 /* PKMNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D802801822400BB6CE5 /* PKMNViewModel.swift */; };
+		4DA02D84280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D83280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift */; };
+		4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */; };
+		4DA02D8A2801877600BB6CE5 /* ErrorHandeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D872801877600BB6CE5 /* ErrorHandeable.swift */; };
+		4DA02D8B2801877600BB6CE5 /* ErrorConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D882801877600BB6CE5 /* ErrorConvenience.swift */; };
 		4DA3627D2800602A001A8F1B /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 4DA3627C2800602A001A8F1B /* Inject */; };
-		DAF154DAD86E39D2FBABF961 /* Pods_PokemonTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF1B7EA5341611A1250041 /* Pods_PokemonTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +241,11 @@
 		4D757F9E279ED872000E79E5 /* PKMNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNView.swift; sourceTree = "<group>"; };
 		4D757FA0279ED8B5000E79E5 /* PKMNView+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNView+Modal.swift"; sourceTree = "<group>"; };
 		4D757FA3279EDDBE000E79E5 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		4DA02D802801822400BB6CE5 /* PKMNViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNViewModel.swift; sourceTree = "<group>"; };
+		4DA02D83280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNViewController+HandleLoadingState.swift"; sourceTree = "<group>"; };
+		4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportXPHandleErrorManager.swift; sourceTree = "<group>"; };
+		4DA02D872801877600BB6CE5 /* ErrorHandeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandeable.swift; sourceTree = "<group>"; };
+		4DA02D882801877600BB6CE5 /* ErrorConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorConvenience.swift; sourceTree = "<group>"; };
 		7F643B92F13DF85DE2B52E54 /* Pods-PokemonTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.debug.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.debug.xcconfig"; sourceTree = "<group>"; };
 		FAA5A9474C67281E7C390123 /* Pods-PokemonTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.release.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,7 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAF154DAD86E39D2FBABF961 /* Pods_PokemonTest.framework in Frameworks */,
+				4DA02D7D2801810B00BB6CE5 /* Pods_PokemonTest.framework in Frameworks */,
 				4DA3627D2800602A001A8F1B /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +422,7 @@
 		4D5904C2279DC493001110D8 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				4DA02D852801877600BB6CE5 /* ErrorHandler */,
 				4D5904DB279DC690001110D8 /* Assets */,
 				4D757F8A279EBCBA000E79E5 /* CommonUI */,
 				4D590563279EAC4F001110D8 /* Localizable */,
@@ -645,6 +656,7 @@
 				4D757F80279EB844000E79E5 /* PKMNViewController.swift */,
 				4D757F86279EBB7C000E79E5 /* PKMNViewController+Modal.swift */,
 				4D757F8B279EBD24000E79E5 /* PKMNViewController+HandleError.swift */,
+				4DA02D83280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift */,
 			);
 			path = BaseVC;
 			sourceTree = "<group>";
@@ -667,6 +679,7 @@
 				4D586FBA27A150DD0067479A /* BaseView */,
 				4D757F88279EBC96000E79E5 /* BaseVC */,
 				4D757F89279EBC9F000E79E5 /* CustomView */,
+				4DA02D822801823300BB6CE5 /* BaseVM */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -718,6 +731,24 @@
 				4D3DED65279EE7AB0012CCEF /* IndexPath+Extension.swift */,
 			);
 			path = ExtensionsUI;
+			sourceTree = "<group>";
+		};
+		4DA02D822801823300BB6CE5 /* BaseVM */ = {
+			isa = PBXGroup;
+			children = (
+				4DA02D802801822400BB6CE5 /* PKMNViewModel.swift */,
+			);
+			path = BaseVM;
+			sourceTree = "<group>";
+		};
+		4DA02D852801877600BB6CE5 /* ErrorHandler */ = {
+			isa = PBXGroup;
+			children = (
+				4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */,
+				4DA02D872801877600BB6CE5 /* ErrorHandeable.swift */,
+				4DA02D882801877600BB6CE5 /* ErrorConvenience.swift */,
+			);
+			path = ErrorHandler;
 			sourceTree = "<group>";
 		};
 		EE7526DE427A92B31C4BD865 /* Frameworks */ = {
@@ -928,6 +959,7 @@
 				4D757F92279EBE74000E79E5 /* PKMNHomeViewModel.swift in Sources */,
 				4D757F87279EBB7C000E79E5 /* PKMNViewController+Modal.swift in Sources */,
 				4D757F8C279EBD24000E79E5 /* PKMNViewController+HandleError.swift in Sources */,
+				4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */,
 				4D5904EA279E8F34001110D8 /* NetworkingError.swift in Sources */,
 				4D5904EE279E8F6B001110D8 /* Networking+Extension.swift in Sources */,
 				4D590518279E91F9001110D8 /* AbilityDataSource.swift in Sources */,
@@ -942,7 +974,9 @@
 				4D3DED7D27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift in Sources */,
 				4D3DED5F279EE0D50012CCEF /* _RGB.swift in Sources */,
 				4D590551279E9E9D001110D8 /* PKMNNetworkingDataSourceWorker.swift in Sources */,
+				4DA02D812801822400BB6CE5 /* PKMNViewModel.swift in Sources */,
 				4D59055F279EAB11001110D8 /* PKMNMainContainerProtocol.swift in Sources */,
+				4DA02D8A2801877600BB6CE5 /* ErrorHandeable.swift in Sources */,
 				4D757F94279EBEEA000E79E5 /* LoadingState.swift in Sources */,
 				4D590554279EA06D001110D8 /* PKMNErrorManager.swift in Sources */,
 				4D590559279EA839001110D8 /* PKMNRepository.swift in Sources */,
@@ -976,8 +1010,10 @@
 				4D5904A9279DBFDC001110D8 /* AppDelegate.swift in Sources */,
 				4D3DED5C279EE0D50012CCEF /* UIImage+Colors.swift in Sources */,
 				4D757F85279EB9FE000E79E5 /* PKMNLoader.swift in Sources */,
+				4DA02D84280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift in Sources */,
 				4D59051A279E920B001110D8 /* FormsDataSource.swift in Sources */,
 				4D590532279E94D9001110D8 /* FrontImage.swift in Sources */,
+				4DA02D8B2801877600BB6CE5 /* ErrorConvenience.swift in Sources */,
 				4D590513279E91A3001110D8 /* PokemonListItemDataSource.swift in Sources */,
 				4D757F90279EBE10000E79E5 /* PKMNHomeView.swift in Sources */,
 			);
@@ -1150,6 +1186,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 25LH3KUTP8;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1179,6 +1216,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 25LH3KUTP8;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

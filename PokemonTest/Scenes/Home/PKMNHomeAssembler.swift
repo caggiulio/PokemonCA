@@ -28,7 +28,7 @@ public protocol PKMNHomeAssemblerInjector {
 
 public extension PKMNHomeAssembler {
   func resolve() -> _InjectableViewControllerHost<PKMNHomeViewController> {
-    return Inject.ViewControllerHost(PKMNHomeViewController(viewModel: resolve()))
+    return Inject.ViewControllerHost(PKMNHomeViewController(viewModel: self.resolve()))
   }
 
   func resolve() -> PKMNHomeViewModel {

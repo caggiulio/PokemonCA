@@ -16,32 +16,15 @@ public protocol PMKNDetailViewControllerProtocol {
 
 // MARK: - PKMNDetailViewController
 
-public class PKMNDetailViewController: PKMNViewController, PMKNDetailViewControllerProtocol {
+public class PKMNDetailViewController: PKMNViewController<PKMNDetailView, PKMNDetailViewModel>, PMKNDetailViewControllerProtocol {
   // MARK: - Business logic properties
-
-  private var viewModel: PKMNDetailViewModelProtocol
 
   public weak var detailCoordinator: PKMNPokemonCoordinator?
 
-  var _view: PKMNDetailView? {
-    guard let view = view as? PKMNDetailView else { preconditionFailure("Unable to cast view to \(PKMNDetailView.self)") }
-    return view
-  }
-
   // MARK: - Object lifecycle
 
-  public init(viewModel: PKMNDetailViewModelProtocol) {
-    self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
-  }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  override public func loadView() {
-    view = PKMNDetailView()
+  public override init(viewModel: PKMNDetailViewModel) {
+    super.init(viewModel: viewModel)
   }
 
   public func loadPokemon() {
@@ -57,18 +40,9 @@ public class PKMNDetailViewController: PKMNViewController, PMKNDetailViewControl
 
   private func configureBinds() {
     viewModel.updateStatus = { [weak self] status in
-      switch status {
-        case .idle:
-          break
-        case .loading:
-          self?._view?.showLoader()
-        case let .success(pokemon):
-          self?._view?.hideLoader()
-          self?._view?.configure(pokemon: pokemon)
-        case let .failure(error):
-          self?._view?.hideLoader()
-          self?.handleError(error: error)
-      }
+      self?.handle(status, success: { pokemon in
+        self?._view.configure(pokemon: pokemon)
+      })
     }
   }
 }

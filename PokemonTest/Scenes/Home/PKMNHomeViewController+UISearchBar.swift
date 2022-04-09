@@ -25,9 +25,7 @@ extension PKMNHomeViewController: UISearchBarDelegate {
     searchController.searchBar.showsCancelButton = false
     searchController.hidesNavigationBarDuringPresentation = false
 
-    if #available(iOS 13.0, *) {
-      searchController.searchBar.searchTextField.font = PKMNThemeManager.currentTheme().primaryFont.font(size: 15)
-    }
+    searchController.searchBar.searchTextField.font = PKMNThemeManager.currentTheme().primaryFont.font(size: 15)
   }
 
   public func searchBar(_: UISearchBar, textDidChange searchText: String) {

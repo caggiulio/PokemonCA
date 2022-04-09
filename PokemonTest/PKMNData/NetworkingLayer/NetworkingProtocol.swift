@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol NetworkingProtocol {
-    func send<SuccessResponse: Decodable>(request: NetworkingRequest, completion: ((Result<SuccessResponse, Error>) -> Void)?)
+  func send<SuccessResponse: Decodable>(request: NetworkingRequest, completion: ((Result<SuccessResponse, Error>) -> Void)?)
 }

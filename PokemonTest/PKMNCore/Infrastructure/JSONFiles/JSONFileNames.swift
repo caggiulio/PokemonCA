@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct JSONFilesNames {
-    public static let singlePokemon: String = "single_pokemon_response"
-    public static let pokemonsList: String = "pokemons_response"
+public enum JSONFilesNames {
+  public static let singlePokemon = "single_pokemon_response"
+  public static let pokemonsList = "pokemons_response"
 }

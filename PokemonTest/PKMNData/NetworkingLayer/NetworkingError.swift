@@ -9,8 +9,8 @@ import Foundation
 
 /// Enum for errors
 public enum NetworkingError: Error {
-    case invalidUrl
-    case invalidHTTPResponse
-    case decodingFailed(error: Error)
-    case underlying(response: URLResponse?, data: Data?)
+  case invalidUrl
+  case invalidHTTPResponse
+  case decodingFailed(error: Error)
+  case underlying(response: URLResponse?, data: Data?)
 }

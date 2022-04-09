@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Forms {
-    let name: String
-    
-    public init(formsDataSource: FormsDataSource) {
-        name = formsDataSource.name
-    }
+  let name: String
+
+  public init(formsDataSource: FormsDataSource) {
+    name = formsDataSource.name
+  }
 }

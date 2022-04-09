@@ -5,43 +5,42 @@
 //  Created on 24/01/22.
 //
 
-import Foundation
 import Anchorage
+import Foundation
 
 public extension PKMNView {
-    func showLoader() {
-        let loaderView: PKMNLoader = PKMNLoader(frame: self.frame)
-        self.modalViews.append(loaderView)
-        
-        func exec() {
-            self.addSubview(loaderView)
-            loaderView.edgeAnchors /==/ edgeAnchors
-        }
-                
-        /// Make sure the code is executed on the main thread
-        if Thread.isMainThread {
-            exec()
-        }
-        else {
-            DispatchQueue.main.sync {
-                exec()
-            }
-        }
+  func showLoader() {
+    let loaderView = PKMNLoader(frame: frame)
+    modalViews.append(loaderView)
+
+    func exec() {
+      addSubview(loaderView)
+      loaderView.edgeAnchors /==/ edgeAnchors
     }
-    
-    func hideLoader(withAction: (() -> Void)? = nil) {
-        func exec() {
-            modalViews.forEach { loader in
-                loader.removeFromSuperview()
-            }
-        }
-        
-        if Thread.isMainThread {
-            exec()
-        } else {
-            DispatchQueue.main.sync {
-                exec()
-            }
-        }
+
+    /// Make sure the code is executed on the main thread
+    if Thread.isMainThread {
+      exec()
+    } else {
+      DispatchQueue.main.sync {
+        exec()
+      }
     }
+  }
+
+  func hideLoader(withAction _: (() -> Void)? = nil) {
+    func exec() {
+      modalViews.forEach { loader in
+        loader.removeFromSuperview()
+      }
+    }
+
+    if Thread.isMainThread {
+      exec()
+    } else {
+      DispatchQueue.main.sync {
+        exec()
+      }
+    }
+  }
 }

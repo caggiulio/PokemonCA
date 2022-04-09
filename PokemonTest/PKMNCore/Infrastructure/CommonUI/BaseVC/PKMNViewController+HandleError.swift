@@ -8,10 +8,10 @@
 import Foundation
 
 public extension PKMNViewController {
-    func handleError(error: PKMNError) {
-        switch error {
-        default:
-            showToast(color: .systemRed, text: error.localizedDescription, completion: nil)
-        }
+  func handleError(error: PKMNError) {
+    switch error {
+      default:
+        showToast(color: .systemRed, text: error.localizedDescription, completion: nil)
     }
+  }
 }

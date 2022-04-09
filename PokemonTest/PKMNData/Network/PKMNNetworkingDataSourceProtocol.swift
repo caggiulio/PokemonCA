@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol PKMNNetworkingDataSourceProtocol {
-    func getPokemon(id: String, completion: @escaping (Result<Pokemon, PKMNError>) -> Void)
-    func pokemonsList(queryItems: [URLQueryItem]?, completion: @escaping (Result<PokemonsList, PKMNError>) -> Void)
+  func getPokemon(id: String, completion: @escaping (Result<Pokemon, PKMNError>) -> Void)
+  func pokemonsList(queryItems: [URLQueryItem]?, completion: @escaping (Result<PokemonsList, PKMNError>) -> Void)
 }

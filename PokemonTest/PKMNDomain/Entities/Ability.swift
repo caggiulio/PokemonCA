@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Ability {
-    let name: String
-    
-    public init(abilityDataSource: AbilityDataSource) {
-        name = abilityDataSource.name
-    }
+  let name: String
+
+  public init(abilityDataSource: AbilityDataSource) {
+    name = abilityDataSource.name
+  }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Species {
-    let name: String
-    
-    public init(speciesDataSource: SpeciesDataSource) {
-        name = speciesDataSource.name
-    }
+  let name: String
+
+  public init(speciesDataSource: SpeciesDataSource) {
+    name = speciesDataSource.name
+  }
 }

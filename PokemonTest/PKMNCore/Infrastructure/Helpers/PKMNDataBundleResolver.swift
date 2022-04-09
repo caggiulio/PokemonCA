@@ -7,8 +7,8 @@
 
 import Foundation
 
-public class PKMNDataBundleResolver {
-    public static func returnMainBundle() -> Bundle {
-        return Bundle.main
-    }
+public enum PKMNDataBundleResolver {
+  public static func returnMainBundle() -> Bundle {
+    return Bundle.main
+  }
 }

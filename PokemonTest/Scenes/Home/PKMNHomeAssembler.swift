@@ -8,26 +8,30 @@
 import Foundation
 import Inject
 
+// MARK: - PKMNHomeAssembler
+
 public class PKMNHomeAssembler: PKMNHomeAssemblerInjector {
-    var container: PKMNMainContainerProtocol
-    
-    public init(container: PKMNMainContainerProtocol) {
-        self.container = container
-    }
+  var container: PKMNMainContainerProtocol
+
+  public init(container: PKMNMainContainerProtocol) {
+    self.container = container
+  }
 }
+
+// MARK: - PKMNHomeAssemblerInjector
 
 public protocol PKMNHomeAssemblerInjector {
-    func resolve() -> _InjectableViewControllerHost<PKMNHomeViewController>
-    
-    func resolve() -> PKMNHomeViewModel
+  func resolve() -> _InjectableViewControllerHost<PKMNHomeViewController>
+
+  func resolve() -> PKMNHomeViewModel
 }
 
-extension PKMNHomeAssembler {
-  public func resolve() -> _InjectableViewControllerHost<PKMNHomeViewController> {
-    return Inject.ViewControllerHost(PKMNHomeViewController(viewModel: self.resolve()))
-    }
-    
-    public func resolve() -> PKMNHomeViewModel {
-        return PKMNHomeViewModel(getPokemonsListUseCase: container.getPokemonsListUseCase, searchPokemonByNameUseCase: container.searchPokemonByNameUseCase)
-    }
+public extension PKMNHomeAssembler {
+  func resolve() -> _InjectableViewControllerHost<PKMNHomeViewController> {
+    return Inject.ViewControllerHost(PKMNHomeViewController(viewModel: resolve()))
+  }
+
+  func resolve() -> PKMNHomeViewModel {
+    return PKMNHomeViewModel(getPokemonsListUseCase: container.getPokemonsListUseCase, searchPokemonByNameUseCase: container.searchPokemonByNameUseCase)
+  }
 }

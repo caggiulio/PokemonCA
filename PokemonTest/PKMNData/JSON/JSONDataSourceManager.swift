@@ -8,11 +8,7 @@
 import Foundation
 
 public struct JSONDataSourceManager {
-    
-    public init() {}
+  public init() {}
 
-    public let jsonDataSource: JSONDataSourceProtocol = {
-        return JSONDataSourceWorker()
-    }()
-    
+  public let jsonDataSource: JSONDataSourceProtocol = JSONDataSourceWorker()
 }

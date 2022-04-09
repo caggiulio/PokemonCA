@@ -7,23 +7,21 @@
 
 #if canImport(UIKit)
 
-import UIKit
+  import UIKit
 
-@available(*, deprecated, renamed: "UIImage.Colors")
-public typealias UIImageColors = UIImage.Colors
+  @available(*, deprecated, renamed: "UIImage.Colors")
+  public typealias UIImageColors = UIImage.Colors
 
 #endif
-
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 
-import AppKit
+  import AppKit
 
-@available(*, deprecated, renamed: "NSImage.Colors")
-public typealias UIImageColors = NSImage.Colors
+  @available(*, deprecated, renamed: "NSImage.Colors")
+  public typealias UIImageColors = NSImage.Colors
 
 #endif
-
 
 @available(*, deprecated, renamed: "ScaleQuality")
 public typealias UIImageColorsQuality = ScaleQuality

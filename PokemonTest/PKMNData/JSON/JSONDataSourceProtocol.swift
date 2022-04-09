@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol JSONDataSourceProtocol {
-    func getPokemon(completion: (Result<Pokemon, PKMNError>) -> Void)
-    func pokemonsList(completion: (Result<PokemonsList, PKMNError>) -> Void)
+  func getPokemon(completion: (Result<Pokemon, PKMNError>) -> Void)
+  func pokemonsList(completion: (Result<PokemonsList, PKMNError>) -> Void)
 }

@@ -7,11 +7,13 @@
 
 import Foundation
 
+// MARK: - PKMNString
+
 public enum PKMNString {
-    public static let standardError = PKMNString.tr("Localizable", "standard_error")
-    public static let standardSearch = PKMNString.tr("Localizable", "standard_search")
-    public static let resourceNotFound = PKMNString.tr("Localizable", "resource_not_found")
-    public static let homeTitle = PKMNString.tr("Localizable", "home_title")
+  public static let standardError = PKMNString.tr("Localizable", "standard_error")
+  public static let standardSearch = PKMNString.tr("Localizable", "standard_search")
+  public static let resourceNotFound = PKMNString.tr("Localizable", "resource_not_found")
+  public static let homeTitle = PKMNString.tr("Localizable", "home_title")
 }
 
 extension PKMNString {
@@ -20,4 +22,3 @@ extension PKMNString {
     return String(format: format, locale: Locale.current, arguments: args)
   }
 }
-

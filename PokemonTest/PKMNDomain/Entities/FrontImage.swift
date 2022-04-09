@@ -8,9 +8,9 @@
 import Foundation
 
 public struct FrontImage {
-    public let stringURL: String
-    
-    init(spritesDataSource: SpritesDataSource) {
-        stringURL = spritesDataSource.officialArtwork.frontDefault
-    }
+  public let stringURL: String
+
+  init(spritesDataSource: SpritesDataSource) {
+    stringURL = spritesDataSource.officialArtwork.frontDefault
+  }
 }

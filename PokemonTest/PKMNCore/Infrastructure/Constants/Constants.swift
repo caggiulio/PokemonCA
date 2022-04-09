@@ -7,6 +7,6 @@
 
 import Foundation
 
-public struct PKMNConstants {
-    public static var baseURL: String = "https://pokeapi.co/api/v2/"
+public enum PKMNConstants {
+  public static var baseURL = "https://pokeapi.co/api/v2/"
 }

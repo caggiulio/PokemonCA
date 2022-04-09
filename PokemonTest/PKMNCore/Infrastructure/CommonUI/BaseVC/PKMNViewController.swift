@@ -8,14 +8,14 @@
 import UIKit
 
 public class PKMNViewController: UIViewController {
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setup()
-    }
-    
-    private func setup() {
-        self.navigationController?.view.backgroundColor = PKMNThemeManager.currentTheme().navigationBarBackgroundColor
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
+  override public func viewDidLoad() {
+    super.viewDidLoad()
+
+    setup()
+  }
+
+  private func setup() {
+    navigationController?.view.backgroundColor = PKMNThemeManager.currentTheme().navigationBarBackgroundColor
+    navigationController?.navigationBar.prefersLargeTitles = true
+  }
 }

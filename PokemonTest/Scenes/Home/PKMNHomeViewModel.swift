@@ -56,7 +56,9 @@ public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
           self?.nextPage = pokemonList.next
           let pokemonItems = pokemonList.pokemonItems
           self?.retrievedPokemons.append(contentsOf: pokemonItems)
+        DispatchQueue.main.async {
           self?.loadingState = .success(())
+        }
         case let .failure(error):
           self?.loadingState = .failure(error)
       }
@@ -97,7 +99,9 @@ public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
         switch result {
           case let .success(pokemonListItems):
             self?.retrievedPokemons = pokemonListItems
+          DispatchQueue.main.async {
             self?.loadingState = .success(())
+          }
           case let .failure(error):
             self?.loadingState = .failure(error)
         }

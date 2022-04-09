@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import AloyNetworking
 
 public struct PKMNNetworkingManager {
-  private let networking: NetworkingProtocol = {
-    let networking = Networking(
+  private let networking: AloyNetworkingProtocol = {
+    let networking = AloyNetworking(
       baseURL: PKMNConstants.baseURL, cachePolicy: .returnCacheDataElseLoad
     )
     return networking

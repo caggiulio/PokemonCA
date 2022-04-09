@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import AloyNetworking
 
 // MARK: - PKMNNetworkingDataSourceWorker
 
 public class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
   // MARK: - Protocol properties
 
-  var networking: NetworkingProtocol
+  var networking: AloyNetworkingProtocol
 
-  public init(networking: NetworkingProtocol) {
+  public init(networking: AloyNetworkingProtocol) {
     self.networking = networking
   }
 
@@ -28,7 +29,7 @@ public class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
 
   private func getPokemonFromNetwork(id: String, completion: @escaping (Result<PokemonDataSource, PKMNError>) -> Void) {
     let path = "/pokemon/\(id)"
-    let request = NetworkingRequest(method: .get, path: (path, nil))
+    let request = AloyNetworkingRequest(method: .get, path: (path, nil))
     networking.send(request: request) { [weak self] result in
       self?.sendResponse(resultCompletion: result) { _result in
         completion(_result)
@@ -46,7 +47,7 @@ public class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
 
   private func getPokemonsListFromNetwork(queryItems: [URLQueryItem]?, completion: @escaping (Result<PokemonListDataSource, PKMNError>) -> Void) {
     let path = "/pokemon"
-    let request = NetworkingRequest(method: .get, path: (path, queryItems))
+    let request = AloyNetworkingRequest(method: .get, path: (path, queryItems))
     networking.send(request: request) { [weak self] result in
       self?.sendResponse(resultCompletion: result) { _result in
         completion(_result)
@@ -58,7 +59,7 @@ public class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
 private extension PKMNNetworkingDataSourceWorker {
   func sendResponse<SuccessResponse: Decodable>(resultCompletion: Result<SuccessResponse, Error>, completion: @escaping (Result<SuccessResponse, PKMNError>) -> Void) {
     completion(resultCompletion.mapError { error in
-      guard case NetworkingError.underlying(response: let response, data: _) = error, let errorResponse = response else { return PKMNError.genericError(error.localizedDescription) }
+      guard case AloyNetworkingError.underlying(response: let response, data: _) = error, let errorResponse = response else { return PKMNError.genericError(error.localizedDescription) }
       return PKMNErrorManager.parsePKMNError(response: errorResponse)
     })
   }

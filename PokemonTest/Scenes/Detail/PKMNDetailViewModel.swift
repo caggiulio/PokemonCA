@@ -43,7 +43,9 @@ public class PKMNDetailViewModel: PKMNViewModel, PKMNDetailViewModelProtocol {
     getPokemonByIDUseCase.execute(id: id) { [weak self] result in
       switch result {
         case let .success(pokemon):
+        DispatchQueue.main.async {
           self?.loadingState = .success(pokemon)
+        }
         case let .failure(error):
           self?.loadingState = .failure(error)
       }

@@ -51,11 +51,6 @@
 		4D5904DF279DC888001110D8 /* PKMNThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904DE279DC888001110D8 /* PKMNThemeManager.swift */; };
 		4D5904E1279DC9F1001110D8 /* PKMNButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904E0279DC9F1001110D8 /* PKMNButtonStyles.swift */; };
 		4D5904E4279DCA6E001110D8 /* PKMNLabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904E3279DCA6E001110D8 /* PKMNLabelStyles.swift */; };
-		4D5904E8279DCBF0001110D8 /* NetworkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904E7279DCBF0001110D8 /* NetworkingRequest.swift */; };
-		4D5904EA279E8F34001110D8 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904E9279E8F34001110D8 /* NetworkingError.swift */; };
-		4D5904EE279E8F6B001110D8 /* Networking+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904ED279E8F6B001110D8 /* Networking+Extension.swift */; };
-		4D5904F0279E8F7B001110D8 /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904EF279E8F7B001110D8 /* NetworkingProtocol.swift */; };
-		4D5904F2279E8F8B001110D8 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904F1279E8F8B001110D8 /* Networking.swift */; };
 		4D5904F5279E8FD7001110D8 /* PKMNNetworkingDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904F4279E8FD7001110D8 /* PKMNNetworkingDataSourceProtocol.swift */; };
 		4D5904F7279E902E001110D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904F6279E902E001110D8 /* Constants.swift */; };
 		4D5904F9279E9076001110D8 /* PKMNNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904F8279E9076001110D8 /* PKMNNetworkingManager.swift */; };
@@ -107,7 +102,6 @@
 		4D757F94279EBEEA000E79E5 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F93279EBEEA000E79E5 /* LoadingState.swift */; };
 		4D757F97279EBFFF000E79E5 /* PKMNHomeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F96279EBFFF000E79E5 /* PKMNHomeAssembler.swift */; };
 		4D757F99279EC0AC000E79E5 /* PKMNMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F98279EC0AC000E79E5 /* PKMNMainCoordinator.swift */; };
-		4D757F9D279EC6C5000E79E5 /* NetworkingLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F9C279EC6C5000E79E5 /* NetworkingLogger.swift */; };
 		4D757F9F279ED872000E79E5 /* PKMNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F9E279ED872000E79E5 /* PKMNView.swift */; };
 		4D757FA1279ED8B5000E79E5 /* PKMNView+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757FA0279ED8B5000E79E5 /* PKMNView+Modal.swift */; };
 		4D757FA4279EDDBE000E79E5 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757FA3279EDDBE000E79E5 /* UICollectionView+Extensions.swift */; };
@@ -178,11 +172,6 @@
 		4D5904DE279DC888001110D8 /* PKMNThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNThemeManager.swift; sourceTree = "<group>"; };
 		4D5904E0279DC9F1001110D8 /* PKMNButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNButtonStyles.swift; sourceTree = "<group>"; };
 		4D5904E3279DCA6E001110D8 /* PKMNLabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNLabelStyles.swift; sourceTree = "<group>"; };
-		4D5904E7279DCBF0001110D8 /* NetworkingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingRequest.swift; sourceTree = "<group>"; };
-		4D5904E9279E8F34001110D8 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
-		4D5904ED279E8F6B001110D8 /* Networking+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Networking+Extension.swift"; sourceTree = "<group>"; };
-		4D5904EF279E8F7B001110D8 /* NetworkingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
-		4D5904F1279E8F8B001110D8 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		4D5904F4279E8FD7001110D8 /* PKMNNetworkingDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNNetworkingDataSourceProtocol.swift; sourceTree = "<group>"; };
 		4D5904F6279E902E001110D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4D5904F8279E9076001110D8 /* PKMNNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNNetworkingManager.swift; sourceTree = "<group>"; };
@@ -237,7 +226,6 @@
 		4D757F93279EBEEA000E79E5 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		4D757F96279EBFFF000E79E5 /* PKMNHomeAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeAssembler.swift; sourceTree = "<group>"; };
 		4D757F98279EC0AC000E79E5 /* PKMNMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNMainCoordinator.swift; sourceTree = "<group>"; };
-		4D757F9C279EC6C5000E79E5 /* NetworkingLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLogger.swift; sourceTree = "<group>"; };
 		4D757F9E279ED872000E79E5 /* PKMNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNView.swift; sourceTree = "<group>"; };
 		4D757FA0279ED8B5000E79E5 /* PKMNView+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNView+Modal.swift"; sourceTree = "<group>"; };
 		4D757FA3279EDDBE000E79E5 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
@@ -478,19 +466,6 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		4D5904F3279E8FB2001110D8 /* NetworkingLayer */ = {
-			isa = PBXGroup;
-			children = (
-				4D5904E7279DCBF0001110D8 /* NetworkingRequest.swift */,
-				4D5904E9279E8F34001110D8 /* NetworkingError.swift */,
-				4D5904ED279E8F6B001110D8 /* Networking+Extension.swift */,
-				4D5904EF279E8F7B001110D8 /* NetworkingProtocol.swift */,
-				4D5904F1279E8F8B001110D8 /* Networking.swift */,
-				4D757F9C279EC6C5000E79E5 /* NetworkingLogger.swift */,
-			);
-			path = NetworkingLayer;
-			sourceTree = "<group>";
-		};
 		4D5904FA279E90AA001110D8 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,7 +532,6 @@
 		4D59053D279E98B8001110D8 /* PKMNData */ = {
 			isa = PBXGroup;
 			children = (
-				4D5904F3279E8FB2001110D8 /* NetworkingLayer */,
 				4D59053E279E98C6001110D8 /* Network */,
 				4D59053F279E98DC001110D8 /* JSON */,
 			);
@@ -936,7 +910,6 @@
 				4D590543279E9ACB001110D8 /* PKMNError.swift in Sources */,
 				4D3DED72279FFA7A0012CCEF /* PKMNSingleStatView.swift in Sources */,
 				4D59052E279E9427001110D8 /* Forms.swift in Sources */,
-				4D5904F2279E8F8B001110D8 /* Networking.swift in Sources */,
 				4D3DED70279FF8060012CCEF /* PKMNStatsView.swift in Sources */,
 				4D3DED64279EE0D50012CCEF /* ScaleQuality.swift in Sources */,
 				4D3DED6E279EF2DB0012CCEF /* PKMNDetailAssembler.swift in Sources */,
@@ -944,7 +917,6 @@
 				4D3DED60279EE0D50012CCEF /* _HSV.swift in Sources */,
 				4D590556279EA7DF001110D8 /* PKMNRepositoryProtocol.swift in Sources */,
 				4D3DED7F27A03E660012CCEF /* Extensions.swift in Sources */,
-				4D757F9D279EC6C5000E79E5 /* NetworkingLogger.swift in Sources */,
 				4D59051E279E922D001110D8 /* PokemonDataSource.swift in Sources */,
 				4D757F83279EB874000E79E5 /* PKMNToast.swift in Sources */,
 				4D590516279E91E5001110D8 /* AbilitiesDataSource.swift in Sources */,
@@ -960,8 +932,6 @@
 				4D757F87279EBB7C000E79E5 /* PKMNViewController+Modal.swift in Sources */,
 				4D757F8C279EBD24000E79E5 /* PKMNViewController+HandleError.swift in Sources */,
 				4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */,
-				4D5904EA279E8F34001110D8 /* NetworkingError.swift in Sources */,
-				4D5904EE279E8F6B001110D8 /* Networking+Extension.swift in Sources */,
 				4D590518279E91F9001110D8 /* AbilityDataSource.swift in Sources */,
 				4D3DED61279EE0D50012CCEF /* _PixelFormat.swift in Sources */,
 				4D757F8E279EBDB4000E79E5 /* PKMNHomeViewController.swift in Sources */,
@@ -1003,8 +973,6 @@
 				4D5904DD279DC700001110D8 /* PKMNTheme.swift in Sources */,
 				4D590534279E951C001110D8 /* Stat.swift in Sources */,
 				4D3DED68279EF2B70012CCEF /* PMKNDetailViewController.swift in Sources */,
-				4D5904F0279E8F7B001110D8 /* NetworkingProtocol.swift in Sources */,
-				4D5904E8279DCBF0001110D8 /* NetworkingRequest.swift in Sources */,
 				4D3DED5E279EE0D50012CCEF /* _ColorAnalyzer.swift in Sources */,
 				4D3DED63279EE0D50012CCEF /* Deprecated.swift in Sources */,
 				4D5904A9279DBFDC001110D8 /* AppDelegate.swift in Sources */,

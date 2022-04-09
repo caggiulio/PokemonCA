@@ -1,16 +1,28 @@
 PODS:
+  - AloyNetworking (1.0.0)
   - Anchorage (4.5.0)
 
 DEPENDENCIES:
+  - AloyNetworking (from `https://github.com/caggiulio/AloyNetworking`)
   - Anchorage
 
 SPEC REPOS:
   trunk:
     - Anchorage
 
+EXTERNAL SOURCES:
+  AloyNetworking:
+    :git: https://github.com/caggiulio/AloyNetworking
+
+CHECKOUT OPTIONS:
+  AloyNetworking:
+    :commit: 0659ad3b58b0c2a0b6125a19ae2bbb681738f45e
+    :git: https://github.com/caggiulio/AloyNetworking
+
 SPEC CHECKSUMS:
+  AloyNetworking: a94fa383c6d17cf36592065e2cb797d670db574c
   Anchorage: 1961bc81c84aeed54ad7ffc697c50cd9de748ba6
 
-PODFILE CHECKSUM: cdd9ba1cd209716c5e2266b8f30ce5d18f3219cc
+PODFILE CHECKSUM: 0dfd12b4064e194f2b07be968a6e7db3b5783ea1
 
 COCOAPODS: 1.11.2

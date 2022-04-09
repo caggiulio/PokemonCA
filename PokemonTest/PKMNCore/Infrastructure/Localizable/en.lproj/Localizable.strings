@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  PokemonTest
+
+  Created on 24/01/22.
+  
+*/
+
+"standard_error" = "Error";
+"standard_search" = "Search";
+"resource_not_found" = "Something went wrong! The pokemon has escaped";
+"home_title" = "Pokedex";

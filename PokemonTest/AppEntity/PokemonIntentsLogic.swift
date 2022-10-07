@@ -7,6 +7,7 @@
 
 import Foundation
 
+#warning("Make a UseCase for this")
 /// The `Logic` for the Intents and `AppIntents` framework.
 struct IntentsLogic {}
 

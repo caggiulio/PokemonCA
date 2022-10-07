@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var mainCoordinator: PKMNMainCoordinator?
   var window: UIWindow?
-  let mainContainer: PKMNMainContainerProtocol = PKMNMainContainer()
+  private let context = PokemonManagerContext.shared.container
 
   func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     setup()
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     PKMNThemeManager.applyTheme(theme: mainTheme)
 
     let appWindow = UIWindow(frame: UIScreen.main.bounds)
-    mainCoordinator = PKMNMainCoordinator(navigationController: UINavigationController(), mainContainer: mainContainer)
+    mainCoordinator = PKMNMainCoordinator(navigationController: UINavigationController(), mainContainer: context)
     mainCoordinator?.start()
     appWindow.rootViewController = mainCoordinator?.navigationController
     appWindow.makeKeyAndVisible()

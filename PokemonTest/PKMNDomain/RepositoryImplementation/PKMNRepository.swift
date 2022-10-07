@@ -23,11 +23,9 @@ class PKMNRepository: PKMNRepositoryProtocol {
 
   /// Get info about `Pokemon` by his ID. If it's cached, reuturns it, else retrieves from network
   func getPokemon(id: String, completion: @escaping (Result<Pokemon, PKMNError>) -> Void) {
-    if
-      let pokemon = pokemonRetrieved.first(where: { _pokemon in
+    if let pokemon = pokemonRetrieved.first(where: { _pokemon in
         _pokemon.id == Int(id)
-      })
-    {
+      }) {
       completion(.success(pokemon))
       return
     }

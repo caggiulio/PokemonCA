@@ -7,6 +7,13 @@
 
 import Foundation
 
-open class PKMNViewModel: NSObject {
+open class PKMNViewModel<Model: PKMNModel>: NSObject {
+  public var updateStatus: ((LoadingState<Model, PKMNError>) -> Void)?
   
+  /// The loading state updates the closure `updateStatus`
+  public var loadingState: LoadingState<Model, PKMNError> = .idle {
+    didSet {
+      updateStatus?(loadingState)
+    }
+  }
 }

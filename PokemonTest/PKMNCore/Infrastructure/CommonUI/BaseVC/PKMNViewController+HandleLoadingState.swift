@@ -23,11 +23,9 @@ public extension PKMNViewController {
     }
   }
   
-  func handle<Value: Any, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = nil, throwBaseError: Bool = true) {
+  func handle<Value: Any, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>) {
     self.handlePKMNState(state: loadingState, success: { value in
-      success?(value)
-    }, failure: { error in
-      failure?(error)
-    }, throwBaseError: throwBaseError)
+      self._view.model = value
+    }, failure: { _ in })
   }
 }

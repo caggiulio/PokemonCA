@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNAbilitiesView: PKMNView {
+class PKMNAbilitiesView: PKMNView<Any> {
   private var mainScrollViewContainer: UIScrollView = {
     var scrollView = UIScrollView()
 

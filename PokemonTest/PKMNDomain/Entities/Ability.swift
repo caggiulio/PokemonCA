@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Ability {
+public struct Ability: PKMNModel {
   let name: String
 
   public init(abilityDataSource: AbilityDataSource) {

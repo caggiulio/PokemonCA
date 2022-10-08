@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNSingleStatView: PKMNView {
+class PKMNSingleStatView: PKMNView<Any> {
   private let progressView: UIProgressView = {
     var view = UIProgressView(frame: .zero)
     view.clipsToBounds = true

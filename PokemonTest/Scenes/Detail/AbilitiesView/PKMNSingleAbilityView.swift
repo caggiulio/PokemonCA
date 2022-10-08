@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNSingleAbilityView: PKMNView {
+class PKMNSingleAbilityView: PKMNView<Any> {
   private var pillContainerView: UIView = {
     var view = UIView()
     view.backgroundColor = PKMNThemeManager.currentTheme().secondaryColor

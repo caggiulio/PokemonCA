@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Pokemon: Identifiable {
+public struct Pokemon: Identifiable, PKMNModel {
   public let abilities: [Ability]
   public let baseExperience: Int
   public let forms: [Forms]

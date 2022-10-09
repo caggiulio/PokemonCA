@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNStatsView: PKMNView<Any> {
+class PKMNStatsView: PKMNView<Pokemon> {
   private var mainScrollViewContainer: UIScrollView = {
     var scrollView = UIScrollView()
 

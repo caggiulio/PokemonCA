@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-public class PKMNDetailView: PKMNView<Any> {
+public class PKMNDetailView: PKMNView<Pokemon> {
   private var nameLabel: UILabel = {
     var label = UILabel()
     LabelStyles.titleLabel.apply(to: label)
@@ -106,8 +106,8 @@ public class PKMNDetailView: PKMNView<Any> {
     statsView.bottomAnchor /==/ safeAreaLayoutGuide.bottomAnchor - 15
   }
   
-  override func update(model: Any?) {
-    if let pokemon = model as? Pokemon {
+  override func update(model: Pokemon?) {
+    if let pokemon = model {
       nameLabel.text = pokemon.name.capitalized
       statsView.configure(stats: pokemon.stats)
       abilitiesView.configure(abilities: pokemon.abilities)

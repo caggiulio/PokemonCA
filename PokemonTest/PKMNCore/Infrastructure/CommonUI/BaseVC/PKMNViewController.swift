@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class PKMNViewController<Model: PKMNModel, View: PKMNView<Any>, ViewModel: PKMNViewModel<Model>> : UIViewController {
+public class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewModel: PKMNViewModel<Model>> : UIViewController {
   
   /// This is the error handler that handle ONLY the `SportXPError`
   public var errorHandler: ErrorHandleable?

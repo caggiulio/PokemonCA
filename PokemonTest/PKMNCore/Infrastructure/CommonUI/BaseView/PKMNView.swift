@@ -9,12 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-public class PKMNView<Model: Any>: UIView {
-  var model: Model? {
-    didSet {
-      update(model: model)
-    }
-  }
+public class PKMNView<Model: PKMNModel>: UIView {
   var modalViews: [PKMNLoader] = []
 
   private var errorView: PKMNErrorView = {

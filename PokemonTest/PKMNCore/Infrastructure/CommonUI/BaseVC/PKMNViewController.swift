@@ -9,7 +9,7 @@ import UIKit
 
 public class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewModel: PKMNViewModel<Model>> : UIViewController {
   
-  /// This is the error handler that handle ONLY the `SportXPError`
+  /// This is the error handler that handle ONLY the `PKMNError`
   public var errorHandler: ErrorHandleable?
   
   public var _view: View {

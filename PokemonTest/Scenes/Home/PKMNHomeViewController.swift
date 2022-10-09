@@ -46,8 +46,8 @@ public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKM
   }
 
   private func setDelegates() {
-    _view.collectionView.dataSource = self
-    _view.collectionView.delegate = self
+    rootView.collectionView.dataSource = self
+    rootView.collectionView.delegate = self
   }
 }
 

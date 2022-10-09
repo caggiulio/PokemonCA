@@ -12,7 +12,7 @@ public class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewMod
   /// This is the error handler that handle ONLY the `PKMNError`
   public var errorHandler: ErrorHandleable?
   
-  public var _view: View {
+  public var rootView: View {
     guard let view = view as? View else { preconditionFailure("Unable to cast view to \(View.self)") }
     return view
   }

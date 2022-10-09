@@ -13,12 +13,12 @@ public extension PKMNViewController {
     case .idle:
       break
     case .loading:
-      self._view.showLoader()
+      self.rootView.showLoader()
     case let .success(value):
-      self._view.hideLoader()
+      self.rootView.hideLoader()
       success?(value)
     case let .failure(error):
-      self._view.hideLoader()
+      self.rootView.hideLoader()
       errorHandler?.throw(error)
     }
   }
@@ -28,7 +28,7 @@ public extension PKMNViewController {
       guard let value = value as? Model else {
         return
       }
-      self._view.update(model: value)
+      self.rootView.update(model: value)
     }, failure: { _ in })
   }
 }

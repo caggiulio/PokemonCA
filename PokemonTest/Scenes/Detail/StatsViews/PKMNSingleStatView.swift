@@ -85,7 +85,7 @@ class PKMNSingleStatView: PKMNView<Pokemon> {
     progressView.progress = 0
     /// Adds delay to allow a better visualization
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-      UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseOut) {
+      UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseInOut) {
         self.progressView.setProgress(progressViewPreviousProgress, animated: true)
       }
     }

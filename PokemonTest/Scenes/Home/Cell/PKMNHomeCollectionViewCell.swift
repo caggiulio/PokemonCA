@@ -94,6 +94,7 @@ class PKMNHomeCollectionViewCell: UICollectionViewCell {
   }
 
   func configure(pokemon: PokemonListItem) {
+    pokemonImage.image = nil
     nameLabel.text = pokemon.name.capitalized
     rankingLabel.text = "#\(pokemon.ranking)"
     pokemonImage.download(from: pokemon.imageURL, contentMode: .scaleAspectFit, fillBackgroundWithView: contentView)

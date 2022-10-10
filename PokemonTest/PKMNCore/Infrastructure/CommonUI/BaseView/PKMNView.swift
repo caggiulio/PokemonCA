@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-public class PKMNView: UIView {
+public class PKMNView<Model: PKMNModel>: UIView {
   var modalViews: [PKMNLoader] = []
 
   private var errorView: PKMNErrorView = {
@@ -37,4 +37,6 @@ public class PKMNView: UIView {
   func hideErrorView() {
     errorView.removeFromSuperview()
   }
+  
+  func update(model: Model?) {}
 }

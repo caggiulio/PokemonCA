@@ -17,7 +17,7 @@ public protocol PKMNHomeViewControllerProtocol {
 
 // MARK: - PKMNHomeViewController
 
-public class PKMNHomeViewController: PKMNViewController<PKMNHomeView, PKMNHomeViewModel>, PKMNHomeViewControllerProtocol {
+public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKMNHomeViewModel>, PKMNHomeViewControllerProtocol {
   // MARK: - Business logic properties
 
   public weak var homeCoordinator: PKMNPokemonCoordinatorProtocol?
@@ -37,7 +37,6 @@ public class PKMNHomeViewController: PKMNViewController<PKMNHomeView, PKMNHomeVi
 
     title = PKMNString.homeTitle
     setupNavigationBar()
-    configureBinds()
     setDelegates()
     loadHome()
   }
@@ -46,23 +45,9 @@ public class PKMNHomeViewController: PKMNViewController<PKMNHomeView, PKMNHomeVi
     viewModel.searchPokemon(name: name)
   }
 
-  private func configureBinds() {
-    viewModel.updateStatus = { [weak self] status in
-      self?.handle(status, success: { _ in
-        self?.reloadData()
-      })
-    }
-  }
-
   private func setDelegates() {
-    _view.collectionView.dataSource = self
-    _view.collectionView.delegate = self
-  }
-
-  private func reloadData() {
-    DispatchQueue.main.async {
-      self._view.collectionView.reloadData()
-    }
+    rootView.collectionView.dataSource = self
+    rootView.collectionView.delegate = self
   }
 }
 

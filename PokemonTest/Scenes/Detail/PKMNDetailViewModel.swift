@@ -11,26 +11,15 @@ import Foundation
 
 public protocol PKMNDetailViewModelProtocol {
   func loadPokemon()
-
-  var updateStatus: ((LoadingState<Pokemon, PKMNError>) -> Void)? { get set }
 }
 
 // MARK: - PKMNDetailViewModel
 
-public class PKMNDetailViewModel: PKMNViewModel, PKMNDetailViewModelProtocol {
-  /// The loading state updates the closure `updateStatus`
-  private var loadingState: LoadingState<Pokemon, PKMNError> = .idle {
-    didSet {
-      updateStatus?(loadingState)
-    }
-  }
-
+public class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
   /// Use case
   private let getPokemonByIDUseCase: GetPokemonByIDProtocol
   /// In this variable it's stored the currentPokemon `id`
   private var id: String
-
-  public var updateStatus: ((LoadingState<Pokemon, PKMNError>) -> Void)?
 
   public init(getPokemonByIDUseCase: GetPokemonByIDProtocol, id: String) {
     self.getPokemonByIDUseCase = getPokemonByIDUseCase

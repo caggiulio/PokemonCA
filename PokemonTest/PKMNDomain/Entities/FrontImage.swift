@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct FrontImage {
+public struct FrontImage: PKMNModel {
   public let stringURL: String
 
   init(spritesDataSource: SpritesDataSource) {

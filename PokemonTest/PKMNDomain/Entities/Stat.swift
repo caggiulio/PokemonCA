@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Stat {
+public struct Stat: PKMNModel {
   let name: String
   let baseStat: Int
   let percentStat: Float

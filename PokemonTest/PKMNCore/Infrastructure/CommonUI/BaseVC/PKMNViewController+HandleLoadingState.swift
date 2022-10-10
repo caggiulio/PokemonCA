@@ -13,21 +13,22 @@ public extension PKMNViewController {
     case .idle:
       break
     case .loading:
-      self._view.showLoader()
+      self.rootView.showLoader()
     case let .success(value):
-      self._view.hideLoader()
+      self.rootView.hideLoader()
       success?(value)
     case let .failure(error):
-      self._view.hideLoader()
+      self.rootView.hideLoader()
       errorHandler?.throw(error)
     }
   }
   
-  func handle<Value: Any, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = nil, throwBaseError: Bool = true) {
+  func handle<Value: PKMNModel, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>) {
     self.handlePKMNState(state: loadingState, success: { value in
-      success?(value)
-    }, failure: { error in
-      failure?(error)
-    }, throwBaseError: throwBaseError)
+      guard let value = value as? Model else {
+        return
+      }
+      self.rootView.update(model: value)
+    }, failure: { _ in })
   }
 }

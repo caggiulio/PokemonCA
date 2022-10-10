@@ -9,26 +9,17 @@ import Foundation
 
 // MARK: - PKMNHomeViewModelProtocol
 
-public protocol PKMNHomeViewModelProtocol: PKMNViewModel {
+public protocol PKMNHomeViewModelProtocol {
   func loadHome(queryItems: [URLQueryItem]?)
   func searchPokemon(name: String)
   func getNextPage()
   func retrievedPokemon() -> [PokemonListItem]
   func pokemon(_ forIndexPath: IndexPath) -> PokemonListItem?
-
-  var updateStatus: ((LoadingState<Void, PKMNError>) -> Void)? { get set }
 }
 
 // MARK: - PKMNHomeViewModel
 
-public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
-  /// The loading state updates the closure `updateStatus`
-  private var loadingState: LoadingState<Void, PKMNError> = .idle {
-    didSet {
-      updateStatus?(loadingState)
-    }
-  }
-
+public class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   /// Use-cases
   private let getPokemonsListUseCase: GetPokemonsListProtocol
   private let searchPokemonByNameUseCase: SearchPokemonByNameProtocol
@@ -38,8 +29,6 @@ public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
   private var nextPage: String?
   /// `DispatchWorkItem` used to search a pokemon
   private var searchTask: DispatchWorkItem?
-
-  public var updateStatus: ((LoadingState<Void, PKMNError>) -> Void)?
 
   public init(getPokemonsListUseCase: GetPokemonsListProtocol, searchPokemonByNameUseCase: SearchPokemonByNameProtocol) {
     self.getPokemonsListUseCase = getPokemonsListUseCase
@@ -57,7 +46,7 @@ public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
           let pokemonItems = pokemonList.pokemonItems
           self?.retrievedPokemons.append(contentsOf: pokemonItems)
         DispatchQueue.main.async {
-          self?.loadingState = .success(())
+          self?.loadingState = .success((Empty()))
         }
         case let .failure(error):
           self?.loadingState = .failure(error)
@@ -100,7 +89,7 @@ public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
           case let .success(pokemonListItems):
             self?.retrievedPokemons = pokemonListItems
           DispatchQueue.main.async {
-            self?.loadingState = .success(())
+            self?.loadingState = .success((Empty()))
           }
           case let .failure(error):
             self?.loadingState = .failure(error)

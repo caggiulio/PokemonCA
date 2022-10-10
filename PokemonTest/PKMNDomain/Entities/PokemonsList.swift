@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PokemonsList {
+public struct PokemonsList: PKMNModel {
   let count: Int
   let next: String
   let pokemonItems: [PokemonListItem]

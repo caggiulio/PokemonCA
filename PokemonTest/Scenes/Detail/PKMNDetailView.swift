@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-public class PKMNDetailView: PKMNView {
+public class PKMNDetailView: PKMNView<Pokemon> {
   private var nameLabel: UILabel = {
     var label = UILabel()
     LabelStyles.titleLabel.apply(to: label)
@@ -40,11 +40,7 @@ public class PKMNDetailView: PKMNView {
     return view
   }()
 
-  private var statsView: PKMNStatsView = {
-    var view = PKMNStatsView()
-
-    return view
-  }()
+  private var statsView: PKMNStatsView = PKMNStatsView()
 
   private var abilitiesView: PKMNAbilitiesView = {
     var view = PKMNAbilitiesView()
@@ -109,13 +105,15 @@ public class PKMNDetailView: PKMNView {
     statsView.trailingAnchor /==/ trailingAnchor - 15
     statsView.bottomAnchor /==/ safeAreaLayoutGuide.bottomAnchor - 15
   }
-
-  func configure(pokemon: Pokemon) {
-    nameLabel.text = pokemon.name.capitalized
-    statsView.configure(stats: pokemon.stats)
-    abilitiesView.configure(abilities: pokemon.abilities)
-    pokemonImage.download(from: pokemon.frontImage.stringURL, contentMode: .scaleAspectFill, fillBackgroundWithView: self) { colors in
-      self.statsView.configureColors(colors: colors)
+  
+  override func update(model: Pokemon?) {
+    if let pokemon = model {
+      nameLabel.text = pokemon.name.capitalized
+      statsView.configure(stats: pokemon.stats)
+      abilitiesView.configure(abilities: pokemon.abilities)
+      pokemonImage.download(from: pokemon.frontImage.stringURL, contentMode: .scaleAspectFill, fillBackgroundWithView: self) { colors in
+        self.statsView.configureColors(colors: colors)
+      }
     }
   }
 }

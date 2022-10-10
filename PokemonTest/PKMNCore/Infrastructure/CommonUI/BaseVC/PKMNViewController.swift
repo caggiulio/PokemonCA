@@ -7,12 +7,12 @@
 
 import UIKit
 
-public class PKMNViewController<View: PKMNView, ViewModel: PKMNViewModel>: UIViewController {
+public class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewModel: PKMNViewModel<Model>> : UIViewController {
   
-  /// This is the error handler that handle ONLY the `SportXPError`
+  /// This is the error handler that handle ONLY the `PKMNError`
   public var errorHandler: ErrorHandleable?
   
-  public var _view: View {
+  public var rootView: View {
     guard let view = view as? View else { preconditionFailure("Unable to cast view to \(View.self)") }
     return view
   }
@@ -36,11 +36,22 @@ public class PKMNViewController<View: PKMNView, ViewModel: PKMNViewModel>: UIVie
   override public func viewDidLoad() {
     super.viewDidLoad()
 
+    configureBinds()
     setup()
   }
 
   private func setup() {
     navigationController?.view.backgroundColor = PKMNThemeManager.currentTheme().navigationBarBackgroundColor
     navigationController?.navigationBar.prefersLargeTitles = true
+  }
+  
+  private func configureBinds() {
+    viewModel.updateStatus = { [weak self] status in
+      guard let self = self else {
+        return
+      }
+      
+      self.handle(self.viewModel.loadingState)
+    }
   }
 }

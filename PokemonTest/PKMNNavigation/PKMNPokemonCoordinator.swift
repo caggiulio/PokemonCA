@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Inject
 import UIKit
 
 // MARK: - PKMNPokemonCoordinatorProtocol
@@ -36,14 +35,17 @@ public class PKMNPokemonCoordinator: PKMNPokemonCoordinatorProtocol {
   /// The start of MainCoordinator. In this func there is the dirst view controller of app
   public func start() {
     /// Istantiate initial view controller
-    let pkmnViewController: _InjectableViewControllerHost<PKMNHomeViewController> = PKMNHomeAssembler(container: container).resolve()
+    let pkmnViewController: PKMNHomeViewController = PKMNHomeAssembler(container: container).resolve()
     pkmnViewController.homeCoordinator = self
+    
+    navigationController.navigationBar.prefersLargeTitles = true
+
 
     navigationController.pushViewController(pkmnViewController, animated: false)
   }
 
   public func routeToDetail(pokemonID: String) {
-    let pkmnDetailViewController: _InjectableViewControllerHost<PKMNDetailViewController> = PKMNDetailAssembler(container: container, id: pokemonID).resolve()
+    let pkmnDetailViewController: PKMNDetailViewController = PKMNDetailAssembler(container: container, id: pokemonID).resolve()
 
     navigationController.present(pkmnDetailViewController, animated: true, completion: nil)
   }

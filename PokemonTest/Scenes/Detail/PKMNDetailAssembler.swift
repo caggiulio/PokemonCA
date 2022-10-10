@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Inject
 
 // MARK: - PKMNDetailAssembler
 
@@ -23,14 +22,14 @@ public class PKMNDetailAssembler: PKMNDetailAssemblerInjector {
 // MARK: - PKMNDetailAssemblerInjector
 
 public protocol PKMNDetailAssemblerInjector {
-  func resolve() -> _InjectableViewControllerHost<PKMNDetailViewController>
+  func resolve() -> PKMNDetailViewController
 
   func resolve() -> PKMNDetailViewModel
 }
 
 public extension PKMNDetailAssembler {
-  func resolve() -> _InjectableViewControllerHost<PKMNDetailViewController> {
-    return Inject.ViewControllerHost(PKMNDetailViewController(viewModel: self.resolve()))
+  func resolve() -> PKMNDetailViewController {
+    return PKMNDetailViewController(viewModel: self.resolve())
   }
 
   func resolve() -> PKMNDetailViewModel {

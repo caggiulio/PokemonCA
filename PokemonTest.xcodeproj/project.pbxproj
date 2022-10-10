@@ -117,7 +117,6 @@
 		4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */; };
 		4DA02D8A2801877600BB6CE5 /* ErrorHandeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D872801877600BB6CE5 /* ErrorHandeable.swift */; };
 		4DA02D8B2801877600BB6CE5 /* ErrorConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D882801877600BB6CE5 /* ErrorConvenience.swift */; };
-		4DA3627D2800602A001A8F1B /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 4DA3627C2800602A001A8F1B /* Inject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA02D7D2801810B00BB6CE5 /* Pods_PokemonTest.framework in Frameworks */,
-				4DA3627D2800602A001A8F1B /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,7 +776,6 @@
 			);
 			name = PokemonTest;
 			packageProductDependencies = (
-				4DA3627C2800602A001A8F1B /* Inject */,
 			);
 			productName = PokemonTest;
 			productReference = 4D5904A5279DBFDC001110D8 /* PokemonTest.app */;
@@ -832,7 +829,6 @@
 			);
 			mainGroup = 4D59049C279DBFDC001110D8;
 			packageReferences = (
-				4DA3627B2800602A001A8F1B /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = 4D5904A6279DBFDC001110D8 /* Products */;
 			projectDirPath = "";
@@ -1316,25 +1312,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4DA3627B2800602A001A8F1B /* XCRemoteSwiftPackageReference "Inject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4DA3627C2800602A001A8F1B /* Inject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4DA3627B2800602A001A8F1B /* XCRemoteSwiftPackageReference "Inject" */;
-			productName = Inject;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D59049D279DBFDC001110D8 /* Project object */;
 }

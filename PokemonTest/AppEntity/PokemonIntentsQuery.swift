@@ -15,16 +15,16 @@ struct PKMNIntentsQuery: EntityPropertyQuery {
   // MARK: - Computed Properties
   
   /// A type that provides the properties to include in a property-matched query.
-  static var properties = EntityQueryProperties<PokemonAppEntity, NSPredicate> {
-    Property(\PokemonAppEntity.$name) {
-      EqualToComparator { NSPredicate(format: "name = %@", $0) }
-      ContainsComparator { NSPredicate(format: "name CONTAINS %@", $0) }
+  static var properties = EntityQueryProperties<PokemonAppEntity, String> {
+    Property(\.$name) {
+      EqualToComparator { $0 }
+      ContainsComparator { $0 } 
     }
   }
   
   /// The sorting options provided by the `EntityPropertyQuery` protocol.
   static var sortingOptions = SortingOptions {
-    SortableBy(\PokemonAppEntity.$name)
+    SortableBy(\.$name)
   }
   
   // MARK: - Entities Methods
@@ -42,8 +42,12 @@ struct PKMNIntentsQuery: EntityPropertyQuery {
     }
   }
   
-  func entities(matching comparators: [NSPredicate], mode: ComparatorMode, sortedBy: [Sort<PokemonAppEntity>], limit: Int?) async throws -> [PokemonAppEntity] {
-    try await IntentsLogic.FetchData.FetchAllPokemon.execute()
+  func entities(matching comparators: [String], mode: ComparatorMode, sortedBy: [Sort<PokemonAppEntity>], limit: Int?) async throws -> [PokemonAppEntity] {
+    guard comparators.isEmpty else {
+      let name = comparators.first ?? String()
+      return try await IntentsLogic.FetchData.FetchPokemonByQuery.execute(query: name)
+    }
+    return try await IntentsLogic.FetchData.FetchAllPokemon.execute()
   }
   
   /// Find Pokemon matching the given query.

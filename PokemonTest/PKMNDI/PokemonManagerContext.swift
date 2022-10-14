@@ -9,15 +9,6 @@ import Foundation
 
 /// The struct with the main container, that will be the context of the app.
 struct PokemonManagerContext {
-  /// The singleton instance of `PokemonManagerContext`.
-  static let shared = PokemonManagerContext()
-  
   /// The main container of the app.
-  let container: PKMNMainContainer
-  
-  // MARK: - Init
-  
-  init() {
-    container = PKMNMainContainer()
-  }
+  static let container: PKMNMainContainer = PKMNMainContainer()
 }

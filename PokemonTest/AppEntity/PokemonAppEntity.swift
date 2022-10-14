@@ -32,18 +32,10 @@ struct PokemonAppEntity: AppEntity, Identifiable {
   /// The `DisplayRepresentation` type planned by the `AppEntity`.
   /// A type that describes the user interface presentation of a custom type.
   var displayRepresentation: DisplayRepresentation {
-    guard let imageURL = URL(string: image) else {
-      return DisplayRepresentation(
-        title: "\(name)",
-        subtitle: nil,
-        image: .init(data: AppAsset.pokeball.image.pngData()!)
-      )
-    }
-    
     return DisplayRepresentation(
-        title: "\(name)",
-        subtitle: nil,
-        image: .init(url: imageURL)
+      title: "\(name)",
+      subtitle: nil,
+      image: .init(data: AppAsset.pokeball.image.pngData() ?? Data())
     )
   }
   
@@ -71,4 +63,3 @@ extension PokemonAppEntity: Hashable {
     hasher.combine(id)
   }
 }
-

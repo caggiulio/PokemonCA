@@ -22,7 +22,7 @@ extension IntentsLogic.FetchData {
   /// This method use `withCheckedThrowingContinuation` to make all asynchronous.
   struct FetchAllPokemon {
     static func execute() async throws -> [PokemonAppEntity] {
-      let context = PokemonManagerContext.shared.container
+      let context = PokemonManagerContext.container
 
       return try await withCheckedThrowingContinuation({
         (continuation: CheckedContinuation<[PokemonAppEntity], Error>) in
@@ -30,6 +30,27 @@ extension IntentsLogic.FetchData {
           switch result {
           case .success(let pokemonList):
             continuation.resume(returning: pokemonList.pokemonItems.map {
+              return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
+            })
+          case .failure(let error):
+            continuation.resume(throwing: error)
+          }
+        }
+      })
+    }
+  }
+  
+  /// The logic to fetch a Pokemon by a given query.
+  struct FetchPokemonByQuery {
+    static func execute(query: String) async throws -> [PokemonAppEntity] {
+      let context = PokemonManagerContext.container
+      
+      return try await withCheckedThrowingContinuation({
+        (continuation: CheckedContinuation<[PokemonAppEntity], Error>) in
+        context.searchPokemonByNameUseCase.execute(name: query) { result in
+          switch result {
+          case .success(let pokemonList):
+            continuation.resume(returning: pokemonList.map {
               return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
             })
           case .failure(let error):

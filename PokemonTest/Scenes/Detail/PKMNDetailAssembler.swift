@@ -33,6 +33,6 @@ public extension PKMNDetailAssembler {
   }
 
   func resolve() -> PKMNDetailViewModel {
-    return PKMNDetailViewModel(getPokemonByIDUseCase: container.getPokemonByIDUseCase, id: id)
+    return PKMNDetailViewModel(asyncGetPokemonByIDUseCase: container.asyncGetPokemonByIDUseCase, id: id)
   }
 }

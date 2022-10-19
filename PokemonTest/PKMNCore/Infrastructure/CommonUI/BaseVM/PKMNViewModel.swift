@@ -16,4 +16,19 @@ open class PKMNViewModel<Model: PKMNModel>: NSObject {
       updateStatus?(loadingState)
     }
   }
+  
+  @MainActor
+  func processTask(function: () async throws -> Model) async rethrows {
+    loadingState = .loading(true)
+    
+    do {
+      let successModel = try await function()
+      self.loadingState = .success(successModel)
+    } catch let error {
+      guard let error = error as? PKMNError else {
+        return
+      }
+      self.loadingState = .failure(error)
+    }
+  }
 }

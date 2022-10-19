@@ -7,8 +7,10 @@
 
 import Foundation
 import AloyNetworking
-
+ 
+/// The manager for the networking workers.
 public struct PKMNNetworkingManager {
+  /// The concrete implementation of `AloyNetworkingProtocol`.
   private let networking: AloyNetworkingProtocol = {
     let networking = AloyNetworking(
       baseURL: PKMNConstants.baseURL, cachePolicy: .returnCacheDataElseLoad

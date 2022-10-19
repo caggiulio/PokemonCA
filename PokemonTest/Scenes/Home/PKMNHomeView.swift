@@ -56,8 +56,6 @@ public class PKMNHomeView: PKMNView<Empty> {
   }
   
   override func update(model: Empty?) {
-    if let _ = model {
-      collectionView.reloadData()
-    }
+    collectionView.reloadData()
   }
 }

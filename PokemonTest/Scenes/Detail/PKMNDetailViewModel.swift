@@ -16,28 +16,21 @@ public protocol PKMNDetailViewModelProtocol {
 // MARK: - PKMNDetailViewModel
 
 public class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
-  /// Use case
-  private let getPokemonByIDUseCase: GetPokemonByIDProtocol
+  /// Use cases
+  private let asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol
   /// In this variable it's stored the currentPokemon `id`
   private var id: String
 
-  public init(getPokemonByIDUseCase: GetPokemonByIDProtocol, id: String) {
-    self.getPokemonByIDUseCase = getPokemonByIDUseCase
+  public init(asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol, id: String) {
+    self.asyncGetPokemonByIDUseCase = asyncGetPokemonByIDUseCase
     self.id = id
   }
 
   public func loadPokemon() {
-    loadingState = .loading(true)
-
-    getPokemonByIDUseCase.execute(id: id) { [weak self] result in
-      switch result {
-        case let .success(pokemon):
-        DispatchQueue.main.async {
-          self?.loadingState = .success(pokemon)
-        }
-        case let .failure(error):
-          self?.loadingState = .failure(error)
-      }
+    Task {
+      try await processTask(function: {
+        try await asyncGetPokemonByIDUseCase.execute(id: id)
+      })
     }
   }
 }

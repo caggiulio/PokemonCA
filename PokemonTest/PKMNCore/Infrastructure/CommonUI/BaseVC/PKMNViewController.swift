@@ -37,6 +37,7 @@ public class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewMod
     super.viewDidLoad()
 
     configureBinds()
+    handleError()
     setup()
   }
 

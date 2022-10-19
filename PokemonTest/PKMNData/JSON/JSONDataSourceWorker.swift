@@ -7,7 +7,9 @@
 
 import Foundation
 
+/// The concrete implementation of `JSONDataSourceProtocol` in order to made mock calls.
 class JSONDataSourceWorker: JSONDataSourceProtocol {
+  /// Make a mock `Pokemon` single call.
   func getPokemon(completion: (Result<Pokemon, PKMNError>) -> Void) {
     let decoder = JSONDecoder()
     let fileName = JSONFilesNames.singlePokemon
@@ -22,6 +24,7 @@ class JSONDataSourceWorker: JSONDataSourceProtocol {
     completion(.success(pokemon))
   }
 
+  /// Make a mock `PokemonsList` list call.
   func pokemonsList(completion: (Result<PokemonsList, PKMNError>) -> Void) {
     let decoder = JSONDecoder()
     let fileName = JSONFilesNames.pokemonsList

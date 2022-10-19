@@ -31,6 +31,6 @@ public extension PKMNHomeAssembler {
   }
 
   func resolve() -> PKMNHomeViewModel {
-    return PKMNHomeViewModel(getPokemonsListUseCase: container.getPokemonsListUseCase, searchPokemonByNameUseCase: container.searchPokemonByNameUseCase)
+    return PKMNHomeViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase, asyncSearchPokemonByNameUseCase: container.asyncSearchPokemonByNameUseCase)
   }
 }

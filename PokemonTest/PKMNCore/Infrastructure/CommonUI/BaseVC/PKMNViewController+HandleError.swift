@@ -8,7 +8,7 @@
 import Foundation
 
 public extension PKMNViewController {
-  func handleError(error: PKMNError) {
+  func handleError() {
     /// Initialization of `errorHandler`
     errorHandler = PKMNMainErrorManager().listen(PKMNError.self, action: { [self] error in
       switch error {

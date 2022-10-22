@@ -40,6 +40,10 @@ public class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewMod
     handleError()
     setup()
   }
+  
+  deinit {
+    print("ciao")
+  }
 
   private func setup() {
     navigationController?.view.backgroundColor = PKMNThemeManager.currentTheme().navigationBarBackgroundColor

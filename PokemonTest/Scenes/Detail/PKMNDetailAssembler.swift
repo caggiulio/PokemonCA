@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - PKMNDetailAssembler
 
-public class PKMNDetailAssembler: PKMNDetailAssemblerInjector {
+public struct PKMNDetailAssembler: PKMNDetailAssemblerInjector {
   var container: PKMNMainContainerProtocol
   var id: String
 

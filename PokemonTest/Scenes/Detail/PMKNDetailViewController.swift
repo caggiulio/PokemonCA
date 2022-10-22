@@ -26,7 +26,7 @@ public class PKMNDetailViewController: PKMNViewController<Pokemon, PKMNDetailVie
   public override init(viewModel: PKMNDetailViewModel) {
     super.init(viewModel: viewModel)
   }
-
+  
   public func loadPokemon() {
     viewModel.loadPokemon()
   }

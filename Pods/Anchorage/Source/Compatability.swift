@@ -27,81 +27,86 @@
 //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #if os(macOS)
-  import Cocoa
+    import Cocoa
 
-  #if swift(>=4.0)
-    public typealias LayoutPriority = NSLayoutConstraint.Priority
-    public typealias EdgeInsets = NSEdgeInsets
-  #else
-    public typealias LayoutPriority = NSLayoutPriority
-  #endif
+    #if swift(>=4.0)
+        public typealias LayoutPriority = NSLayoutConstraint.Priority
+        public typealias EdgeInsets = NSEdgeInsets
+    #else
+        public typealias LayoutPriority = NSLayoutPriority
+    #endif
 #else
-  import UIKit
+    import UIKit
 
-  public typealias LayoutPriority = UILayoutPriority
-  public typealias EdgeInsets = UIEdgeInsets
+    public typealias LayoutPriority = UILayoutPriority
+    public typealias EdgeInsets = UIEdgeInsets
 #endif
 
 #if swift(>=4.2) || (os(macOS) && swift(>=4.0))
-  public typealias ConstraintAttribute = NSLayoutConstraint.Attribute
+    public typealias ConstraintAttribute = NSLayoutConstraint.Attribute
 #else
-  public typealias ConstraintAttribute = NSLayoutAttribute
+    public typealias ConstraintAttribute = NSLayoutAttribute
 #endif
 
 #if swift(>=4.0)
 #else
-  extension LayoutPriority {
-    var rawValue: Float {
-      return self
-    }
+    extension LayoutPriority {
 
-    init(rawValue: Float) {
-      self.init(rawValue)
+        var rawValue: Float {
+            return self
+        }
+
+        init(rawValue: Float) {
+            self.init(rawValue)
+        }
     }
-  }
 #endif
 
 #if swift(>=4.2)
 #elseif !os(macOS)
-  public extension UITableView {
-    static let automaticDimension = UITableViewAutomaticDimension
-  }
+    extension UITableView {
+        public static let automaticDimension = UITableViewAutomaticDimension
+    }
 
-  public extension UITableViewCell {
-    typealias CellStyle = UITableViewCellStyle
-  }
+    extension UITableViewCell {
+        public typealias CellStyle = UITableViewCellStyle
+    }
 
-  public extension UIApplication {
-    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
-  }
+    extension UIApplication {
+        public typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+    }
 #endif
 
 extension CGFloat {
-  init<T: BinaryFloatingPoint>(_ value: T) {
-    switch value {
-      case is Double:
-        self.init(value as! Double)
-      case is Float:
-        self.init(value as! Float)
-      case is CGFloat:
-        self.init(value as! CGFloat)
-      default:
-        fatalError("Unable to initialize CGFloat with value \(value) of type \(type(of: value))")
+
+    init<T: BinaryFloatingPoint>(_ value: T) {
+        switch value {
+        case is Double:
+            self.init(value as! Double)
+        case is Float:
+            self.init(value as! Float)
+        case is CGFloat:
+            self.init(value as! CGFloat)
+        default:
+            fatalError("Unable to initialize CGFloat with value \(value) of type \(type(of: value))")
+        }
     }
-  }
+
 }
 
 extension Float {
-  init<T: BinaryFloatingPoint>(_ value: T) {
-    switch value {
-      case is Double:
-        self.init(value as! Double)
-      case is Float:
-        self.init(value as! Float)
-      case is CGFloat:
-        self.init(value as! CGFloat)
-      default:
-        fatalError("Unable to initialize CGFloat with value \(value) of type \(type(of: value))")
+
+    init<T: BinaryFloatingPoint>(_ value: T) {
+        switch value {
+        case is Double:
+            self.init(value as! Double)
+        case is Float:
+            self.init(value as! Float)
+        case is CGFloat:
+            self.init(value as! CGFloat)
+        default:
+            fatalError("Unable to initialize CGFloat with value \(value) of type \(type(of: value))")
+        }
     }
-  }
+
 }

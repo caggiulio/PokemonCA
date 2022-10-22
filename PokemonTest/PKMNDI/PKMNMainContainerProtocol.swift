@@ -8,18 +8,6 @@
 import Foundation
 
 public protocol PKMNMainContainerProtocol {
-  
-  // MARK: - Closures
-  
-  /// Get real info Pokemon by his id.
-  var getPokemonByIDUseCase: GetPokemonByIDProtocol { get }
-  
-  /// Get real  info PokemonList.
-  var getPokemonsListUseCase: GetPokemonsListProtocol { get }
-  
-  /// Get real info PokemonList by his name.
-  var searchPokemonByNameUseCase: SearchPokemonByNameProtocol { get }
-  
   // MARK: - Mock Methods
   
   /// Get mocked info Pokemon.

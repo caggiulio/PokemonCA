@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		467EFCCC4E0C927D9DD380BA /* Pods_PokemonTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8E86EEF49C195C44D38D4B /* Pods_PokemonTest.framework */; };
+		4D15A23329030AC4009E5314 /* PKMNUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15A23229030AC4009E5314 /* PKMNUseCasesProtocol.swift */; };
 		4D359F9728FFD89700A26693 /* PokemonIntentsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */; };
 		4D359F9828FFD89700A26693 /* PokemonAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */; };
 		4D359F9928FFD89700A26693 /* PokemonIntentsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */; };
@@ -111,7 +113,6 @@
 		4D757F9F279ED872000E79E5 /* PKMNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F9E279ED872000E79E5 /* PKMNView.swift */; };
 		4D757FA1279ED8B5000E79E5 /* PKMNView+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757FA0279ED8B5000E79E5 /* PKMNView+Modal.swift */; };
 		4D757FA4279EDDBE000E79E5 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757FA3279EDDBE000E79E5 /* UICollectionView+Extensions.swift */; };
-		4DA02D7D2801810B00BB6CE5 /* Pods_PokemonTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAF1B7EA5341611A1250041 /* Pods_PokemonTest.framework */; };
 		4DA02D812801822400BB6CE5 /* PKMNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D802801822400BB6CE5 /* PKMNViewModel.swift */; };
 		4DA02D84280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D83280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift */; };
 		4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */; };
@@ -130,7 +131,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2BAF1B7EA5341611A1250041 /* Pods_PokemonTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D15A23229030AC4009E5314 /* PKMNUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNUseCasesProtocol.swift; sourceTree = "<group>"; };
 		4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsLogic.swift; sourceTree = "<group>"; };
 		4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonAppEntity.swift; sourceTree = "<group>"; };
 		4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsQuery.swift; sourceTree = "<group>"; };
@@ -245,8 +246,9 @@
 		4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportXPHandleErrorManager.swift; sourceTree = "<group>"; };
 		4DA02D872801877600BB6CE5 /* ErrorHandeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandeable.swift; sourceTree = "<group>"; };
 		4DA02D882801877600BB6CE5 /* ErrorConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorConvenience.swift; sourceTree = "<group>"; };
-		7F643B92F13DF85DE2B52E54 /* Pods-PokemonTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.debug.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.debug.xcconfig"; sourceTree = "<group>"; };
-		FAA5A9474C67281E7C390123 /* Pods-PokemonTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.release.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.release.xcconfig"; sourceTree = "<group>"; };
+		6C8E86EEF49C195C44D38D4B /* Pods_PokemonTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		714A198B875DCEB2A8C5FE62 /* Pods-PokemonTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.debug.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.debug.xcconfig"; sourceTree = "<group>"; };
+		8B14E3DD29AEAA648A800B6C /* Pods-PokemonTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.release.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DA02D7D2801810B00BB6CE5 /* Pods_PokemonTest.framework in Frameworks */,
+				467EFCCC4E0C927D9DD380BA /* Pods_PokemonTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,8 +273,8 @@
 		0AA712B647FADF521C0239C0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7F643B92F13DF85DE2B52E54 /* Pods-PokemonTest.debug.xcconfig */,
-				FAA5A9474C67281E7C390123 /* Pods-PokemonTest.release.xcconfig */,
+				714A198B875DCEB2A8C5FE62 /* Pods-PokemonTest.debug.xcconfig */,
+				8B14E3DD29AEAA648A800B6C /* Pods-PokemonTest.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -383,7 +385,7 @@
 				4D59056D279EAD0C001110D8 /* PokemonTests */,
 				4D5904A6279DBFDC001110D8 /* Products */,
 				0AA712B647FADF521C0239C0 /* Pods */,
-				EE7526DE427A92B31C4BD865 /* Frameworks */,
+				99A6F13E46D2B37397DC0456 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -610,6 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				4D59055B279EA993001110D8 /* PKMNUseCases.swift */,
+				4D15A23229030AC4009E5314 /* PKMNUseCasesProtocol.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -749,10 +752,10 @@
 			path = ErrorHandler;
 			sourceTree = "<group>";
 		};
-		EE7526DE427A92B31C4BD865 /* Frameworks */ = {
+		99A6F13E46D2B37397DC0456 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2BAF1B7EA5341611A1250041 /* Pods_PokemonTest.framework */,
+				6C8E86EEF49C195C44D38D4B /* Pods_PokemonTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -764,19 +767,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D5904B9279DBFDD001110D8 /* Build configuration list for PBXNativeTarget "PokemonTest" */;
 			buildPhases = (
-				083F4C5A6CE337F0B1AE5F48 /* [CP] Check Pods Manifest.lock */,
+				3DCA701A85BF25842C14FC8F /* [CP] Check Pods Manifest.lock */,
 				4D5904A1279DBFDC001110D8 /* Sources */,
 				4D5904A2279DBFDC001110D8 /* Frameworks */,
 				4D5904A3279DBFDC001110D8 /* Resources */,
-				4044AA8DA9913551435B4D70 /* [CP] Embed Pods Frameworks */,
+				6568EF0A78BC4427E09BB65F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PokemonTest;
-			packageProductDependencies = (
-			);
 			productName = PokemonTest;
 			productReference = 4D5904A5279DBFDC001110D8 /* PokemonTest.app */;
 			productType = "com.apple.product-type.application";
@@ -828,8 +829,6 @@
 				it,
 			);
 			mainGroup = 4D59049C279DBFDC001110D8;
-			packageReferences = (
-			);
 			productRefGroup = 4D5904A6279DBFDC001110D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -873,7 +872,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		083F4C5A6CE337F0B1AE5F48 /* [CP] Check Pods Manifest.lock */ = {
+		3DCA701A85BF25842C14FC8F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -895,7 +894,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4044AA8DA9913551435B4D70 /* [CP] Embed Pods Frameworks */ = {
+		6568EF0A78BC4427E09BB65F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -956,6 +955,7 @@
 				4D757F92279EBE74000E79E5 /* PKMNHomeViewModel.swift in Sources */,
 				4D757F87279EBB7C000E79E5 /* PKMNViewController+Modal.swift in Sources */,
 				4D757F8C279EBD24000E79E5 /* PKMNViewController+HandleError.swift in Sources */,
+				4D15A23329030AC4009E5314 /* PKMNUseCasesProtocol.swift in Sources */,
 				4D359F9928FFD89700A26693 /* PokemonIntentsQuery.swift in Sources */,
 				4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */,
 				4D590518279E91F9001110D8 /* AbilityDataSource.swift in Sources */,
@@ -1175,7 +1175,7 @@
 		};
 		4D5904BA279DBFDD001110D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F643B92F13DF85DE2B52E54 /* Pods-PokemonTest.debug.xcconfig */;
+			baseConfigurationReference = 714A198B875DCEB2A8C5FE62 /* Pods-PokemonTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1205,7 +1205,7 @@
 		};
 		4D5904BB279DBFDD001110D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAA5A9474C67281E7C390123 /* Pods-PokemonTest.release.xcconfig */;
+			baseConfigurationReference = 8B14E3DD29AEAA648A800B6C /* Pods-PokemonTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

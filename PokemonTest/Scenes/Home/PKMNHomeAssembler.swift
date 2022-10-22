@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - PKMNHomeAssembler
 
-public class PKMNHomeAssembler: PKMNHomeAssemblerInjector {
+public struct PKMNHomeAssembler: PKMNHomeAssemblerInjector {
   var container: PKMNMainContainerProtocol
 
   public init(container: PKMNMainContainerProtocol) {

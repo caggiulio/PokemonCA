@@ -17,11 +17,4 @@ public struct AbilitiesDataSource: Decodable {
     case isHidden = "is_hidden"
     case slot
   }
-
-  public init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-    ability = try values.decode(AbilityDataSource.self, forKey: .ability)
-    isHidden = try values.decode(Bool.self, forKey: .isHidden)
-    slot = try values.decode(Int.self, forKey: .slot)
-  }
 }

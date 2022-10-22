@@ -24,19 +24,10 @@ extension IntentsLogic.FetchData {
     static func execute() async throws -> [PokemonAppEntity] {
       let context = PokemonManagerContext.container
 
-      return try await withCheckedThrowingContinuation({
-        (continuation: CheckedContinuation<[PokemonAppEntity], Error>) in
-        context.getPokemonsListUseCase.execute(queryItems: nil) { result in
-          switch result {
-          case .success(let pokemonList):
-            continuation.resume(returning: pokemonList.pokemonItems.map {
-              return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
-            })
-          case .failure(let error):
-            continuation.resume(throwing: error)
-          }
-        }
-      })
+      let list = try await context.asyncGetPokemonsListUseCase.execute(queryItems: nil)
+      return list.pokemonItems.map {
+        return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
+      }
     }
   }
   
@@ -45,19 +36,10 @@ extension IntentsLogic.FetchData {
     static func execute(query: String) async throws -> [PokemonAppEntity] {
       let context = PokemonManagerContext.container
       
-      return try await withCheckedThrowingContinuation({
-        (continuation: CheckedContinuation<[PokemonAppEntity], Error>) in
-        context.searchPokemonByNameUseCase.execute(name: query) { result in
-          switch result {
-          case .success(let pokemonList):
-            continuation.resume(returning: pokemonList.map {
-              return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
-            })
-          case .failure(let error):
-            continuation.resume(throwing: error)
-          }
-        }
-      })
+      let list = try await context.asyncSearchPokemonByNameUseCase.execute(name: query)
+      return list.map {
+        return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
+      }
     }
   }
 }

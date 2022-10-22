@@ -24,11 +24,11 @@ public extension PKMNViewController {
   }
   
   func handle<Value: PKMNModel, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>) {
-    self.handlePKMNState(state: loadingState, success: { value in
+    self.handlePKMNState(state: loadingState, success: { [weak self] value in
       guard let value = value as? Model else {
         return
       }
-      self.rootView.update(model: value)
+      self?.rootView.update(model: value)
     }, failure: { _ in })
   }
 }

@@ -36,4 +36,12 @@ public class PKMNDetailViewController: PKMNViewController<Pokemon, PKMNDetailVie
 
     loadPokemon()
   }
+  
+  public override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    if isBeingDismissed {
+      detailCoordinator?.end()
+    }
+  }
 }

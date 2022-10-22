@@ -82,6 +82,6 @@ extension PKMNHomeViewController: UICollectionViewDelegate, UICollectionViewData
   public func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard let id = viewModel.pokemon(indexPath)?.id else { return }
 
-    homeCoordinator?.routeToDetail(pokemonID: id)
+    homeCoordinator?.start(context: id)
   }
 }

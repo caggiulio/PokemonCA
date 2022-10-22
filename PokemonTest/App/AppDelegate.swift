@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let appWindow = UIWindow(frame: UIScreen.main.bounds)
     mainCoordinator = PKMNMainCoordinator(navigationController: UINavigationController(), mainContainer: context)
-    mainCoordinator?.start()
+    mainCoordinator?.start(context: nil)
     appWindow.rootViewController = mainCoordinator?.navigationController
     appWindow.makeKeyAndVisible()
     window = appWindow

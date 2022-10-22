@@ -30,7 +30,12 @@ public class PKMNMainCoordinator: Coordinator {
   // MARK: - Start
 
   /// The start of MainCoordinator. In this func there is the dirst view controller of app
-  public func start() {
-    pokemonCoordinator.start()
+  public func start(context: Any?) {
+    /// Istantiate initial view controller
+    let pkmnViewController: PKMNHomeViewController = PKMNHomeAssembler(container: container).resolve()
+    pkmnViewController.homeCoordinator = pokemonCoordinator
+    
+    navigationController.navigationBar.prefersLargeTitles = true
+    navigationController.pushViewController(pkmnViewController, animated: false)
   }
 }

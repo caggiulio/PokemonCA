@@ -15,7 +15,7 @@ public protocol Coordinator: AnyObject {
   var navigationController: UINavigationController { get set }
   var parentCoordinator: Coordinator? { get set }
 
-  func start()
+  func start(context: Any?)
   func end()
   func destroyChildren(completion: (() -> Void)?)
 }

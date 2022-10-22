@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 public class PKMNView<Model: PKMNModel>: UIView {
+  
+  // MARK: - Computed Properties
+  
+  /// The modal views for the loaders.
   var modalViews: [PKMNLoader] = []
 
-  private var errorView: PKMNErrorView = {
-    var view = PKMNErrorView()
-
-    return view
-  }()
-
+  // MARK: - Init
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
 
@@ -28,15 +28,7 @@ public class PKMNView<Model: PKMNModel>: UIView {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  func showErrorView() {
-    addSubview(errorView)
-    errorView.edgeAnchors /==/ edgeAnchors
-  }
-
-  func hideErrorView() {
-    errorView.removeFromSuperview()
-  }
   
+  /// The func to override with the correct `Model` to update the view.
   func update(model: Model?) {}
 }

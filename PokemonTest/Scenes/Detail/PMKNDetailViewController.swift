@@ -27,21 +27,15 @@ public class PKMNDetailViewController: PKMNViewController<Pokemon, PKMNDetailVie
     super.init(viewModel: viewModel)
   }
   
-  public func loadPokemon() {
-    viewModel.loadPokemon()
-  }
-
   public override func viewDidLoad() {
     super.viewDidLoad()
 
     loadPokemon()
   }
   
-  public override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    
-    if isBeingDismissed {
-      detailCoordinator?.end()
-    }
+  // MARK: - Methods
+  
+  public func loadPokemon() {
+    viewModel.loadPokemon()
   }
 }

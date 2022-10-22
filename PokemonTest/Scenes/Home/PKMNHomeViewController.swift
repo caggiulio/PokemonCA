@@ -28,10 +28,6 @@ public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKM
     super.init(viewModel: viewModel)
   }
   
-  public func loadHome() {
-    viewModel.loadHome(queryItems: nil)
-  }
-
   override public func viewDidLoad() {
     super.viewDidLoad()
 
@@ -39,6 +35,12 @@ public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKM
     setupNavigationBar()
     setDelegates()
     loadHome()
+  }
+  
+  // MARK: - Methods
+  
+  public func loadHome() {
+    viewModel.loadHome(queryItems: nil)
   }
 
   public func searchPokmemon(name: String) {

@@ -34,7 +34,6 @@
 		4D3DED7827A010500012CCEF /* PKMNSingleAbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7727A010500012CCEF /* PKMNSingleAbilityView.swift */; };
 		4D3DED7D27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7C27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift */; };
 		4D3DED7F27A03E660012CCEF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7E27A03E660012CCEF /* Extensions.swift */; };
-		4D3DED8227A04F6B0012CCEF /* PKMNErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED8127A04F6B0012CCEF /* PKMNErrorView.swift */; };
 		4D586FBC27A1812E0067479A /* PKMNPokemonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D586FBB27A1812E0067479A /* PKMNPokemonCoordinator.swift */; };
 		4D5904A9279DBFDC001110D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904A8279DBFDC001110D8 /* AppDelegate.swift */; };
 		4D5904B2279DBFDD001110D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D5904B1279DBFDD001110D8 /* Assets.xcassets */; };
@@ -157,7 +156,6 @@
 		4D3DED7727A010500012CCEF /* PKMNSingleAbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSingleAbilityView.swift; sourceTree = "<group>"; };
 		4D3DED7C27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNHomeViewController+UISearchBar.swift"; sourceTree = "<group>"; };
 		4D3DED7E27A03E660012CCEF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		4D3DED8127A04F6B0012CCEF /* PKMNErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNErrorView.swift; sourceTree = "<group>"; };
 		4D586FBB27A1812E0067479A /* PKMNPokemonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNPokemonCoordinator.swift; sourceTree = "<group>"; };
 		4D5904A5279DBFDC001110D8 /* PokemonTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D5904A8279DBFDC001110D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -667,7 +665,6 @@
 			children = (
 				4D757F82279EB874000E79E5 /* PKMNToast.swift */,
 				4D757F84279EB9FE000E79E5 /* PKMNLoader.swift */,
-				4D3DED8127A04F6B0012CCEF /* PKMNErrorView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -978,7 +975,6 @@
 				4D590554279EA06D001110D8 /* PKMNErrorManager.swift in Sources */,
 				4D590559279EA839001110D8 /* PKMNRepository.swift in Sources */,
 				4D59052C279E9337001110D8 /* Ability.swift in Sources */,
-				4D3DED8227A04F6B0012CCEF /* PKMNErrorView.swift in Sources */,
 				4D5904E1279DC9F1001110D8 /* PKMNButtonStyles.swift in Sources */,
 				4D590530279E9491001110D8 /* Species.swift in Sources */,
 				4D5904C5279DC62A001110D8 /* PKMNFont.swift in Sources */,

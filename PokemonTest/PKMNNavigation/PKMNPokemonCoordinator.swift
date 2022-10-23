@@ -10,7 +10,9 @@ import UIKit
 
 // MARK: - PKMNPokemonCoordinatorProtocol
 
-public protocol PKMNPokemonCoordinatorProtocol: Coordinator {}
+public protocol PKMNPokemonCoordinatorProtocol: Coordinator {
+  func routeToDetail(id: String)
+}
 
 // MARK: - PKMNPokemonCoordinator
 
@@ -32,10 +34,14 @@ public class PKMNPokemonCoordinator: PKMNPokemonCoordinatorProtocol {
 
   /// The start of MainCoordinator. In this func there is the dirst view controller of app
   public func start(context: Any?) {
-    guard let id = context as? String else {
-      return
-    }
+    let pkmnViewController: PKMNHomeViewController = PKMNHomeAssembler(container: container).resolve()
+    pkmnViewController.homeCoordinator = self
     
+    navigationController.navigationBar.prefersLargeTitles = true
+    navigationController.pushViewController(pkmnViewController, animated: false)
+  }
+  
+  public func routeToDetail(id: String) {
     let pkmnDetailViewController: PKMNDetailViewController = PKMNDetailAssembler(container: container, id: id).resolve()
     pkmnDetailViewController.detailCoordinator = self
 

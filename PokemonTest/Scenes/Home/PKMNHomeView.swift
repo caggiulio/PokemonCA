@@ -29,26 +29,14 @@ public class PKMNHomeView: PKMNView<Empty> {
     return layout
   }()
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-
-    configureUI()
-    configureConstraints()
-  }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  private func configureUI() {
+  override func configureUI() {
     backgroundColor = PKMNThemeManager.currentTheme().backgroundColor
 
     addSubview(collectionView)
     collectionView.setCollectionViewLayout(layout, animated: false)
   }
 
-  private func configureConstraints() {
+  override func configureConstraints() {
     collectionView.leadingAnchor /==/ leadingAnchor
     collectionView.trailingAnchor /==/ trailingAnchor
     collectionView.topAnchor /==/ safeAreaLayoutGuide.topAnchor

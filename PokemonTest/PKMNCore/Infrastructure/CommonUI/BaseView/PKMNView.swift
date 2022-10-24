@@ -15,6 +15,13 @@ public class PKMNView<Model: PKMNModel>: UIView {
   
   /// The modal views for the loaders.
   var modalViews: [PKMNLoader] = []
+  
+  /// The model of the view. The set of the value triggers the `update` method.
+  var model: Model? {
+    didSet {
+      update(model: model)
+    }
+  }
 
   // MARK: - Init
   
@@ -22,6 +29,9 @@ public class PKMNView<Model: PKMNModel>: UIView {
     super.init(frame: frame)
 
     backgroundColor = PKMNThemeManager.currentTheme().backgroundColor
+    
+    configureUI()
+    configureConstraints()
   }
 
   @available(*, unavailable)
@@ -31,4 +41,10 @@ public class PKMNView<Model: PKMNModel>: UIView {
   
   /// The func to override with the correct `Model` to update the view.
   func update(model: Model?) {}
+  
+  /// The func called to add the subviews and the style at the view.
+  func configureUI() {}
+  
+  /// The func called to set the constraints of the view.
+  func configureConstraints() {}
 }

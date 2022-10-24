@@ -18,3 +18,7 @@ public struct Stat: PKMNModel {
     percentStat = Float(baseStat) / 100
   }
 }
+
+public struct StatArray: PKMNModel {
+  let array: [Stat]?
+}

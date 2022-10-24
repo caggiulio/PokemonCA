@@ -25,24 +25,12 @@ class PKMNAbilitiesView: PKMNView<Pokemon> {
     return stackView
   }()
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-
-    configureUI()
-    configureConstraints()
-  }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  private func configureUI() {
+  override func configureUI() {
     addSubview(mainScrollViewContainer)
     mainScrollViewContainer.addSubview(mainStackViewContainer)
   }
 
-  private func configureConstraints() {
+  override func configureConstraints() {
     mainScrollViewContainer.edgeAnchors /==/ edgeAnchors
     mainStackViewContainer.edgeAnchors /==/ mainScrollViewContainer.edgeAnchors
     mainStackViewContainer.widthAnchor /==/ mainScrollViewContainer.widthAnchor

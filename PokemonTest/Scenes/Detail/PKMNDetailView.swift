@@ -48,25 +48,13 @@ public class PKMNDetailView: PKMNView<Pokemon> {
     return view
   }()
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-
-    configureUI()
-    configureConstraints()
-  }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
   override public func layoutSubviews() {
     super.layoutSubviews()
 
     statsContainerView.layer.cornerRadius = 10
   }
 
-  private func configureUI() {
+  override func configureUI() {
     addSubview(nameLabel)
     addSubview(statsContainerView)
     statsContainerView.addSubview(abilitiesView)
@@ -75,7 +63,7 @@ public class PKMNDetailView: PKMNView<Pokemon> {
     pokeballImage.addSubview(pokemonImage)
   }
 
-  private func configureConstraints() {
+  override func configureConstraints() {
     statsContainerView.bottomAnchor /==/ bottomAnchor
     statsContainerView.leadingAnchor /==/ leadingAnchor
     statsContainerView.trailingAnchor /==/ trailingAnchor
@@ -109,7 +97,7 @@ public class PKMNDetailView: PKMNView<Pokemon> {
   override func update(model: Pokemon?) {
     if let pokemon = model {
       nameLabel.text = pokemon.name.capitalized
-      statsView.configure(stats: pokemon.stats)
+      statsView.model = StatArray(array: model?.stats)
       abilitiesView.configure(abilities: pokemon.abilities)
       pokemonImage.download(from: pokemon.frontImage.stringURL, contentMode: .scaleAspectFill, fillBackgroundWithView: self) { colors in
         self.statsView.configureColors(colors: colors)

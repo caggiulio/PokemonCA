@@ -26,30 +26,18 @@ class PKMNSingleAbilityView: PKMNView<Pokemon> {
     return label
   }()
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-
-    configureUI()
-    configureConstraints()
-  }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
   override public func layoutSubviews() {
     super.layoutSubviews()
 
     pillContainerView.layer.cornerRadius = 10
   }
 
-  private func configureUI() {
+  override func configureUI() {
     addSubview(pillContainerView)
     pillContainerView.addSubview(abilityLabel)
   }
 
-  private func configureConstraints() {
+  override func configureConstraints() {
     pillContainerView.edgeAnchors /==/ edgeAnchors
     abilityLabel.edgeAnchors /==/ pillContainerView.edgeAnchors
   }

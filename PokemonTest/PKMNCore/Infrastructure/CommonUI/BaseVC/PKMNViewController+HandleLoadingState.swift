@@ -28,7 +28,7 @@ public extension PKMNViewController {
       guard let value = value as? Model else {
         return
       }
-      self?.rootView.update(model: value)
+      self?.rootView.model = value
     }, failure: { _ in })
   }
 }

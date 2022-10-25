@@ -19,7 +19,7 @@ public extension PKMNViewController {
       success?(value)
     case let .failure(error):
       self.rootView.hideLoader()
-      errorHandler?.throw(error)
+      failure?(error)
     }
   }
   
@@ -29,6 +29,8 @@ public extension PKMNViewController {
         return
       }
       self?.rootView.model = value
-    }, failure: { _ in })
+    }, failure: { [weak self] error in
+      self?.errorHandler?.throw(error)
+    })
   }
 }

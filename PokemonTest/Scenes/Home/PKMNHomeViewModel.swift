@@ -20,13 +20,18 @@ public protocol PKMNHomeViewModelProtocol {
 // MARK: - PKMNHomeViewModel
 
 public class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
-  /// Use-cases
+  /// The use case used to get the Pokemon's list.
   private let asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  
+  /// The use case used to search a Pokmeon by his name.
   private let asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
+  
   /// In this variable are stored the retrieved `PokemonListItem`
   private var retrievedPokemons: [PokemonListItem] = []
+  
   /// In this variable it's stored the url for the next page
   private var nextPage: String?
+  
   /// `DispatchWorkItem` used to search a pokemon
   private var searchTask: Task<(), Error>?
 

@@ -21,12 +21,6 @@ public class PKMNDetailViewController: PKMNViewController<Pokemon, PKMNDetailVie
 
   public weak var detailCoordinator: PKMNPokemonCoordinator?
 
-  // MARK: - Object lifecycle
-
-  public override init(viewModel: PKMNDetailViewModel) {
-    super.init(viewModel: viewModel)
-  }
-  
   public override func viewDidLoad() {
     super.viewDidLoad()
 

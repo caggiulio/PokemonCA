@@ -8,7 +8,8 @@
 import Foundation
 
 public extension PKMNViewController {
-  func handlePKMNState<Value: Any, PKMNError>(state: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = { _ in }, throwBaseError: Bool = true) {
+  /// Executes some default method and return the closure.
+  private func handlePKMNState<Value: Any, PKMNError>(state: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = { _ in }, throwBaseError: Bool = true) {
     switch state {
     case .idle:
       break
@@ -23,6 +24,7 @@ public extension PKMNViewController {
     }
   }
   
+  /// Updates the view in case of success or throw the error in case of failre.
   func handle<Value: PKMNModel, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>) {
     self.handlePKMNState(state: loadingState, success: { [weak self] value in
       guard let value = value as? Model else {

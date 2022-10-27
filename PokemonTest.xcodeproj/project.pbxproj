@@ -41,7 +41,6 @@
 		4D5904B2279DBFDD001110D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D5904B1279DBFDD001110D8 /* Assets.xcassets */; };
 		4D5904B5279DBFDD001110D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D5904B3279DBFDD001110D8 /* LaunchScreen.storyboard */; };
 		4D5904BD279DC36C001110D8 /* PKMNAppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904BC279DC36C001110D8 /* PKMNAppAssets.swift */; };
-		4D5904BF279DC3A3001110D8 /* PKMNDataBundleResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904BE279DC3A3001110D8 /* PKMNDataBundleResolver.swift */; };
 		4D5904C5279DC62A001110D8 /* PKMNFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904C4279DC62A001110D8 /* PKMNFont.swift */; };
 		4D5904D1279DC68B001110D8 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D5904C7279DC68B001110D8 /* Lato-Italic.ttf */; };
 		4D5904D2279DC68B001110D8 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D5904C8279DC68B001110D8 /* Lato-LightItalic.ttf */; };
@@ -167,7 +166,6 @@
 		4D5904B4279DBFDD001110D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D5904B6279DBFDD001110D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D5904BC279DC36C001110D8 /* PKMNAppAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNAppAssets.swift; sourceTree = "<group>"; };
-		4D5904BE279DC3A3001110D8 /* PKMNDataBundleResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDataBundleResolver.swift; sourceTree = "<group>"; };
 		4D5904C4279DC62A001110D8 /* PKMNFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNFont.swift; sourceTree = "<group>"; };
 		4D5904C7279DC68B001110D8 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		4D5904C8279DC68B001110D8 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -424,14 +422,6 @@
 			path = PKMNCore;
 			sourceTree = "<group>";
 		};
-		4D5904C1279DC48A001110D8 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				4D5904BE279DC3A3001110D8 /* PKMNDataBundleResolver.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		4D5904C2279DC493001110D8 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,7 +431,6 @@
 				4D590563279EAC4F001110D8 /* Localizable */,
 				4D5904FA279E90AA001110D8 /* Constants */,
 				4D59053A279E987F001110D8 /* JSONFiles */,
-				4D5904C1279DC48A001110D8 /* Helpers */,
 				4D590552279E9F39001110D8 /* Error */,
 				4D5904E2279DCA58001110D8 /* Styles */,
 				4D757F7C279EB751000E79E5 /* Coordinator */,
@@ -923,7 +912,6 @@
 			files = (
 				4D15A26F29054761009E5314 /* Interaction.swift in Sources */,
 				4D590524279E925D001110D8 /* StatDataSource.swift in Sources */,
-				4D5904BF279DC3A3001110D8 /* PKMNDataBundleResolver.swift in Sources */,
 				4D586FBC27A1812E0067479A /* PKMNPokemonCoordinator.swift in Sources */,
 				4D5904DF279DC888001110D8 /* PKMNThemeManager.swift in Sources */,
 				4D757F97279EBFFF000E79E5 /* PKMNHomeAssembler.swift in Sources */,

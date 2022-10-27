@@ -45,7 +45,7 @@ public final class ColorAppAsset {
 
 public extension ColorAppAsset.ColorApp {
   convenience init?(asset: ColorAppAsset) {
-    let bundle = PKMNDataBundleResolver.returnMainBundle()
+    let bundle = PKMNConstants.mainBundle()
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
   }
 }
@@ -57,7 +57,7 @@ public struct ImageAppAsset {
   public typealias ImageApp = UIImage
 
   public var image: ImageApp {
-    let bundle = PKMNDataBundleResolver.returnMainBundle()
+    let bundle = PKMNConstants.mainBundle()
     let image = ImageApp(named: name, in: bundle, compatibleWith: nil)
     guard let result = image else {
       fatalError("Unable to load image asset named \(name).")
@@ -68,7 +68,7 @@ public struct ImageAppAsset {
 
 public extension ImageAppAsset.ImageApp {
   convenience init?(asset: ImageAppAsset) {
-    let bundle = PKMNDataBundleResolver.returnMainBundle()
+    let bundle = PKMNConstants.mainBundle()
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
   }
 }

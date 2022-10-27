@@ -9,6 +9,7 @@ import Anchorage
 import Foundation
 
 public extension PKMNView {
+  /// Shows the `PKMNLoader`.
   func showLoader() {
     let loaderView = PKMNLoader(frame: frame)
     modalViews.append(loaderView)
@@ -28,6 +29,7 @@ public extension PKMNView {
     }
   }
 
+  /// Hides the `PKMNLoader`.
   func hideLoader(withAction _: (() -> Void)? = nil) {
     func exec() {
       modalViews.forEach { loader in

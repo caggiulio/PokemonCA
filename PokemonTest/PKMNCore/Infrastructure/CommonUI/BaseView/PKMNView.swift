@@ -39,6 +39,8 @@ public class PKMNView<Model: PKMNModel>: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  // MARK: - Methods
+  
   /// The func to override with the correct `Model` to update the view.
   func update(model: Model?) {}
   

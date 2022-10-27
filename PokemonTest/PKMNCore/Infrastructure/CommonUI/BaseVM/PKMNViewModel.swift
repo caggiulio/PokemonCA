@@ -8,9 +8,10 @@
 import Foundation
 
 open class PKMNViewModel<Model: PKMNModel>: NSObject {
+  /// The closure that update the status of the operations. When this changes, the related controller handle the status.
   public var updateStatus: ((LoadingState<Model, PKMNError>) -> Void)?
   
-  /// The loading state that updates the closure `updateStatus`
+  /// The loading state that updates the closure `updateStatus`.
   public var loadingState: LoadingState<Model, PKMNError> = .idle {
     didSet {
       updateStatus?(loadingState)

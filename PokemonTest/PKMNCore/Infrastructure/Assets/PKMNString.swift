@@ -18,7 +18,7 @@ public enum PKMNString {
 
 extension PKMNString {
   private static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
-    let format = PKMNDataBundleResolver.returnMainBundle().localizedString(forKey: key, value: nil, table: table)
+    let format = PKMNConstants.mainBundle().localizedString(forKey: key, value: nil, table: table)
     return String(format: format, locale: Locale.current, arguments: args)
   }
 }

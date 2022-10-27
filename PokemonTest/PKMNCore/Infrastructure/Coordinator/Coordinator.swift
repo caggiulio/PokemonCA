@@ -10,6 +10,7 @@ import UIKit
 
 // MARK: - Coordinator
 
+/// The coordinator protocol responsible of the navigation.
 public protocol Coordinator: AnyObject {
   var childrenCoordinators: [Coordinator] { get set }
   var navigationController: UINavigationController { get set }

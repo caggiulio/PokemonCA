@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - LoadingState
 
+/// This is the `enum` used to defines the state of the `async` method in the `ViewModel` of the app.
 public enum LoadingState<Value, Error: Swift.Error> {
   case idle
   /// The `Bool` indicates if is the first loading or a loading for pagination

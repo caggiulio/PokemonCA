@@ -21,12 +21,6 @@ public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKM
   // MARK: - Business logic properties
 
   public weak var homeCoordinator: PKMNPokemonCoordinatorProtocol?
-
-  // MARK: - Object lifecycle
-
-  public override init(viewModel: PKMNHomeViewModel) {
-    super.init(viewModel: viewModel)
-  }
   
   override public func viewDidLoad() {
     super.viewDidLoad()

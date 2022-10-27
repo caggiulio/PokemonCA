@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-public class PKMNDetailView: PKMNView {
+public class PKMNDetailView: PKMNView<Pokemon> {
   private var nameLabel: UILabel = {
     var label = UILabel()
     LabelStyles.titleLabel.apply(to: label)
@@ -40,11 +40,7 @@ public class PKMNDetailView: PKMNView {
     return view
   }()
 
-  private var statsView: PKMNStatsView = {
-    var view = PKMNStatsView()
-
-    return view
-  }()
+  private var statsView: PKMNStatsView = PKMNStatsView()
 
   private var abilitiesView: PKMNAbilitiesView = {
     var view = PKMNAbilitiesView()
@@ -52,25 +48,13 @@ public class PKMNDetailView: PKMNView {
     return view
   }()
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-
-    configureUI()
-    configureConstraints()
-  }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
   override public func layoutSubviews() {
     super.layoutSubviews()
 
     statsContainerView.layer.cornerRadius = 10
   }
 
-  private func configureUI() {
+  override func configureUI() {
     addSubview(nameLabel)
     addSubview(statsContainerView)
     statsContainerView.addSubview(abilitiesView)
@@ -79,7 +63,7 @@ public class PKMNDetailView: PKMNView {
     pokeballImage.addSubview(pokemonImage)
   }
 
-  private func configureConstraints() {
+  override func configureConstraints() {
     statsContainerView.bottomAnchor /==/ bottomAnchor
     statsContainerView.leadingAnchor /==/ leadingAnchor
     statsContainerView.trailingAnchor /==/ trailingAnchor
@@ -109,13 +93,15 @@ public class PKMNDetailView: PKMNView {
     statsView.trailingAnchor /==/ trailingAnchor - 15
     statsView.bottomAnchor /==/ safeAreaLayoutGuide.bottomAnchor - 15
   }
-
-  func configure(pokemon: Pokemon) {
-    nameLabel.text = pokemon.name.capitalized
-    statsView.configure(stats: pokemon.stats)
-    abilitiesView.configure(abilities: pokemon.abilities)
-    pokemonImage.download(from: pokemon.frontImage.stringURL, contentMode: .scaleAspectFill, fillBackgroundWithView: self) { colors in
-      self.statsView.configureColors(colors: colors)
+  
+  override func update(model: Pokemon?) {
+    if let pokemon = model {
+      nameLabel.text = pokemon.name.capitalized
+      statsView.model = StatArray(array: model?.stats)
+      abilitiesView.configure(abilities: pokemon.abilities)
+      pokemonImage.download(from: pokemon.frontImage.stringURL, contentMode: .scaleAspectFill, fillBackgroundWithView: self) { colors in
+        self.statsView.configureColors(colors: colors)
+      }
     }
   }
 }

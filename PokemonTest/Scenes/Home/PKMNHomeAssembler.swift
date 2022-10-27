@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import Inject
 
 // MARK: - PKMNHomeAssembler
 
-public class PKMNHomeAssembler: PKMNHomeAssemblerInjector {
+public struct PKMNHomeAssembler: PKMNHomeAssemblerInjector {
   var container: PKMNMainContainerProtocol
 
   public init(container: PKMNMainContainerProtocol) {
@@ -21,17 +20,17 @@ public class PKMNHomeAssembler: PKMNHomeAssemblerInjector {
 // MARK: - PKMNHomeAssemblerInjector
 
 public protocol PKMNHomeAssemblerInjector {
-  func resolve() -> _InjectableViewControllerHost<PKMNHomeViewController>
+  func resolve() -> PKMNHomeViewController
 
   func resolve() -> PKMNHomeViewModel
 }
 
 public extension PKMNHomeAssembler {
-  func resolve() -> _InjectableViewControllerHost<PKMNHomeViewController> {
-    return Inject.ViewControllerHost(PKMNHomeViewController(viewModel: self.resolve()))
+  func resolve() -> PKMNHomeViewController {
+    return PKMNHomeViewController(viewModel: self.resolve())
   }
 
   func resolve() -> PKMNHomeViewModel {
-    return PKMNHomeViewModel(getPokemonsListUseCase: container.getPokemonsListUseCase, searchPokemonByNameUseCase: container.searchPokemonByNameUseCase)
+    return PKMNHomeViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase, asyncSearchPokemonByNameUseCase: container.asyncSearchPokemonByNameUseCase)
   }
 }

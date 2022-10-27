@@ -8,12 +8,12 @@
 import Foundation
 
 public extension PKMNViewController {
-  func handleError(error: PKMNError) {
+  func handleError() {
     /// Initialization of `errorHandler`
-    errorHandler = PKMNMainErrorManager().listen(PKMNError.self, action: { [self] error in
+    errorHandler = PKMNMainErrorManager().listen(PKMNError.self, action: { [weak self] error in
       switch error {
       default:
-        showToast(color: .systemRed, text: error.localizedDescription, completion: nil)
+        self?.showToast(color: .systemRed, text: error.localizedDescription, completion: nil)
       }
     })
   }

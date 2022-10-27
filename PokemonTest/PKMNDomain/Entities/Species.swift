@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Species {
+public struct Species: PKMNModel {
   let name: String
 
   public init(speciesDataSource: SpeciesDataSource) {

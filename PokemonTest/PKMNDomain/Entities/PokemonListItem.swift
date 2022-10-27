@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PokemonListItem {
+public struct PokemonListItem: PKMNModel {
   let pokemonListItemDataSource: PokemonListItemDataSource
 
   var name: String {

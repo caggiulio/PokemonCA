@@ -17,86 +17,32 @@ public protocol PKMNHomeViewControllerProtocol {
 
 // MARK: - PKMNHomeViewController
 
-public class PKMNHomeViewController: PKMNViewController<PKMNHomeView, PKMNHomeViewModel>, PKMNHomeViewControllerProtocol {
+public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKMNHomeViewModel>, PKMNHomeViewControllerProtocol {
   // MARK: - Business logic properties
 
   public weak var homeCoordinator: PKMNPokemonCoordinatorProtocol?
-
-  // MARK: - Object lifecycle
-
-  public override init(viewModel: PKMNHomeViewModel) {
-    super.init(viewModel: viewModel)
-  }
   
-  public func loadHome() {
-    viewModel.loadHome(queryItems: nil)
-  }
-
   override public func viewDidLoad() {
     super.viewDidLoad()
 
     title = PKMNString.homeTitle
     setupNavigationBar()
-    configureBinds()
     setDelegates()
     loadHome()
+  }
+  
+  // MARK: - Methods
+  
+  public func loadHome() {
+    viewModel.loadHome(queryItems: nil)
   }
 
   public func searchPokmemon(name: String) {
     viewModel.searchPokemon(name: name)
   }
 
-  private func configureBinds() {
-    viewModel.updateStatus = { [weak self] status in
-      self?.handle(status, success: { _ in
-        self?.reloadData()
-      })
-    }
-  }
-
   private func setDelegates() {
-    _view.collectionView.dataSource = self
-    _view.collectionView.delegate = self
-  }
-
-  private func reloadData() {
-    DispatchQueue.main.async {
-      self._view.collectionView.reloadData()
-    }
-  }
-}
-
-// MARK: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-
-extension PKMNHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-  public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-    viewModel.retrievedPokemon().count
-  }
-
-  public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell: PKMNHomeCollectionViewCell = collectionView.dequeueReusableCell(PKMNHomeCollectionViewCell.self, for: indexPath)
-    guard let pokemonItem = viewModel.pokemon(indexPath) else { return cell }
-    cell.configure(pokemon: pokemonItem)
-
-    return cell
-  }
-
-  public func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
-    let width = (collectionView.frame.width) - 30
-    let height = width / 2
-
-    return .init(width: width, height: height)
-  }
-
-  public func collectionView(_ collectionView: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    if indexPath.isLastRow(at: collectionView) {
-      viewModel.getNextPage()
-    }
-  }
-
-  public func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard let id = viewModel.pokemon(indexPath)?.id else { return }
-
-    homeCoordinator?.routeToDetail(pokemonID: id)
+    rootView.collectionView.dataSource = self
+    rootView.collectionView.delegate = self
   }
 }

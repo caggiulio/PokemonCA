@@ -6,7 +6,16 @@
   
 */
 
+// MARK: - App
+
 "standard_error" = "Error";
 "standard_search" = "Search";
 "resource_not_found" = "Something went wrong! The pokemon has escaped";
 "home_title" = "Pokedex";
+
+// MARK: - App Intents
+
+"appIntents.open.title" = "Show Pokemon Information";
+"appIntents.open.description" = "This action will be show the information about the choosen Pokemon";
+"appIntents.open.pokemonParameterDescription" = "The Pokemon to show";
+"appIntents.open.dialog" = "Which Pokemon will you choose?";

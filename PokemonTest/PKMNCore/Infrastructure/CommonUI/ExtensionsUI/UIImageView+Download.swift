@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-  private func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit, fillBackgroundWithView: UIView? = nil, completion: ((UIImage.Colors?) -> Void)?) {
+  private func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit, fillBackgroundWithView: UIView? = nil, placeholder: UIImage = UIImage(), completion: ((UIImage.Colors?) -> Void)?) {
     contentMode = mode
+    image = placeholder
     URLSession.shared.dataTask(with: url) { data, response, error in
       guard
         let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,

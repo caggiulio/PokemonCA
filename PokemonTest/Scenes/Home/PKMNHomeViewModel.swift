@@ -9,58 +9,49 @@ import Foundation
 
 // MARK: - PKMNHomeViewModelProtocol
 
-public protocol PKMNHomeViewModelProtocol: PKMNViewModel {
+public protocol PKMNHomeViewModelProtocol {
   func loadHome(queryItems: [URLQueryItem]?)
   func searchPokemon(name: String)
   func getNextPage()
   func retrievedPokemon() -> [PokemonListItem]
   func pokemon(_ forIndexPath: IndexPath) -> PokemonListItem?
-
-  var updateStatus: ((LoadingState<Void, PKMNError>) -> Void)? { get set }
 }
 
 // MARK: - PKMNHomeViewModel
 
-public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
-  /// The loading state updates the closure `updateStatus`
-  private var loadingState: LoadingState<Void, PKMNError> = .idle {
-    didSet {
-      updateStatus?(loadingState)
-    }
-  }
-
-  /// Use-cases
-  private let getPokemonsListUseCase: GetPokemonsListProtocol
-  private let searchPokemonByNameUseCase: SearchPokemonByNameProtocol
+public class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
+  /// The use case used to get the Pokemon's list.
+  private let asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  
+  /// The use case used to search a Pokmeon by his name.
+  private let asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
+  
   /// In this variable are stored the retrieved `PokemonListItem`
   private var retrievedPokemons: [PokemonListItem] = []
+  
   /// In this variable it's stored the url for the next page
   private var nextPage: String?
+  
   /// `DispatchWorkItem` used to search a pokemon
-  private var searchTask: DispatchWorkItem?
+  private var searchTask: Task<(), Error>?
 
-  public var updateStatus: ((LoadingState<Void, PKMNError>) -> Void)?
-
-  public init(getPokemonsListUseCase: GetPokemonsListProtocol, searchPokemonByNameUseCase: SearchPokemonByNameProtocol) {
-    self.getPokemonsListUseCase = getPokemonsListUseCase
-    self.searchPokemonByNameUseCase = searchPokemonByNameUseCase
+  public init(asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol, asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
+    self.asyncGetPokemonsListUseCase = asyncGetPokemonsListUseCase
+    self.asyncSearchPokemonByNameUseCase = asyncSearchPokemonByNameUseCase
   }
 
   public func loadHome(queryItems: [URLQueryItem]?) {
     loadingState = .loading(queryItems == nil)
     queryItems == nil ? retrievedPokemons.removeAll() : nil
-
-    getPokemonsListUseCase.execute(queryItems: queryItems) { [weak self] result in
-      switch result {
-        case let .success(pokemonList):
-          self?.nextPage = pokemonList.next
-          let pokemonItems = pokemonList.pokemonItems
-          self?.retrievedPokemons.append(contentsOf: pokemonItems)
-        DispatchQueue.main.async {
-          self?.loadingState = .success(())
-        }
-        case let .failure(error):
-          self?.loadingState = .failure(error)
+    
+    Task {
+      try await processTask {
+        let pokemonList = try await asyncGetPokemonsListUseCase.execute(queryItems: queryItems)
+        self.nextPage = pokemonList.next
+        let pokemonItems = pokemonList.pokemonItems
+        self.retrievedPokemons.append(contentsOf: pokemonItems)
+        
+        return Empty()
       }
     }
   }
@@ -68,10 +59,12 @@ public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
   public func getNextPage() {
     /// If `searchTask != nil` a search is in progress.
     guard searchTask == nil else { return }
-    guard let next = nextPage else { return }
-    guard let nextUrl = URL(string: next) else { return }
-    guard let urlComponents = URLComponents(url: nextUrl, resolvingAgainstBaseURL: false) else { return }
-    guard let queryItems = urlComponents.queryItems else { return }
+    guard
+      let next = nextPage,
+      let nextUrl = URL(string: next),
+      let urlComponents = URLComponents(url: nextUrl, resolvingAgainstBaseURL: false),
+      let queryItems = urlComponents.queryItems
+    else { return }
 
     loadHome(queryItems: queryItems)
   }
@@ -93,21 +86,15 @@ public class PKMNHomeViewModel: PKMNViewModel, PKMNHomeViewModelProtocol {
       return
     }
 
-    let task = DispatchWorkItem { [weak self] in
-      self?.loadingState = .loading(true)
-      self?.searchPokemonByNameUseCase.execute(name: name) { [weak self] result in
-        switch result {
-          case let .success(pokemonListItems):
-            self?.retrievedPokemons = pokemonListItems
-          DispatchQueue.main.async {
-            self?.loadingState = .success(())
-          }
-          case let .failure(error):
-            self?.loadingState = .failure(error)
-        }
+    let task = Task {
+      try await processTask {
+        try await Task.sleep(nanoseconds: 500_000_000)
+        let pokemons = try await self.asyncSearchPokemonByNameUseCase.execute(name: name)
+        self.retrievedPokemons = pokemons
+        
+        return Empty()
       }
     }
     searchTask = task
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: task)
   }
 }

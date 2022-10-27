@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNSingleStatView: PKMNView {
+class PKMNSingleStatView: PKMNView<Stat> {
   private let progressView: UIProgressView = {
     var view = UIProgressView(frame: .zero)
     view.clipsToBounds = true
@@ -37,22 +37,13 @@ class PKMNSingleStatView: PKMNView {
     return label
   }()
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-  }
-
-  @available(*, unavailable)
-  required init?(coder _: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  private func configureUI() {
+  override func configureUI() {
     addSubview(progressView)
     addSubview(statValueLabel)
     addSubview(statNameLabel)
   }
 
-  private func configureConstraints() {
+  override func configureConstraints() {
     progressView.leadingAnchor /==/ leadingAnchor + 15
     progressView.topAnchor /==/ topAnchor + 5
     progressView.heightAnchor /==/ 20
@@ -68,7 +59,11 @@ class PKMNSingleStatView: PKMNView {
     statNameLabel.bottomAnchor /==/ bottomAnchor
   }
 
-  func configure(stat: Stat) {
+  override func update(model: Stat?) {
+    guard let stat = model else {
+      return
+    }
+    
     configureUI()
     configureConstraints()
 
@@ -85,7 +80,7 @@ class PKMNSingleStatView: PKMNView {
     progressView.progress = 0
     /// Adds delay to allow a better visualization
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-      UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseOut) {
+      UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .curveEaseInOut) {
         self.progressView.setProgress(progressViewPreviousProgress, animated: true)
       }
     }

@@ -8,14 +8,22 @@
 import Foundation
 
 public protocol PKMNMainContainerProtocol {
-  /// Get real info Pokemon by his id
-  var getPokemonByIDUseCase: GetPokemonByIDProtocol { get }
-  /// Get real  info PokemonList
-  var getPokemonsListUseCase: GetPokemonsListProtocol { get }
-  /// Get real info PokemonList by his name
-  var searchPokemonByNameUseCase: SearchPokemonByNameProtocol { get }
-  /// Get mocked info Pokemon
+  // MARK: - Mock Methods
+  
+  /// Get mocked info Pokemon.
   var getMockedPokemonUseCase: GetMockedPokemonProtocol { get }
-  /// Get mocked info PokemonList
+  
+  /// Get mocked info PokemonList.
   var getMockedPokemonsListUseCase: GetMockedPokemonsListProtocol { get }
+  
+  // MARK: - Async
+  
+  /// Get real info Pokemon by his id in `async` way.
+  var asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol { get }
+  
+  /// Get real  info PokemonList in `async` way.
+  var asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol { get }
+  
+  /// Get real info PokemonList by his name in `async` way.
+  var asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol { get }
 }

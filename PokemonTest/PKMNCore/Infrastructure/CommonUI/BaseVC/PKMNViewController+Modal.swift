@@ -9,6 +9,11 @@ import Anchorage
 import Foundation
 
 public extension PKMNViewController {
+  /// Shows a toast with a `color`, a `text` and return an optional `completion`.
+  /// - Parameters
+  ///   - color: the `UIColor` of the background.
+  ///   - text: the `String` to show.
+  ///   - completion: the optional `closure` to make somthing after the view is presented.
   func showToast(color: UIColor, text: String, completion: (() -> Void)? = nil) {
     DispatchQueue.main.async {
       let toast = PKMNToast(frame: .zero, color: color, text: text)
@@ -36,6 +41,7 @@ public extension PKMNViewController {
         _view.layoutIfNeeded()
       }
 
+      /// Dismiss the toast view and return an optional `completion` to make something after the view is dismissed.
       func dismiss() {
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
           toast.transform = .identity

@@ -34,9 +34,7 @@ public enum PKMNThemeManager {
     UINavigationBar.appearance().isTranslucent = false
     UINavigationBar.appearance().tintColor = theme.navigationBarForegroundColor
     UINavigationBar.appearance().barTintColor = theme.navigationBarBackgroundColor
-    if #available(iOS 15.0, *) {
-      UINavigationBar.appearance().compactScrollEdgeAppearance = navigationBarAppeareance
-    }
+    UINavigationBar.appearance().compactScrollEdgeAppearance = navigationBarAppeareance
     UINavigationBar.appearance().compactAppearance = navigationBarAppeareance
     UINavigationBar.appearance().standardAppearance = navigationBarAppeareance
     UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppeareance

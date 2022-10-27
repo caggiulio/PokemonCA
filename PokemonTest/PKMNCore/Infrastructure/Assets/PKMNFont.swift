@@ -52,7 +52,7 @@ extension PKMNFont: ExpressibleByStringLiteral {
   }
 
   fileprivate var url: URL? {
-    return PKMNDataBundleResolver.returnMainBundle().url(forResource: (rawString ?? "") + ".ttf", withExtension: nil)
+    return PKMNConstants.mainBundle().url(forResource: (rawString ?? "") + ".ttf", withExtension: nil)
   }
 }
 

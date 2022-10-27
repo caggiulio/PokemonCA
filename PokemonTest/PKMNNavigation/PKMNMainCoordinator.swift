@@ -30,7 +30,7 @@ public class PKMNMainCoordinator: Coordinator {
   // MARK: - Start
 
   /// The start of MainCoordinator. In this func there is the dirst view controller of app
-  public func start() {
-    pokemonCoordinator.start()
+  public func start(context: Any?) {
+    pokemonCoordinator.start(context: context)
   }
 }

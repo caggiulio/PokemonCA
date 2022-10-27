@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Forms {
+public struct Forms: PKMNModel {
   let name: String
 
   public init(formsDataSource: FormsDataSource) {

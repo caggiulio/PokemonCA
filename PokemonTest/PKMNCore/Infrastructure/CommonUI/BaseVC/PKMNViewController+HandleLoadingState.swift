@@ -8,26 +8,31 @@
 import Foundation
 
 public extension PKMNViewController {
-  func handlePKMNState<Value: Any, PKMNError>(state: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = { _ in }, throwBaseError: Bool = true) {
+  /// Executes some default method and return the closure.
+  private func handlePKMNState<Value: Any, PKMNError>(state: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = { _ in }, throwBaseError: Bool = true) {
     switch state {
     case .idle:
       break
     case .loading:
-      self._view.showLoader()
+      self.rootView.showLoader()
     case let .success(value):
-      self._view.hideLoader()
+      self.rootView.hideLoader()
       success?(value)
     case let .failure(error):
-      self._view.hideLoader()
-      errorHandler?.throw(error)
+      self.rootView.hideLoader()
+      failure?(error)
     }
   }
   
-  func handle<Value: Any, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = nil, throwBaseError: Bool = true) {
-    self.handlePKMNState(state: loadingState, success: { value in
-      success?(value)
-    }, failure: { error in
-      failure?(error)
-    }, throwBaseError: throwBaseError)
+  /// Updates the view in case of success or throw the error in case of failre.
+  func handle<Value: PKMNModel, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>) {
+    self.handlePKMNState(state: loadingState, success: { [weak self] value in
+      guard let value = value as? Model else {
+        return
+      }
+      self?.rootView.model = value
+    }, failure: { [weak self] error in
+      self?.errorHandler?.throw(error)
+    })
   }
 }

@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var mainCoordinator: PKMNMainCoordinator?
   var window: UIWindow?
-  let mainContainer: PKMNMainContainerProtocol = PKMNMainContainer()
+  private let context = PokemonManagerContext.container
 
   func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     setup()
@@ -24,19 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     PKMNThemeManager.applyTheme(theme: mainTheme)
 
     let appWindow = UIWindow(frame: UIScreen.main.bounds)
-    mainCoordinator = PKMNMainCoordinator(navigationController: UINavigationController(), mainContainer: mainContainer)
-    mainCoordinator?.start()
+    mainCoordinator = PKMNMainCoordinator(navigationController: UINavigationController(), mainContainer: context)
+    mainCoordinator?.start(context: nil)
     appWindow.rootViewController = mainCoordinator?.navigationController
     appWindow.makeKeyAndVisible()
     window = appWindow
-
-    /// Setup Inject
-    #if DEBUG
-      Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle")?.load()
-      // for tvOS:
-      Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/tvOSInjection.bundle")?.load()
-      // Or for macOS:
-      Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/macOSInjection.bundle")?.load()
-    #endif
   }
 }

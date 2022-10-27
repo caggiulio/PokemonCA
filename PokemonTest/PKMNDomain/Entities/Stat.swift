@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Stat {
+public struct Stat: PKMNModel {
   let name: String
   let baseStat: Int
   let percentStat: Float
@@ -17,4 +17,8 @@ public struct Stat {
     baseStat = statDataSource.baseStat
     percentStat = Float(baseStat) / 100
   }
+}
+
+public struct StatArray: PKMNModel {
+  let array: [Stat]?
 }

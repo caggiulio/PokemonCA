@@ -1,0 +1,66 @@
+//
+//  PokemonIntentsQuery.swift
+//  PokemonTest
+//
+//  Created by Nunzio Giulio Caggegi on 06/10/22.
+//
+
+import AppIntents
+import Foundation
+
+/// The `EntityPropertyQuery` of the `PokemonAppEntity`.
+@available(iOS 16.0, *)
+struct PKMNIntentsQuery: EntityPropertyQuery {
+  
+  // MARK: - Computed Properties
+  
+  /// A type that provides the properties to include in a property-matched query.
+  static var properties = EntityQueryProperties<PokemonAppEntity, String> {
+    Property(\.$name) {
+      EqualToComparator { $0 }
+      ContainsComparator { $0 } 
+    }
+  }
+  
+  /// The sorting options provided by the `EntityPropertyQuery` protocol.
+  static var sortingOptions = SortingOptions {
+    SortableBy(\.$name)
+  }
+  
+  // MARK: - Entities Methods
+  
+  /// Find an entity by his ID.
+  /// For example a user may have chosen a Pokemon from a list when tapping on a parameter that accepts Pokemon. The ID of that Pokemon is now hardcoded into the `Shortcut`.
+  /// - Parameter identifiers: The list of IDs for the Pokemons that the user selected.
+  /// - Returns: The list of `[PokemonAppEntity]` found.
+  func entities(for identifiers: [String]) async throws -> [PokemonAppEntity] {
+    let pokemons = try await IntentsLogic.FetchData.FetchAllPokemon.execute()
+    return identifiers.compactMap { identifier in
+      return pokemons.first(where: { pokemon in
+        return pokemon.id == identifier
+      })
+    }
+  }
+  
+  func entities(matching comparators: [String], mode: ComparatorMode, sortedBy: [Sort<PokemonAppEntity>], limit: Int?) async throws -> [PokemonAppEntity] {
+    guard comparators.isEmpty else {
+      let name = comparators.first ?? String()
+      return try await IntentsLogic.FetchData.FetchPokemonByQuery.execute(query: name)
+    }
+    return try await IntentsLogic.FetchData.FetchAllPokemon.execute()
+  }
+  
+  /// Find Pokemon matching the given query.
+  /// - Parameter query: The `String` given query.
+  /// - Returns: The list of `[PokemonAppEntity]` found.
+  func entities(matching query: String) async throws -> some ResultsCollection {
+    try await IntentsLogic.FetchData.FetchAllPokemon.execute().filter {
+      return ($0.name.localizedCaseInsensitiveContains(query))
+    }
+  }
+  
+  /// Returns all Pokemon. This is what populates the list when you tap on a parameter that accepts a Pokemon.
+  func suggestedEntities() async throws -> [PokemonAppEntity] {
+    try await IntentsLogic.FetchData.FetchAllPokemon.execute()
+  }
+}

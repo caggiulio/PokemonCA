@@ -753,9 +753,17 @@
 			isa = PBXGroup;
 			children = (
 				4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */,
-				4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */,
+				4DF9A2E8290ACABE003AC168 /* View */,
 			);
 			path = Action;
+			sourceTree = "<group>";
+		};
+		4DF9A2E8290ACABE003AC168 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		99A6F13E46D2B37397DC0456 /* Frameworks */ = {

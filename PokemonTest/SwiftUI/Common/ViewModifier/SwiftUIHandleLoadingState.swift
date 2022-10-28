@@ -21,7 +21,7 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
   
   func body(content: Content) -> some View {
     content
-      .overlay{
+      .overlay {
         if isLoading {
           PKMNSwiftUILoader()
         }

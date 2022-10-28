@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#warning("This View is experimental")
 public struct PKMNBaseSwiftUIView<Model: PKMNModel, Content>: View where Content: View {
   let content: Content
   let viewModel: PKMNSwiftUIViewModel<Model>

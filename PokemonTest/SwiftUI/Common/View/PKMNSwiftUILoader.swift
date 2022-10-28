@@ -10,12 +10,20 @@ import SwiftUI
 /// The `View` for the home.
 public struct PKMNSwiftUILoader: View {
   
+  // MARK: - Stored Properties
+  
+  /// The `@State` `Bool` used to animate the `Image`.
   @State private var isAnimating = false
   
+  // MARK: - Computed Properties
+  
+  /// The computed animation.
   var foreverAnimation: Animation {
     Animation.linear(duration: 1.0)
       .repeatForever(autoreverses: false)
   }
+  
+  // MARK: - View
   
   public var body: some View {
     ZStack {

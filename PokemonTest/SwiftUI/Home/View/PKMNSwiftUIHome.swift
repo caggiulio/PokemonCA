@@ -22,6 +22,8 @@ public struct PKMNSwiftUIHome: View {
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.
   var assembler: PKMNSwiftUIAssembler
   
+  // MARK: - View
+  
   public var body: some View {
     NavigationView {
       ScrollView {

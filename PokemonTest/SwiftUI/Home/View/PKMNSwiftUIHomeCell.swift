@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct PKMNHomeCell: View {
+  // MARK: - Stored Properties
+  
   /// The `PokemonListItem` model handheld by the `View`.
   let pokemon: PokemonListItem
     

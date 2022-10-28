@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PokemonListItem: PKMNModel {
+public struct PokemonListItem: PKMNModel, Identifiable {
   let pokemonListItemDataSource: PokemonListItemDataSource
 
   var name: String {
@@ -19,7 +19,7 @@ public struct PokemonListItem: PKMNModel {
     return String(format: baseUrl, getID(pokemonListItemDataSource: pokemonListItemDataSource))
   }
 
-  var id: String {
+  public var id: String {
     return getID(pokemonListItemDataSource: pokemonListItemDataSource)
   }
 

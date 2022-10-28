@@ -1,0 +1,43 @@
+//
+//  SwiftUIHandleLoadingState.swift
+//  PokemonTest
+//
+//  Created by Nunzio Giulio Caggegi on 27/10/22.
+//
+
+import SwiftUI
+
+/// The `ViewModifier` to handle the `LoadingState`.
+/// The `Model` is the generic `PKMNModel` that a `View` can handle.
+struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
+  /// The current state of a `LoadingState`.
+  let state: Published<LoadingState<Model, PKMNError>>.Publisher
+  
+  /// The closure with the success `Model`.
+  var closureModel: ((Model) -> Void)?
+  
+  func body(content: Content) -> some View {
+    content
+      .onReceive(state) { output in
+        switch output {
+        case .loading(_):
+          print("loading")
+          
+        case .failure(let error):
+          print("error: \(error)")
+          
+        case .success(let value):
+          closureModel?(value)
+          
+        case .idle:
+          break
+        }
+      }
+  }
+}
+
+extension View {
+  func handleLoadingState<Model: PKMNModel>(state: Published<LoadingState<Model, PKMNError>>.Publisher, perform closureModel: @escaping (Model) -> Void) -> some View {
+    modifier(HandleLoadingState(state: state, closureModel: closureModel))
+  }
+}

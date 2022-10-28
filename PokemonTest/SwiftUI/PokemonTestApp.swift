@@ -12,7 +12,7 @@ import SwiftUI
 @main
 struct PokemonTestApp: App {
   /// The responsible to assemble and return the `View`s.
-  private let assembler = PKMNSwiftUIAssembler(container: PokemonManagerContext.container)
+  private let assembler = PKMNSwiftUIAssembler(container: PokemonContextManager.container)
   
   var body: some Scene {
     WindowGroup {

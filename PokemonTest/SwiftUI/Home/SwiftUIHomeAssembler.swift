@@ -29,11 +29,11 @@ public protocol PKMNSwiftUIHomeAssemblerInjector {
 
 public extension PKMNSwiftUIHomeAssembler {
   func resolve() -> PKMNSwiftUIHome {
-    return PKMNSwiftUIHome(viewModel: self.resolve(), assembler: mainAssembler)
+    PKMNSwiftUIHome(viewModel: self.resolve(), assembler: mainAssembler)
   }
 
   func resolve() -> PKMNHomeSwiftUIViewModel {
-    return PKMNHomeSwiftUIViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase)
+    PKMNHomeSwiftUIViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase)
   }
 }
 

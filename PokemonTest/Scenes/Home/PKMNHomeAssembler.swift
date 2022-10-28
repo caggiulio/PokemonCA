@@ -27,10 +27,10 @@ public protocol PKMNHomeAssemblerInjector {
 
 public extension PKMNHomeAssembler {
   func resolve() -> PKMNHomeViewController {
-    return PKMNHomeViewController(viewModel: self.resolve())
+    PKMNHomeViewController(viewModel: self.resolve())
   }
 
   func resolve() -> PKMNHomeViewModel {
-    return PKMNHomeViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase, asyncSearchPokemonByNameUseCase: container.asyncSearchPokemonByNameUseCase)
+    PKMNHomeViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase, asyncSearchPokemonByNameUseCase: container.asyncSearchPokemonByNameUseCase)
   }
 }

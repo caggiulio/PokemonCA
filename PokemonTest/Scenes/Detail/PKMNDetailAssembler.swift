@@ -29,10 +29,10 @@ public protocol PKMNDetailAssemblerInjector {
 
 public extension PKMNDetailAssembler {
   func resolve() -> PKMNDetailViewController {
-    return PKMNDetailViewController(viewModel: self.resolve())
+    PKMNDetailViewController(viewModel: self.resolve())
   }
 
   func resolve() -> PKMNDetailViewModel {
-    return PKMNDetailViewModel(asyncGetPokemonByIDUseCase: container.asyncGetPokemonByIDUseCase, id: id)
+    PKMNDetailViewModel(asyncGetPokemonByIDUseCase: container.asyncGetPokemonByIDUseCase, id: id)
   }
 }

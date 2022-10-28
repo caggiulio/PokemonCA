@@ -803,7 +803,6 @@
 			children = (
 				4DF9A304290C1BA1003AC168 /* View */,
 				4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */,
-				4DF9A2F0290AD23D003AC168 /* PKMNBaseSwiftUIView.swift */,
 				4DF9A301290C0074003AC168 /* ViewModifier */,
 			);
 			path = Common;
@@ -839,6 +838,7 @@
 		4DF9A304290C1BA1003AC168 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DF9A2F0290AD23D003AC168 /* PKMNBaseSwiftUIView.swift */,
 				4DF9A302290C1B9C003AC168 /* PKMNSwiftUILoader.swift */,
 			);
 			path = View;

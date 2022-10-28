@@ -24,10 +24,13 @@ public struct PKMNSwiftUIHome: View {
   
   public var body: some View {
     NavigationView {
-      List(model?.pokemonItems ?? []) { pokemon in
-        NavigationLink(destination: assembler.home) {
-          PKMNHomeCell(pokemon: pokemon)
+      ScrollView {
+        ForEach(model?.pokemonItems ?? []) { pokemon in
+          NavigationLink(destination: assembler.home) {
+            PKMNHomeCell(pokemon: pokemon)
+          }
         }
+        .padding(.all)
       }
     }
     .onAppear {

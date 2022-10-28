@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PokemonListItem: PKMNModel, Identifiable {
+public struct PokemonListItem: PKMNModel, Identifiable, Equatable {
   let pokemonListItemDataSource: PokemonListItemDataSource
 
   var name: String {
@@ -34,5 +34,11 @@ public struct PokemonListItem: PKMNModel, Identifiable {
   private func getID(pokemonListItemDataSource: PokemonListItemDataSource) -> String {
     let components = pokemonListItemDataSource.url.components(separatedBy: "/")
     return components[components.count - 2]
+  }
+}
+
+extension PokemonListItem {
+  public static func == (lhs: PokemonListItem, rhs: PokemonListItem) -> Bool {
+    lhs.id == rhs.id
   }
 }

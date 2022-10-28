@@ -16,17 +16,27 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
   /// The closure with the success `Model`.
   var closureModel: ((Model) -> Void)?
   
+  /// The `@State` `Bool` used to show the loader `View`.
+  @State private var isLoading: Bool = false
+  
   func body(content: Content) -> some View {
     content
+      .overlay{
+        if isLoading {
+          PKMNSwiftUILoader()
+        }
+      }
       .onReceive(state) { output in
         switch output {
         case .loading(_):
-          print("loading")
+          isLoading = true
           
         case .failure(let error):
+          isLoading = false
           print("error: \(error)")
           
         case .success(let value):
+          isLoading = false
           closureModel?(value)
           
         case .idle:

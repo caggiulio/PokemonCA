@@ -28,6 +28,7 @@ public struct PKMNSwiftUIHome: View {
     NavigationView {
       ScrollView {
         ForEach(model?.pokemonItems ?? []) { pokemon in
+          #warning("Substitute it with the detail")
           NavigationLink(destination: assembler.home) {
             PKMNHomeCell(pokemon: pokemon)
           }

@@ -9,7 +9,7 @@ import Combine
 import SwiftUI
 
 open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject {
-  private var cancellables = Set<AnyCancellable>()
+  // MARK: - Computed Properties
   
   /// The loading state with his related `Model`.
   @Published var loadingState: LoadingState<Model, PKMNError> = .idle
@@ -17,6 +17,9 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject {
   /// The last value of the `Model` if exist. This variable is assigned when a `LoadingState`
   /// become `.success`.
   var lastValueModel: Model?
+  
+  /// The cancellables set used for store `Combine` values.
+  private var cancellables = Set<AnyCancellable>()
   
   // MARK: - Init
   
@@ -30,6 +33,8 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject {
     }
     .store(in: &cancellables)    
   }
+  
+  // MARK: - Methods
     
   /// The func to process a `Task` that throw an error or a `Model`.
   /// If there is an error, the `loadingState` will be `failure` with a `PKMNError`.

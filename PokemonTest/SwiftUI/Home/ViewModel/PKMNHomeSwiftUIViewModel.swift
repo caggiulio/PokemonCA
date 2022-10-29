@@ -47,7 +47,7 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
         let list = try await getPokemonsListUseCase.execute(queryItems: queryItems)
         nextPage = list.next
         retrievedPokemons.append(contentsOf: list.pokemonItems)
-        return PKMNHomeModel(pokemonList: retrievedPokemons)
+        return PKMNHomeModel(pokemonList: retrievedPokemons, filteredPokemonList: [])
       })
     }
   }
@@ -67,8 +67,7 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
       try await processTask(function: {        
         let list = try await self.searchPokemonByNameUseCase.execute(name: name)
         nextPage = nil
-        retrievedPokemons = list
-        return PKMNHomeModel(pokemonList: retrievedPokemons)
+        return PKMNHomeModel(pokemonList: retrievedPokemons, filteredPokemonList: list)
       })
     }
   }

@@ -54,7 +54,7 @@ private extension PKMNSwiftUIHome {
   @MainActor
   func makeBody(model: PKMNHomeModel) -> some View {
     ScrollView {
-      ForEach(model.pokemonList) { pokemon in
+      ForEach(model.isFiltered ? model.filteredPokemonList : model.pokemonList) { pokemon in
         #warning("Substitute it with the detail")
         NavigationLink(destination: assembler.home) {
           PKMNHomeCell(pokemon: pokemon)

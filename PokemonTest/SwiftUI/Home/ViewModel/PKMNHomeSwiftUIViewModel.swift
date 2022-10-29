@@ -20,9 +20,6 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   
   /// In this variable it's stored the url for the next page.
   private var nextPage: String?
-  
-  /// In this variable are stored the retrieved `PokemonListItem`
-  private var retrievedPokemons: [PokemonListItem] = []
     
   // MARK: - Init
 
@@ -39,15 +36,13 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// - Parameter queryItems: the array of the `URLQueryItem` to pass to the API.
   @MainActor
   func loadHome(queryItems: [URLQueryItem]?) {
-    queryItems == nil ? retrievedPokemons.removeAll() : nil
     loadingState = .loading(true)
     
     Task {
       try await processTask(function: {
         let list = try await getPokemonsListUseCase.execute(queryItems: queryItems)
         nextPage = list.next
-        retrievedPokemons.append(contentsOf: list.pokemonItems)
-        return PKMNHomeModel(pokemonList: retrievedPokemons, filteredPokemonList: [])
+        return PKMNHomeModel(pokemonList: list.pokemonItems, filteredPokemonList: [])
       })
     }
   }

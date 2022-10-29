@@ -65,9 +65,9 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     
     Task {
       try await processTask(function: {        
-        let list = try await self.searchPokemonByNameUseCase.execute(name: name)
+        let filteredList = try await self.searchPokemonByNameUseCase.execute(name: name)
         nextPage = nil
-        return PKMNHomeModel(pokemonList: retrievedPokemons, filteredPokemonList: list)
+        return PKMNHomeModel(pokemonList: [], filteredPokemonList: filteredList)
       })
     }
   }

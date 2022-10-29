@@ -37,7 +37,10 @@ struct PKMNSwiftUIHome: View {
               PKMNHomeCell(pokemon: pokemon)
             }
           }
-          .padding(.all)
+          .padding(.horizontal)
+        }
+        .onReachTheEnd {
+          viewModel.getNextPage()
         }
         .navigationTitle(model.title)
       }

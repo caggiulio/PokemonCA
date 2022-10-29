@@ -15,6 +15,14 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   
   /// The use case used to search a Pokemon by a string.
   private let searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
+  
+  // MARK: - Computed Properties
+  
+  /// In this variable it's stored the url for the next page.
+  private var nextPage: String?
+  
+  /// In this variable are stored the retrieved `PokemonListItem`
+  private var retrievedPokemons: [PokemonListItem] = []
     
   // MARK: - Init
 
@@ -31,31 +39,50 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// - Parameter queryItems: the array of the `URLQueryItem` to pass to the API.
   @MainActor
   func loadHome(queryItems: [URLQueryItem]?) {
+    queryItems == nil ? retrievedPokemons.removeAll() : nil
     loadingState = .loading(true)
     
     Task {
       try await processTask(function: {
         let list = try await getPokemonsListUseCase.execute(queryItems: queryItems)
-        return PKMNHomeModel(pokemonList: list.pokemonItems)
+        nextPage = list.next
+        retrievedPokemons.append(contentsOf: list.pokemonItems)
+        return PKMNHomeModel(pokemonList: retrievedPokemons)
       })
     }
   }
   
   /// The method to trigger the `getPokemonsListUseCase`.
   /// - Parameter name: the `String` to filter the list.
+  @MainActor
   func searchByName(name: String) {
     loadingState = .loading(true)
     
+    guard !name.isEmpty else {
+      loadHome(queryItems: nil)
+      return
+    }
+    
     Task {
-      try await processTask(function: {
-        guard !name.isEmpty else {
-          let list = try await getPokemonsListUseCase.execute(queryItems: nil)
-          return PKMNHomeModel(pokemonList: list.pokemonItems)
-        }
-        
+      try await processTask(function: {        
         let list = try await self.searchPokemonByNameUseCase.execute(name: name)
-        return PKMNHomeModel(pokemonList: list)
+        nextPage = nil
+        retrievedPokemons = list
+        return PKMNHomeModel(pokemonList: retrievedPokemons)
       })
     }
+  }
+  
+  /// This is the func to load the next page and update the list.
+  @MainActor
+  func getNextPage() {
+    guard
+      let next = nextPage,
+      let nextUrl = URL(string: next),
+      let urlComponents = URLComponents(url: nextUrl, resolvingAgainstBaseURL: false),
+      let queryItems = urlComponents.queryItems
+    else { return }
+
+    loadHome(queryItems: queryItems)
   }
 }

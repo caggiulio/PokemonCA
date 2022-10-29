@@ -27,6 +27,8 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     self.searchPokemonByNameUseCase = searchPokemonByNameUseCase
   }
 
+  /// The method to trigger the `getPokemonsListUseCase`.
+  /// - Parameter queryItems: the array of the `URLQueryItem` to pass to the API.
   @MainActor
   func loadHome(queryItems: [URLQueryItem]?) {
     loadingState = .loading(true)
@@ -39,7 +41,8 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     }
   }
   
-  @MainActor
+  /// The method to trigger the `getPokemonsListUseCase`.
+  /// - Parameter name: the `String` to filter the list.
   func searchByName(name: String) {
     loadingState = .loading(true)
     

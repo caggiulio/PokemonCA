@@ -30,7 +30,7 @@ struct PKMNSwiftUIHome: View {
   var body: some View {
     NavigationView {
       if let model = model {
-        makedBody(model: model)
+        makeBody(model: model)
       }
     }
     .searchable(text: $searchString)
@@ -52,7 +52,7 @@ private extension PKMNSwiftUIHome {
   /// Builds the body of the `View` passing the model.
   /// - Parameter model: The `PKMNModel` handeld by the `View`.
   @MainActor
-  func makedBody(model: PKMNHomeModel) -> some View {
+  func makeBody(model: PKMNHomeModel) -> some View {
     ScrollView {
       ForEach(model.pokemonList) { pokemon in
         #warning("Substitute it with the detail")

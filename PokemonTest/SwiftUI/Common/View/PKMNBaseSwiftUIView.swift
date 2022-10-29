@@ -14,6 +14,11 @@ struct PKMNBaseSwiftUIView<Model: PKMNModel, Content>: View where Content: View 
   
   @State var model: Model?
   
+  init(@ViewBuilder _ content: () -> Content, viewModel: PKMNSwiftUIViewModel<Model>) {
+    self.content = content()
+    self.viewModel = viewModel
+  }
+  
   var body: some View {
     ZStack {
       content

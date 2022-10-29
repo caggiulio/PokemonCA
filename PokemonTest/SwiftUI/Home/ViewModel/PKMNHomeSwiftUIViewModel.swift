@@ -35,7 +35,7 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// The method to trigger the `getPokemonsListUseCase`.
   /// - Parameter queryItems: the array of the `URLQueryItem` to pass to the API.
   @MainActor
-  func loadHome(queryItems: [URLQueryItem]?) {    
+  func loadHome(queryItems: [URLQueryItem]?) {
     Task {
       try await processTask(function: {
         let list = try await getPokemonsListUseCase.execute(queryItems: queryItems)

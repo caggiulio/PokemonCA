@@ -30,19 +30,7 @@ struct PKMNSwiftUIHome: View {
   var body: some View {
     NavigationView {
       if let model = model {
-        ScrollView {
-          ForEach(model.pokemonList) { pokemon in
-            #warning("Substitute it with the detail")
-            NavigationLink(destination: assembler.home) {
-              PKMNHomeCell(pokemon: pokemon)
-            }
-          }
-          .padding(.horizontal)
-        }
-        .onReachTheEnd {
-          viewModel.getNextPage()
-        }
-        .navigationTitle(model.title)
+        makedBody(model: model)
       }
     }
     .searchable(text: $searchString)
@@ -55,5 +43,28 @@ struct PKMNSwiftUIHome: View {
     .handleLoadingState(state: viewModel.$loadingState) { model in
       self.model = model
     }
+  }
+}
+
+// MARK: - Private View
+
+private extension PKMNSwiftUIHome {
+  /// Builds the body of the `View` passing the model.
+  /// - Parameter model: The `PKMNModel` handeld by the `View`.
+  @MainActor
+  func makedBody(model: PKMNHomeModel) -> some View {
+    ScrollView {
+      ForEach(model.pokemonList) { pokemon in
+        #warning("Substitute it with the detail")
+        NavigationLink(destination: assembler.home) {
+          PKMNHomeCell(pokemon: pokemon)
+        }
+      }
+      .padding(.horizontal)
+    }
+    .onReachTheEnd {
+      viewModel.getNextPage()
+    }
+    .navigationTitle(model.title)
   }
 }

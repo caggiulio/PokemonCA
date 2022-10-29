@@ -33,7 +33,7 @@ public extension PKMNSwiftUIHomeAssembler {
   }
 
   func resolve() -> PKMNHomeSwiftUIViewModel {
-    PKMNHomeSwiftUIViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase)
+    PKMNHomeSwiftUIViewModel(getPokemonsListUseCase: container.asyncGetPokemonsListUseCase, searchPokemonByNameUseCase: container.asyncSearchPokemonByNameUseCase)
   }
 }
 

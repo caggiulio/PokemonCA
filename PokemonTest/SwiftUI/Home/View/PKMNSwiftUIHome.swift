@@ -14,10 +14,13 @@ public struct PKMNSwiftUIHome: View {
   /// The `PKMNSwiftUIViewModel` of the view.
   let viewModel: PKMNHomeSwiftUIViewModel
   
+  /// The searchable `String` to search the `Pokemon`.
+  @State var searchString = String()
+  
   // MARK: - Computed Properties
   
   /// The `PKMNModel` handeld by the `View`.
-  @State private var model: PokemonsList?
+  @State private var model: PKMNHomeModel?
   
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.
   var assembler: PKMNSwiftUIAssembler
@@ -26,16 +29,23 @@ public struct PKMNSwiftUIHome: View {
   
   public var body: some View {
     NavigationView {
-      ScrollView {
-        ForEach(model?.pokemonItems ?? []) { pokemon in
-          #warning("Substitute it with the detail")
-          NavigationLink(destination: assembler.home) {
-            PKMNHomeCell(pokemon: pokemon)
+      if let model = model {
+        ScrollView {
+          ForEach(model.pokemonList) { pokemon in
+            #warning("Substitute it with the detail")
+            NavigationLink(destination: assembler.home) {
+              PKMNHomeCell(pokemon: pokemon)
+            }
           }
+          .padding(.all)
         }
-        .padding(.all)
+        .navigationTitle(model.title)
       }
     }
+    .searchable(text: $searchString)
+    .onChange(of: searchString, perform: { newValue in
+      viewModel.searchByName(name: newValue)
+    })
     .onAppear {
       viewModel.loadHome(queryItems: nil)
     }

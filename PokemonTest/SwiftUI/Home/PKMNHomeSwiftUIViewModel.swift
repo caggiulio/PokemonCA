@@ -5,14 +5,26 @@
 //  Created by Nunzio Giulio Caggegi on 27/10/22.
 //
 
-import Foundation
+import SwiftUI
 
-public class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PokemonsList> {
+public class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
+  // MARK: - Stored Properties
+  
   /// The use case used to get the Pokemon's list.
-  private let asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  private let getPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  
+  /// The use case used to search a Pokemon by a string.
+  private let searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
+    
+  // MARK: - Init
 
-  public init(asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol) {
-    self.asyncGetPokemonsListUseCase = asyncGetPokemonsListUseCase
+  /// The init of the `PKMNSwiftUIViewModel`.
+  /// - Parameters
+  ///   - getPokemonsListUseCase: The use case to fetch the data list.
+  ///   - searchPokemonByNameUseCase: The use case used to search a Pokemon by a string.
+  public init(getPokemonsListUseCase: AsyncGetPokemonsListProtocol, searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
+    self.getPokemonsListUseCase = getPokemonsListUseCase
+    self.searchPokemonByNameUseCase = searchPokemonByNameUseCase
   }
 
   @MainActor
@@ -21,7 +33,25 @@ public class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PokemonsList> {
     
     Task {
       try await processTask(function: {
-        try await asyncGetPokemonsListUseCase.execute(queryItems: queryItems)
+        let list = try await getPokemonsListUseCase.execute(queryItems: queryItems)
+        return PKMNHomeModel(pokemonList: list.pokemonItems)
+      })
+    }
+  }
+  
+  @MainActor
+  public func searchByName(name: String) {
+    loadingState = .loading(true)
+    
+    Task {
+      try await processTask(function: {
+        guard !name.isEmpty else {
+          let list = try await getPokemonsListUseCase.execute(queryItems: nil)
+          return PKMNHomeModel(pokemonList: list.pokemonItems)
+        }
+        
+        let list = try await self.searchPokemonByNameUseCase.execute(name: name)
+        return PKMNHomeModel(pokemonList: list)
       })
     }
   }

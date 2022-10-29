@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public struct PKMNHomeCell: View {
+struct PKMNHomeCell: View {
   // MARK: - Stored Properties
   
   /// The `PokemonListItem` model handheld by the `View`.
   let pokemon: PokemonListItem
     
-  public var body: some View {
+  var body: some View {
     HStack {
       Spacer()
       

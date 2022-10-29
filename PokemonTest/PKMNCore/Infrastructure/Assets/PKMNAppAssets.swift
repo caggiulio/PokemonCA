@@ -8,30 +8,30 @@
 import Foundation
 import UIKit
 
-public typealias AssetAppImageTypeAlias = ImageAppAsset.ImageApp
+typealias AssetAppImageTypeAlias = ImageAppAsset.ImageApp
 
 // MARK: - AppAsset
 
-public enum AppAsset {
+enum AppAsset {
   // MARK: - Colors
 
-  public static let primary = ColorAppAsset(name: "Primary")
-  public static let secondary = ColorAppAsset(name: "Secondary")
-  public static let tertiary = ColorAppAsset(name: "Tertiary")
-  public static let background = ColorAppAsset(name: "Background")
+  static let primary = ColorAppAsset(name: "Primary")
+  static let secondary = ColorAppAsset(name: "Secondary")
+  static let tertiary = ColorAppAsset(name: "Tertiary")
+  static let background = ColorAppAsset(name: "Background")
 
   // MARK: - Images
 
-  public static let pokeball = ImageAppAsset(name: "pokeball")
+  static let pokeball = ImageAppAsset(name: "pokeball")
 }
 
 // MARK: - ColorAppAsset
 
-public final class ColorAppAsset {
-  public fileprivate(set) var name: String
-  public typealias ColorApp = UIColor
+final class ColorAppAsset {
+  fileprivate(set) var name: String
+  typealias ColorApp = UIColor
 
-  public private(set) lazy var color: ColorApp = {
+  private(set) lazy var color: ColorApp = {
     guard let color = ColorApp(asset: self) else {
       fatalError("Unable to load color asset named \(name).")
     }
@@ -43,7 +43,7 @@ public final class ColorAppAsset {
   }
 }
 
-public extension ColorAppAsset.ColorApp {
+extension ColorAppAsset.ColorApp {
   convenience init?(asset: ColorAppAsset) {
     let bundle = PKMNConstants.mainBundle()
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
@@ -52,11 +52,11 @@ public extension ColorAppAsset.ColorApp {
 
 // MARK: - ImageAppAsset
 
-public struct ImageAppAsset {
-  public fileprivate(set) var name: String
-  public typealias ImageApp = UIImage
+struct ImageAppAsset {
+  fileprivate(set) var name: String
+  typealias ImageApp = UIImage
 
-  public var image: ImageApp {
+  var image: ImageApp {
     let bundle = PKMNConstants.mainBundle()
     let image = ImageApp(named: name, in: bundle, compatibleWith: nil)
     guard let result = image else {
@@ -66,7 +66,7 @@ public struct ImageAppAsset {
   }
 }
 
-public extension ImageAppAsset.ImageApp {
+extension ImageAppAsset.ImageApp {
   convenience init?(asset: ImageAppAsset) {
     let bundle = PKMNConstants.mainBundle()
     self.init(named: asset.name, in: bundle, compatibleWith: nil)

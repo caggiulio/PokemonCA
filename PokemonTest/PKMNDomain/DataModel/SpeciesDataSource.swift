@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SpeciesDataSource: Decodable {
+struct SpeciesDataSource: Decodable {
   let name: String
   let url: String
 }

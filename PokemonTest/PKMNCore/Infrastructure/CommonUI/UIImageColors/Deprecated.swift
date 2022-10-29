@@ -10,7 +10,7 @@
   import UIKit
 
   @available(*, deprecated, renamed: "UIImage.Colors")
-  public typealias UIImageColors = UIImage.Colors
+  typealias UIImageColors = UIImage.Colors
 
 #endif
 
@@ -19,9 +19,9 @@
   import AppKit
 
   @available(*, deprecated, renamed: "NSImage.Colors")
-  public typealias UIImageColors = NSImage.Colors
+  typealias UIImageColors = NSImage.Colors
 
 #endif
 
 @available(*, deprecated, renamed: "ScaleQuality")
-public typealias UIImageColorsQuality = ScaleQuality
+typealias UIImageColorsQuality = ScaleQuality

@@ -8,9 +8,9 @@
 import Foundation
 
 /// The JSON manager.
-public struct JSONDataSourceManager {
-  public init() {}
+struct JSONDataSourceManager {
+  init() {}
 
   /// The datasource for JSON. It's a concrete instance of `JSONDataSourceProtocol`.
-  public let jsonDataSource: JSONDataSourceProtocol = JSONDataSourceWorker()
+  let jsonDataSource: JSONDataSourceProtocol = JSONDataSourceWorker()
 }

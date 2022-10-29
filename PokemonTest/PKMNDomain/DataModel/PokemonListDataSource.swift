@@ -6,7 +6,7 @@
 //
 import Foundation
 
-public struct PokemonListDataSource: Decodable {
+struct PokemonListDataSource: Decodable {
   let count: Int
   let next: String
   let results: [PokemonListItemDataSource]

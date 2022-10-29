@@ -8,16 +8,16 @@
 import Foundation
 
 /// The responsible to assemble and return the `View`s.
-public struct PKMNSwiftUIAssembler {
+struct PKMNSwiftUIAssembler {
   /// The container with all UseCases.
   var container: PKMNMainContainerProtocol
 
-  public init(container: PKMNMainContainerProtocol) {
+  init(container: PKMNMainContainerProtocol) {
     self.container = container
   }
   
   /// Return the `PKMNSwiftUIHome`.
-  public func home() -> PKMNSwiftUIHome {
+  func home() -> PKMNSwiftUIHome {
     PKMNSwiftUIHomeAssembler(container: container, mainAssembler: self).resolve()
   }
 }

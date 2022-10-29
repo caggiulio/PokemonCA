@@ -6,11 +6,11 @@
 //
 import Foundation
 
-public struct PokemonListItemDataSource: Decodable {
+struct PokemonListItemDataSource: Decodable {
   let name: String
   let url: String
 
-  public init(pokemon: Pokemon) {
+  init(pokemon: Pokemon) {
     name = pokemon.name
     url = PKMNConstants.baseURL + "pokemon/\(pokemon.id)/"
   }

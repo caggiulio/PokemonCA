@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AbilityDataSource: Decodable {
+struct AbilityDataSource: Decodable {
   let name: String
   let url: String
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AbilitiesDataSource: Decodable {
+struct AbilitiesDataSource: Decodable {
   let ability: AbilityDataSource
   let isHidden: Bool
   let slot: Int

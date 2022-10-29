@@ -26,7 +26,7 @@ class PKMNSingleAbilityView: PKMNView<Pokemon> {
     return label
   }()
 
-  override public func layoutSubviews() {
+  override func layoutSubviews() {
     super.layoutSubviews()
 
     pillContainerView.layer.cornerRadius = 10

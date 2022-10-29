@@ -10,19 +10,19 @@ import UIKit
 
 // MARK: - PKMNHomeViewControllerProtocol
 
-public protocol PKMNHomeViewControllerProtocol {
+protocol PKMNHomeViewControllerProtocol {
   func loadHome()
   func searchPokmemon(name: String)
 }
 
 // MARK: - PKMNHomeViewController
 
-public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKMNHomeViewModel>, PKMNHomeViewControllerProtocol {
+class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKMNHomeViewModel>, PKMNHomeViewControllerProtocol {
   // MARK: - Business logic properties
 
-  public weak var homeCoordinator: PKMNPokemonCoordinatorProtocol?
+  weak var homeCoordinator: PKMNPokemonCoordinatorProtocol?
   
-  override public func viewDidLoad() {
+  override func viewDidLoad() {
     super.viewDidLoad()
 
     title = PKMNString.homeTitle
@@ -33,11 +33,11 @@ public class PKMNHomeViewController: PKMNViewController<Empty, PKMNHomeView, PKM
   
   // MARK: - Methods
   
-  public func loadHome() {
+  func loadHome() {
     viewModel.loadHome(queryItems: nil)
   }
 
-  public func searchPokmemon(name: String) {
+  func searchPokmemon(name: String) {
     viewModel.searchPokemon(name: name)
   }
 

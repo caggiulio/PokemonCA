@@ -8,7 +8,7 @@
 import Anchorage
 import Foundation
 
-public extension PKMNViewController {
+extension PKMNViewController {
   /// Shows a toast with a `color`, a `text` and return an optional `completion`.
   /// - Parameters
   ///   - color: the `UIColor` of the background.

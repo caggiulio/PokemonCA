@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-public class PKMNMainCoordinator: Coordinator {
-  public var childrenCoordinators = [Coordinator]()
-  public var navigationController: UINavigationController
-  public var parentCoordinator: Coordinator?
+class PKMNMainCoordinator: Coordinator {
+  var childrenCoordinators = [Coordinator]()
+  var navigationController: UINavigationController
+  var parentCoordinator: Coordinator?
 
   // MARK: - Repositories container
 
   var container: PKMNMainContainerProtocol
   var pokemonCoordinator: PKMNPokemonCoordinatorProtocol
 
-  public init(navigationController: UINavigationController, mainContainer: PKMNMainContainerProtocol) {
+  init(navigationController: UINavigationController, mainContainer: PKMNMainContainerProtocol) {
     container = mainContainer
     self.navigationController = navigationController
 
@@ -30,7 +30,7 @@ public class PKMNMainCoordinator: Coordinator {
   // MARK: - Start
 
   /// The start of MainCoordinator. In this func there is the dirst view controller of app
-  public func start(context: Any?) {
+  func start(context: Any?) {
     pokemonCoordinator.start(context: context)
   }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - PKMNHomeViewModelProtocol
 
-public protocol PKMNHomeViewModelProtocol {
+protocol PKMNHomeViewModelProtocol {
   func loadHome(queryItems: [URLQueryItem]?)
   func searchPokemon(name: String)
   func getNextPage()
@@ -19,7 +19,7 @@ public protocol PKMNHomeViewModelProtocol {
 
 // MARK: - PKMNHomeViewModel
 
-public class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
+class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   /// The use case used to get the Pokemon's list.
   private let asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
   
@@ -35,12 +35,12 @@ public class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol 
   /// `DispatchWorkItem` used to search a pokemon
   private var searchTask: Task<(), Error>?
 
-  public init(asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol, asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
+  init(asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol, asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
     self.asyncGetPokemonsListUseCase = asyncGetPokemonsListUseCase
     self.asyncSearchPokemonByNameUseCase = asyncSearchPokemonByNameUseCase
   }
 
-  public func loadHome(queryItems: [URLQueryItem]?) {
+  func loadHome(queryItems: [URLQueryItem]?) {
     loadingState = .loading(queryItems == nil)
     queryItems == nil ? retrievedPokemons.removeAll() : nil
     
@@ -56,7 +56,7 @@ public class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol 
     }
   }
 
-  public func getNextPage() {
+  func getNextPage() {
     /// If `searchTask != nil` a search is in progress.
     guard searchTask == nil else { return }
     guard
@@ -69,15 +69,15 @@ public class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol 
     loadHome(queryItems: queryItems)
   }
 
-  public func retrievedPokemon() -> [PokemonListItem] {
+  func retrievedPokemon() -> [PokemonListItem] {
     return retrievedPokemons
   }
 
-  public func pokemon(_ indexPath: IndexPath) -> PokemonListItem? {
+  func pokemon(_ indexPath: IndexPath) -> PokemonListItem? {
     return retrievedPokemons[indexPath.item]
   }
 
-  public func searchPokemon(name: String) {
+  func searchPokemon(name: String) {
     searchTask?.cancel()
     searchTask = nil
     /// If text is empty, we must to reload the lists

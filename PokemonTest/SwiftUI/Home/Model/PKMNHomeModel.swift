@@ -8,7 +8,7 @@
 import Foundation
 
 /// This is the model used to fill the home.
-public struct PKMNHomeModel: PKMNModel {
+struct PKMNHomeModel: PKMNModel {
   /// The title of the view.
   let title = PKMNString.homeTitle
   

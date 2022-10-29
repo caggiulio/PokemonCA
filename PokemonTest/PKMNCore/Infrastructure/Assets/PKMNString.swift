@@ -9,19 +9,19 @@ import Foundation
 
 // MARK: - PKMNString
 
-public struct PKMNString {
-  public static let standardError = PKMNString.tr("Localizable", "standard_error")
-  public static let standardSearch = PKMNString.tr("Localizable", "standard_search")
-  public static let resourceNotFound = PKMNString.tr("Localizable", "resource_not_found")
-  public static let homeTitle = PKMNString.tr("Localizable", "home_title")
+struct PKMNString {
+  static let standardError = PKMNString.tr("Localizable", "standard_error")
+  static let standardSearch = PKMNString.tr("Localizable", "standard_search")
+  static let resourceNotFound = PKMNString.tr("Localizable", "resource_not_found")
+  static let homeTitle = PKMNString.tr("Localizable", "home_title")
 }
 
 extension PKMNString {
-  public struct AppIntents {
-    public static let title = PKMNString.tr("Localizable", "appIntents.open.title")
-    public static let description = PKMNString.tr("Localizable", "appIntents.open.description")
-    public static let pokemonParamaterDescription = PKMNString.tr("Localizable", "appIntents.open.pokemonParameterDescription")
-    public static let dialog = PKMNString.tr("Localizable", "appIntents.open.dialog")
+  struct AppIntents {
+    static let title = PKMNString.tr("Localizable", "appIntents.open.title")
+    static let description = PKMNString.tr("Localizable", "appIntents.open.description")
+    static let pokemonParamaterDescription = PKMNString.tr("Localizable", "appIntents.open.pokemonParameterDescription")
+    static let dialog = PKMNString.tr("Localizable", "appIntents.open.dialog")
   }
 }
 

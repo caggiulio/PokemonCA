@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - PKMNLoader
 
-public class PKMNLoader: UIView {
+class PKMNLoader: UIView {
   private let backgroundView: UIView = {
     var view = UIView()
     view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
@@ -26,7 +26,7 @@ public class PKMNLoader: UIView {
     return imageView
   }()
 
-  override public init(frame: CGRect) {
+  override init(frame: CGRect) {
     super.init(frame: frame)
 
     configureUI()

@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - PKMNHomeAssembler
 
-public struct PKMNSwiftUIHomeAssembler: PKMNSwiftUIHomeAssemblerInjector {
+struct PKMNSwiftUIHomeAssembler: PKMNSwiftUIHomeAssemblerInjector {
   var container: PKMNMainContainerProtocol
   var mainAssembler: PKMNSwiftUIAssembler
 
-  public init(container: PKMNMainContainerProtocol, mainAssembler: PKMNSwiftUIAssembler) {
+  init(container: PKMNMainContainerProtocol, mainAssembler: PKMNSwiftUIAssembler) {
     self.container = container
     self.mainAssembler = mainAssembler
   }
@@ -21,13 +21,13 @@ public struct PKMNSwiftUIHomeAssembler: PKMNSwiftUIHomeAssemblerInjector {
 
 // MARK: - PKMNHomeAssemblerInjector
 
-public protocol PKMNSwiftUIHomeAssemblerInjector {
+protocol PKMNSwiftUIHomeAssemblerInjector {
   func resolve() -> PKMNSwiftUIHome
 
   func resolve() -> PKMNHomeSwiftUIViewModel
 }
 
-public extension PKMNSwiftUIHomeAssembler {
+extension PKMNSwiftUIHomeAssembler {
   func resolve() -> PKMNSwiftUIHome {
     PKMNSwiftUIHome(viewModel: self.resolve(), assembler: mainAssembler)
   }

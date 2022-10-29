@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct PokemonsList: PKMNModel {
+struct PokemonsList: PKMNModel {
   let count: Int
   let next: String
   let pokemonItems: [PokemonListItem]
 
-  public init(pokemonsListDataSource: PokemonListDataSource) {
+  init(pokemonsListDataSource: PokemonListDataSource) {
     count = pokemonsListDataSource.count
     next = pokemonsListDataSource.next
     pokemonItems = pokemonsListDataSource.results.map { _pokemonListItemsDataSource in

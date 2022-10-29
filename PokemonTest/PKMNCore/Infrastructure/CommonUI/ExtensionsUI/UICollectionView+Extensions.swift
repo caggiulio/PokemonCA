@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public extension UICollectionView {
+extension UICollectionView {
   func register(_ type: AnyClass) {
     register(type.self, forCellWithReuseIdentifier: type.description())
   }

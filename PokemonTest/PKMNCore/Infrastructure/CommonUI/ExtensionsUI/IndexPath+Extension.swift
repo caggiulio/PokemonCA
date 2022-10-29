@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public extension IndexPath {
+extension IndexPath {
   func isLastRow(at collectionView: UICollectionView) -> Bool {
     return row == (collectionView.numberOfItems(inSection: section) - 1)
   }

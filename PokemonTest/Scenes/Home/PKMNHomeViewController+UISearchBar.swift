@@ -28,11 +28,11 @@ extension PKMNHomeViewController: UISearchBarDelegate {
     searchController.searchBar.searchTextField.font = PKMNThemeManager.currentTheme().primaryFont.font(size: 15)
   }
 
-  public func searchBar(_: UISearchBar, textDidChange searchText: String) {
+  func searchBar(_: UISearchBar, textDidChange searchText: String) {
     searchPokmemon(name: searchText)
   }
 
-  public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     searchBar.resignFirstResponder()
   }
 }

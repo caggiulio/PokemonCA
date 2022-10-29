@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension PKMNViewController {
+extension PKMNViewController {
   /// Executes some default method and return the closure.
   private func handlePKMNState<Value: Any, PKMNError>(state: LoadingState<Value, PKMNError>, success: ((Value) -> Void)? = nil, failure: ((PKMNError) -> Void)? = { _ in }, throwBaseError: Bool = true) {
     switch state {

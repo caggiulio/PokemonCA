@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SpritesDataSource: Decodable {
+struct SpritesDataSource: Decodable {
   let officialArtwork: OfficialArtworkDataSource
 
   private enum RootKeys: String, CodingKey {
@@ -18,7 +18,7 @@ public struct SpritesDataSource: Decodable {
     case officialArtwork = "official-artwork"
   }
 
-  public init(from decoder: Decoder) throws {
+  init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: RootKeys.self)
     let container = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .other)
     officialArtwork = try container.decode(OfficialArtworkDataSource.self, forKey: .officialArtwork)

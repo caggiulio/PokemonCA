@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 /// This will let you use a theme in the app.
-public enum PKMNThemeManager {
-  public static var customTheme: PKMNTheme!
+enum PKMNThemeManager {
+  static var customTheme: PKMNTheme!
 
   /// ThemeManager
-  public static func currentTheme() -> PKMNTheme {
+  static func currentTheme() -> PKMNTheme {
     return customTheme
   }
 
-  public static func applyTheme(theme: PKMNTheme) {
+  static func applyTheme(theme: PKMNTheme) {
     PKMNThemeManager.customTheme = theme
     /// You get your current (selected) theme and apply the main color to the tintColor property of your application’s window.
     let sharedApplication = UIApplication.shared

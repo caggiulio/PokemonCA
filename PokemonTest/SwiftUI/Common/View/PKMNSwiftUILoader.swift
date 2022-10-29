@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// The `View` for the home.
-public struct PKMNSwiftUILoader: View {
+struct PKMNSwiftUILoader: View {
   
   // MARK: - Stored Properties
   
@@ -25,7 +25,7 @@ public struct PKMNSwiftUILoader: View {
   
   // MARK: - View
   
-  public var body: some View {
+  var body: some View {
     ZStack {
       Image(uiImage: AppAsset.pokeball.image)
         .resizable()

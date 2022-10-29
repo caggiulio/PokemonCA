@@ -7,43 +7,43 @@
 
 import UIKit
 
-public class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewModel: PKMNViewModel<Model>> : UIViewController {
+class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewModel: PKMNViewModel<Model>> : UIViewController {
   
   /// This is the error handler that handle ONLY the `PKMNError`
-  public var errorHandler: ErrorHandleable?
+  var errorHandler: ErrorHandleable?
   
   /// The `PKMNView` of the controller.
-  public var rootView: View {
+  var rootView: View {
     guard let view = view as? View else { preconditionFailure("Unable to cast view to \(View.self)") }
     return view
   }
   
   /// The `PKMNViewModel` of the controller.
-  public let viewModel: ViewModel
+  let viewModel: ViewModel
   
   // MARK: - Object Lyfecycle
   
   /// Load the custom related `PKMNView`.
-  override public func loadView() {
+  override func loadView() {
     view = View()
   }
   
   // MARK: - Init
   
   /// The init of the controller.
-  public init(viewModel: ViewModel) {
+  init(viewModel: ViewModel) {
     self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
   
   @available(*, unavailable)
-  public required init?(coder _: NSCoder) {
+  required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
   // MARK: - Object Lyfecycle
   
-  override public func viewDidLoad() {
+  override func viewDidLoad() {
     super.viewDidLoad()
 
     configureBinds()

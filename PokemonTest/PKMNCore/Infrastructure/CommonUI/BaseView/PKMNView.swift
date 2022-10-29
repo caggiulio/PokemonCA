@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-public class PKMNView<Model: PKMNModel>: UIView {
+class PKMNView<Model: PKMNModel>: UIView {
   
   // MARK: - Computed Properties
   

@@ -10,7 +10,7 @@ import AloyNetworking
 
 // MARK: - PKMNNetworkingDataSourceWorker
 
-public class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
+class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
   
   // MARK: - Protocol properties
 
@@ -20,14 +20,14 @@ public class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
   
   /// The `init` with a `AloyNetworkingProtocol`.
   /// - Parameter networking: The `AloyNetworkingProtocol`.
-  public init(networking: AloyNetworkingProtocol) {
+  init(networking: AloyNetworkingProtocol) {
     self.networking = networking
   }
   
   // MARK: - Async methods
   
   /// Get and transform the `PokemonDataSource` retrieved from the network in the `Pokemon` return object.
-  public func getPokemon(id: String) async throws -> Pokemon {
+  func getPokemon(id: String) async throws -> Pokemon {
     let response = try await sendResponse {
       try await getPokemonDataSource(id: id)
     }
@@ -41,7 +41,7 @@ public class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
   }
   
   /// Get and transform the `PokemonListDataSource` retrieved from the network in the `PokemonsList` return object.
-  public func asyncGetPokemonsList(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
+  func asyncGetPokemonsList(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
     let response = try await sendResponse {
       try await asyncGetPokemonsListDataSource(queryItems: queryItems)
     }

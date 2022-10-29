@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
+class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   // MARK: - Stored Properties
   
   /// The use case used to get the Pokemon's list.
@@ -22,13 +22,13 @@ public class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// - Parameters
   ///   - getPokemonsListUseCase: The use case to fetch the data list.
   ///   - searchPokemonByNameUseCase: The use case used to search a Pokemon by a string.
-  public init(getPokemonsListUseCase: AsyncGetPokemonsListProtocol, searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
+  init(getPokemonsListUseCase: AsyncGetPokemonsListProtocol, searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
     self.getPokemonsListUseCase = getPokemonsListUseCase
     self.searchPokemonByNameUseCase = searchPokemonByNameUseCase
   }
 
   @MainActor
-  public func loadHome(queryItems: [URLQueryItem]?) {
+  func loadHome(queryItems: [URLQueryItem]?) {
     loadingState = .loading(true)
     
     Task {
@@ -40,7 +40,7 @@ public class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   }
   
   @MainActor
-  public func searchByName(name: String) {
+  func searchByName(name: String) {
     loadingState = .loading(true)
     
     Task {

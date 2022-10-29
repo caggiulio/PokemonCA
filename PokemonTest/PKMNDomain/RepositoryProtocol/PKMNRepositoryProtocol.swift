@@ -8,7 +8,7 @@
 import Foundation
 
 /// The protocols to defines the methods needed to store and retrieve `Pokemon` and `PokemonListItem`s from the repository.
-public protocol PKMNRepositoryProtocol {
+protocol PKMNRepositoryProtocol {
   
   // MARK: - Mocked
   

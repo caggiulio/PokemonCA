@@ -8,13 +8,13 @@
 import SwiftUI
 
 #warning("This View is experimental")
-public struct PKMNBaseSwiftUIView<Model: PKMNModel, Content>: View where Content: View {
+struct PKMNBaseSwiftUIView<Model: PKMNModel, Content>: View where Content: View {
   let content: Content
   let viewModel: PKMNSwiftUIViewModel<Model>
   
   @State var model: Model?
   
-  public var body: some View {
+  var body: some View {
     ZStack {
       content
     }

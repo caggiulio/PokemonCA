@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// The `View` for the home.
-public struct PKMNSwiftUIHome: View {
+struct PKMNSwiftUIHome: View {
   // MARK: - Stored Properties
   
   /// The `PKMNSwiftUIViewModel` of the view.
@@ -27,7 +27,7 @@ public struct PKMNSwiftUIHome: View {
   
   // MARK: - View
   
-  public var body: some View {
+  var body: some View {
     NavigationView {
       if let model = model {
         ScrollView {

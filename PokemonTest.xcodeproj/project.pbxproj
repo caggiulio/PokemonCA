@@ -813,10 +813,10 @@
 		4DF9A2FB290BE084003AC168 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4DF9A307290D0301003AC168 /* PKMNHomeModel.swift */,
-				4DF9A2FC290BE09D003AC168 /* SwiftUIHomeAssembler.swift */,
+				4DF9A30B290D17A1003AC168 /* Assembler */,
+				4DF9A30A290D1797003AC168 /* Model */,
 				4DF9A300290BE8B6003AC168 /* View */,
-				4DF9A2F2290AD280003AC168 /* PKMNHomeSwiftUIViewModel.swift */,
+				4DF9A309290D1791003AC168 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -845,6 +845,30 @@
 				4DF9A302290C1B9C003AC168 /* PKMNSwiftUILoader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4DF9A309290D1791003AC168 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4DF9A2F2290AD280003AC168 /* PKMNHomeSwiftUIViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4DF9A30A290D1797003AC168 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DF9A307290D0301003AC168 /* PKMNHomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DF9A30B290D17A1003AC168 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				4DF9A2FC290BE09D003AC168 /* SwiftUIHomeAssembler.swift */,
+			);
+			path = Assembler;
 			sourceTree = "<group>";
 		};
 		99A6F13E46D2B37397DC0456 /* Frameworks */ = {

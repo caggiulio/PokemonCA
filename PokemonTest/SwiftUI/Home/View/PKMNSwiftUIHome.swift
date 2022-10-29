@@ -15,7 +15,7 @@ struct PKMNSwiftUIHome: View {
   let viewModel: PKMNHomeSwiftUIViewModel
   
   /// The searchable `String` to search the `Pokemon`.
-  @State var searchString = String()
+  @State private var searchString = String()
   
   // MARK: - Computed Properties
   

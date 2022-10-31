@@ -29,7 +29,7 @@ struct AbilityView: View {
           .animation(.easeInOut(duration: 1), value: progress)
           .progressViewStyle(.linear)
           .tint(Color(uiColor: AppAsset.primary.color))
-          .scaleEffect(x: 1, y: 2, anchor: .center)
+          .scaleEffect(x: 1, y: 1.75, anchor: .center)
       }
     }
     .padding()

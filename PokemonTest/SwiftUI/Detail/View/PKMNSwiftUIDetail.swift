@@ -24,8 +24,8 @@ struct PKMNSwiftUIDetail: View {
     var body: some View {
       VStack {
         if let model = model {
-          header(model: model)
-          list(model: model)
+          header(pokemon: model.pokemon)
+          list(abilities: model.abilities)
         }
       }
       .frame(maxWidth: .infinity)
@@ -43,10 +43,10 @@ struct PKMNSwiftUIDetail: View {
 
 private extension PKMNSwiftUIDetail {
   /// This func builds the header of the `View`.
-  /// - Parameter model: the `PKMNModel` handeld by the `View`.
-  func header(model: PKMNDetailModel) -> some View {
+  /// - Parameter pokemon: the `Pokemon` handeld by the `View`.
+  func header(pokemon: Pokemon) -> some View {
     VStack {
-      Text(model.pokemon.name.capitalized)
+      Text(pokemon.name.capitalized)
         .fontWeight(.bold)
         .font(.title)
         .foregroundColor(Color(uiColor: AppAsset.background.color))
@@ -56,7 +56,7 @@ private extension PKMNSwiftUIDetail {
           .frame(width: 250, height: 250)
           .foregroundColor(Color(uiColor: AppAsset.tertiary.color))
         
-        AsyncImage(url: URL(string: model.pokemon.frontImage.stringURL)) { phase in
+        AsyncImage(url: URL(string: pokemon.frontImage.stringURL)) { phase in
           switch phase {
           case .success(let image):
             image
@@ -73,11 +73,11 @@ private extension PKMNSwiftUIDetail {
   }
   
   /// This func builds the list of the abilities for the `View`.
-  /// - Parameter model: the `PKMNModel` handeld by the `View`.
-  func list(model: PKMNDetailModel) -> some View {
+  /// - Parameter abilities: the list of `AbilityModel`.
+  func list(abilities: [AbilityModel]) -> some View {
     VStack {
       ScrollView {
-        ForEach(model.abilities) { ability in
+        ForEach(abilities) { ability in
           AbilityView(model: ability)
         }
       }

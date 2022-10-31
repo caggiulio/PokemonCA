@@ -17,27 +17,25 @@ class PokemonTests: XCTestCase {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
 
-  func testParsePokemonModel() {
+  func testParsePokemonModel() async throws {
     let mainContainer = PKMNMainContainer()
 
-    mainContainer.getMockedPokemonUseCase.execute { result in
-      guard case .success = result else {
-        XCTAssertTrue(false)
-        return
-      }
+    do {
+      let _ = try await mainContainer.getMockedPokemonUseCase.execute()
       XCTAssertTrue(true)
+    } catch {
+      XCTAssertTrue(false)
     }
   }
 
-  func testParsePokemonsListModel() {
+  func testParsePokemonsListModel() async throws {
     let mainContainer = PKMNMainContainer()
 
-    mainContainer.getMockedPokemonsListUseCase.execute { result in
-      guard case .success = result else {
-        XCTAssertTrue(false)
-        return
-      }
+    do {
+      let _ = try await mainContainer.getMockedPokemonsListUseCase.execute()
       XCTAssertTrue(true)
+    } catch {
+      XCTAssertTrue(false)
     }
   }
 }

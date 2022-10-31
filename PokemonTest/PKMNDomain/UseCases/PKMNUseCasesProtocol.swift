@@ -11,12 +11,12 @@ import Foundation
 
 /// Get mocked info Pokemon.
 protocol GetMockedPokemonProtocol {
-  func execute(completion: @escaping (Result<Pokemon, PKMNError>) -> Void)
+  func execute() async throws -> Pokemon
 }
 
 /// Get mocked info PokemonList.
 protocol GetMockedPokemonsListProtocol {
-  func execute(completion: @escaping (Result<PokemonsList, PKMNError>) -> Void)
+  func execute() async throws -> PokemonsList
 }
 
 

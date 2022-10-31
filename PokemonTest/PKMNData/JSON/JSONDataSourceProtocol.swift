@@ -9,6 +9,6 @@ import Foundation
 
 /// The protocol to defines the methods to make mock calls.
 protocol JSONDataSourceProtocol {
-  func getPokemon(completion: (Result<Pokemon, PKMNError>) -> Void)
-  func pokemonsList(completion: (Result<PokemonsList, PKMNError>) -> Void)
+  func getPokemon() async throws -> Pokemon
+  func pokemonsList() async throws -> PokemonsList
 }

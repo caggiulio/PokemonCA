@@ -20,4 +20,9 @@ struct PKMNSwiftUIAssembler {
   func home() -> PKMNSwiftUIHome {
     PKMNSwiftUIHomeAssembler(container: container, mainAssembler: self).resolve()
   }
+  
+  /// Return the `PKMNSwiftUIDetail`.
+  func detail(id: String) -> PKMNSwiftUIDetail {
+    PKMNSwiftUIDetailAssembler(container: container, mainAssembler: self, id: id).resolve()
+  }
 }

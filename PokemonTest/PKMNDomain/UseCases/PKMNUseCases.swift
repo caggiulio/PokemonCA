@@ -21,10 +21,8 @@ enum PKMNUseCases {
       self.pokemonRepository = pokemonRepository
     }
 
-    func execute(completion: @escaping (Result<Pokemon, PKMNError>) -> Void) {
-      pokemonRepository.getMockedPokemon { result in
-        completion(result)
-      }
+    func execute() async throws -> Pokemon {
+      try await pokemonRepository.getMockedPokemon()
     }
   }
 
@@ -36,10 +34,8 @@ enum PKMNUseCases {
       self.pokemonRepository = pokemonRepository
     }
 
-    func execute(completion: @escaping (Result<PokemonsList, PKMNError>) -> Void) {
-      pokemonRepository.getMockedPokemonsList { result in
-        completion(result)
-      }
+    func execute() async throws -> PokemonsList {
+      try await pokemonRepository.getMockedPokemonsList()
     }
   }
   

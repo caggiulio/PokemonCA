@@ -35,17 +35,13 @@ class PKMNRepository: PKMNRepositoryProtocol {
   // MARK: - Mock
 
   /// Get info about a mocked `Pokemon`
-  func getMockedPokemon(completion: @escaping (Result<Pokemon, PKMNError>) -> Void) {
-    jsonWorker.getPokemon { result in
-      completion(result)
-    }
+  func getMockedPokemon() async throws -> Pokemon {
+    try await jsonWorker.getPokemon()
   }
 
   /// Get info about a mocked `PokemonList`
-  func getMockedPokemonsList(completion: @escaping (Result<PokemonsList, PKMNError>) -> Void) {
-    jsonWorker.pokemonsList { result in
-      completion(result)
-    }
+  func getMockedPokemonsList() async throws -> PokemonsList {
+    try await jsonWorker.pokemonsList()
   }
   
   // MARK: - Async

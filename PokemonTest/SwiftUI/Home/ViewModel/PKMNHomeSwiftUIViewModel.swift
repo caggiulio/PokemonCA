@@ -27,7 +27,7 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   // MARK: - Init
 
   /// The init of the `PKMNSwiftUIViewModel`.
-  /// - Parameters
+  /// - Parameters:
   ///   - getPokemonsListUseCase: The use case to fetch the data list.
   ///   - searchPokemonByNameUseCase: The use case used to search a Pokemon by a string.
   init(getPokemonsListUseCase: AsyncGetPokemonsListProtocol, searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {

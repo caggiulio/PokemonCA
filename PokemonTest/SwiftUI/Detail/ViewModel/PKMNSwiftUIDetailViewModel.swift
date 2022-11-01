@@ -22,7 +22,7 @@ class PKMNSwiftUIDetailViewModel: PKMNSwiftUIViewModel<PKMNDetailModel> {
   // MARK: - Init
 
   /// The init of the `PKMNSwiftUIDetailViewModel`.
-  /// - Parameters
+  /// - Parameters:
   ///   - getPokemonDetailUseCase: The use case to get the information about the `Pokemon`.
   ///   - id: The `id` of the `Pokemon` selected.
   init(getPokemonDetailUseCase: AsyncGetPokemonByIDProtocol, id: String) {

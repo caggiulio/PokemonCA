@@ -19,30 +19,26 @@ struct PKMNSwiftUIHome: View {
   
   // MARK: - Computed Properties
   
-  /// The `PKMNModel` handeld by the `View`.
-  @State private var model: PKMNHomeModel?
-  
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.
   var assembler: PKMNSwiftUIAssembler
   
   // MARK: - View
   
   var body: some View {
-    NavigationView {
-      if let model = model {
-        makeBody(model: model)
+    PKMNBaseSwiftUIView({
+      NavigationView {
+        if let model = viewModel.lastValueModel {
+          makeBody(model: model)
+        }
       }
-    }
-    .searchable(text: $searchString)
-    .onChange(of: searchString, perform: { newValue in
-      viewModel.searchByName(name: newValue)
-    })
-    .onAppear {
-      viewModel.loadHome(queryItems: nil)
-    }
-    .handleLoadingState(state: viewModel.$loadingState) { model in
-      self.model = model
-    }
+      .searchable(text: $searchString)
+      .onChange(of: searchString, perform: { newValue in
+        viewModel.searchByName(name: newValue)
+      })
+      .onAppear {
+        viewModel.loadHome(queryItems: nil)
+      }
+    }, viewModel: viewModel)
   }
 }
 

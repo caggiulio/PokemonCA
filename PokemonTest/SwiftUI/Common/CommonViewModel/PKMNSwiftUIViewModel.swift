@@ -16,7 +16,7 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject {
   
   /// The last value of the `Model` if exist. This variable is assigned when a `LoadingState`
   /// become `.success`.
-  var lastValueModel: Model?
+  @Published var lastValueModel: Model?
   
   /// The cancellables set used for store `Combine` values.
   private var cancellables = Set<AnyCancellable>()

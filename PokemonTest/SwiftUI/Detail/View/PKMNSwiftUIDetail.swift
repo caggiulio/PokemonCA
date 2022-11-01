@@ -14,28 +14,22 @@ struct PKMNSwiftUIDetail: View {
   /// The `PKMNSwiftUIViewModel` of the view.
   @StateObject var viewModel: PKMNSwiftUIDetailViewModel
   
-  // MARK: - Computed Properties
-  
-  /// The `PKMNModel` handeld by the `View`.
-  @State private var model: PKMNDetailModel?
-  
   // MARK: - View
   
     var body: some View {
-      VStack {
-        if let model = model {
-          PKMNDetailHeader(pokemon: model.pokemon)
-          PKMNDetailAbilitiesList(abilities: model.abilities)
+      PKMNBaseSwiftUIView({
+        VStack {
+          if let model = viewModel.lastValueModel {
+            PKMNDetailHeader(pokemon: model.pokemon)
+            PKMNDetailAbilitiesList(abilities: model.abilities)
+          }
         }
-      }
-      .frame(maxWidth: .infinity)
-      .background(Color(uiColor: AppAsset.primary.color))
-      .onAppear {
-        viewModel.getPokemonDetails()
-      }
-      .handleLoadingState(state: viewModel.$loadingState) { model in
-        self.model = model
-      }
+        .frame(maxWidth: .infinity)
+        .background(Color(uiColor: AppAsset.primary.color))
+        .onAppear {
+          viewModel.getPokemonDetails()
+        }
+      }, viewModel: viewModel)
     }
 }
 

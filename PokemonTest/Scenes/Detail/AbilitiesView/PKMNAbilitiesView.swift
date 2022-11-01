@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-class PKMNAbilitiesView: PKMNView<Pokemon> {
+class PKMNAbilitiesView: PKMNView<AbilitiesArray> {
   private var mainScrollViewContainer: UIScrollView = {
     var scrollView = UIScrollView()
 
@@ -36,12 +36,12 @@ class PKMNAbilitiesView: PKMNView<Pokemon> {
     mainStackViewContainer.widthAnchor /==/ mainScrollViewContainer.widthAnchor
   }
 
-  func configure(abilities: [Ability]) {
-    abilities.forEach { ability in
+  override func update(model: AbilitiesArray?) {
+    model?.array?.forEach { ability in
       let abilityView = PKMNSingleAbilityView()
       abilityView.heightAnchor /==/ 30
       mainStackViewContainer.addArrangedSubview(abilityView)
-      abilityView.configure(ability: ability)
+      abilityView.model = ability
     }
   }
 }

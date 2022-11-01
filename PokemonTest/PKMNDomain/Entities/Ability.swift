@@ -14,3 +14,7 @@ public struct Ability: PKMNModel {
     name = abilityDataSource.name
   }
 }
+
+struct AbilitiesArray: PKMNModel {
+  let array: [Ability]?
+}

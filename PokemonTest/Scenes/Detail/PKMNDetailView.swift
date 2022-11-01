@@ -98,7 +98,7 @@ public class PKMNDetailView: PKMNView<Pokemon> {
     if let pokemon = model {
       nameLabel.text = pokemon.name.capitalized
       statsView.model = StatArray(array: model?.stats)
-      abilitiesView.configure(abilities: pokemon.abilities)
+      abilitiesView.model = AbilitiesArray(array: model?.abilities)
       pokemonImage.download(from: pokemon.frontImage.stringURL, contentMode: .scaleAspectFill, fillBackgroundWithView: self) { colors in
         self.statsView.configureColors(colors: colors)
       }

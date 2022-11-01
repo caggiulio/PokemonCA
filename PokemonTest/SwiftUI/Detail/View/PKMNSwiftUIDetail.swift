@@ -12,7 +12,7 @@ struct PKMNSwiftUIDetail: View {
   // MARK: - Stored Properties
   
   /// The `PKMNSwiftUIViewModel` of the view.
-  let viewModel: PKMNSwiftUIDetailViewModel
+  @StateObject var viewModel: PKMNSwiftUIDetailViewModel
   
   // MARK: - Computed Properties
   

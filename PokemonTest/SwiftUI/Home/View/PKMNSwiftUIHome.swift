@@ -81,7 +81,6 @@ private extension PKMNSwiftUIHome {
           NavigationLink(destination: assembler.detail(id: pokemon.id)) {
             PKMNHomeCell(pokemon: pokemon)
           }
-          .isDetailLink(true)
         }
         .padding(.horizontal)
       }

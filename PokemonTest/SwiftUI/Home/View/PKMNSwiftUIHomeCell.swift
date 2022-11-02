@@ -55,7 +55,7 @@ struct PKMNHomeCell: View {
 }
 
 /// The background `View` for the view.
-struct PKMNHomeCellBackground: View {
+private struct PKMNHomeCellBackground: View {
   var body: some View {
     ZStack {
       LinearGradient(

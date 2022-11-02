@@ -13,6 +13,7 @@
 		4D15A23329030AC4009E5314 /* PKMNUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15A23229030AC4009E5314 /* PKMNUseCasesProtocol.swift */; };
 		4D15A26F29054761009E5314 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15A26E29054761009E5314 /* Interaction.swift */; };
 		4D15A27129054873009E5314 /* PKMNHomeViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15A27029054873009E5314 /* PKMNHomeViewController+UICollectionView.swift */; };
+		4D308B862912779B0070EDB7 /* PKMNHomeBodyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308B852912779B0070EDB7 /* PKMNHomeBodyModel.swift */; };
 		4D359F9728FFD89700A26693 /* PokemonIntentsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */; };
 		4D359F9828FFD89700A26693 /* PokemonAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */; };
 		4D359F9928FFD89700A26693 /* PokemonIntentsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */; };
@@ -156,6 +157,7 @@
 		4D15A23229030AC4009E5314 /* PKMNUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNUseCasesProtocol.swift; sourceTree = "<group>"; };
 		4D15A26E29054761009E5314 /* Interaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		4D15A27029054873009E5314 /* PKMNHomeViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNHomeViewController+UICollectionView.swift"; sourceTree = "<group>"; };
+		4D308B852912779B0070EDB7 /* PKMNHomeBodyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeBodyModel.swift; sourceTree = "<group>"; };
 		4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsLogic.swift; sourceTree = "<group>"; };
 		4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonAppEntity.swift; sourceTree = "<group>"; };
 		4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsQuery.swift; sourceTree = "<group>"; };
@@ -909,6 +911,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF9A307290D0301003AC168 /* PKMNHomeModel.swift */,
+				4D308B852912779B0070EDB7 /* PKMNHomeBodyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1169,6 +1172,7 @@
 				4D15A27129054873009E5314 /* PKMNHomeViewController+UICollectionView.swift in Sources */,
 				4D3DED61279EE0D50012CCEF /* _PixelFormat.swift in Sources */,
 				4D757F8E279EBDB4000E79E5 /* PKMNHomeViewController.swift in Sources */,
+				4D308B862912779B0070EDB7 /* PKMNHomeBodyModel.swift in Sources */,
 				4D3DED4D279EDE820012CCEF /* PKMNHomeCollectionViewCell.swift in Sources */,
 				4D359F9728FFD89700A26693 /* PokemonIntentsLogic.swift in Sources */,
 				4D59055C279EA993001110D8 /* PKMNUseCases.swift in Sources */,

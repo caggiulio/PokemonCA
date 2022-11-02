@@ -26,4 +26,14 @@ struct PKMNHomeModel: PKMNModel {
   var isFiltered: Bool {
     !filteredPokemonList.isEmpty
   }
+  
+  /// The model for the `PKMNSwiftUIHomeBody`.
+  var bodyModel: PKMNHomeBodyModel {
+    PKMNHomeBodyModel(
+      title: title,
+      isFiltered: isFiltered,
+      pokemonList: pokemonList,
+      filteredPokemonList: filteredPokemonList
+    )
+  }
 }

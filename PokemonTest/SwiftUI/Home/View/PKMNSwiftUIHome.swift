@@ -28,7 +28,9 @@ struct PKMNSwiftUIHome: View {
     PKMNBaseSwiftUIView({
       NavigationView {
         if let model = viewModel.lastValueModel {
-          makeBody(model: model)
+          PKMNHomeBody(model: model.bodyModel, assembler: assembler) {
+            viewModel.getNextPage()
+          }
         }
       }
       .searchable(text: $searchString)
@@ -45,21 +47,48 @@ struct PKMNSwiftUIHome: View {
 // MARK: - Private View
 
 private extension PKMNSwiftUIHome {
-  /// Builds the body of the `View` passing the model.
-  /// - Parameter model: The `PKMNModel` handeld by the `View`.
-  @MainActor
-  func makeBody(model: PKMNHomeModel) -> some View {
-    ScrollView {
-      ForEach(model.isFiltered ? model.filteredPokemonList : model.pokemonList) { pokemon in
-        NavigationLink(destination: assembler.detail(id: pokemon.id)) {
-          PKMNHomeCell(pokemon: pokemon)
+  /// The body of the `View`.
+  struct PKMNHomeBody: View {
+    // MARK: - Stored Properties
+    
+    /// The model handeld by the `View`.
+    private var model: PKMNHomeBodyModel
+    
+    /// The responsible of the assemble of the `View` used to assemble a view for navigation.
+    private var assembler: PKMNSwiftUIAssembler
+    
+    // MARK: - Interaction
+    
+    /// The list reach the end.
+    var listReachEnd: Interaction?
+    
+    // MARK: - Init
+    
+    /// The init of the `View`.
+    /// - Parameters:
+    /// - model: the model handeld by the `View`.
+    /// - assembler: the responsible of the assemble of the `View` used to assemble a view for navigation.
+    /// - listReachEnd: the list reach the end.
+    init(model: PKMNHomeBodyModel, assembler: PKMNSwiftUIAssembler, listReachEnd: Interaction?) {
+      self.model = model
+      self.assembler = assembler
+      self.listReachEnd = listReachEnd
+    }
+    
+    var body: some View {
+      ScrollView {
+        ForEach(model.isFiltered ? model.filteredPokemonList : model.pokemonList) { pokemon in
+          NavigationLink(destination: assembler.detail(id: pokemon.id)) {
+            PKMNHomeCell(pokemon: pokemon)
+          }
+          .isDetailLink(true)
         }
+        .padding(.horizontal)
       }
-      .padding(.horizontal)
+      .onReachTheEnd {
+        listReachEnd?()
+      }
+      .navigationTitle(model.title)
     }
-    .onReachTheEnd {
-      viewModel.getNextPage()
-    }
-    .navigationTitle(model.title)
   }
 }

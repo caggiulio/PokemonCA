@@ -25,8 +25,8 @@ class PKMNRepository: PKMNRepositoryProtocol {
   
   /// The `init` with the needed workers.
   /// - Parameters:
-  /// - networkingWorker: The networking worker.
-  /// - jsonWorker: The networking worker.
+  ///   - networkingWorker: The networking worker.
+  ///   - jsonWorker: The networking worker.
   init(networkingWorker: PKMNNetworkingDataSourceProtocol, jsonWorker: JSONDataSourceProtocol) {
     self.networkingWorker = networkingWorker
     self.jsonWorker = jsonWorker

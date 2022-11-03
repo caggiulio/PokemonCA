@@ -5,8 +5,6 @@
 //  Created by Nunzio Giulio Caggegi on 30/10/22.
 //
 
-import Foundation
-
 import SwiftUI
 
 class PKMNSwiftUIDetailViewModel: PKMNSwiftUIViewModel<PKMNDetailModel> {

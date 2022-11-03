@@ -26,9 +26,9 @@ struct PKMNHomeBody: View {
   
   /// The init of the `View`.
   /// - Parameters:
-  /// - model: the model handeld by the `View`.
-  /// - assembler: the responsible of the assemble of the `View` used to assemble a view for navigation.
-  /// - listReachEnd: the list reach the end.
+  ///   - model: the model handeld by the `View`.
+  ///   - assembler: the responsible of the assemble of the `View` used to assemble a view for navigation.
+  ///   - listReachEnd: the list reach the end.
   init(model: PKMNHomeBodyModel, assembler: PKMNSwiftUIAssembler, listReachEnd: Interaction?) {
     self.model = model
     self.assembler = assembler

@@ -27,10 +27,10 @@ struct PKMNHomeBodyModel {
   
   /// The init of the `View`.
   /// - Parameters:
-  /// - title: the title of the `View`.
-  /// - isFiltered: wheter the list is filtered or not.
-  /// - pokemonList: the standard `Pokemon` list.
-  /// - filteredPokemonList: the filtered `Pokemon` list.
+  ///   - title: the title of the `View`.
+  ///   - isFiltered: wheter the list is filtered or not.
+  ///   - pokemonList: the standard `Pokemon` list.
+  ///   - filteredPokemonList: the filtered `Pokemon` list.
   init(title: String, isFiltered: Bool, pokemonList: [PokemonListItem], filteredPokemonList: [PokemonListItem]) {
     self.title = title
     self.isFiltered = isFiltered

@@ -10,20 +10,26 @@ import SwiftUI
 /// The `ViewModifier` to handle the `LoadingState`.
 /// The `Model` is the generic `PKMNModel` that a `View` can handle.
 struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
+  // MARK: - Stored Properties
+  
   /// The current state of a `LoadingState`.
   let state: Published<LoadingState<Model, PKMNError>>.Publisher
   
-  /// The closure with the success `Model`.
-  var closureModel: ((Model) -> Void)?
+  // MARK: - Computed Properties
   
   /// The `@State` `Bool` used to show the loader `View`.
   @State private var isLoading: Bool = false
   
-  /// The `@State` `Bool` used to show the error `View`.
+  /// The `Binding<Bool>` used to show the alert.
   @State private var isError: Bool = false
   
-  /// The `String` used to show the error message.
-  @State private var errorMessage = String()
+  /// The model for the `PKMNSwiftUIToast`.
+  @State private var toastModel: PKMNSwiftUIToastModel?
+  
+  // MARK: - Interaction
+  
+  /// The closure with the success `Model`.
+  var closureModel: CustomInteraction<Model>?
   
   func body(content: Content) -> some View {
     content
@@ -31,11 +37,11 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
         if isLoading {
           PKMNSwiftUILoader()
         }
-        if isError {
-          PKMNSwiftUIToast(viewModel: PKMNSwiftUIToastModel(status: .failure, message: errorMessage)) {
-            withAnimation {
-              isError = false
-            }
+      }
+      .overlay(alignment: .top) {
+        if let model = toastModel, isError {
+          PKMNSwiftUIToast(viewModel: model, isError: $isError) {
+            toastModel = nil
           }
         }
       }
@@ -45,9 +51,9 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
           isLoading = true
           
         case .failure(let error):
-          errorMessage = error.localizedDescription
-          isLoading = false
+          toastModel = PKMNSwiftUIToastModel(status: .failure, message: error.localizedDescription)
           isError = true
+          isLoading = false
           
         case .success(let value):
           isLoading = false

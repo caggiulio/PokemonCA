@@ -14,8 +14,8 @@ struct PKMNSwiftUIHome: View {
   /// The `PKMNSwiftUIViewModel` of the view.
   @StateObject var viewModel: PKMNHomeSwiftUIViewModel
   
-  /// The searchable `String` to search the `Pokemon`.
-  @State private var searchString = String()
+  /// The searchable `DebounceObject` to search the `Pokemon`.
+  @StateObject var debounceString = DebounceStringObject()
   
   // MARK: - Computed Properties
   
@@ -33,10 +33,10 @@ struct PKMNSwiftUIHome: View {
           }
         }
       }
-      .searchable(text: $searchString)
-      .onChange(of: searchString, perform: { newValue in
-        viewModel.searchByName(name: newValue)
-      })
+      .searchable(text: $debounceString.text)
+      .onChange(of: debounceString.debouncedText) { text in
+        viewModel.searchByName(name: text)
+      }
       .onAppear {
         viewModel.loadHome(queryItems: nil)
       }

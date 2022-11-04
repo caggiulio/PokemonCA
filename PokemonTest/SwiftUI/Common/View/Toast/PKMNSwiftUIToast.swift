@@ -31,11 +31,21 @@ struct PKMNSwiftUIToast: View {
   /// The model of the `View`.
   let viewModel: PKMNSwiftUIToastModel
   
+  // MARK: - Computed Properties
+  
+  /// The `Binding<Bool>` used to show the alert.
+  var isError: Binding<Bool>
+  
   // MARK: - Init
   
   /// The `init` of the `View`.
-  init(viewModel: PKMNSwiftUIToastModel, dismissAction: Interaction?) {
+  /// - Parameters:
+  ///   - viewModel: the model of the `View`.
+  ///   - isError: the `Binding<Bool>` used to show the alert.
+  ///   - dismiss: the dismiss interaction.
+  init(viewModel: PKMNSwiftUIToastModel, isError: Binding<Bool>, dismissAction: Interaction?) {
     self.viewModel = viewModel
+    self.isError = isError
     self.dismiss = dismissAction
   }
   
@@ -46,6 +56,7 @@ struct PKMNSwiftUIToast: View {
       Image(uiImage: AppAsset.pokeball.image)
         .resizable()
         .frame(width: 50, height: 50)
+        .foregroundColor(.white)
       
       Text(viewModel.message)
         .font(.body.bold())
@@ -57,9 +68,13 @@ struct PKMNSwiftUIToast: View {
       viewModel.backgroundColor
     }
     .clipShape(RoundedRectangle(cornerRadius: 20))
+    .transition(.move(edge: .top).combined(with: .opacity))
     .task {
       do {
         try await Task.sleep(nanoseconds: 2_000_000_000)
+        withAnimation {
+          isError.wrappedValue.toggle()
+        }
         dismiss?()
       } catch {}
     }

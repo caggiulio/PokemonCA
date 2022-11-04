@@ -21,6 +21,6 @@ struct PKMNSwiftUIToastModel {
   
   /// The background `Color` of the `View`.
   var backgroundColor: Color {
-    status == .success ? .green : .red
+    status == .success ? .green : .indigo
   }
 }

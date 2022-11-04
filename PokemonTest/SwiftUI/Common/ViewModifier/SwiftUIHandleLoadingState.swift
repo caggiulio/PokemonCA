@@ -21,7 +21,7 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
   @State private var isLoading: Bool = false
   
   /// The `Binding<Bool>` used to show the alert.
-  @State private var isShowing: Bool = false
+  @State private var isShowingAlert: Bool = false
   
   /// The model for the `PKMNSwiftUIToast`.
   @State private var toastModel: PKMNSwiftUIToastModel?
@@ -39,8 +39,8 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
         }
       }
       .overlay(alignment: .top) {
-        if let model = toastModel, isShowing {
-          PKMNSwiftUIToast(viewModel: model, isShowing: $isShowing) {
+        if let model = toastModel, isShowingAlert {
+          PKMNSwiftUIToast(viewModel: model, isShowing: $isShowingAlert) {
             toastModel = nil
           }
         }
@@ -52,7 +52,7 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
           
         case .failure(let error):
           toastModel = PKMNSwiftUIToastModel(status: .failure, message: error.localizedDescription)
-          isShowing = true
+          isShowingAlert = true
           isLoading = false
           
         case .success(let value):

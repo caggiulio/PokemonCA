@@ -34,18 +34,18 @@ struct PKMNSwiftUIToast: View {
   // MARK: - Computed Properties
   
   /// The `Binding<Bool>` used to show the alert.
-  var isError: Binding<Bool>
+  var isShowing: Binding<Bool>
   
   // MARK: - Init
   
   /// The `init` of the `View`.
   /// - Parameters:
   ///   - viewModel: the model of the `View`.
-  ///   - isError: the `Binding<Bool>` used to show the alert.
+  ///   - isShowing: the `Binding<Bool>` used to show the alert.
   ///   - dismiss: the dismiss interaction.
-  init(viewModel: PKMNSwiftUIToastModel, isError: Binding<Bool>, dismissAction: Interaction?) {
+  init(viewModel: PKMNSwiftUIToastModel, isShowing: Binding<Bool>, dismissAction: Interaction?) {
     self.viewModel = viewModel
-    self.isError = isError
+    self.isShowing = isShowing
     self.dismiss = dismissAction
   }
   
@@ -73,7 +73,7 @@ struct PKMNSwiftUIToast: View {
       do {
         try await Task.sleep(nanoseconds: 2_000_000_000)
         withAnimation {
-          isError.wrappedValue.toggle()
+          isShowing.wrappedValue.toggle()
         }
         dismiss?()
       } catch {}

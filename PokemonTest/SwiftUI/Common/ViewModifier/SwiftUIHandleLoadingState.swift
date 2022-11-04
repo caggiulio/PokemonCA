@@ -72,7 +72,7 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
 }
 
 extension View {
-  func handleLoadingState<Model: PKMNModel>(state: Published<LoadingState<Model, PKMNError>>.Publisher, perform closureModel: ((Model) -> Void)? = nil) -> some View {
+  func handleLoadingState<Model: PKMNModel>(state: Published<LoadingState<Model, PKMNError>>.Publisher, perform closureModel: CustomInteraction<Model>? = nil) -> some View {
     modifier(HandleLoadingState(state: state, closureModel: closureModel))
   }
 }

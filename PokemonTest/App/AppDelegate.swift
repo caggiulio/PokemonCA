@@ -7,11 +7,11 @@
 
 import UIKit
 
-@main
+//@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var mainCoordinator: PKMNMainCoordinator?
   var window: UIWindow?
-  private let context = PokemonManagerContext.container
+  private let context = PokemonContextManager.container
 
   func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     setup()

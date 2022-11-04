@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol PKMNMainContainerProtocol {
+protocol PKMNMainContainerProtocol {
   // MARK: - Mock Methods
   
   /// Get mocked info Pokemon.

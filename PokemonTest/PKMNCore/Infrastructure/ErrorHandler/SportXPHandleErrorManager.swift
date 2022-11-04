@@ -7,11 +7,11 @@
 
 import Foundation
 
-public class PKMNMainErrorManager: ErrorHandleable {
+class PKMNMainErrorManager: ErrorHandleable {
   private var parent: PKMNMainErrorManager?
   private let action: HandleAction<Error>
 
-  public convenience init(action: @escaping HandleAction<Error> = { throw $0 }) {
+  convenience init(action: @escaping HandleAction<Error> = { throw $0 }) {
     self.init(action: action, parent: nil)
   }
 
@@ -20,7 +20,7 @@ public class PKMNMainErrorManager: ErrorHandleable {
     self.parent = parent
   }
 
-  public func `throw`(_ error: Error, finally: @escaping (Bool) -> Void) {
+  func `throw`(_ error: Error, finally: @escaping (Bool) -> Void) {
     `throw`(error, previous: [], finally: finally)
   }
 
@@ -45,7 +45,7 @@ public class PKMNMainErrorManager: ErrorHandleable {
     }
   }
 
-  public func `catch`(action: @escaping HandleAction<Error>) -> ErrorHandleable {
+  func `catch`(action: @escaping HandleAction<Error>) -> ErrorHandleable {
     return PKMNMainErrorManager(action: action, parent: self)
   }
 }

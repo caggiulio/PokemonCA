@@ -8,7 +8,7 @@
 import Foundation
 
 /// The protocol to defines the list of API calls to implements.
-public protocol PKMNNetworkingDataSourceProtocol {
+protocol PKMNNetworkingDataSourceProtocol {
   
   // MARK: - Async
   

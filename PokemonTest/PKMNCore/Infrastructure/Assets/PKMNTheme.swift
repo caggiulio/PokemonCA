@@ -8,22 +8,22 @@
 import Foundation
 import UIKit
 
-public struct PKMNTheme {
+struct PKMNTheme {
   /// Colors
-  public var primaryColor: UIColor
-  public var secondaryColor: UIColor
-  public var tertiaryColor: UIColor
-  public var backgroundColor: UIColor
-  public var navigationBarBackgroundColor: UIColor
-  public var navigationBarForegroundColor: UIColor
+  var primaryColor: UIColor
+  var secondaryColor: UIColor
+  var tertiaryColor: UIColor
+  var backgroundColor: UIColor
+  var navigationBarBackgroundColor: UIColor
+  var navigationBarForegroundColor: UIColor
 
   /// Primary Font
-  public var primaryFont: PKMNFont
-  public var primaryBoldFont: PKMNFont
-  public var primaryMediumFont: PKMNFont
-  public var primaryItalicFont: PKMNFont
+  var primaryFont: PKMNFont
+  var primaryBoldFont: PKMNFont
+  var primaryMediumFont: PKMNFont
+  var primaryItalicFont: PKMNFont
 
-  public init(primaryFont: PKMNFont, primaryBoldFont: PKMNFont, primaryMediumFont: PKMNFont, primaryItalicFont: PKMNFont) {
+  init(primaryFont: PKMNFont, primaryBoldFont: PKMNFont, primaryMediumFont: PKMNFont, primaryItalicFont: PKMNFont) {
     primaryColor = AppAsset.primary.color
     secondaryColor = AppAsset.secondary.color
     tertiaryColor = AppAsset.tertiary.color

@@ -11,28 +11,28 @@
 
   // MARK: - Colors
 
-  public extension UIImage {
+  extension UIImage {
     /// Represents the most common colors inside an image.
     struct Colors {
       /// The most common, non-black/white color.
-      public let background: UIColor
+      let background: UIColor
 
       /// The most common color that is contrasting with the background.
-      public let primary: UIColor?
+      let primary: UIColor?
 
       /// The second most common color that is contrasting with the background.
       ///
       /// Also must distinguish itself from the ``primary`` color.
-      public let secondary: UIColor?
+      let secondary: UIColor?
 
       /// The third most common color that is contrasting with the background.
       ///
       /// Also must distinguish itself from the ``primary`` and ``secondary`` color.
-      public let detail: UIColor?
+      let detail: UIColor?
     }
   }
 
-  public extension UIImage {
+  extension UIImage {
     /// Creates the ``Colors`` synchronously.
     ///
     /// Calling this from the main-thread can create hitches!

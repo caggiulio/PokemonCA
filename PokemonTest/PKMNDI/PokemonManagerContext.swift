@@ -8,7 +8,7 @@
 import Foundation
 
 /// The struct with the main container, that will be the context of the app.
-struct PokemonManagerContext {
+struct PokemonContextManager {
   /// The main container of the app.
   static let container: PKMNMainContainer = PKMNMainContainer()
 }

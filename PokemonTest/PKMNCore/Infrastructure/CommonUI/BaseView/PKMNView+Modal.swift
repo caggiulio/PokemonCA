@@ -8,7 +8,7 @@
 import Anchorage
 import Foundation
 
-public extension PKMNView {
+extension PKMNView {
   /// Shows the `PKMNLoader`.
   func showLoader() {
     let loaderView = PKMNLoader(frame: frame)

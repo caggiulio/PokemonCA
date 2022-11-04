@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - PKMNButtonStyles
 
-public struct PKMNButtonStyles {
+struct PKMNButtonStyles {
   private let backgroundColor: UIColor?
   private let font: UIFont?
   private let fontColor: UIColor
@@ -22,7 +22,7 @@ public struct PKMNButtonStyles {
   private let borderColor: UIColor
   private let tintColor: UIColor?
 
-  public init(
+  init(
     backgroundColor: UIColor? = .clear,
     font: UIFont? = nil,
     fontColor: UIColor = .white,
@@ -46,7 +46,7 @@ public struct PKMNButtonStyles {
     self.tintColor = tintColor
   }
 
-  public func apply(to button: UIButton?) {
+  func apply(to button: UIButton?) {
     guard let button = button else { return }
     button.titleLabel?.font = font
     button.titleLabel?.textColor = fontColor
@@ -75,6 +75,6 @@ public struct PKMNButtonStyles {
 
 // MARK: - ButtonStyles
 
-public enum ButtonStyles {
-  public static let primaryButton = PKMNButtonStyles(backgroundColor: PKMNThemeManager.currentTheme().primaryColor, font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 20), fontColor: UIColor.white, insets: .init(top: 0, left: 32, bottom: 0, right: 32), tintColor: UIColor.white)
+enum ButtonStyles {
+  static let primaryButton = PKMNButtonStyles(backgroundColor: PKMNThemeManager.currentTheme().primaryColor, font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 20), fontColor: UIColor.white, insets: .init(top: 0, left: 32, bottom: 0, right: 32), tintColor: UIColor.white)
 }

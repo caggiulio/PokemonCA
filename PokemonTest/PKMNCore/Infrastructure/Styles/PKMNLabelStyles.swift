@@ -10,14 +10,14 @@ import UIKit
 
 // MARK: - PKMNLabelStyles
 
-public struct PKMNLabelStyles {
+struct PKMNLabelStyles {
   private let backgroundColor: UIColor?
   private let font: UIFont?
   private let fontColor: UIColor
   private let minimumScaleFactor: CGFloat
   private let adjustsFontSizeToFitWidth: Bool
 
-  public init(
+  init(
     backgroundColor: UIColor? = nil,
     font: UIFont? = nil,
     fontColor: UIColor = .black,
@@ -31,7 +31,7 @@ public struct PKMNLabelStyles {
     self.adjustsFontSizeToFitWidth = adjustsFontSizeToFitWidth
   }
 
-  public func apply(to label: UILabel?) {
+  func apply(to label: UILabel?) {
     guard let label = label else { return }
 
     label.font = font
@@ -44,7 +44,7 @@ public struct PKMNLabelStyles {
     }
   }
 
-  public func apply(to textView: UITextView?) {
+  func apply(to textView: UITextView?) {
     guard let textView = textView else { return }
 
     textView.font = font
@@ -58,12 +58,12 @@ public struct PKMNLabelStyles {
 
 // MARK: - LabelStyles
 
-public enum LabelStyles {
-  public static let primaryLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 18), fontColor: PKMNThemeManager.currentTheme().secondaryColor)
+enum LabelStyles {
+  static let primaryLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 18), fontColor: PKMNThemeManager.currentTheme().secondaryColor)
 
-  public static let secondaryLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryFont.font(size: 15), fontColor: PKMNThemeManager.currentTheme().tertiaryColor)
+  static let secondaryLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryFont.font(size: 15), fontColor: PKMNThemeManager.currentTheme().tertiaryColor)
 
-  public static let titleLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 40), fontColor: PKMNThemeManager.currentTheme().tertiaryColor)
+  static let titleLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryBoldFont.font(size: 40), fontColor: PKMNThemeManager.currentTheme().tertiaryColor)
 
-  public static let toastLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryMediumFont.font(size: 15), fontColor: .white)
+  static let toastLabel = PKMNLabelStyles(font: PKMNThemeManager.currentTheme().primaryMediumFont.font(size: 15), fontColor: .white)
 }

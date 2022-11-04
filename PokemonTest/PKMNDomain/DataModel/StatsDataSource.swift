@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct StatsDataSource: Decodable {
+struct StatsDataSource: Decodable {
   let baseStat: Int
   let effort: Int
   let stat: StatDataSource

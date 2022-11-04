@@ -8,7 +8,7 @@
 import Foundation
 
 /// Typically used as a user interaction where it takes no parameters.
-public typealias Interaction = () -> Void
+typealias Interaction = () -> Void
 
 /// A user interaction that needs a parameter for the input.
-public typealias CustomInteraction<T> = (T) -> Void
+typealias CustomInteraction<T> = (T) -> Void

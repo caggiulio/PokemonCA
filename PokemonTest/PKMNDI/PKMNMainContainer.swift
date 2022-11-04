@@ -25,25 +25,25 @@ class PKMNMainContainer: PKMNMainContainerProtocol {
   // MARK: - Mocked UseCases
   
   /// The Use-Case to get a mocked`Pokemon`.
-  public var getMockedPokemonUseCase: GetMockedPokemonProtocol
+  var getMockedPokemonUseCase: GetMockedPokemonProtocol
   
   /// The Use-Case to get a mocked`PokemonListItem` list.
-  public var getMockedPokemonsListUseCase: GetMockedPokemonsListProtocol
+  var getMockedPokemonsListUseCase: GetMockedPokemonsListProtocol
   
   // MARK: - Async UseCases
   
   /// The Use-Case to get a `Pokemon` by his id in `async` way.
-  public var asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol
+  var asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol
   
   /// The Use-Case to get the list of `PokemonListItem`in `async` way.
-  public var asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  var asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
   
   /// The Use-Case to get a `Pokemon` by his name in `async` way.
-  public var asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
+  var asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
   
   // MARK: - Init
 
-  public init() {
+  init() {
     pkmnRepository = PKMNRepository(networkingWorker: networking.networkingDataSource, jsonWorker: jsonStorage.jsonDataSource)
 
     getMockedPokemonUseCase = PKMNUseCases.GetMockedPokemon(pokemonRepository: pkmnRepository)

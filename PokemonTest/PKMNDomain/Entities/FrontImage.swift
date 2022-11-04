@@ -7,8 +7,8 @@
 
 import Foundation
 
-public struct FrontImage: PKMNModel {
-  public let stringURL: String
+struct FrontImage: PKMNModel {
+  let stringURL: String
 
   init(spritesDataSource: SpritesDataSource) {
     stringURL = spritesDataSource.officialArtwork.frontDefault

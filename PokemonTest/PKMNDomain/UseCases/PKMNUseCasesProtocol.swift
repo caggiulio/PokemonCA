@@ -10,29 +10,29 @@ import Foundation
 // MARK: - Mock Methods
 
 /// Get mocked info Pokemon.
-public protocol GetMockedPokemonProtocol {
-  func execute(completion: @escaping (Result<Pokemon, PKMNError>) -> Void)
+protocol GetMockedPokemonProtocol {
+  func execute() async throws -> Pokemon
 }
 
 /// Get mocked info PokemonList.
-public protocol GetMockedPokemonsListProtocol {
-  func execute(completion: @escaping (Result<PokemonsList, PKMNError>) -> Void)
+protocol GetMockedPokemonsListProtocol {
+  func execute() async throws -> PokemonsList
 }
 
 
 // MARK: - Async Methods
 
 /// Get mocked info PokemonList.
-public protocol AsyncGetPokemonByIDProtocol {
+protocol AsyncGetPokemonByIDProtocol {
   func execute(id: String) async throws -> Pokemon
 }
 
 /// Get mocked info PokemonList.
-public protocol AsyncGetPokemonsListProtocol {
+protocol AsyncGetPokemonsListProtocol {
   func execute(queryItems: [URLQueryItem]?) async throws -> PokemonsList
 }
 
 /// Get real info PokemonList by his name in `async` way.
-public protocol AsyncSearchPokemonByNameProtocol {
+protocol AsyncSearchPokemonByNameProtocol {
   func execute(name: String) async throws -> [PokemonListItem]
 }

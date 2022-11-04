@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct OfficialArtworkDataSource: Decodable {
+struct OfficialArtworkDataSource: Decodable {
   let frontDefault: String
 
   private enum CodingKeys: String, CodingKey {

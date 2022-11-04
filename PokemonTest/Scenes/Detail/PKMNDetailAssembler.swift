@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - PKMNDetailAssembler
 
-public struct PKMNDetailAssembler: PKMNDetailAssemblerInjector {
+struct PKMNDetailAssembler: PKMNDetailAssemblerInjector {
   var container: PKMNMainContainerProtocol
   var id: String
 
-  public init(container: PKMNMainContainerProtocol, id: String) {
+  init(container: PKMNMainContainerProtocol, id: String) {
     self.container = container
     self.id = id
   }
@@ -21,18 +21,18 @@ public struct PKMNDetailAssembler: PKMNDetailAssemblerInjector {
 
 // MARK: - PKMNDetailAssemblerInjector
 
-public protocol PKMNDetailAssemblerInjector {
+protocol PKMNDetailAssemblerInjector {
   func resolve() -> PKMNDetailViewController
 
   func resolve() -> PKMNDetailViewModel
 }
 
-public extension PKMNDetailAssembler {
+extension PKMNDetailAssembler {
   func resolve() -> PKMNDetailViewController {
-    return PKMNDetailViewController(viewModel: self.resolve())
+    PKMNDetailViewController(viewModel: self.resolve())
   }
 
   func resolve() -> PKMNDetailViewModel {
-    return PKMNDetailViewModel(asyncGetPokemonByIDUseCase: container.asyncGetPokemonByIDUseCase, id: id)
+    PKMNDetailViewModel(asyncGetPokemonByIDUseCase: container.asyncGetPokemonByIDUseCase, id: id)
   }
 }

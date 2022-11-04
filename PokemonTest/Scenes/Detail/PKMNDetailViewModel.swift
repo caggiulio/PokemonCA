@@ -9,25 +9,25 @@ import Foundation
 
 // MARK: - PKMNDetailViewModelProtocol
 
-public protocol PKMNDetailViewModelProtocol {
+protocol PKMNDetailViewModelProtocol {
   func loadPokemon()
 }
 
 // MARK: - PKMNDetailViewModel
 
-public class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
+class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
   /// The use case used to get the Pokemon by id.
   private let asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol
   
   /// In this variable it's stored the currentPokemon `id`.
   private var id: String
 
-  public init(asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol, id: String) {
+  init(asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol, id: String) {
     self.asyncGetPokemonByIDUseCase = asyncGetPokemonByIDUseCase
     self.id = id
   }
 
-  public func loadPokemon() {
+  func loadPokemon() {
     Task {
       try await processTask(function: {
         try await asyncGetPokemonByIDUseCase.execute(id: id)

@@ -7,10 +7,10 @@
 
 import Foundation
 
-public struct Species: PKMNModel {
+struct Species: PKMNModel {
   let name: String
 
-  public init(speciesDataSource: SpeciesDataSource) {
+  init(speciesDataSource: SpeciesDataSource) {
     name = speciesDataSource.name
   }
 }

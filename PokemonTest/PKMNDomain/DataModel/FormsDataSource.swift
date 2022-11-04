@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct FormsDataSource: Decodable {
+struct FormsDataSource: Decodable {
   let name: String
   let url: String
 }

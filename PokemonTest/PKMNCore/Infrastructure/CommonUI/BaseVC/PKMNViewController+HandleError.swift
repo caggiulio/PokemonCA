@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension PKMNViewController {
+extension PKMNViewController {
   func handleError() {
     /// Initialization of `errorHandler`
     errorHandler = PKMNMainErrorManager().listen(PKMNError.self, action: { [weak self] error in

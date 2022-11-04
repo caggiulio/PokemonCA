@@ -8,7 +8,7 @@
 import Anchorage
 import Foundation
 
-public class PKMNToast: UIView {
+class PKMNToast: UIView {
   private var color: UIColor
   private var text: String
 
@@ -36,7 +36,7 @@ public class PKMNToast: UIView {
     return label
   }()
 
-  public init(frame: CGRect, color: UIColor, text: String) {
+  init(frame: CGRect, color: UIColor, text: String) {
     self.color = color
     self.text = text
 
@@ -54,7 +54,7 @@ public class PKMNToast: UIView {
     fatalError("init(coder:) has not been implemented")
   }
 
-  override public func draw(_ rect: CGRect) {
+  override func draw(_ rect: CGRect) {
     super.draw(rect)
 
     clipsToBounds = true

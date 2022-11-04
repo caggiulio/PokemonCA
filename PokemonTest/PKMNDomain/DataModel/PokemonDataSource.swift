@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PokemonDataSource: Decodable {
+struct PokemonDataSource: Decodable {
   let abilities: [AbilitiesDataSource]
   let baseExperience: Int
   let forms: [FormsDataSource]

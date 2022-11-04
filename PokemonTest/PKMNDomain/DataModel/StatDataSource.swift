@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct StatDataSource: Decodable {
+struct StatDataSource: Decodable {
   let name: String
   let url: String
 }

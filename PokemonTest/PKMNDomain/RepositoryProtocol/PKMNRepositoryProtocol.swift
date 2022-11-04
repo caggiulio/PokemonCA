@@ -8,12 +8,12 @@
 import Foundation
 
 /// The protocols to defines the methods needed to store and retrieve `Pokemon` and `PokemonListItem`s from the repository.
-public protocol PKMNRepositoryProtocol {
+protocol PKMNRepositoryProtocol {
   
   // MARK: - Mocked
   
-  func getMockedPokemon(completion: @escaping (Result<Pokemon, PKMNError>) -> Void)
-  func getMockedPokemonsList(completion: @escaping (Result<PokemonsList, PKMNError>) -> Void)
+  func getMockedPokemon() async throws -> Pokemon
+  func getMockedPokemonsList() async throws -> PokemonsList
   
   // MARK: - Async
   

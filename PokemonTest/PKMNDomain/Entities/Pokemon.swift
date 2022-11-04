@@ -7,20 +7,20 @@
 
 import Foundation
 
-public struct Pokemon: Identifiable, PKMNModel {
-  public let abilities: [Ability]
-  public let baseExperience: Int
-  public let forms: [Forms]
-  public let height: Int
-  public let id: Int
-  public let name: String
-  public let order: Int
-  public let species: Species
-  public let frontImage: FrontImage
-  public let stats: [Stat]
-  public let weight: Int
+struct Pokemon: Identifiable, PKMNModel {
+  let abilities: [Ability]
+  let baseExperience: Int
+  let forms: [Forms]
+  let height: Int
+  let id: Int
+  let name: String
+  let order: Int
+  let species: Species
+  let frontImage: FrontImage
+  let stats: [Stat]
+  let weight: Int
 
-  public init(pokemonDataSource: PokemonDataSource) {
+  init(pokemonDataSource: PokemonDataSource) {
     abilities = pokemonDataSource.abilities.map { _abilities in
       Ability(abilityDataSource: _abilities.ability)
     }

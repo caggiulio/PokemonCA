@@ -7,4 +7,4 @@
 
 import Foundation
 
-public struct Empty: PKMNModel {}
+struct Empty: PKMNModel {}

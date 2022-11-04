@@ -9,7 +9,7 @@ import Foundation
 import AloyNetworking
  
 /// The manager for the networking workers.
-public struct PKMNNetworkingManager {
+struct PKMNNetworkingManager {
   /// The concrete implementation of `AloyNetworkingProtocol`.
   private let networking: AloyNetworkingProtocol = {
     let networking = AloyNetworking(
@@ -19,7 +19,7 @@ public struct PKMNNetworkingManager {
   }()
 
   /// This is the implementation of `PKMNNetworkingDataSourceProtocol`
-  public var networkingDataSource: PKMNNetworkingDataSourceProtocol
+  var networkingDataSource: PKMNNetworkingDataSourceProtocol
 
   init() {
     networkingDataSource = PKMNNetworkingDataSourceWorker(networking: networking)

@@ -10,10 +10,10 @@ import UIKit
 
 // MARK: - PKMNFont
 
-public struct PKMNFont {
-  public static var all: Set<String> = []
+struct PKMNFont {
+  static var all: Set<String> = []
 
-  public func font(size: CGFloat) -> UIFont {
+  func font(size: CGFloat) -> UIFont {
     if let font = UIFont(name: rawString!, size: size) {
       return font
     } else {
@@ -21,7 +21,7 @@ public struct PKMNFont {
     }
   }
 
-  public let rawString: String?
+  let rawString: String?
 
   init() {
     rawString = nil
@@ -31,17 +31,17 @@ public struct PKMNFont {
 // MARK: ExpressibleByStringLiteral
 
 extension PKMNFont: ExpressibleByStringLiteral {
-  public init(stringLiteral value: String) {
+  init(stringLiteral value: String) {
     rawString = value
     register()
   }
 
-  public init(extendedGraphemeClusterLiteral value: String) {
+  init(extendedGraphemeClusterLiteral value: String) {
     rawString = value
     register()
   }
 
-  public init(unicodeScalarLiteral value: String) {
+  init(unicodeScalarLiteral value: String) {
     rawString = value
     register()
   }
@@ -59,7 +59,7 @@ extension PKMNFont: ExpressibleByStringLiteral {
 // MARK: FontBookie
 
 extension PKMNFont: FontBookie {
-  public static func == (lhs: PKMNFont, rhs: PKMNFont) -> Bool {
+  static func == (lhs: PKMNFont, rhs: PKMNFont) -> Bool {
     if let lhsRaw = lhs.rawString { PKMNFont.all.insert(lhsRaw) }
     if let rhsRaw = rhs.rawString { PKMNFont.all.insert(rhsRaw) }
 

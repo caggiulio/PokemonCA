@@ -8,7 +8,7 @@
 import Foundation
 
 /// Protocol extensions for convenience API
-public extension ErrorHandleable {
+extension ErrorHandleable {
   func `do`<A>(_ section: () throws -> A) {
     do {
       _ = try section()
@@ -18,13 +18,13 @@ public extension ErrorHandleable {
   }
 }
 
-public extension ErrorHandleable {
+extension ErrorHandleable {
   func `throw`(_ error: Error) {
     `throw`(error, finally: { _ in })
   }
 }
 
-public extension ErrorHandleable {
+extension ErrorHandleable {
   func `catch`<K: Error>(_: K.Type, action: @escaping HandleAction<K>) -> ErrorHandleable {
     return `catch`(action: { e in
       if let k = e as? K {
@@ -46,7 +46,7 @@ public extension ErrorHandleable {
   }
 }
 
-public extension ErrorHandleable {
+extension ErrorHandleable {
   func listen(action: @escaping (Error) -> Void) -> ErrorHandleable {
     return `catch`(action: { e in
       action(e)

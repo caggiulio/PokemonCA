@@ -14,68 +14,64 @@ enum PKMNUseCases {
   // MARK: - Mock Methods Implementation
 
   /// Get mocked info Pokemon.
-  public struct GetMockedPokemon: GetMockedPokemonProtocol {
+  struct GetMockedPokemon: GetMockedPokemonProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
-    public init(pokemonRepository: PKMNRepositoryProtocol) {
+    init(pokemonRepository: PKMNRepositoryProtocol) {
       self.pokemonRepository = pokemonRepository
     }
 
-    public func execute(completion: @escaping (Result<Pokemon, PKMNError>) -> Void) {
-      pokemonRepository.getMockedPokemon { result in
-        completion(result)
-      }
+    func execute() async throws -> Pokemon {
+      try await pokemonRepository.getMockedPokemon()
     }
   }
 
   /// Get mocked info PokemonList .
-  public struct GetMockedPokemonsList: GetMockedPokemonsListProtocol {
+  struct GetMockedPokemonsList: GetMockedPokemonsListProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
-    public init(pokemonRepository: PKMNRepositoryProtocol) {
+    init(pokemonRepository: PKMNRepositoryProtocol) {
       self.pokemonRepository = pokemonRepository
     }
 
-    public func execute(completion: @escaping (Result<PokemonsList, PKMNError>) -> Void) {
-      pokemonRepository.getMockedPokemonsList { result in
-        completion(result)
-      }
+    func execute() async throws -> PokemonsList {
+      try await pokemonRepository.getMockedPokemonsList()
     }
   }
   
   // MARK: - Async Methods Implementation
   
   /// Get real info Pokemon by his id in `async` way.
-  public struct AsyncGetPokemonByID: AsyncGetPokemonByIDProtocol {
+  struct AsyncGetPokemonByID: AsyncGetPokemonByIDProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
-    public init(pokemonRepository: PKMNRepositoryProtocol) {
+    init(pokemonRepository: PKMNRepositoryProtocol) {
       self.pokemonRepository = pokemonRepository
     }
 
-    public func execute(id: String) async throws -> Pokemon {
+    func execute(id: String) async throws -> Pokemon {
       try await pokemonRepository.asyncGetPokemon(id: id)
     }
   }
   
   /// Get real  info PokemonList in `async` way.
-  public struct AsyncGetPokemonsList: AsyncGetPokemonsListProtocol {
+  struct AsyncGetPokemonsList: AsyncGetPokemonsListProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
-    public init(pokemonRepository: PKMNRepositoryProtocol) {
+    init(pokemonRepository: PKMNRepositoryProtocol) {
       self.pokemonRepository = pokemonRepository
     }
 
-    public func execute(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
+    func execute(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
       try await pokemonRepository.asyncGetPokemonsList(queryItems: queryItems)
     }
   }
   
   /// Get real info PokemonList by his name in `async` way.
-  public struct AsyncSearchPokemonByName: AsyncSearchPokemonByNameProtocol {
+  struct AsyncSearchPokemonByName: AsyncSearchPokemonByNameProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
-    public init(pokemonRepository: PKMNRepositoryProtocol) {
+    init(pokemonRepository: PKMNRepositoryProtocol) {
       self.pokemonRepository = pokemonRepository
     }
 
@@ -90,7 +86,7 @@ enum PKMNUseCases {
       }
     }
 
-    public func execute(name: String) async throws -> [PokemonListItem] {
+    func execute(name: String) async throws -> [PokemonListItem] {
       try await getCachedPokemonsByName(name: name.lowercased())
     }
   }

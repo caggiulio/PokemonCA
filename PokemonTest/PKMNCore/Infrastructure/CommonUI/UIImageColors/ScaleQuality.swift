@@ -10,7 +10,7 @@ import CoreGraphics
 // MARK: - ScaleQuality
 
 /// The quality the original image should be scaled to.
-public enum ScaleQuality {
+enum ScaleQuality {
   /// Scales the image to 50 pixel.
   case low
 

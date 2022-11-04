@@ -10,18 +10,18 @@ import UIKit
 
 // MARK: - PMKNDetailViewControllerProtocol
 
-public protocol PMKNDetailViewControllerProtocol {
+protocol PMKNDetailViewControllerProtocol {
   func loadPokemon()
 }
 
 // MARK: - PKMNDetailViewController
 
-public class PKMNDetailViewController: PKMNViewController<Pokemon, PKMNDetailView, PKMNDetailViewModel>, PMKNDetailViewControllerProtocol {
+class PKMNDetailViewController: PKMNViewController<Pokemon, PKMNDetailView, PKMNDetailViewModel>, PMKNDetailViewControllerProtocol {
   // MARK: - Business logic properties
 
-  public weak var detailCoordinator: PKMNPokemonCoordinator?
+  weak var detailCoordinator: PKMNPokemonCoordinator?
 
-  public override func viewDidLoad() {
+  override func viewDidLoad() {
     super.viewDidLoad()
 
     loadPokemon()
@@ -29,7 +29,7 @@ public class PKMNDetailViewController: PKMNViewController<Pokemon, PKMNDetailVie
   
   // MARK: - Methods
   
-  public func loadPokemon() {
+  func loadPokemon() {
     viewModel.loadPokemon()
   }
 }

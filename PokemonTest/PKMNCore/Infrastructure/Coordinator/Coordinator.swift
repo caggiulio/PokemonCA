@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Coordinator
 
 /// The coordinator protocol responsible of the navigation.
-public protocol Coordinator: AnyObject {
+protocol Coordinator: AnyObject {
   var childrenCoordinators: [Coordinator] { get set }
   var navigationController: UINavigationController { get set }
   var parentCoordinator: Coordinator? { get set }
@@ -21,7 +21,7 @@ public protocol Coordinator: AnyObject {
   func destroyChildren(completion: (() -> Void)?)
 }
 
-public extension Coordinator {
+extension Coordinator {
   /// The func `end()` dismiss all coordinator, included that of the `parentCoordinator`, if exist.
   func end() {
     childrenCoordinators.removeAll()

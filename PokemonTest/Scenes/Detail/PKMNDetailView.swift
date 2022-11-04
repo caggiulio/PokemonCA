@@ -9,7 +9,7 @@ import Anchorage
 import Foundation
 import UIKit
 
-public class PKMNDetailView: PKMNView<Pokemon> {
+class PKMNDetailView: PKMNView<Pokemon> {
   private var nameLabel: UILabel = {
     var label = UILabel()
     LabelStyles.titleLabel.apply(to: label)
@@ -48,7 +48,7 @@ public class PKMNDetailView: PKMNView<Pokemon> {
     return view
   }()
 
-  override public func layoutSubviews() {
+  override func layoutSubviews() {
     super.layoutSubviews()
 
     statsContainerView.layer.cornerRadius = 10

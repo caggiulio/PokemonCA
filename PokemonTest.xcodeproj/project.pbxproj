@@ -15,6 +15,8 @@
 		4D15A27129054873009E5314 /* PKMNHomeViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15A27029054873009E5314 /* PKMNHomeViewController+UICollectionView.swift */; };
 		4D308B862912779B0070EDB7 /* PKMNHomeBodyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308B852912779B0070EDB7 /* PKMNHomeBodyModel.swift */; };
 		4D308B8829127F780070EDB7 /* PKMNSwiftUIHomeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308B8729127F780070EDB7 /* PKMNSwiftUIHomeBody.swift */; };
+		4D308BCE291559250070EDB7 /* PKMNSwiftUIToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308BCD291559250070EDB7 /* PKMNSwiftUIToast.swift */; };
+		4D308BD029155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308BCF29155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift */; };
 		4D359F9728FFD89700A26693 /* PokemonIntentsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */; };
 		4D359F9828FFD89700A26693 /* PokemonAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */; };
 		4D359F9928FFD89700A26693 /* PokemonIntentsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */; };
@@ -160,6 +162,8 @@
 		4D15A27029054873009E5314 /* PKMNHomeViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNHomeViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		4D308B852912779B0070EDB7 /* PKMNHomeBodyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeBodyModel.swift; sourceTree = "<group>"; };
 		4D308B8729127F780070EDB7 /* PKMNSwiftUIHomeBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIHomeBody.swift; sourceTree = "<group>"; };
+		4D308BCD291559250070EDB7 /* PKMNSwiftUIToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIToast.swift; sourceTree = "<group>"; };
+		4D308BCF29155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIToastModel.swift; sourceTree = "<group>"; };
 		4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsLogic.swift; sourceTree = "<group>"; };
 		4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonAppEntity.swift; sourceTree = "<group>"; };
 		4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsQuery.swift; sourceTree = "<group>"; };
@@ -355,6 +359,15 @@
 				4DF9A317290EF91B003AC168 /* SwiftUIPokemonDetailAssembler.swift */,
 			);
 			path = Assembler;
+			sourceTree = "<group>";
+		};
+		4D308BD12915615D0070EDB7 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				4D308BCD291559250070EDB7 /* PKMNSwiftUIToast.swift */,
+				4D308BCF29155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		4D359F9328FFD89700A26693 /* AppIntents */ = {
@@ -898,6 +911,7 @@
 			children = (
 				4DF9A2F0290AD23D003AC168 /* PKMNBaseSwiftUIView.swift */,
 				4DF9A302290C1B9C003AC168 /* PKMNSwiftUILoader.swift */,
+				4D308BD12915615D0070EDB7 /* Toast */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1182,6 +1196,7 @@
 				4D59055C279EA993001110D8 /* PKMNUseCases.swift in Sources */,
 				4D59051C279E921F001110D8 /* OfficialArtworkDataSource.swift in Sources */,
 				4DF9A311290E7B03003AC168 /* PKMNSwiftUIDetail.swift in Sources */,
+				4D308BD029155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift in Sources */,
 				4D757F81279EB844000E79E5 /* PKMNViewController.swift in Sources */,
 				4D590514279E91A3001110D8 /* PokemonListDataSource.swift in Sources */,
 				4D590561279EAB7A001110D8 /* PKMNMainContainer.swift in Sources */,
@@ -1224,6 +1239,7 @@
 				4D3DED68279EF2B70012CCEF /* PMKNDetailViewController.swift in Sources */,
 				4D3DED5E279EE0D50012CCEF /* _ColorAnalyzer.swift in Sources */,
 				4D3DED63279EE0D50012CCEF /* Deprecated.swift in Sources */,
+				4D308BCE291559250070EDB7 /* PKMNSwiftUIToast.swift in Sources */,
 				4D5904A9279DBFDC001110D8 /* AppDelegate.swift in Sources */,
 				4DF9A316290EF80D003AC168 /* PKMNSwiftUIDetailViewModel.swift in Sources */,
 				4D703B8728F169F7005AFB0C /* Empty.swift in Sources */,

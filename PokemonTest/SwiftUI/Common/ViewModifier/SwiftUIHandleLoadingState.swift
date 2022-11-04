@@ -53,9 +53,12 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
           isLoading = true
           
         case .failure(let error):
-          toastModel = PKMNSwiftUIToastModel(status: .failure, message: error.localizedDescription)
-          isShowingAlert = true
-          isLoading = false
+          switch error {
+          default:
+            toastModel = PKMNSwiftUIToastModel(status: .failure, message: error.localizedDescription)
+            isShowingAlert = true
+            isLoading = false
+          }
           
         case .success(let value):
           isLoading = false

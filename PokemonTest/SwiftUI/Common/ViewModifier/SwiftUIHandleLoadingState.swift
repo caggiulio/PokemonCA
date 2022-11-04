@@ -31,6 +31,8 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
   /// The closure with the success `Model`.
   var closureModel: CustomInteraction<Model>?
   
+  // MARK: - Body
+  
   func body(content: Content) -> some View {
     content
       .overlay {

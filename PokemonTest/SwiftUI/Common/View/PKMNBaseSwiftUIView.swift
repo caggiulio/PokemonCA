@@ -32,9 +32,7 @@ struct PKMNBaseSwiftUIView<Model: PKMNModel, Content>: View where Content: View 
   // MARK: - View
   
   var body: some View {
-    ZStack {
-      content
-    }
-    .handleLoadingState(state: viewModel.$loadingState)
+    content
+      .handleLoadingState(state: viewModel.$loadingState)
   }
 }

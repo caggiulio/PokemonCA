@@ -25,11 +25,11 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject {
   
   /// At the `init` observes the `loadingState` value in order to update always the `lastValueModel`.
   init() {    
-    self.$loadingState.sink { state in
+    self.$loadingState.sink { [weak self] state in
       guard let newValue = state.value else {
         return
       }
-      self.lastValueModel = newValue
+      self?.lastValueModel = newValue
     }
     .store(in: &cancellables)    
   }

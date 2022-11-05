@@ -8,7 +8,7 @@
 import Foundation
 
 /// The concrete implementation of `JSONDataSourceProtocol` in order to made mock calls.
-class JSONDataSourceWorker: JSONDataSourceProtocol {
+struct JSONDataSourceWorker: JSONDataSourceProtocol {
   /// Make a mock `Pokemon` single call.
   func getPokemon() async throws -> Pokemon {
     let decoder = JSONDecoder()

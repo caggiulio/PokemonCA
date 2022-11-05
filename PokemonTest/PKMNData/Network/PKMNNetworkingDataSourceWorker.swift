@@ -10,7 +10,7 @@ import AloyNetworking
 
 // MARK: - PKMNNetworkingDataSourceWorker
 
-class PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
+struct PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
   
   // MARK: - Protocol properties
 

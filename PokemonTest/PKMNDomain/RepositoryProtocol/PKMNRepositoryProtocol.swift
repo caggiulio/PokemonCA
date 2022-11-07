@@ -15,7 +15,7 @@ protocol PKMNRepositoryProtocol {
   func getMockedPokemon() async throws -> Pokemon
   func getMockedPokemonsList() async throws -> PokemonsList
   
-  // MARK: - Async
+  // MARK: - 
   
   func asyncGetPokemon(id: String) async throws -> Pokemon
   func asyncGetPokemonsList(queryItems: [URLQueryItem]?) async throws -> PokemonsList

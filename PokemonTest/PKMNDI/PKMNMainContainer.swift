@@ -36,20 +36,20 @@ class PKMNMainContainer: PKMNMainContainerProtocol {
     PKMNUseCases.GetMockedPokemonsList(pokemonRepository: pkmnRepository)
   }
   
-  // MARK: - Async UseCases
+  // MARK: -  UseCases
   
   /// The Use-Case to get a `Pokemon` by his id in `async` way.
-  var asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol {
-    PKMNUseCases.AsyncGetPokemonByID(pokemonRepository: pkmnRepository)
+  var asyncGetPokemonByIDUseCase: GetPokemonByIDProtocol {
+    PKMNUseCases.GetPokemonByID(pokemonRepository: pkmnRepository)
   }
   
   /// The Use-Case to get the list of `PokemonListItem`in `async` way.
-  var asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol {
-    PKMNUseCases.AsyncGetPokemonsList(pokemonRepository: pkmnRepository)
+  var asyncGetPokemonsListUseCase: GetPokemonsListProtocol {
+    PKMNUseCases.GetPokemonsList(pokemonRepository: pkmnRepository)
   }
   
   /// The Use-Case to get a `Pokemon` by his name in `async` way.
-  var asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol {
-    PKMNUseCases.AsyncSearchPokemonByName(pokemonRepository: pkmnRepository)
+  var asyncSearchPokemonByNameUseCase: SearchPokemonByNameProtocol {
+    PKMNUseCases.SearchPokemonByName(pokemonRepository: pkmnRepository)
   }
 }

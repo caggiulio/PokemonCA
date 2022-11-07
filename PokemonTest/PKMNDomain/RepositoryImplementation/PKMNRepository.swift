@@ -44,7 +44,7 @@ class PKMNRepository: PKMNRepositoryProtocol {
     try await jsonWorker.pokemonsList()
   }
   
-  // MARK: - Async
+  // MARK: - 
   
   /// Get info about `Pokemon` by his ID. If it's cached, reuturns it, else retrieves from network.
   func asyncGetPokemon(id: String) async throws -> Pokemon {

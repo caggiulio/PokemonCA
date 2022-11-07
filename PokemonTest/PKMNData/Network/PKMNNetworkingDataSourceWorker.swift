@@ -24,7 +24,7 @@ struct PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol {
     self.networking = networking
   }
   
-  // MARK: - Async methods
+  // MARK: -  methods
   
   /// Get and transform the `PokemonDataSource` retrieved from the network in the `Pokemon` return object.
   func getPokemon(id: String) async throws -> Pokemon {

@@ -11,10 +11,10 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   // MARK: - Stored Properties
   
   /// The use case used to get the Pokemon's list.
-  private let getPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  private let getPokemonsListUseCase: GetPokemonsListProtocol
   
   /// The use case used to search a Pokemon by a string.
-  private let searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
+  private let searchPokemonByNameUseCase: SearchPokemonByNameProtocol
   
   // MARK: - Computed Properties
   
@@ -30,7 +30,7 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// - Parameters:
   ///   - getPokemonsListUseCase: The use case to fetch the data list.
   ///   - searchPokemonByNameUseCase: The use case used to search a Pokemon by a string.
-  init(getPokemonsListUseCase: AsyncGetPokemonsListProtocol, searchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
+  init(getPokemonsListUseCase: GetPokemonsListProtocol, searchPokemonByNameUseCase: SearchPokemonByNameProtocol) {
     self.getPokemonsListUseCase = getPokemonsListUseCase
     self.searchPokemonByNameUseCase = searchPokemonByNameUseCase
   }

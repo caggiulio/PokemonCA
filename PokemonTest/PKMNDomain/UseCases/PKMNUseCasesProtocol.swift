@@ -20,19 +20,19 @@ protocol GetMockedPokemonsListProtocol {
 }
 
 
-// MARK: - Async Methods
+// MARK: -  Methods
 
 /// Get mocked info PokemonList.
-protocol AsyncGetPokemonByIDProtocol {
+protocol GetPokemonByIDProtocol {
   func execute(id: String) async throws -> Pokemon
 }
 
 /// Get mocked info PokemonList.
-protocol AsyncGetPokemonsListProtocol {
+protocol GetPokemonsListProtocol {
   func execute(queryItems: [URLQueryItem]?) async throws -> PokemonsList
 }
 
 /// Get real info PokemonList by his name in `async` way.
-protocol AsyncSearchPokemonByNameProtocol {
+protocol SearchPokemonByNameProtocol {
   func execute(name: String) async throws -> [PokemonListItem]
 }

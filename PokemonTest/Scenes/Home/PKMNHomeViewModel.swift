@@ -21,10 +21,10 @@ protocol PKMNHomeViewModelProtocol {
 
 class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   /// The use case used to get the Pokemon's list.
-  private let asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  private let asyncGetPokemonsListUseCase: GetPokemonsListProtocol
   
   /// The use case used to search a Pokmeon by his name.
-  private let asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
+  private let asyncSearchPokemonByNameUseCase: SearchPokemonByNameProtocol
   
   /// In this variable are stored the retrieved `PokemonListItem`
   private var retrievedPokemons: [PokemonListItem] = []
@@ -35,7 +35,7 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   /// `DispatchWorkItem` used to search a pokemon
   private var searchTask: Task<(), Error>?
 
-  init(asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol, asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol) {
+  init(asyncGetPokemonsListUseCase: GetPokemonsListProtocol, asyncSearchPokemonByNameUseCase: SearchPokemonByNameProtocol) {
     self.asyncGetPokemonsListUseCase = asyncGetPokemonsListUseCase
     self.asyncSearchPokemonByNameUseCase = asyncSearchPokemonByNameUseCase
   }

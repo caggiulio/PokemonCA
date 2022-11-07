@@ -39,10 +39,10 @@ enum PKMNUseCases {
     }
   }
   
-  // MARK: - Async Methods Implementation
+  // MARK: -  Methods Implementation
   
   /// Get real info Pokemon by his id in `async` way.
-  struct AsyncGetPokemonByID: AsyncGetPokemonByIDProtocol {
+  struct GetPokemonByID: GetPokemonByIDProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
     init(pokemonRepository: PKMNRepositoryProtocol) {
@@ -55,7 +55,7 @@ enum PKMNUseCases {
   }
   
   /// Get real  info PokemonList in `async` way.
-  struct AsyncGetPokemonsList: AsyncGetPokemonsListProtocol {
+  struct GetPokemonsList: GetPokemonsListProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
     init(pokemonRepository: PKMNRepositoryProtocol) {
@@ -68,7 +68,7 @@ enum PKMNUseCases {
   }
   
   /// Get real info PokemonList by his name in `async` way.
-  struct AsyncSearchPokemonByName: AsyncSearchPokemonByNameProtocol {
+  struct SearchPokemonByName: SearchPokemonByNameProtocol {
     private var pokemonRepository: PKMNRepositoryProtocol
 
     init(pokemonRepository: PKMNRepositoryProtocol) {

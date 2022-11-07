@@ -10,7 +10,7 @@ import Foundation
 /// The protocol to defines the list of API calls to implements.
 protocol PKMNNetworkingDataSourceProtocol {
   
-  // MARK: - Async
+  // MARK: - 
   
   func getPokemon(id: String) async throws -> Pokemon
   func asyncGetPokemonsList(queryItems: [URLQueryItem]?) async throws -> PokemonsList

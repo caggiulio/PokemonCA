@@ -16,14 +16,14 @@ protocol PKMNMainContainerProtocol {
   /// Get mocked info PokemonList.
   var getMockedPokemonsListUseCase: GetMockedPokemonsListProtocol { get }
   
-  // MARK: - Async
+  // MARK: - 
   
   /// Get real info Pokemon by his id in `async` way.
-  var asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol { get }
+  var asyncGetPokemonByIDUseCase: GetPokemonByIDProtocol { get }
   
   /// Get real  info PokemonList in `async` way.
-  var asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol { get }
+  var asyncGetPokemonsListUseCase: GetPokemonsListProtocol { get }
   
   /// Get real info PokemonList by his name in `async` way.
-  var asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol { get }
+  var asyncSearchPokemonByNameUseCase: SearchPokemonByNameProtocol { get }
 }

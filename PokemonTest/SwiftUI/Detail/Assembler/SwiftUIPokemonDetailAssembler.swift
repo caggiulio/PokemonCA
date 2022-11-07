@@ -10,8 +10,8 @@ import Foundation
 // MARK: - PKMNSwiftUIHomeAssembler
 
 struct PKMNSwiftUIDetailAssembler: PKMNSwiftUIDetailAssemblerInjector {
-  @Inject var mainAssembler: PKMNSwiftUIAssembler
-  @Inject var container: PKMNMainContainer
+  @Inject private var mainAssembler: PKMNSwiftUIAssembler
+  @Inject private var container: PKMNMainContainer
   var id: String
 
   init(id: String) {

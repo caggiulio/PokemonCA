@@ -8,21 +8,17 @@
 import Foundation
 
 /// The responsible to assemble and return the `View`s.
-struct PKMNSwiftUIAssembler {
+struct PKMNSwiftUIAssembler: Injectable {
   /// The container with all UseCases.
-  var container: PKMNMainContainerProtocol
+  @Inject var container: PKMNMainContainer
 
-  init(container: PKMNMainContainerProtocol) {
-    self.container = container
-  }
-  
   /// Return the `PKMNSwiftUIHome`.
   func home() -> PKMNSwiftUIHome {
-    PKMNSwiftUIHomeAssembler(container: container, mainAssembler: self).resolve()
+    PKMNSwiftUIHomeAssembler().resolve()
   }
   
   /// Return the `PKMNSwiftUIDetail`.
   func detail(id: String) -> PKMNSwiftUIDetail {
-    PKMNSwiftUIDetailAssembler(container: container, mainAssembler: self, id: id).resolve()
+    PKMNSwiftUIDetailAssembler(id: id).resolve()
   }
 }

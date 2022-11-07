@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
+class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel>, Injectable {
   // MARK: - Stored Properties
   
   /// The use case used to get the Pokemon's list.

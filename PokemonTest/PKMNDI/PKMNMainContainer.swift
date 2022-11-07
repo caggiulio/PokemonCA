@@ -12,10 +12,10 @@ class PKMNMainContainer: PKMNMainContainerProtocol {
   // MARK: - Data Source
 
   /// The networking manager to make API calls. It's a concrete implementation of `PKMNNetworkingManager`.
-  private var networking = PKMNNetworkingManager()
+  @Inject private var networking: PKMNNetworkingManager
   
   /// The JSON manager to make mock calls. It's a concrete implementation of `JSONDataSourceManager`.
-  private var jsonStorage = JSONDataSourceManager()
+  @Inject private var jsonStorage: JSONDataSourceManager
 
   // MARK: - Repositories
 

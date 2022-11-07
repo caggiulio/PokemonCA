@@ -8,7 +8,7 @@
 import Foundation
 
 /// The JSON manager.
-struct JSONDataSourceManager {
+struct JSONDataSourceManager: Injectable {
   init() {}
 
   /// The datasource for JSON. It's a concrete instance of `JSONDataSourceProtocol`.

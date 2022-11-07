@@ -10,13 +10,8 @@ import Foundation
 // MARK: - PKMNHomeAssembler
 
 struct PKMNSwiftUIHomeAssembler: PKMNSwiftUIHomeAssemblerInjector {
-  var container: PKMNMainContainerProtocol
-  var mainAssembler: PKMNSwiftUIAssembler
-
-  init(container: PKMNMainContainerProtocol, mainAssembler: PKMNSwiftUIAssembler) {
-    self.container = container
-    self.mainAssembler = mainAssembler
-  }
+  @Inject var mainAssembler: PKMNSwiftUIAssembler
+  @Inject var container: PKMNMainContainer
 }
 
 // MARK: - PKMNHomeAssemblerInjector

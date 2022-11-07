@@ -9,9 +9,6 @@ import Foundation
 
 /// The responsible to assemble and return the `View`s.
 struct PKMNSwiftUIAssembler: Injectable {
-  /// The container with all UseCases.
-  @Inject var container: PKMNMainContainer
-
   /// Return the `PKMNSwiftUIHome`.
   func home() -> PKMNSwiftUIHome {
     PKMNSwiftUIHomeAssembler().resolve()

@@ -20,37 +20,36 @@ class PKMNMainContainer: PKMNMainContainerProtocol {
   // MARK: - Repositories
 
   /// The repository that stores and contains the `Pokemon` and `PokemonListItem` object retrieved.
-  private var pkmnRepository: PKMNRepositoryProtocol
+  private var pkmnRepository: PKMNRepositoryProtocol {
+    PKMNRepository(networkingWorker: networking.networkingDataSource, jsonWorker: jsonStorage.jsonDataSource)
+  }
 
   // MARK: - Mocked UseCases
   
   /// The Use-Case to get a mocked`Pokemon`.
-  var getMockedPokemonUseCase: GetMockedPokemonProtocol
+  var getMockedPokemonUseCase: GetMockedPokemonProtocol {
+    PKMNUseCases.GetMockedPokemon(pokemonRepository: pkmnRepository)
+  }
   
   /// The Use-Case to get a mocked`PokemonListItem` list.
-  var getMockedPokemonsListUseCase: GetMockedPokemonsListProtocol
+  var getMockedPokemonsListUseCase: GetMockedPokemonsListProtocol {
+    PKMNUseCases.GetMockedPokemonsList(pokemonRepository: pkmnRepository)
+  }
   
   // MARK: - Async UseCases
   
   /// The Use-Case to get a `Pokemon` by his id in `async` way.
-  var asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol
+  var asyncGetPokemonByIDUseCase: AsyncGetPokemonByIDProtocol {
+    PKMNUseCases.AsyncGetPokemonByID(pokemonRepository: pkmnRepository)
+  }
   
   /// The Use-Case to get the list of `PokemonListItem`in `async` way.
-  var asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol
+  var asyncGetPokemonsListUseCase: AsyncGetPokemonsListProtocol {
+    PKMNUseCases.AsyncGetPokemonsList(pokemonRepository: pkmnRepository)
+  }
   
   /// The Use-Case to get a `Pokemon` by his name in `async` way.
-  var asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol
-  
-  // MARK: - Init
-
-  init() {
-    pkmnRepository = PKMNRepository(networkingWorker: networking.networkingDataSource, jsonWorker: jsonStorage.jsonDataSource)
-
-    getMockedPokemonUseCase = PKMNUseCases.GetMockedPokemon(pokemonRepository: pkmnRepository)
-    getMockedPokemonsListUseCase = PKMNUseCases.GetMockedPokemonsList(pokemonRepository: pkmnRepository)
-        
-    asyncGetPokemonByIDUseCase = PKMNUseCases.AsyncGetPokemonByID(pokemonRepository: pkmnRepository)
-    asyncGetPokemonsListUseCase = PKMNUseCases.AsyncGetPokemonsList(pokemonRepository: pkmnRepository)
-    asyncSearchPokemonByNameUseCase = PKMNUseCases.AsyncSearchPokemonByName(pokemonRepository: pkmnRepository)
+  var asyncSearchPokemonByNameUseCase: AsyncSearchPokemonByNameProtocol {
+    PKMNUseCases.AsyncSearchPokemonByName(pokemonRepository: pkmnRepository)
   }
 }

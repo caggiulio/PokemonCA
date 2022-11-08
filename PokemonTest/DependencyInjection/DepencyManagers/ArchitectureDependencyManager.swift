@@ -1,14 +1,14 @@
 //
-//  DependencyManager.swift
+//  ArchitectureDependencyManager.swift
 //  PokemonTest
 //
-//  Created by Nunzio Giulio Caggegi on 07/11/22.
+//  Created by Nunzio Giulio Caggegi on 08/11/22.
 //
 
 import Foundation
 
-/// The class to resolve the dependencies of the app.
-class DependencyManager {
+/// The struct responsible to add the dependencies of the architecture of the app.
+struct ArchitectureDependencyManager {
   // MARK: - Computed Properties
   
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.

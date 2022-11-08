@@ -20,7 +20,7 @@ struct PKMNSwiftUIHome: View {
   // MARK: - Computed Properties
   
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.
-  var assembler: PKMNSwiftUIAssembler
+  @Inject var assembler: PKMNSwiftUIAssembler
   
   // MARK: - View
   

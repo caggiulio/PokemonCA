@@ -17,13 +17,12 @@ protocol PKMNDetailViewModelProtocol {
 
 class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
   /// The use case used to get the Pokemon by id.
-  private let asyncGetPokemonByIDUseCase: GetPokemonByIDProtocol
+  @Inject private var asyncGetPokemonByIDUseCase: PKMNUseCases.GetPokemonByID
   
   /// In this variable it's stored the currentPokemon `id`.
   private var id: String
 
-  init(asyncGetPokemonByIDUseCase: GetPokemonByIDProtocol, id: String) {
-    self.asyncGetPokemonByIDUseCase = asyncGetPokemonByIDUseCase
+  init(id: String) {
     self.id = id
   }
 

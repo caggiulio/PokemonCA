@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var mainCoordinator: PKMNMainCoordinator?
   var window: UIWindow?
   private let manager = DependencyManager()
-  @Inject private var container: PKMNMainContainer
 
   func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     setup()
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     PKMNThemeManager.applyTheme(theme: mainTheme)
 
     let appWindow = UIWindow(frame: UIScreen.main.bounds)
-    mainCoordinator = PKMNMainCoordinator(navigationController: UINavigationController(), mainContainer: container)
+    mainCoordinator = PKMNMainCoordinator(navigationController: UINavigationController())
     mainCoordinator?.start(context: nil)
     appWindow.rootViewController = mainCoordinator?.navigationController
     appWindow.makeKeyAndVisible()

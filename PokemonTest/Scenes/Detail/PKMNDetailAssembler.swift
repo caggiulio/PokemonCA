@@ -10,11 +10,9 @@ import Foundation
 // MARK: - PKMNDetailAssembler
 
 struct PKMNDetailAssembler: PKMNDetailAssemblerInjector {
-  var container: PKMNMainContainerProtocol
   var id: String
 
-  init(container: PKMNMainContainerProtocol, id: String) {
-    self.container = container
+  init(id: String) {
     self.id = id
   }
 }
@@ -33,6 +31,6 @@ extension PKMNDetailAssembler {
   }
 
   func resolve() -> PKMNDetailViewModel {
-    PKMNDetailViewModel(asyncGetPokemonByIDUseCase: container.asyncGetPokemonByIDUseCase, id: id)
+    PKMNDetailViewModel(id: id)
   }
 }

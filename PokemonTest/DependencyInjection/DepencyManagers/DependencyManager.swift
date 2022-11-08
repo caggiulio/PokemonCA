@@ -14,10 +14,14 @@ class DependencyManager {
   /// The responsible manager to add the depencies of the app architecture.
   private var architectureDepenciesManager: ArchitectureDependencyManager
   
+  /// The responsible manager to add the depencies of the UseCases of the app .
+  private var useCasesDepenciesManager: UseCaseDepencyManager
+  
   // MARK: - Init
   
-  /// The init of the class.
+  /// The init of the manager.
   init() {
     architectureDepenciesManager = ArchitectureDependencyManager()
+    useCasesDepenciesManager = UseCaseDepencyManager()
   }
 }

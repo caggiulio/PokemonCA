@@ -16,11 +16,6 @@ struct ArchitectureDependencyManager {
     PKMNSwiftUIAssembler()
   }
   
-  /// The container with all the use-cases of the app.
-  private var container: PKMNMainContainer {
-    PKMNMainContainer()
-  }
-  
   /// The networking manager to make API calls. It's a concrete implementation of `PKMNNetworkingManager`.
   private var networkingManager: PKMNNetworkingManager {
     PKMNNetworkingManager()
@@ -30,10 +25,15 @@ struct ArchitectureDependencyManager {
   private var jsonManager: JSONDataSourceManager {
     JSONDataSourceManager()
   }
+  
+  /// The repository that stores and contains the `Pokemon` and `PokemonListItem` object retrieved.
+  private var pokemonRepository: PKMNRepository {
+    PKMNRepository(networkingWorker: networkingManager.networkingDataSource, jsonWorker: jsonManager.jsonDataSource)
+  }
     
   // MARK: - Init
   
-  /// The init of the app.
+  /// The init of the manager.
   init() {
     addDependencies()
   }
@@ -45,7 +45,7 @@ struct ArchitectureDependencyManager {
     let resolver = Resolver.shared
     resolver.add(networkingManager)
     resolver.add(jsonManager)
-    resolver.add(container)
+    resolver.add(pokemonRepository)
     resolver.add(assembler)
   }
 }

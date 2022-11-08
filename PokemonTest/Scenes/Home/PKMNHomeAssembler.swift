@@ -9,13 +9,7 @@ import Foundation
 
 // MARK: - PKMNHomeAssembler
 
-struct PKMNHomeAssembler: PKMNHomeAssemblerInjector {
-  var container: PKMNMainContainerProtocol
-
-  init(container: PKMNMainContainerProtocol) {
-    self.container = container
-  }
-}
+struct PKMNHomeAssembler: PKMNHomeAssemblerInjector {}
 
 // MARK: - PKMNHomeAssemblerInjector
 
@@ -31,6 +25,6 @@ extension PKMNHomeAssembler {
   }
 
   func resolve() -> PKMNHomeViewModel {
-    PKMNHomeViewModel(asyncGetPokemonsListUseCase: container.asyncGetPokemonsListUseCase, asyncSearchPokemonByNameUseCase: container.asyncSearchPokemonByNameUseCase)
+    PKMNHomeViewModel()
   }
 }

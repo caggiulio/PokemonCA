@@ -11,7 +11,6 @@ import Foundation
 
 struct PKMNSwiftUIHomeAssembler: PKMNSwiftUIHomeAssemblerInjector {
   @Inject private var mainAssembler: PKMNSwiftUIAssembler
-  @Inject private var container: PKMNMainContainer
 }
 
 // MARK: - PKMNHomeAssemblerInjector
@@ -24,11 +23,11 @@ protocol PKMNSwiftUIHomeAssemblerInjector {
 
 extension PKMNSwiftUIHomeAssembler {
   func resolve() -> PKMNSwiftUIHome {
-    PKMNSwiftUIHome(viewModel: self.resolve(), assembler: mainAssembler)
+    PKMNSwiftUIHome(viewModel: self.resolve())
   }
 
   func resolve() -> PKMNHomeSwiftUIViewModel {
-    PKMNHomeSwiftUIViewModel(getPokemonsListUseCase: container.asyncGetPokemonsListUseCase, searchPokemonByNameUseCase: container.asyncSearchPokemonByNameUseCase)
+    PKMNHomeSwiftUIViewModel()
   }
 }
 

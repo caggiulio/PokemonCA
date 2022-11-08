@@ -11,7 +11,6 @@ import Foundation
 
 struct PKMNSwiftUIDetailAssembler: PKMNSwiftUIDetailAssemblerInjector {
   @Inject private var mainAssembler: PKMNSwiftUIAssembler
-  @Inject private var container: PKMNMainContainer
   var id: String
 
   init(id: String) {
@@ -33,7 +32,7 @@ extension PKMNSwiftUIDetailAssembler {
   }
   
   func resolve() -> PKMNSwiftUIDetailViewModel {
-    PKMNSwiftUIDetailViewModel(getPokemonDetailUseCase: container.asyncGetPokemonByIDUseCase, id: id)
+    PKMNSwiftUIDetailViewModel(id: id)
   }
 }
 

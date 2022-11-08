@@ -23,10 +23,7 @@ class PKMNPokemonCoordinator: PKMNPokemonCoordinatorProtocol {
 
   // MARK: - Repositories container
 
-  var container: PKMNMainContainerProtocol
-
-  init(navigationController: UINavigationController, mainContainer: PKMNMainContainerProtocol) {
-    container = mainContainer
+  init(navigationController: UINavigationController) {
     self.navigationController = navigationController
   }
 
@@ -34,7 +31,7 @@ class PKMNPokemonCoordinator: PKMNPokemonCoordinatorProtocol {
 
   /// The start of MainCoordinator. In this func there is the dirst view controller of app
   func start(context: Any?) {
-    let pkmnViewController: PKMNHomeViewController = PKMNHomeAssembler(container: container).resolve()
+    let pkmnViewController: PKMNHomeViewController = PKMNHomeAssembler().resolve()
     pkmnViewController.homeCoordinator = self
     
     navigationController.navigationBar.prefersLargeTitles = true
@@ -42,7 +39,7 @@ class PKMNPokemonCoordinator: PKMNPokemonCoordinatorProtocol {
   }
   
   func routeToDetail(id: String) {
-    let pkmnDetailViewController: PKMNDetailViewController = PKMNDetailAssembler(container: container, id: id).resolve()
+    let pkmnDetailViewController: PKMNDetailViewController = PKMNDetailAssembler(id: id).resolve()
     pkmnDetailViewController.detailCoordinator = self
 
     navigationController.present(pkmnDetailViewController, animated: true, completion: nil)

@@ -8,7 +8,7 @@
 import Foundation
 
 /// The concrete implementation of `PKMNRepositoryProtocol`.
-class PKMNRepository: PKMNRepositoryProtocol {
+class PKMNRepository: PKMNRepositoryProtocol, Injectable {
   /// The networking worker.
   private var networkingWorker: PKMNNetworkingDataSourceProtocol
   

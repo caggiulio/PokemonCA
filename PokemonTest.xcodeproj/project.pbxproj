@@ -484,7 +484,7 @@
 		4D5904A7279DBFDC001110D8 /* PokemonTest */ = {
 			isa = PBXGroup;
 			children = (
-				4DDEF19029196FA6007CC75B /* DependencyInjection */,
+				4DDEF1A8291BC1B2007CC75B /* UIKit */,
 				4DF9A2ED290AD1F0003AC168 /* SwiftUI */,
 				4D5904B6279DBFDD001110D8 /* Info.plist */,
 				4D359F9328FFD89700A26693 /* AppIntents */,
@@ -492,8 +492,6 @@
 				4D59053D279E98B8001110D8 /* PKMNData */,
 				4D5904C0279DC47D001110D8 /* PKMNCore */,
 				4D59050F279E90E5001110D8 /* PKMNDomain */,
-				4D757FA2279EDD38000E79E5 /* Scenes */,
-				4D757F9A279EC150000E79E5 /* PKMNNavigation */,
 			);
 			path = PokemonTest;
 			sourceTree = "<group>";
@@ -501,6 +499,7 @@
 		4D5904C0279DC47D001110D8 /* PKMNCore */ = {
 			isa = PBXGroup;
 			children = (
+				4DDEF19029196FA6007CC75B /* DependencyInjection */,
 				4D5904C2279DC493001110D8 /* Infrastructure */,
 			);
 			path = PKMNCore;
@@ -511,13 +510,10 @@
 			children = (
 				4DA02D852801877600BB6CE5 /* ErrorHandler */,
 				4D5904DB279DC690001110D8 /* Assets */,
-				4D757F8A279EBCBA000E79E5 /* CommonUI */,
 				4D590563279EAC4F001110D8 /* Localizable */,
 				4D5904FA279E90AA001110D8 /* Constants */,
 				4D59053A279E987F001110D8 /* JSONFiles */,
 				4D590552279E9F39001110D8 /* Error */,
-				4D5904E2279DCA58001110D8 /* Styles */,
-				4D757F7C279EB751000E79E5 /* Coordinator */,
 				4D757F95279EBF1C000E79E5 /* LoadingState */,
 				4D3DED8027A03E710012CCEF /* Extension */,
 			);
@@ -739,6 +735,7 @@
 		4D757F8A279EBCBA000E79E5 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				4D5904E2279DCA58001110D8 /* Styles */,
 				4D3DED51279EE0D50012CCEF /* UIImageColors */,
 				4D757FA5279EDDC6000E79E5 /* ExtensionsUI */,
 				4D586FBA27A150DD0067479A /* BaseView */,
@@ -760,6 +757,7 @@
 		4D757F9A279EC150000E79E5 /* PKMNNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				4D757F7C279EB751000E79E5 /* Coordinator */,
 				4D757F98279EC0AC000E79E5 /* PKMNMainCoordinator.swift */,
 				4D586FBB27A1812E0067479A /* PKMNPokemonCoordinator.swift */,
 			);
@@ -852,6 +850,16 @@
 				4DDEF1A5291B92C6007CC75B /* Assembler.swift */,
 			);
 			path = Assembler;
+			sourceTree = "<group>";
+		};
+		4DDEF1A8291BC1B2007CC75B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4D757FA2279EDD38000E79E5 /* Scenes */,
+				4D757F9A279EC150000E79E5 /* PKMNNavigation */,
+				4D757F8A279EBCBA000E79E5 /* CommonUI */,
+			);
+			name = UIKit;
 			sourceTree = "<group>";
 		};
 		4DF9A2AF290ABA31003AC168 /* Action */ = {

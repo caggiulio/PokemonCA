@@ -15,16 +15,20 @@ protocol PKMNHomeViewModelProtocol {
   func getNextPage()
   func retrievedPokemon() -> [PokemonListItem]
   func pokemon(_ forIndexPath: IndexPath) -> PokemonListItem?
+  func setSelectedPokemonID(id: String)
 }
 
 // MARK: - PKMNHomeViewModel
 
 class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   /// The use case used to get the Pokemon's list.
-  private let asyncGetPokemonsListUseCase: GetPokemonsListProtocol
+  @Inject private var asyncGetPokemonsListUseCase: PKMNUseCases.GetPokemonsList
   
   /// The use case used to search a Pokmeon by his name.
-  private let asyncSearchPokemonByNameUseCase: SearchPokemonByNameProtocol
+  @Inject private var asyncSearchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
+  
+  /// The use case to set the selected `Pokemon` id for the next step.
+  @Inject private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
   
   /// In this variable are stored the retrieved `PokemonListItem`
   private var retrievedPokemons: [PokemonListItem] = []
@@ -34,11 +38,6 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   
   /// `DispatchWorkItem` used to search a pokemon
   private var searchTask: Task<(), Error>?
-
-  init(asyncGetPokemonsListUseCase: GetPokemonsListProtocol, asyncSearchPokemonByNameUseCase: SearchPokemonByNameProtocol) {
-    self.asyncGetPokemonsListUseCase = asyncGetPokemonsListUseCase
-    self.asyncSearchPokemonByNameUseCase = asyncSearchPokemonByNameUseCase
-  }
 
   func loadHome(queryItems: [URLQueryItem]?) {
     loadingState = .loading(queryItems == nil)
@@ -96,5 +95,9 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
       }
     }
     searchTask = task
+  }
+  
+  func setSelectedPokemonID(id: String) {
+    setSelectedPokemonUseCase.execute(id: id)
   }
 }

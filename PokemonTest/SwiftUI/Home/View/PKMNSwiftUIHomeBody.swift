@@ -14,33 +14,34 @@ struct PKMNHomeBody: View {
   /// The model handeld by the `View`.
   private var model: PKMNHomeBodyModel
   
-  /// The responsible of the assemble of the `View` used to assemble a view for navigation.
-  private var assembler: PKMNSwiftUIAssembler
-  
   // MARK: - Interaction
   
   /// The list reach the end.
   var listReachEnd: Interaction?
   
+  /// The list reach the end.
+  var pokemonDidSelect: CustomInteraction<String>?
+    
   // MARK: - Init
   
   /// The init of the `View`.
   /// - Parameters:
   ///   - model: the model handeld by the `View`.
-  ///   - assembler: the responsible of the assemble of the `View` used to assemble a view for navigation.
   ///   - listReachEnd: the list reach the end.
-  init(model: PKMNHomeBodyModel, assembler: PKMNSwiftUIAssembler, listReachEnd: Interaction?) {
+  ///   - pokemonDidSelect: the user selected a `Pokemon`.
+  init(model: PKMNHomeBodyModel, listReachEnd: Interaction?, pokemonDidSelect: CustomInteraction<String>?) {
     self.model = model
-    self.assembler = assembler
     self.listReachEnd = listReachEnd
+    self.pokemonDidSelect = pokemonDidSelect
   }
   
   var body: some View {
     ScrollView {
       ForEach(model.isFiltered ? model.filteredPokemonList : model.pokemonList) { pokemon in
-        NavigationLink(destination: assembler.detail(id: pokemon.id)) {
-          PKMNHomeCell(pokemon: pokemon)
-        }
+        PKMNHomeCell(pokemon: pokemon)
+          .onTapGesture {
+            pokemonDidSelect?(pokemon.id)
+          }
       }
       .padding(.horizontal)
     }

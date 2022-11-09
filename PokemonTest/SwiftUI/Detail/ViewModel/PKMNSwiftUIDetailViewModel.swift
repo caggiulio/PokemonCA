@@ -12,21 +12,7 @@ class PKMNSwiftUIDetailViewModel: PKMNSwiftUIViewModel<PKMNDetailModel> {
   
   /// The use case to get the information about the `Pokemon` selected
   /// in the prevous step.
-  private let getPokemonDetailUseCase: GetPokemonByIDProtocol
-  
-  /// The `id` of the `Pokemon` selected.
-  private let id: String
-  
-  // MARK: - Init
-
-  /// The init of the `PKMNSwiftUIDetailViewModel`.
-  /// - Parameters:
-  ///   - getPokemonDetailUseCase: The use case to get the information about the `Pokemon`.
-  ///   - id: The `id` of the `Pokemon` selected.
-  init(getPokemonDetailUseCase: GetPokemonByIDProtocol, id: String) {
-    self.getPokemonDetailUseCase = getPokemonDetailUseCase
-    self.id = id
-  }
+  @Inject private var getPokemonDetailUseCase: PKMNUseCases.GetPokemonByID
   
   /// The method to get the information about the `Pokemon` and returns the `PKMNDetailModel`.
   /// - Parameter id: The `String` id for the selected `Pokemon`.
@@ -34,7 +20,7 @@ class PKMNSwiftUIDetailViewModel: PKMNSwiftUIViewModel<PKMNDetailModel> {
   func getPokemonDetails() {
     Task {
       try await processTask(function: {
-        let pokemon = try await getPokemonDetailUseCase.execute(id: id)
+        let pokemon = try await getPokemonDetailUseCase.execute()
         return PKMNDetailModel(pokemon: pokemon)
       })
     }

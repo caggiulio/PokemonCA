@@ -10,12 +10,12 @@ import Foundation
 // MARK: - Mock Methods
 
 /// Get mocked info Pokemon.
-protocol GetMockedPokemonProtocol {
+protocol GetMockedPokemonProtocol: Injectable {
   func execute() async throws -> Pokemon
 }
 
 /// Get mocked info PokemonList.
-protocol GetMockedPokemonsListProtocol {
+protocol GetMockedPokemonsListProtocol: Injectable {
   func execute() async throws -> PokemonsList
 }
 
@@ -23,16 +23,26 @@ protocol GetMockedPokemonsListProtocol {
 // MARK: -  Methods
 
 /// Get mocked info PokemonList.
-protocol GetPokemonByIDProtocol {
-  func execute(id: String) async throws -> Pokemon
+protocol GetPokemonByIDProtocol: Injectable {
+  func execute() async throws -> Pokemon
 }
 
 /// Get mocked info PokemonList.
-protocol GetPokemonsListProtocol {
+protocol GetPokemonsListProtocol: Injectable {
   func execute(queryItems: [URLQueryItem]?) async throws -> PokemonsList
 }
 
 /// Get real info PokemonList by his name in `async` way.
-protocol SearchPokemonByNameProtocol {
+protocol SearchPokemonByNameProtocol: Injectable {
   func execute(name: String) async throws -> [PokemonListItem]
+}
+
+/// Set the id for a selected `Pokemon`.
+protocol SetSelectedPokemonIDProtocol: Injectable {
+  func execute(id: String)
+}
+
+/// Get the id for a selected `Pokemon`.
+protocol GetSelectedPokemonIDProtocol: Injectable {
+  func execute() -> String
 }

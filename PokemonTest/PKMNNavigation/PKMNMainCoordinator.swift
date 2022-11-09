@@ -15,14 +15,12 @@ class PKMNMainCoordinator: Coordinator {
 
   // MARK: - Repositories container
 
-  var container: PKMNMainContainerProtocol
   var pokemonCoordinator: PKMNPokemonCoordinatorProtocol
 
-  init(navigationController: UINavigationController, mainContainer: PKMNMainContainerProtocol) {
-    container = mainContainer
+  init(navigationController: UINavigationController) {
     self.navigationController = navigationController
 
-    pokemonCoordinator = PKMNPokemonCoordinator(navigationController: navigationController, mainContainer: mainContainer)
+    pokemonCoordinator = PKMNPokemonCoordinator(navigationController: navigationController)
     pokemonCoordinator.parentCoordinator = self
     childrenCoordinators.append(pokemonCoordinator)
   }

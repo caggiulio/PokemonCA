@@ -11,10 +11,13 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   // MARK: - Stored Properties
   
   /// The use case used to get the Pokemon's list.
-  private let getPokemonsListUseCase: GetPokemonsListProtocol
+  @Inject private var getPokemonsListUseCase: PKMNUseCases.GetPokemonsList
   
   /// The use case used to search a Pokemon by a string.
-  private let searchPokemonByNameUseCase: SearchPokemonByNameProtocol
+  @Inject private var searchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
+  
+  /// The use case to set the selected `Pokemon` id for the next step.
+  @Inject private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
   
   // MARK: - Computed Properties
   
@@ -24,17 +27,6 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// In this variable are stored the retrieved `PokemonListItem`
   private var retrievedPokemons: [PokemonListItem] = []
     
-  // MARK: - Init
-
-  /// The init of the `PKMNSwiftUIViewModel`.
-  /// - Parameters:
-  ///   - getPokemonsListUseCase: The use case to fetch the data list.
-  ///   - searchPokemonByNameUseCase: The use case used to search a Pokemon by a string.
-  init(getPokemonsListUseCase: GetPokemonsListProtocol, searchPokemonByNameUseCase: SearchPokemonByNameProtocol) {
-    self.getPokemonsListUseCase = getPokemonsListUseCase
-    self.searchPokemonByNameUseCase = searchPokemonByNameUseCase
-  }
-
   /// The method to trigger the `getPokemonsListUseCase`.
   /// - Parameter queryItems: the array of the `URLQueryItem` to pass to the API.
   @MainActor
@@ -81,5 +73,12 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     else { return }
 
     loadHome(queryItems: queryItems)
+  }
+  
+  /// The method to trigger the `setSelectedPokemonUseCase`.
+  /// - Parameter id: the `String` id of the selected `Pokemon`.
+  @MainActor
+  func setSelectedPokemon(id: String) {
+    setSelectedPokemonUseCase.execute(id: id)
   }
 }

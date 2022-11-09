@@ -7,7 +7,6 @@
 
 import Foundation
 
-#warning("Make a UseCase for this")
 /// The `Logic` for the Intents and `AppIntents` framework.
 struct IntentsLogic {}
 
@@ -22,9 +21,10 @@ extension IntentsLogic.FetchData {
   /// This method use `withCheckedThrowingContinuation` to make all asynchronous.
   struct FetchAllPokemon {
     static func execute() async throws -> [PokemonAppEntity] {
-      let context = PokemonContextManager.container
+      let _ = DependencyManager()
+      @Inject var getPokemonListUseCase: PKMNUseCases.GetPokemonsList
 
-      let list = try await context.asyncGetPokemonsListUseCase.execute(queryItems: nil)
+      let list = try await getPokemonListUseCase.execute(queryItems: nil)
       return list.pokemonItems.map {
         return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
       }
@@ -34,9 +34,10 @@ extension IntentsLogic.FetchData {
   /// The logic to fetch a Pokemon by a given query.
   struct FetchPokemonByQuery {
     static func execute(query: String) async throws -> [PokemonAppEntity] {
-      let context = PokemonContextManager.container
+      let _ = DependencyManager()
+      @Inject var searchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
       
-      let list = try await context.asyncSearchPokemonByNameUseCase.execute(name: query)
+      let list = try await searchPokemonByNameUseCase.execute(name: query)
       return list.map {
         return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
       }

@@ -489,7 +489,6 @@
 				4D5904B6279DBFDD001110D8 /* Info.plist */,
 				4D359F9328FFD89700A26693 /* AppIntents */,
 				4D3DED8327A061E30012CCEF /* App */,
-				4D590562279EAC2F001110D8 /* PKMNDI */,
 				4D59053D279E98B8001110D8 /* PKMNData */,
 				4D5904C0279DC47D001110D8 /* PKMNCore */,
 				4D59050F279E90E5001110D8 /* PKMNDomain */,
@@ -691,13 +690,6 @@
 				4D15A23229030AC4009E5314 /* PKMNUseCasesProtocol.swift */,
 			);
 			path = UseCases;
-			sourceTree = "<group>";
-		};
-		4D590562279EAC2F001110D8 /* PKMNDI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PKMNDI;
 			sourceTree = "<group>";
 		};
 		4D590563279EAC4F001110D8 /* Localizable */ = {

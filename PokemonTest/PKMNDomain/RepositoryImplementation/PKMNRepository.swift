@@ -8,7 +8,7 @@
 import Foundation
 
 /// The concrete implementation of `PKMNRepositoryProtocol`.
-class PKMNRepository: PKMNRepositoryProtocol, Injectable {
+class PKMNRepository: PKMNRepositoryProtocol {
   /// The networking worker.
   private var networkingWorker: PKMNNetworkingDataSourceProtocol
   
@@ -20,6 +20,9 @@ class PKMNRepository: PKMNRepositoryProtocol, Injectable {
   
   /// In this variables are stored the retrieved `PokemonListItem` from the api ``/pokemon``
   private var pokemonItemsRetrieved: [PokemonListItem] = []
+  
+  /// In this variables is stored the selected id for a selected `Pokemon`.
+  private var selectedID: String = String()
 
   // MARK: - Init
   
@@ -44,7 +47,7 @@ class PKMNRepository: PKMNRepositoryProtocol, Injectable {
     try await jsonWorker.pokemonsList()
   }
   
-  // MARK: - 
+  // MARK: - Async
   
   /// Get info about `Pokemon` by his ID. If it's cached, reuturns it, else retrieves from network.
   func asyncGetPokemon(id: String) async throws -> Pokemon {
@@ -79,5 +82,15 @@ class PKMNRepository: PKMNRepositoryProtocol, Injectable {
 
     let finalFilteredPokemonItems = (filteredPokemonListItems + filteredPokemon).uniques(by: \.id)
     return finalFilteredPokemonItems
+  }
+  
+  /// Set the id for a selected `Pokemon`.
+  func setSelectedID(id: String) {
+    selectedID = id
+  }
+  
+  /// Get the id for a selected `Pokemon`.
+  func getSelectedID() -> String {
+    selectedID
   }
 }

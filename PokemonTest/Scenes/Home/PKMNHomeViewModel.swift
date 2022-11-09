@@ -15,6 +15,7 @@ protocol PKMNHomeViewModelProtocol {
   func getNextPage()
   func retrievedPokemon() -> [PokemonListItem]
   func pokemon(_ forIndexPath: IndexPath) -> PokemonListItem?
+  func setSelectedPokemonID(id: String)
 }
 
 // MARK: - PKMNHomeViewModel
@@ -25,6 +26,9 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   
   /// The use case used to search a Pokmeon by his name.
   @Inject private var asyncSearchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
+  
+  /// The use case to set the selected `Pokemon` id for the next step.
+  @Inject private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
   
   /// In this variable are stored the retrieved `PokemonListItem`
   private var retrievedPokemons: [PokemonListItem] = []
@@ -91,5 +95,9 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
       }
     }
     searchTask = task
+  }
+  
+  func setSelectedPokemonID(id: String) {
+    setSelectedPokemonUseCase.execute(id: id)
   }
 }

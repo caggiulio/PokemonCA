@@ -36,7 +36,6 @@
 		4D3DED68279EF2B70012CCEF /* PMKNDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED67279EF2B70012CCEF /* PMKNDetailViewController.swift */; };
 		4D3DED6A279EF2C40012CCEF /* PKMNDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED69279EF2C40012CCEF /* PKMNDetailViewModel.swift */; };
 		4D3DED6C279EF2CF0012CCEF /* PKMNDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED6B279EF2CF0012CCEF /* PKMNDetailView.swift */; };
-		4D3DED6E279EF2DB0012CCEF /* PKMNDetailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED6D279EF2DB0012CCEF /* PKMNDetailAssembler.swift */; };
 		4D3DED70279FF8060012CCEF /* PKMNStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED6F279FF8060012CCEF /* PKMNStatsView.swift */; };
 		4D3DED72279FFA7A0012CCEF /* PKMNSingleStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED71279FFA7A0012CCEF /* PKMNSingleStatView.swift */; };
 		4D3DED7627A00FF30012CCEF /* PKMNAbilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7527A00FF30012CCEF /* PKMNAbilitiesView.swift */; };
@@ -112,7 +111,6 @@
 		4D757F90279EBE10000E79E5 /* PKMNHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F8F279EBE10000E79E5 /* PKMNHomeView.swift */; };
 		4D757F92279EBE74000E79E5 /* PKMNHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F91279EBE74000E79E5 /* PKMNHomeViewModel.swift */; };
 		4D757F94279EBEEA000E79E5 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F93279EBEEA000E79E5 /* LoadingState.swift */; };
-		4D757F97279EBFFF000E79E5 /* PKMNHomeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F96279EBFFF000E79E5 /* PKMNHomeAssembler.swift */; };
 		4D757F99279EC0AC000E79E5 /* PKMNMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F98279EC0AC000E79E5 /* PKMNMainCoordinator.swift */; };
 		4D757F9F279ED872000E79E5 /* PKMNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757F9E279ED872000E79E5 /* PKMNView.swift */; };
 		4D757FA1279ED8B5000E79E5 /* PKMNView+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D757FA0279ED8B5000E79E5 /* PKMNView+Modal.swift */; };
@@ -127,6 +125,8 @@
 		4DDEF19429196FC5007CC75B /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF19329196FC5007CC75B /* DependencyManager.swift */; };
 		4DDEF19C291A46D0007CC75B /* ArchitectureDependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF19B291A46D0007CC75B /* ArchitectureDependencyManager.swift */; };
 		4DDEF19F291A9764007CC75B /* UseCaseDepencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF19E291A9764007CC75B /* UseCaseDepencyManager.swift */; };
+		4DDEF1A3291B131C007CC75B /* SwiftUIAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1A2291B131C007CC75B /* SwiftUIAssembler.swift */; };
+		4DDEF1A6291B92C6007CC75B /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1A5291B92C6007CC75B /* Assembler.swift */; };
 		4DF9A2AE290ABA2D003AC168 /* OpenPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */; };
 		4DF9A2B1290AC51E003AC168 /* PokemonInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */; };
 		4DF9A2EA290ACD06003AC168 /* PKMNSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */; };
@@ -136,15 +136,12 @@
 		4DF9A2F3290AD280003AC168 /* PKMNHomeSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2F2290AD280003AC168 /* PKMNHomeSwiftUIViewModel.swift */; };
 		4DF9A2F5290AE487003AC168 /* SwiftUIHandleLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2F4290AE487003AC168 /* SwiftUIHandleLoadingState.swift */; };
 		4DF9A2FA290BBC1F003AC168 /* PKMNSwiftUIHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2F9290BBC1F003AC168 /* PKMNSwiftUIHomeCell.swift */; };
-		4DF9A2FD290BE09D003AC168 /* SwiftUIHomeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2FC290BE09D003AC168 /* SwiftUIHomeAssembler.swift */; };
-		4DF9A2FF290BE1C4003AC168 /* SwiftUIAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2FE290BE1C4003AC168 /* SwiftUIAssembler.swift */; };
 		4DF9A303290C1B9C003AC168 /* PKMNSwiftUILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A302290C1B9C003AC168 /* PKMNSwiftUILoader.swift */; };
 		4DF9A308290D0301003AC168 /* PKMNHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A307290D0301003AC168 /* PKMNHomeModel.swift */; };
 		4DF9A30E290D2958003AC168 /* ScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A30D290D2958003AC168 /* ScrollView+Extensions.swift */; };
 		4DF9A311290E7B03003AC168 /* PKMNSwiftUIDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A310290E7B03003AC168 /* PKMNSwiftUIDetail.swift */; };
 		4DF9A314290EEF2A003AC168 /* PKMNDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A313290EEF2A003AC168 /* PKMNDetailModel.swift */; };
 		4DF9A316290EF80D003AC168 /* PKMNSwiftUIDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A315290EF80D003AC168 /* PKMNSwiftUIDetailViewModel.swift */; };
-		4DF9A318290EF91B003AC168 /* SwiftUIPokemonDetailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A317290EF91B003AC168 /* SwiftUIPokemonDetailAssembler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,7 +183,6 @@
 		4D3DED67279EF2B70012CCEF /* PMKNDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMKNDetailViewController.swift; sourceTree = "<group>"; };
 		4D3DED69279EF2C40012CCEF /* PKMNDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailViewModel.swift; sourceTree = "<group>"; };
 		4D3DED6B279EF2CF0012CCEF /* PKMNDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailView.swift; sourceTree = "<group>"; };
-		4D3DED6D279EF2DB0012CCEF /* PKMNDetailAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailAssembler.swift; sourceTree = "<group>"; };
 		4D3DED6F279FF8060012CCEF /* PKMNStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNStatsView.swift; sourceTree = "<group>"; };
 		4D3DED71279FFA7A0012CCEF /* PKMNSingleStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSingleStatView.swift; sourceTree = "<group>"; };
 		4D3DED7527A00FF30012CCEF /* PKMNAbilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNAbilitiesView.swift; sourceTree = "<group>"; };
@@ -267,7 +263,6 @@
 		4D757F8F279EBE10000E79E5 /* PKMNHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeView.swift; sourceTree = "<group>"; };
 		4D757F91279EBE74000E79E5 /* PKMNHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeViewModel.swift; sourceTree = "<group>"; };
 		4D757F93279EBEEA000E79E5 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
-		4D757F96279EBFFF000E79E5 /* PKMNHomeAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeAssembler.swift; sourceTree = "<group>"; };
 		4D757F98279EC0AC000E79E5 /* PKMNMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNMainCoordinator.swift; sourceTree = "<group>"; };
 		4D757F9E279ED872000E79E5 /* PKMNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNView.swift; sourceTree = "<group>"; };
 		4D757FA0279ED8B5000E79E5 /* PKMNView+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNView+Modal.swift"; sourceTree = "<group>"; };
@@ -282,6 +277,8 @@
 		4DDEF19329196FC5007CC75B /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		4DDEF19B291A46D0007CC75B /* ArchitectureDependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureDependencyManager.swift; sourceTree = "<group>"; };
 		4DDEF19E291A9764007CC75B /* UseCaseDepencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseDepencyManager.swift; sourceTree = "<group>"; };
+		4DDEF1A2291B131C007CC75B /* SwiftUIAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIAssembler.swift; sourceTree = "<group>"; };
+		4DDEF1A5291B92C6007CC75B /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPokemon.swift; sourceTree = "<group>"; };
 		4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInformation.swift; sourceTree = "<group>"; };
 		4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIViewModel.swift; sourceTree = "<group>"; };
@@ -291,15 +288,12 @@
 		4DF9A2F2290AD280003AC168 /* PKMNHomeSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeSwiftUIViewModel.swift; sourceTree = "<group>"; };
 		4DF9A2F4290AE487003AC168 /* SwiftUIHandleLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHandleLoadingState.swift; sourceTree = "<group>"; };
 		4DF9A2F9290BBC1F003AC168 /* PKMNSwiftUIHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIHomeCell.swift; sourceTree = "<group>"; };
-		4DF9A2FC290BE09D003AC168 /* SwiftUIHomeAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHomeAssembler.swift; sourceTree = "<group>"; };
-		4DF9A2FE290BE1C4003AC168 /* SwiftUIAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAssembler.swift; sourceTree = "<group>"; };
 		4DF9A302290C1B9C003AC168 /* PKMNSwiftUILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUILoader.swift; sourceTree = "<group>"; };
 		4DF9A307290D0301003AC168 /* PKMNHomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKMNHomeModel.swift; sourceTree = "<group>"; };
 		4DF9A30D290D2958003AC168 /* ScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		4DF9A310290E7B03003AC168 /* PKMNSwiftUIDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIDetail.swift; sourceTree = "<group>"; };
 		4DF9A313290EEF2A003AC168 /* PKMNDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailModel.swift; sourceTree = "<group>"; };
 		4DF9A315290EF80D003AC168 /* PKMNSwiftUIDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIDetailViewModel.swift; sourceTree = "<group>"; };
-		4DF9A317290EF91B003AC168 /* SwiftUIPokemonDetailAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPokemonDetailAssembler.swift; sourceTree = "<group>"; };
 		6C8E86EEF49C195C44D38D4B /* Pods_PokemonTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		714A198B875DCEB2A8C5FE62 /* Pods-PokemonTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.debug.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.debug.xcconfig"; sourceTree = "<group>"; };
 		8B14E3DD29AEAA648A800B6C /* Pods-PokemonTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTest.release.xcconfig"; path = "Target Support Files/Pods-PokemonTest/Pods-PokemonTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -357,14 +351,6 @@
 				4D07F6F6290FC2BD006B91AD /* AbilityView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		4D07F6FC290FCBC6006B91AD /* Assembler */ = {
-			isa = PBXGroup;
-			children = (
-				4DF9A317290EF91B003AC168 /* SwiftUIPokemonDetailAssembler.swift */,
-			);
-			path = Assembler;
 			sourceTree = "<group>";
 		};
 		4D308BD12915615D0070EDB7 /* Toast */ = {
@@ -427,7 +413,6 @@
 				4D3DED6B279EF2CF0012CCEF /* PKMNDetailView.swift */,
 				4D3DED7927A012C20012CCEF /* AbilitiesView */,
 				4D3DED7427A00CA60012CCEF /* StatsViews */,
-				4D3DED6D279EF2DB0012CCEF /* PKMNDetailAssembler.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -795,7 +780,6 @@
 				4D757F8D279EBDB4000E79E5 /* PKMNHomeViewController.swift */,
 				4D15A27029054873009E5314 /* PKMNHomeViewController+UICollectionView.swift */,
 				4D3DED7C27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift */,
-				4D757F96279EBFFF000E79E5 /* PKMNHomeAssembler.swift */,
 				4D757F91279EBE74000E79E5 /* PKMNHomeViewModel.swift */,
 				4D757F8F279EBE10000E79E5 /* PKMNHomeView.swift */,
 				4D3DED4E279EDE860012CCEF /* Cell */,
@@ -808,6 +792,7 @@
 			children = (
 				4D757F9B279EC15E000E79E5 /* Home */,
 				4D3DED7327A00C650012CCEF /* Detail */,
+				4DDEF1A7291B92C8007CC75B /* Assembler */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -861,6 +846,22 @@
 			path = DepencyManagers;
 			sourceTree = "<group>";
 		};
+		4DDEF1A4291B1320007CC75B /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				4DDEF1A2291B131C007CC75B /* SwiftUIAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		4DDEF1A7291B92C8007CC75B /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				4DDEF1A5291B92C6007CC75B /* Assembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		4DF9A2AF290ABA31003AC168 /* Action */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,7 +883,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF9A2EB290AD1C9003AC168 /* PokemonTestApp.swift */,
-				4DF9A2FE290BE1C4003AC168 /* SwiftUIAssembler.swift */,
+				4DDEF1A4291B1320007CC75B /* Assembler */,
 				4DF9A2F6290AE842003AC168 /* Common */,
 				4DF9A2FB290BE084003AC168 /* Home */,
 				4DF9A312290EEF17003AC168 /* Detail */,
@@ -905,7 +906,6 @@
 		4DF9A2FB290BE084003AC168 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4DF9A30B290D17A1003AC168 /* Assembler */,
 				4DF9A30A290D1797003AC168 /* Model */,
 				4DF9A300290BE8B6003AC168 /* View */,
 				4DF9A309290D1791003AC168 /* ViewModel */,
@@ -958,14 +958,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		4DF9A30B290D17A1003AC168 /* Assembler */ = {
-			isa = PBXGroup;
-			children = (
-				4DF9A2FC290BE09D003AC168 /* SwiftUIHomeAssembler.swift */,
-			);
-			path = Assembler;
-			sourceTree = "<group>";
-		};
 		4DF9A30C290D2941003AC168 /* CommonViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -988,7 +980,6 @@
 				4D07F6F5290FC2A4006B91AD /* View */,
 				4D07F6F3290FC266006B91AD /* Model */,
 				4D07F6F4290FC273006B91AD /* ViewModel */,
-				4D07F6FC290FCBC6006B91AD /* Assembler */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1164,8 +1155,8 @@
 				4DF9A2AE290ABA2D003AC168 /* OpenPokemon.swift in Sources */,
 				4D586FBC27A1812E0067479A /* PKMNPokemonCoordinator.swift in Sources */,
 				4D5904DF279DC888001110D8 /* PKMNThemeManager.swift in Sources */,
-				4D757F97279EBFFF000E79E5 /* PKMNHomeAssembler.swift in Sources */,
 				4D3DED7627A00FF30012CCEF /* PKMNAbilitiesView.swift in Sources */,
+				4DDEF1A6291B92C6007CC75B /* Assembler.swift in Sources */,
 				4D3DED5D279EE0D50012CCEF /* _ColorCounter.swift in Sources */,
 				4D07F6F7290FC2BD006B91AD /* AbilityView.swift in Sources */,
 				4D3DED7827A010500012CCEF /* PKMNSingleAbilityView.swift in Sources */,
@@ -1183,7 +1174,6 @@
 				4D3DED70279FF8060012CCEF /* PKMNStatsView.swift in Sources */,
 				4D3DED64279EE0D50012CCEF /* ScaleQuality.swift in Sources */,
 				4DF9A2EA290ACD06003AC168 /* PKMNSwiftUIViewModel.swift in Sources */,
-				4D3DED6E279EF2DB0012CCEF /* PKMNDetailAssembler.swift in Sources */,
 				4DF9A308290D0301003AC168 /* PKMNHomeModel.swift in Sources */,
 				4DDEF19C291A46D0007CC75B /* ArchitectureDependencyManager.swift in Sources */,
 				4D5904F5279E8FD7001110D8 /* PKMNNetworkingDataSourceProtocol.swift in Sources */,
@@ -1203,10 +1193,8 @@
 				4D5904BD279DC36C001110D8 /* PKMNAppAssets.swift in Sources */,
 				4D308B8829127F780070EDB7 /* PKMNSwiftUIHomeBody.swift in Sources */,
 				4D757FA4279EDDBE000E79E5 /* UICollectionView+Extensions.swift in Sources */,
-				4DF9A2FF290BE1C4003AC168 /* SwiftUIAssembler.swift in Sources */,
 				4D757F99279EC0AC000E79E5 /* PKMNMainCoordinator.swift in Sources */,
 				4D757F92279EBE74000E79E5 /* PKMNHomeViewModel.swift in Sources */,
-				4DF9A318290EF91B003AC168 /* SwiftUIPokemonDetailAssembler.swift in Sources */,
 				4DF9A2EC290AD1C9003AC168 /* PokemonTestApp.swift in Sources */,
 				4D757F87279EBB7C000E79E5 /* PKMNViewController+Modal.swift in Sources */,
 				4D757F8C279EBD24000E79E5 /* PKMNViewController+HandleError.swift in Sources */,
@@ -1240,9 +1228,9 @@
 				4D590559279EA839001110D8 /* PKMNRepository.swift in Sources */,
 				4D59052C279E9337001110D8 /* Ability.swift in Sources */,
 				4DDEF19229196FBA007CC75B /* Resolver.swift in Sources */,
-				4DF9A2FD290BE09D003AC168 /* SwiftUIHomeAssembler.swift in Sources */,
 				4D5904E1279DC9F1001110D8 /* PKMNButtonStyles.swift in Sources */,
 				4D590530279E9491001110D8 /* Species.swift in Sources */,
+				4DDEF1A3291B131C007CC75B /* SwiftUIAssembler.swift in Sources */,
 				4D5904C5279DC62A001110D8 /* PKMNFont.swift in Sources */,
 				4D590520279E923D001110D8 /* SpeciesDataSource.swift in Sources */,
 				4D590522279E924C001110D8 /* SpritesDataSource.swift in Sources */,

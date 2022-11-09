@@ -11,11 +11,11 @@ import Foundation
 struct PKMNSwiftUIAssembler: Injectable {
   /// Return the `PKMNSwiftUIHome`.
   func home() -> PKMNSwiftUIHome {
-    PKMNSwiftUIHomeAssembler().resolve()
+    PKMNSwiftUIHome(viewModel: PKMNHomeSwiftUIViewModel())
   }
   
   /// Return the `PKMNSwiftUIDetail`.
-  func detail(id: String) -> PKMNSwiftUIDetail {
-    PKMNSwiftUIDetailAssembler(id: id).resolve()
+  func detail() -> PKMNSwiftUIDetail {
+    PKMNSwiftUIDetail(viewModel: PKMNSwiftUIDetailViewModel())
   }
 }

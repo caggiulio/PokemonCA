@@ -18,18 +18,11 @@ protocol PKMNDetailViewModelProtocol {
 class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
   /// The use case used to get the Pokemon by id.
   @Inject private var asyncGetPokemonByIDUseCase: PKMNUseCases.GetPokemonByID
-  
-  /// In this variable it's stored the currentPokemon `id`.
-  private var id: String
-
-  init(id: String) {
-    self.id = id
-  }
 
   func loadPokemon() {
     Task {
       try await processTask(function: {
-        try await asyncGetPokemonByIDUseCase.execute(id: id)
+        try await asyncGetPokemonByIDUseCase.execute()
       })
     }
   }

@@ -22,14 +22,24 @@ struct PKMNSwiftUIHome: View {
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.
   @Inject var assembler: PKMNSwiftUIAssembler
   
+  /// The `Bool` used to navigate to the detail.
+  @State var routeToDetail: Bool = false
+  
   // MARK: - View
   
   var body: some View {
     PKMNBaseSwiftUIView({
       NavigationView {
-        if let model = viewModel.lastValueModel {
-          PKMNHomeBody(model: model.bodyModel, assembler: assembler) {
-            viewModel.getNextPage()
+        ZStack {
+          NavigationLink(destination: assembler.detail(), isActive: $routeToDetail, label: {})
+          
+          if let model = viewModel.lastValueModel {
+            PKMNHomeBody(model: model.bodyModel) {
+              viewModel.getNextPage()
+            } pokemonDidSelect: { pokemonID in
+              viewModel.setSelectedPokemon(id: pokemonID)
+              routeToDetail.toggle()
+            }
           }
         }
       }

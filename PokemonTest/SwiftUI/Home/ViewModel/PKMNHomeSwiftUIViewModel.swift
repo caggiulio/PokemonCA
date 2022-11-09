@@ -16,6 +16,9 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// The use case used to search a Pokemon by a string.
   @Inject private var searchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
   
+  /// The use case to set the selected `Pokemon` id for the next step.
+  @Inject private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
+  
   // MARK: - Computed Properties
   
   /// In this variable it's stored the url for the next page.
@@ -70,5 +73,12 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     else { return }
 
     loadHome(queryItems: queryItems)
+  }
+  
+  /// The method to trigger the `setSelectedPokemonUseCase`.
+  /// - Parameter id: the `String` id of the selected `Pokemon`.
+  @MainActor
+  func setSelectedPokemon(id: String) {
+    setSelectedPokemonUseCase.execute(id: id)
   }
 }

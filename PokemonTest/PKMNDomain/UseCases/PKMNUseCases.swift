@@ -14,7 +14,7 @@ enum PKMNUseCases {
   // MARK: - Mock Methods Implementation
 
   /// Get mocked info Pokemon.
-  struct GetMockedPokemon: GetMockedPokemonProtocol, Injectable {
+  struct GetMockedPokemon: GetMockedPokemonProtocol {
     @Inject private var pokemonRepository: PKMNRepository
 
     func execute() async throws -> Pokemon {
@@ -23,7 +23,7 @@ enum PKMNUseCases {
   }
 
   /// Get mocked info PokemonList .
-  struct GetMockedPokemonsList: GetMockedPokemonsListProtocol, Injectable {
+  struct GetMockedPokemonsList: GetMockedPokemonsListProtocol {
     @Inject private var pokemonRepository: PKMNRepository
 
     func execute() async throws -> PokemonsList {
@@ -34,16 +34,17 @@ enum PKMNUseCases {
   // MARK: -  Methods Implementation
   
   /// Get real info Pokemon by his id in `async` way.
-  struct GetPokemonByID: GetPokemonByIDProtocol, Injectable {
+  struct GetPokemonByID: GetPokemonByIDProtocol {
     @Inject private var pokemonRepository: PKMNRepository
-
-    func execute(id: String) async throws -> Pokemon {
-      try await pokemonRepository.asyncGetPokemon(id: id)
+    
+    func execute() async throws -> Pokemon {
+      let id = pokemonRepository.getSelectedID()
+      return try await pokemonRepository.asyncGetPokemon(id: id)
     }
   }
   
   /// Get real  info PokemonList in `async` way.
-  struct GetPokemonsList: GetPokemonsListProtocol, Injectable {
+  struct GetPokemonsList: GetPokemonsListProtocol {
     @Inject private var pokemonRepository: PKMNRepository
 
     func execute(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
@@ -52,7 +53,7 @@ enum PKMNUseCases {
   }
   
   /// Get real info PokemonList by his name in `async` way.
-  struct SearchPokemonByName: SearchPokemonByNameProtocol, Injectable {
+  struct SearchPokemonByName: SearchPokemonByNameProtocol {
     @Inject private var pokemonRepository: PKMNRepository
 
     private func getCachedPokemonsByName(name: String) async throws -> [PokemonListItem] {
@@ -68,6 +69,24 @@ enum PKMNUseCases {
 
     func execute(name: String) async throws -> [PokemonListItem] {
       try await getCachedPokemonsByName(name: name.lowercased())
+    }
+  }
+  
+  /// Set the id for a selected `Pokemon`.
+  struct SetSelectedPokemonID: SetSelectedPokemonIDProtocol {
+    @Inject private var pokemonRepository: PKMNRepository
+    
+    func execute(id: String) {
+      pokemonRepository.setSelectedID(id: id)
+    }
+  }
+  
+  /// Get the id for a selected `Pokemon`.
+  struct GetSelectedPokemonID: GetSelectedPokemonIDProtocol {
+    @Inject private var pokemonRepository: PKMNRepository
+    
+    func execute() -> String {
+      pokemonRepository.getSelectedID()
     }
   }
 }

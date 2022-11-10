@@ -21,7 +21,6 @@ extension IntentsLogic.FetchData {
   /// This method use `withCheckedThrowingContinuation` to make all asynchronous.
   struct FetchAllPokemon {
     static func execute() async throws -> [PokemonAppEntity] {
-      let _ = DependencyManager()
       @Inject var getPokemonListUseCase: PKMNUseCases.GetPokemonsList
 
       let list = try await getPokemonListUseCase.execute(queryItems: nil)

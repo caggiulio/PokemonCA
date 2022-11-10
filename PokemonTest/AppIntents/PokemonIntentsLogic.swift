@@ -33,7 +33,6 @@ extension IntentsLogic.FetchData {
   /// The logic to fetch a Pokemon by a given query.
   struct FetchPokemonByQuery {
     static func execute(query: String) async throws -> [PokemonAppEntity] {
-      let _ = DependencyManager()
       @Inject var searchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
       
       let list = try await searchPokemonByNameUseCase.execute(name: query)

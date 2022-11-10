@@ -24,6 +24,7 @@ struct AbilityView: View {
       Text(model.title)
         .fontWeight(.bold)
         .font(.title3)
+        .foregroundColor(Color(uiColor: AppAsset.secondary.color))
       HStack {
         ProgressView(value: progress)
           .animation(.easeInOut(duration: 1), value: progress)

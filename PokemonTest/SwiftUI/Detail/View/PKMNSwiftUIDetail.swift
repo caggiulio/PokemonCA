@@ -18,16 +18,18 @@ struct PKMNSwiftUIDetail: View {
   
     var body: some View {
       PKMNBaseSwiftUIView({
-        VStack {
-          if let model = viewModel.lastValueModel {
-            PKMNDetailHeader(pokemon: model.pokemon)
-            PKMNDetailAbilitiesList(abilities: model.abilities)
+        ZStack {
+          PKMNDetailBackground().edgesIgnoringSafeArea(.all)
+          VStack {
+            if let model = viewModel.lastValueModel {
+              PKMNDetailHeader(pokemon: model.pokemon)
+              PKMNDetailAbilitiesList(abilities: model.abilities)
+            }
           }
-        }
-        .frame(maxWidth: .infinity)
-        .background(Color(uiColor: AppAsset.primary.color))
-        .onAppear {
-          viewModel.getPokemonDetails()
+          .frame(maxWidth: .infinity)
+          .onAppear {
+            viewModel.getPokemonDetails()
+          }
         }
       }, viewModel: viewModel)
     }
@@ -110,6 +112,22 @@ private extension PKMNSwiftUIDetail {
       .frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(Color(uiColor: AppAsset.tertiary.color))
       .clipShape(RoundedRectangle(cornerRadius: 20))
+    }
+  }
+}
+
+/// The background `View` for the view.
+private struct PKMNDetailBackground: View {
+  var body: some View {
+    ZStack {
+      LinearGradient(
+        colors:
+          [
+            Color(uiColor: AppAsset.primary.color),
+            Color(uiColor: AppAsset.secondary.color.withAlphaComponent(0.75))
+          ],
+        startPoint: .top,
+        endPoint: .bottom)
     }
   }
 }

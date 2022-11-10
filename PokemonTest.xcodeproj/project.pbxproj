@@ -487,7 +487,7 @@
 		4D5904A7279DBFDC001110D8 /* PokemonTest */ = {
 			isa = PBXGroup;
 			children = (
-				4DDEF1A8291BC1B2007CC75B /* UIKit */,
+				4DDEF1CA291D5FB3007CC75B /* UIKit */,
 				4DF9A2ED290AD1F0003AC168 /* SwiftUI */,
 				4D5904B6279DBFDD001110D8 /* Info.plist */,
 				4D359F9328FFD89700A26693 /* AppIntents */,
@@ -855,14 +855,14 @@
 			path = Assembler;
 			sourceTree = "<group>";
 		};
-		4DDEF1A8291BC1B2007CC75B /* UIKit */ = {
+		4DDEF1CA291D5FB3007CC75B /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
 				4D757FA2279EDD38000E79E5 /* Scenes */,
 				4D757F9A279EC150000E79E5 /* PKMNNavigation */,
 				4D757F8A279EBCBA000E79E5 /* CommonUI */,
 			);
-			name = UIKit;
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		4DF9A2AF290ABA31003AC168 /* Action */ = {

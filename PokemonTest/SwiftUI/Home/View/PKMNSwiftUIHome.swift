@@ -31,6 +31,7 @@ struct PKMNSwiftUIHome: View {
     PKMNBaseSwiftUIView({
       NavigationView {
         ZStack {
+          Color(uiColor: AppAsset.primary.color).edgesIgnoringSafeArea(.all)
           NavigationLink(destination: assembler.detail(), isActive: $routeToDetail, label: {})
           
           if let model = viewModel.lastValueModel {

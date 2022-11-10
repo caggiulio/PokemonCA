@@ -61,8 +61,8 @@ private struct PKMNHomeCellBackground: View {
       LinearGradient(
         colors:
           [
-            Color(uiColor: AppAsset.primary.color),
-            Color(uiColor: AppAsset.primary.color.withAlphaComponent(0.35))
+            Color(uiColor: AppAsset.secondary.color),
+            Color(uiColor: AppAsset.secondary.color.withAlphaComponent(0.35))
           ],
         startPoint: .top,
         endPoint: .bottom)

@@ -12,7 +12,7 @@ protocol Injectable {}
 
 @propertyWrapper
 /// The `Inject` property wrapper.
-struct Inject<T: Injectable> {
+struct Injected<T: Injectable> {
   // MARK: - Stored properties
   
   /// The generic `Injectable`.

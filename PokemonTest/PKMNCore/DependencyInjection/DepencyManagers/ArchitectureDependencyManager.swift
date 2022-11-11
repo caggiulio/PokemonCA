@@ -26,7 +26,7 @@ struct ArchitectureDependencyManager {
     JSONDataSourceManager()
   }
   
-  /// The repository that stores and contains the `Pokemon` and `PokemonListItem` object retrieved.
+  /// The repository that stores and contains the `Pokemon` and `PokemonListItem` object fetched.
   private var pokemonRepository: PKMNRepositoryProtocol {
     PKMNRepository(networkingWorker: networkingManager.networkingDataSource, jsonWorker: jsonManager.jsonDataSource)
   }

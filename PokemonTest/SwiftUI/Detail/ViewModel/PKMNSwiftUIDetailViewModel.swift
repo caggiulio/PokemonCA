@@ -12,7 +12,7 @@ class PKMNSwiftUIDetailViewModel: PKMNSwiftUIViewModel<PKMNDetailModel> {
   
   /// The use case to get the information about the `Pokemon` selected
   /// in the prevous step.
-  @Inject private var getPokemonDetailUseCase: PKMNUseCases.GetPokemonByID
+  @Injected private var getPokemonDetailUseCase: PKMNUseCases.GetPokemonByID
   
   /// The method to get the information about the `Pokemon` and returns the `PKMNDetailModel`.
   /// - Parameter id: The `String` id for the selected `Pokemon`.

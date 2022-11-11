@@ -12,7 +12,7 @@ import UIKit
 
 extension PKMNHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-    viewModel.retrievedPokemon().count
+    viewModel.fetchedPokemon().count
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

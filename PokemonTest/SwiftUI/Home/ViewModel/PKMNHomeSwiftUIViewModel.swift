@@ -11,35 +11,35 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   // MARK: - Stored Properties
   
   /// The use case used to get the Pokemon's list.
-  @Inject private var getPokemonsListUseCase: PKMNUseCases.GetPokemonsList
+  @Injected private var getPokemonsListUseCase: PKMNUseCases.GetPokemonsList
   
   /// The use case used to search a Pokemon by a string.
-  @Inject private var searchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
+  @Injected private var searchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
   
   /// The use case to set the selected `Pokemon` id for the next step.
-  @Inject private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
+  @Injected private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
   
   // MARK: - Computed Properties
   
   /// In this variable it's stored the url for the next page.
   private var nextPage: String?
   
-  /// In this variable are stored the retrieved `PokemonListItem`
-  private var retrievedPokemons: [PokemonListItem] = []
+  /// In this variable are stored the fetched `PokemonListItem`
+  private var fetchedPokemons: [PokemonListItem] = []
     
   /// The method to trigger the `getPokemonsListUseCase`.
   /// - Parameter queryItems: the array of the `URLQueryItem` to pass to the API.
   @MainActor
   func loadHome(queryItems: [URLQueryItem]?) {
-    queryItems == nil ? retrievedPokemons.removeAll() : nil
+    queryItems == nil ? fetchedPokemons.removeAll() : nil
     loadingState = .loading(true)
     
     Task {
       try await processTask(function: {
         let list = try await getPokemonsListUseCase.execute(queryItems: queryItems)
         nextPage = list.next
-        retrievedPokemons.append(contentsOf: list.pokemonItems)
-        return PKMNHomeModel(pokemonList: retrievedPokemons, filteredPokemonList: [])
+        fetchedPokemons.append(contentsOf: list.pokemonItems)
+        return PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [])
       })
     }
   }

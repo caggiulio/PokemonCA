@@ -15,7 +15,7 @@ struct PokemonTestApp: App {
   private let manager = DependencyManager()
   
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.
-  @Inject var assembler: PKMNSwiftUIAssembler
+  @Injected var assembler: PKMNSwiftUIAssembler
   
   var body: some Scene {
     WindowGroup {

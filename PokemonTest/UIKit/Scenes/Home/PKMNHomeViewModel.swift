@@ -13,7 +13,7 @@ protocol PKMNHomeViewModelProtocol {
   func loadHome(queryItems: [URLQueryItem]?)
   func searchPokemon(name: String)
   func getNextPage()
-  func retrievedPokemon() -> [PokemonListItem]
+  func fetchedPokemon() -> [PokemonListItem]
   func pokemon(_ forIndexPath: IndexPath) -> PokemonListItem?
   func setSelectedPokemonID(id: String)
 }
@@ -22,16 +22,16 @@ protocol PKMNHomeViewModelProtocol {
 
 class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
   /// The use case used to get the Pokemon's list.
-  @Inject private var asyncGetPokemonsListUseCase: PKMNUseCases.GetPokemonsList
+  @Injected private var asyncGetPokemonsListUseCase: PKMNUseCases.GetPokemonsList
   
   /// The use case used to search a Pokmeon by his name.
-  @Inject private var asyncSearchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
+  @Injected private var asyncSearchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
   
   /// The use case to set the selected `Pokemon` id for the next step.
-  @Inject private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
+  @Injected private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
   
-  /// In this variable are stored the retrieved `PokemonListItem`
-  private var retrievedPokemons: [PokemonListItem] = []
+  /// In this variable are stored the fetched `PokemonListItem`
+  private var fetchedPokemons: [PokemonListItem] = []
   
   /// In this variable it's stored the url for the next page
   private var nextPage: String?
@@ -41,14 +41,14 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
 
   func loadHome(queryItems: [URLQueryItem]?) {
     loadingState = .loading(queryItems == nil)
-    queryItems == nil ? retrievedPokemons.removeAll() : nil
+    queryItems == nil ? fetchedPokemons.removeAll() : nil
     
     Task {
       try await processTask {
         let pokemonList = try await asyncGetPokemonsListUseCase.execute(queryItems: queryItems)
         self.nextPage = pokemonList.next
         let pokemonItems = pokemonList.pokemonItems
-        self.retrievedPokemons.append(contentsOf: pokemonItems)
+        self.fetchedPokemons.append(contentsOf: pokemonItems)
         
         return Empty()
       }
@@ -68,12 +68,12 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
     loadHome(queryItems: queryItems)
   }
 
-  func retrievedPokemon() -> [PokemonListItem] {
-    return retrievedPokemons
+  func fetchedPokemon() -> [PokemonListItem] {
+    return fetchedPokemons
   }
 
   func pokemon(_ indexPath: IndexPath) -> PokemonListItem? {
-    return retrievedPokemons[indexPath.item]
+    return fetchedPokemons[indexPath.item]
   }
 
   func searchPokemon(name: String) {
@@ -89,7 +89,7 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
       try await processTask {
         try await Task.sleep(nanoseconds: 500_000_000)
         let pokemons = try await self.asyncSearchPokemonByNameUseCase.execute(name: name)
-        self.retrievedPokemons = pokemons
+        self.fetchedPokemons = pokemons
         
         return Empty()
       }

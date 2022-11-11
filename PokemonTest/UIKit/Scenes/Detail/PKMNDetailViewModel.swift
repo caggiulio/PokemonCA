@@ -17,7 +17,7 @@ protocol PKMNDetailViewModelProtocol {
 
 class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
   /// The use case used to get the Pokemon by id.
-  @Inject private var asyncGetPokemonByIDUseCase: PKMNUseCases.GetPokemonByID
+  @Injected private var asyncGetPokemonByIDUseCase: PKMNUseCases.GetPokemonByID
 
   func loadPokemon() {
     Task {

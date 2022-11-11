@@ -15,11 +15,11 @@ class PKMNRepository: PKMNRepositoryProtocol {
   /// The JSON worker.
   private var jsonWorker: JSONDataSourceProtocol
 
-  /// In this variables are stored the retrieved `Pokemon` from the api ``/pokemon/{id}``
-  private var pokemonRetrieved: [Pokemon] = []
+  /// In this variables are stored the fetched `Pokemon` from the api ``/pokemon/{id}``
+  private var fetchedPokemons: [Pokemon] = []
   
-  /// In this variables are stored the retrieved `PokemonListItem` from the api ``/pokemon``
-  private var pokemonItemsRetrieved: [PokemonListItem] = []
+  /// In this variables are stored the fetched `PokemonListItem` from the api ``/pokemon``
+  private var fetchedPokemonItems: [PokemonListItem] = []
   
   /// In this variables is stored the selected id for a selected `Pokemon`.
   private var selectedID: String = String()
@@ -51,7 +51,7 @@ class PKMNRepository: PKMNRepositoryProtocol {
   
   /// Get info about `Pokemon` by his ID. If it's cached, reuturns it, else retrieves from network.
   func asyncGetPokemon(id: String) async throws -> Pokemon {
-    if let pokemon = pokemonRetrieved.first(where: { _pokemon in
+    if let pokemon = fetchedPokemons.first(where: { _pokemon in
         _pokemon.id == Int(id)
       }) {
       return pokemon
@@ -62,19 +62,19 @@ class PKMNRepository: PKMNRepositoryProtocol {
   
   /// Get info about `PokemonList` from the network.
   func asyncGetPokemonsList(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
-    queryItems == nil ? pokemonItemsRetrieved.removeAll() : nil
+    queryItems == nil ? fetchedPokemonItems.removeAll() : nil
     let pokemonsList = try await networkingWorker.asyncGetPokemonsList(queryItems: queryItems)
-    self.pokemonItemsRetrieved.append(contentsOf: pokemonsList.pokemonItems)
+    self.fetchedPokemonItems.append(contentsOf: pokemonsList.pokemonItems)
     
     return pokemonsList
   }
   
   /// Get info about `Pokemon`s by their name. If are cached, returns them, else retrieves from network.
   func asyncSearchCachedPokemon(name: String) -> [PokemonListItem] {
-    let filteredPokemonListItems = pokemonItemsRetrieved.filter { pokemonListItem in
+    let filteredPokemonListItems = fetchedPokemonItems.filter { pokemonListItem in
       pokemonListItem.name.contains(name)
     }
-    let filteredPokemon = pokemonRetrieved.filter { pokemon in
+    let filteredPokemon = fetchedPokemons.filter { pokemon in
       pokemon.name.contains(name)
     }.map { pokemon in
       PokemonListItem(pokemonListItemDataSource: .init(pokemon: pokemon))

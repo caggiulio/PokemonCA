@@ -15,7 +15,7 @@ enum PKMNUseCases {
 
   /// Get mocked info Pokemon.
   struct GetMockedPokemon: GetMockedPokemonProtocol {
-    @Inject private var pokemonRepository: PKMNRepository
+    @Injected private var pokemonRepository: PKMNRepository
 
     func execute() async throws -> Pokemon {
       try await pokemonRepository.getMockedPokemon()
@@ -24,7 +24,7 @@ enum PKMNUseCases {
 
   /// Get mocked info PokemonList .
   struct GetMockedPokemonsList: GetMockedPokemonsListProtocol {
-    @Inject private var pokemonRepository: PKMNRepository
+    @Injected private var pokemonRepository: PKMNRepository
 
     func execute() async throws -> PokemonsList {
       try await pokemonRepository.getMockedPokemonsList()
@@ -35,7 +35,7 @@ enum PKMNUseCases {
   
   /// Get real info Pokemon by his id in `async` way.
   struct GetPokemonByID: GetPokemonByIDProtocol {
-    @Inject private var pokemonRepository: PKMNRepository
+    @Injected private var pokemonRepository: PKMNRepository
     
     func execute() async throws -> Pokemon {
       let id = pokemonRepository.getSelectedID()
@@ -45,7 +45,7 @@ enum PKMNUseCases {
   
   /// Get real  info PokemonList in `async` way.
   struct GetPokemonsList: GetPokemonsListProtocol {
-    @Inject private var pokemonRepository: PKMNRepository
+    @Injected private var pokemonRepository: PKMNRepository
 
     func execute(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
       try await pokemonRepository.asyncGetPokemonsList(queryItems: queryItems)
@@ -54,7 +54,7 @@ enum PKMNUseCases {
   
   /// Get real info PokemonList by his name in `async` way.
   struct SearchPokemonByName: SearchPokemonByNameProtocol {
-    @Inject private var pokemonRepository: PKMNRepository
+    @Injected private var pokemonRepository: PKMNRepository
 
     private func getCachedPokemonsByName(name: String) async throws -> [PokemonListItem] {
       let pokemons = pokemonRepository.asyncSearchCachedPokemon(name: name)
@@ -74,7 +74,7 @@ enum PKMNUseCases {
   
   /// Set the id for a selected `Pokemon`.
   struct SetSelectedPokemonID: SetSelectedPokemonIDProtocol {
-    @Inject private var pokemonRepository: PKMNRepository
+    @Injected private var pokemonRepository: PKMNRepository
     
     func execute(id: String) {
       pokemonRepository.setSelectedID(id: id)
@@ -83,7 +83,7 @@ enum PKMNUseCases {
   
   /// Get the id for a selected `Pokemon`.
   struct GetSelectedPokemonID: GetSelectedPokemonIDProtocol {
-    @Inject private var pokemonRepository: PKMNRepository
+    @Injected private var pokemonRepository: PKMNRepository
     
     func execute() -> String {
       pokemonRepository.getSelectedID()

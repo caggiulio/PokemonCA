@@ -26,7 +26,7 @@ struct PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol, Injecta
   
   // MARK: -  methods
   
-  /// Get and transform the `PokemonDataSource` retrieved from the network in the `Pokemon` return object.
+  /// Get and transform the `PokemonDataSource` fetched from the network in the `Pokemon` return object.
   func getPokemon(id: String) async throws -> Pokemon {
     let response = try await sendResponse {
       try await getPokemonDataSource(id: id)
@@ -40,7 +40,7 @@ struct PKMNNetworkingDataSourceWorker: PKMNNetworkingDataSourceProtocol, Injecta
     return try await networking.send(request: request)
   }
   
-  /// Get and transform the `PokemonListDataSource` retrieved from the network in the `PokemonsList` return object.
+  /// Get and transform the `PokemonListDataSource` fetched from the network in the `PokemonsList` return object.
   func asyncGetPokemonsList(queryItems: [URLQueryItem]?) async throws -> PokemonsList {
     let response = try await sendResponse {
       try await asyncGetPokemonsListDataSource(queryItems: queryItems)

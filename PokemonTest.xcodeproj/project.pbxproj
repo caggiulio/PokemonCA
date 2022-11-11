@@ -128,6 +128,8 @@
 		4DDEF1A3291B131C007CC75B /* SwiftUIAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1A2291B131C007CC75B /* SwiftUIAssembler.swift */; };
 		4DDEF1A6291B92C6007CC75B /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1A5291B92C6007CC75B /* Assembler.swift */; };
 		4DDEF1C9291D54ED007CC75B /* ShortcutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1C8291D54ED007CC75B /* ShortcutProvider.swift */; };
+		4DDEF1D0291E64C2007CC75B /* PKMNDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1CF291E64C2007CC75B /* PKMNDetailHeader.swift */; };
+		4DDEF1D2291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1D1291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift */; };
 		4DF9A2AE290ABA2D003AC168 /* OpenPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */; };
 		4DF9A2B1290AC51E003AC168 /* PokemonInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */; };
 		4DF9A2EA290ACD06003AC168 /* PKMNSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */; };
@@ -281,6 +283,8 @@
 		4DDEF1A2291B131C007CC75B /* SwiftUIAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIAssembler.swift; sourceTree = "<group>"; };
 		4DDEF1A5291B92C6007CC75B /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		4DDEF1C8291D54ED007CC75B /* ShortcutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutProvider.swift; sourceTree = "<group>"; };
+		4DDEF1CF291E64C2007CC75B /* PKMNDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailHeader.swift; sourceTree = "<group>"; };
+		4DDEF1D1291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailsAbilitiesList.swift; sourceTree = "<group>"; };
 		4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPokemon.swift; sourceTree = "<group>"; };
 		4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInformation.swift; sourceTree = "<group>"; };
 		4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIViewModel.swift; sourceTree = "<group>"; };
@@ -350,7 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				4DF9A310290E7B03003AC168 /* PKMNSwiftUIDetail.swift */,
-				4D07F6F6290FC2BD006B91AD /* AbilityView.swift */,
+				4DDEF1CF291E64C2007CC75B /* PKMNDetailHeader.swift */,
+				4DDEF1D3291E650D007CC75B /* Abilities */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -865,6 +870,15 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		4DDEF1D3291E650D007CC75B /* Abilities */ = {
+			isa = PBXGroup;
+			children = (
+				4DDEF1D1291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift */,
+				4D07F6F6290FC2BD006B91AD /* AbilityView.swift */,
+			);
+			path = Abilities;
+			sourceTree = "<group>";
+		};
 		4DF9A2AF290ABA31003AC168 /* Action */ = {
 			isa = PBXGroup;
 			children = (
@@ -1180,6 +1194,7 @@
 				4DF9A308290D0301003AC168 /* PKMNHomeModel.swift in Sources */,
 				4DDEF19C291A46D0007CC75B /* ArchitectureDependencyManager.swift in Sources */,
 				4D5904F5279E8FD7001110D8 /* PKMNNetworkingDataSourceProtocol.swift in Sources */,
+				4DDEF1D0291E64C2007CC75B /* PKMNDetailHeader.swift in Sources */,
 				4D3DED60279EE0D50012CCEF /* _HSV.swift in Sources */,
 				4D590556279EA7DF001110D8 /* PKMNRepositoryProtocol.swift in Sources */,
 				4DF9A2F3290AD280003AC168 /* PKMNHomeSwiftUIViewModel.swift in Sources */,
@@ -1266,6 +1281,7 @@
 				4DF9A2EF290AD1FC003AC168 /* PKMNSwiftUIHome.swift in Sources */,
 				4D3DED5C279EE0D50012CCEF /* UIImage+Colors.swift in Sources */,
 				4D757F85279EB9FE000E79E5 /* PKMNLoader.swift in Sources */,
+				4DDEF1D2291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift in Sources */,
 				4DA02D84280184DF00BB6CE5 /* PKMNViewController+HandleLoadingState.swift in Sources */,
 				4D59051A279E920B001110D8 /* FormsDataSource.swift in Sources */,
 				4D590532279E94D9001110D8 /* FrontImage.swift in Sources */,

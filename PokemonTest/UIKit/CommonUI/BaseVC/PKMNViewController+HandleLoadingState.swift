@@ -4,7 +4,7 @@
 //
 //  Created by Nunzio Giulio Caggegi on 09/04/22.
 //
-
+import Combine
 import Foundation
 
 extension PKMNViewController {
@@ -25,14 +25,18 @@ extension PKMNViewController {
   }
   
   /// Updates the view in case of success or throw the error in case of failre.
-  func handle<Value: PKMNModel, PKMNError>(_ loadingState: LoadingState<Value, PKMNError>) {
-    self.handlePKMNState(state: loadingState, success: { [weak self] value in
-      guard let value = value as? Model else {
-        return
+  func handle<Value: PKMNModel, PKMNError>(_ loadingState: Published<LoadingState<Value, PKMNError>>.Publisher) {
+    loadingState
+      .sink { [weak self] state in
+        self?.handlePKMNState(state: state, success: { [weak self] value in
+          guard let value = value as? Model else {
+            return
+          }
+          self?.rootView.model = value
+        }, failure: { [weak self] error in
+          self?.errorHandler?.throw(error)
+        })
       }
-      self?.rootView.model = value
-    }, failure: { [weak self] error in
-      self?.errorHandler?.throw(error)
-    })
+      .store(in: &cancellables)
   }
 }

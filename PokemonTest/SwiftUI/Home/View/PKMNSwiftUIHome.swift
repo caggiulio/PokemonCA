@@ -22,9 +22,6 @@ struct PKMNSwiftUIHome: View {
   /// The responsible of the assemble of the `View` used to assemble a view for navigation.
   @Injected var assembler: PKMNSwiftUIAssembler
   
-  /// The `Bool` used to navigate to the detail.
-  @State var routeToDetail: Bool = false
-  
   // MARK: - View
   
   var body: some View {
@@ -32,14 +29,13 @@ struct PKMNSwiftUIHome: View {
       NavigationView {
         ZStack {
           Color(uiColor: AppAsset.primary.color).edgesIgnoringSafeArea(.all)
-          NavigationLink(destination: assembler.detail(), isActive: $routeToDetail, label: {})
+          NavigationLink(destination: assembler.detail(), isActive: $viewModel.routeToDetail, label: {})
           
           if let model = viewModel.lastValueModel {
             PKMNHomeBody(model: model.bodyModel) {
               viewModel.getNextPage()
             } pokemonDidSelect: { pokemonID in
               viewModel.setSelectedPokemon(id: pokemonID)
-              routeToDetail.toggle()
             }
           }
         }
@@ -53,5 +49,11 @@ struct PKMNSwiftUIHome: View {
         viewModel.loadHome(queryItems: nil)
       }
     }, viewModel: viewModel)
+  }
+}
+
+struct Home_Previews: PreviewProvider {
+  static var previews: some View {
+    PKMNSwiftUIHome(viewModel: PKMNHomeSwiftUIViewModel())
   }
 }

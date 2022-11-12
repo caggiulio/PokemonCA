@@ -19,6 +19,9 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// The use case to set the selected `Pokemon` id for the next step.
   @Injected private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
   
+  /// The `Bool` used to navigate to the detail.
+  @Published var routeToDetail: Bool = false
+  
   // MARK: - Computed Properties
   
   /// In this variable it's stored the url for the next page.
@@ -80,5 +83,11 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   @MainActor
   func setSelectedPokemon(id: String) {
     setSelectedPokemonUseCase.execute(id: id)
+    routeToDetails()
+  }
+  
+  /// Set the `Bool` to navigate to details.
+  private func routeToDetails() {
+    routeToDetail = true
   }
 }

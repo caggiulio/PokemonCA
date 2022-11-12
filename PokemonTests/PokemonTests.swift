@@ -18,10 +18,11 @@ class PokemonTests: XCTestCase {
   }
 
   func testParsePokemonModel() async throws {
-    let mainContainer = PKMNMainContainer()
+    let manager = DependencyManager()
+    @Injected var getMockedPokemonUseCase: PKMNUseCases.GetMockedPokemon
 
     do {
-      let _ = try await mainContainer.getMockedPokemonUseCase.execute()
+      let _ = try await getMockedPokemonUseCase.execute()
       XCTAssertTrue(true)
     } catch {
       XCTAssertTrue(false)
@@ -29,10 +30,11 @@ class PokemonTests: XCTestCase {
   }
 
   func testParsePokemonsListModel() async throws {
-    let mainContainer = PKMNMainContainer()
+    let manager = DependencyManager()
+    @Injected var getMockedPokemonsListUseCase: PKMNUseCases.GetMockedPokemonsList
 
     do {
-      let _ = try await mainContainer.getMockedPokemonsListUseCase.execute()
+      let _ = try await getMockedPokemonsListUseCase.execute()
       XCTAssertTrue(true)
     } catch {
       XCTAssertTrue(false)

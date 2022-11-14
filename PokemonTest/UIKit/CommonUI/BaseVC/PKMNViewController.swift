@@ -5,9 +5,13 @@
 //  Created on 24/01/22.
 //
 
+import Combine
 import UIKit
 
 class PKMNViewController<Model: PKMNModel, View: PKMNView<Model>, ViewModel: PKMNViewModel<Model>> : UIViewController {
+  
+  /// The cancellables set used for store `Combine` values.
+  var cancellables = Set<AnyCancellable>()
   
   /// This is the error handler that handle ONLY the `PKMNError`
   var errorHandler: ErrorHandleable?
@@ -61,8 +65,6 @@ private extension PKMNViewController {
   
   /// Listen and handle the `LoadingState`.
   func configureBinds() {
-    viewModel.updateStatus = { [weak self] loadingState in
-      self?.handle(loadingState)
-    }
+    handle(viewModel.$loadingState)
   }
 }

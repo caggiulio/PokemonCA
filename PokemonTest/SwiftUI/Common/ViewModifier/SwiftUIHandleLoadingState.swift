@@ -26,11 +26,6 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
   /// The model for the `PKMNSwiftUIToast`.
   @State private var toastModel: PKMNSwiftUIToastModel?
   
-  // MARK: - Interaction
-  
-  /// The closure with the success `Model`.
-  var closureModel: CustomInteraction<Model>?
-  
   // MARK: - Body
   
   func body(content: Content) -> some View {
@@ -60,9 +55,8 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
             isLoading = false
           }
           
-        case .success(let value):
+        case .success(_):
           isLoading = false
-          closureModel?(value)
           
         case .idle:
           break
@@ -72,7 +66,7 @@ struct HandleLoadingState<Model: PKMNModel>: ViewModifier {
 }
 
 extension View {
-  func handleLoadingState<Model: PKMNModel>(state: Published<LoadingState<Model, PKMNError>>.Publisher, perform closureModel: CustomInteraction<Model>? = nil) -> some View {
-    modifier(HandleLoadingState(state: state, closureModel: closureModel))
+  func handleLoadingState<Model: PKMNModel>(state: Published<LoadingState<Model, PKMNError>>.Publisher) -> some View {
+    modifier(HandleLoadingState(state: state))
   }
 }

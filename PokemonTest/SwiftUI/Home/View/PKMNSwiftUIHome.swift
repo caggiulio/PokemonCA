@@ -36,7 +36,6 @@ struct PKMNSwiftUIHome: View {
         }
       }
     }, viewModel: viewModel)
-    .navigationViewStyle(.stack)
     .searchable(text: $debounceString.text)
     .onChange(of: debounceString.debouncedText) { text in
       viewModel.searchByName(name: text)

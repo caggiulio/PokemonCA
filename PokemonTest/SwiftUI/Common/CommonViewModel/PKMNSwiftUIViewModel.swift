@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject {
+open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject, CoordinatorFlowStateProtocol {
   // MARK: - Computed Properties
   
   /// The loading state with his related `Model`.
@@ -17,6 +17,9 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject {
   /// The last value of the `Model` if exist. This variable is assigned when a `LoadingState`
   /// become `.success`.
   @Published var lastValueModel: Model?
+  
+  /// The `CoordinatorLink` used to determine the navigation. When is set, the `View` will try to navigate.
+  @Published var activeLink: CoordinatorLink?
   
   /// The cancellables set used for store `Combine` values.
   private var cancellables = Set<AnyCancellable>()

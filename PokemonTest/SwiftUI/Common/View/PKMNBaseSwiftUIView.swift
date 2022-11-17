@@ -32,7 +32,9 @@ struct PKMNBaseSwiftUIView<Model: PKMNModel, Content>: View where Content: View 
   // MARK: - View
   
   var body: some View {
-    content
-      .handleLoadingState(state: viewModel.$loadingState)
+    FlowCoordinator(stateContainer: viewModel) {
+      content
+        .handleLoadingState(state: viewModel.$loadingState)
+    }
   }
 }

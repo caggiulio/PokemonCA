@@ -26,29 +26,24 @@ struct PKMNSwiftUIHome: View {
   
   var body: some View {
     PKMNBaseSwiftUIView({
-      NavigationView {
-        ZStack {
-          Color(uiColor: AppAsset.primary.color).edgesIgnoringSafeArea(.all)
-          NavigationLink(destination: assembler.detail(), isActive: $viewModel.routeToDetail, label: {})
-          
-          if let model = viewModel.lastValueModel {
-            PKMNHomeBody(model: model.bodyModel) {
-              viewModel.getNextPage()
-            } pokemonDidSelect: { pokemonID in
-              viewModel.setSelectedPokemon(id: pokemonID)
-            }
-          }
+      Color(uiColor: AppAsset.primary.color).edgesIgnoringSafeArea(.all)
+      
+      if let model = viewModel.lastValueModel {
+        PKMNHomeBody(model: model.bodyModel) {
+          viewModel.getNextPage()
+        } pokemonDidSelect: { pokemonID in
+          viewModel.setSelectedPokemon(id: pokemonID)
         }
       }
-      .navigationViewStyle(.stack)
-      .searchable(text: $debounceString.text)
-      .onChange(of: debounceString.debouncedText) { text in
-        viewModel.searchByName(name: text)
-      }
-      .onAppear {
-        viewModel.loadHome(queryItems: nil)
-      }
     }, viewModel: viewModel)
+    .navigationViewStyle(.stack)
+    .searchable(text: $debounceString.text)
+    .onChange(of: debounceString.debouncedText) { text in
+      viewModel.searchByName(name: text)
+    }
+    .onAppear {
+      viewModel.loadHome(queryItems: nil)
+    }
   }
 }
 

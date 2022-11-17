@@ -43,6 +43,10 @@
 		4D3DED7F27A03E660012CCEF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7E27A03E660012CCEF /* Extensions.swift */; };
 		4D50C5CF29266CC700FDCE2E /* AppShortcuts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D50C5D129266CC700FDCE2E /* AppShortcuts.strings */; };
 		4D50C5D429267DB700FDCE2E /* PokemonIntentsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D329267DB700FDCE2E /* PokemonIntentsLogic.swift */; };
+		4D50C5D6292684F100FDCE2E /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D5292684F100FDCE2E /* FlowCoordinator.swift */; };
+		4D50C5D82926851900FDCE2E /* CoordinatorLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D72926851900FDCE2E /* CoordinatorLink.swift */; };
+		4D50C5DA29268B6B00FDCE2E /* CoordinatorFlowStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D929268B6B00FDCE2E /* CoordinatorFlowStateProtocol.swift */; };
+		4D50C5DC2926928500FDCE2E /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5DB2926928500FDCE2E /* Binding+Extension.swift */; };
 		4D586FBC27A1812E0067479A /* PKMNPokemonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D586FBB27A1812E0067479A /* PKMNPokemonCoordinator.swift */; };
 		4D5904A9279DBFDC001110D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904A8279DBFDC001110D8 /* AppDelegate.swift */; };
 		4D5904B2279DBFDD001110D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D5904B1279DBFDD001110D8 /* Assets.xcassets */; };
@@ -195,6 +199,10 @@
 		4D50C5D029266CC700FDCE2E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
 		4D50C5D229266CD800FDCE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
 		4D50C5D329267DB700FDCE2E /* PokemonIntentsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsLogic.swift; sourceTree = "<group>"; };
+		4D50C5D5292684F100FDCE2E /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		4D50C5D72926851900FDCE2E /* CoordinatorLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorLink.swift; sourceTree = "<group>"; };
+		4D50C5D929268B6B00FDCE2E /* CoordinatorFlowStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFlowStateProtocol.swift; sourceTree = "<group>"; };
+		4D50C5DB2926928500FDCE2E /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		4D586FBB27A1812E0067479A /* PKMNPokemonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNPokemonCoordinator.swift; sourceTree = "<group>"; };
 		4D5904A5279DBFDC001110D8 /* PokemonTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D5904A8279DBFDC001110D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -461,6 +469,16 @@
 				4D5904B3279DBFDD001110D8 /* LaunchScreen.storyboard */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		4D50C5DD29269B1B00FDCE2E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4D50C5D5292684F100FDCE2E /* FlowCoordinator.swift */,
+				4D50C5D72926851900FDCE2E /* CoordinatorLink.swift */,
+				4D50C5D929268B6B00FDCE2E /* CoordinatorFlowStateProtocol.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		4D586FBA27A150DD0067479A /* BaseView */ = {
@@ -908,6 +926,7 @@
 				4DF9A2F6290AE842003AC168 /* Common */,
 				4DF9A2FB290BE084003AC168 /* Home */,
 				4DF9A312290EEF17003AC168 /* Detail */,
+				4D50C5DD29269B1B00FDCE2E /* Coordinator */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -991,6 +1010,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF9A30D290D2958003AC168 /* ScrollView+Extensions.swift */,
+				4D50C5DB2926928500FDCE2E /* Binding+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1184,6 +1204,7 @@
 				4D3DED7827A010500012CCEF /* PKMNSingleAbilityView.swift in Sources */,
 				4D359F9828FFD89700A26693 /* PokemonAppEntity.swift in Sources */,
 				4DF9A303290C1B9C003AC168 /* PKMNSwiftUILoader.swift in Sources */,
+				4D50C5D6292684F100FDCE2E /* FlowCoordinator.swift in Sources */,
 				4DF9A30E290D2958003AC168 /* ScrollView+Extensions.swift in Sources */,
 				4D5904E4279DCA6E001110D8 /* PKMNLabelStyles.swift in Sources */,
 				4D590541279E994A001110D8 /* JSONDataSourceWorker.swift in Sources */,
@@ -1225,11 +1246,13 @@
 				4D757F8C279EBD24000E79E5 /* PKMNViewController+HandleError.swift in Sources */,
 				4D15A23329030AC4009E5314 /* PKMNUseCasesProtocol.swift in Sources */,
 				4D359F9928FFD89700A26693 /* PokemonIntentsQuery.swift in Sources */,
+				4D50C5DC2926928500FDCE2E /* Binding+Extension.swift in Sources */,
 				4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */,
 				4D590518279E91F9001110D8 /* AbilityDataSource.swift in Sources */,
 				4D15A27129054873009E5314 /* PKMNHomeViewController+UICollectionView.swift in Sources */,
 				4DDEF19429196FC5007CC75B /* DependencyManager.swift in Sources */,
 				4D3DED61279EE0D50012CCEF /* _PixelFormat.swift in Sources */,
+				4D50C5DA29268B6B00FDCE2E /* CoordinatorFlowStateProtocol.swift in Sources */,
 				4D757F8E279EBDB4000E79E5 /* PKMNHomeViewController.swift in Sources */,
 				4D308B862912779B0070EDB7 /* PKMNHomeBodyModel.swift in Sources */,
 				4D3DED4D279EDE820012CCEF /* PKMNHomeCollectionViewCell.swift in Sources */,
@@ -1278,6 +1301,7 @@
 				4DF9A2B1290AC51E003AC168 /* PokemonInformation.swift in Sources */,
 				4D3DED68279EF2B70012CCEF /* PMKNDetailViewController.swift in Sources */,
 				4D3DED5E279EE0D50012CCEF /* _ColorAnalyzer.swift in Sources */,
+				4D50C5D82926851900FDCE2E /* CoordinatorLink.swift in Sources */,
 				4D3DED63279EE0D50012CCEF /* Deprecated.swift in Sources */,
 				4D308BCE291559250070EDB7 /* PKMNSwiftUIToast.swift in Sources */,
 				4D5904A9279DBFDC001110D8 /* AppDelegate.swift in Sources */,

@@ -23,6 +23,10 @@ extension PKMNString {
     static let pokemonParamaterDescription = PKMNString.tr("Localizable", "appIntents.open.pokemonParameterDescription")
     static let dialog = PKMNString.tr("Localizable", "appIntents.open.dialog")
   }
+  
+  struct AppShortcuts {
+    static let showPokemons = PKMNString.tr("AppShortcuts", "shortcut.show.pokemons")
+  }
 }
 
 extension PKMNString {

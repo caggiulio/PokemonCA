@@ -14,7 +14,7 @@ struct OpenPokemonShortcut: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
     AppShortcut(
       intent: OpenPokemon(),
-      phrases: ["\(.applicationName) Mostra i Pokemon"]
+      phrases: [AppShortcutPhrase(stringLiteral: PKMNString.AppShortcuts.showPokemons)]
     )
   }
 }

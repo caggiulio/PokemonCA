@@ -17,6 +17,12 @@ struct OpenPokemon: AppIntent {
   /// The description of the action.
   static var description: IntentDescription = IntentDescription(stringLiteral: PKMNString.AppIntents.description)
   
+  /// Authentication policies to apply when running an app intent.
+  static var authenticationPolicy: IntentAuthenticationPolicy = IntentAuthenticationPolicy.alwaysAllowed
+  
+  /// Wheter or not the app should be open or not.
+  static var openAppWhenRun: Bool = false
+  
   /// The dynamic lookup parameter.
   @Parameter(title: LocalizedStringResource(stringLiteral: PKMNString.AppIntents.pokemonParamaterDescription), requestValueDialog: IntentDialog(stringLiteral: PKMNString.AppIntents.dialog))
   var pokemon: PokemonAppEntity

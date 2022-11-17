@@ -1,0 +1,9 @@
+/* 
+  AppShortcuts.strings
+  PokemonTest
+
+  Created by Nunzio Giulio Caggegi on 17/11/22.
+  
+*/
+
+"shortcut.show.pokemons" = "Mostra in ${applicationName}";

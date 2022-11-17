@@ -18,7 +18,6 @@
 		4D308BCE291559250070EDB7 /* PKMNSwiftUIToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308BCD291559250070EDB7 /* PKMNSwiftUIToast.swift */; };
 		4D308BD029155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308BCF29155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift */; };
 		4D308BD329159F540070EDB7 /* DebounceSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D308BD229159F540070EDB7 /* DebounceSearchable.swift */; };
-		4D359F9728FFD89700A26693 /* PokemonIntentsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */; };
 		4D359F9828FFD89700A26693 /* PokemonAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */; };
 		4D359F9928FFD89700A26693 /* PokemonIntentsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */; };
 		4D3DED4D279EDE820012CCEF /* PKMNHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED4C279EDE820012CCEF /* PKMNHomeCollectionViewCell.swift */; };
@@ -42,6 +41,8 @@
 		4D3DED7827A010500012CCEF /* PKMNSingleAbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7727A010500012CCEF /* PKMNSingleAbilityView.swift */; };
 		4D3DED7D27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7C27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift */; };
 		4D3DED7F27A03E660012CCEF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7E27A03E660012CCEF /* Extensions.swift */; };
+		4D50C5CF29266CC700FDCE2E /* AppShortcuts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D50C5D129266CC700FDCE2E /* AppShortcuts.strings */; };
+		4D50C5D429267DB700FDCE2E /* PokemonIntentsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D329267DB700FDCE2E /* PokemonIntentsLogic.swift */; };
 		4D586FBC27A1812E0067479A /* PKMNPokemonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D586FBB27A1812E0067479A /* PKMNPokemonCoordinator.swift */; };
 		4D5904A9279DBFDC001110D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5904A8279DBFDC001110D8 /* AppDelegate.swift */; };
 		4D5904B2279DBFDD001110D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D5904B1279DBFDD001110D8 /* Assets.xcassets */; };
@@ -168,7 +169,6 @@
 		4D308BCD291559250070EDB7 /* PKMNSwiftUIToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIToast.swift; sourceTree = "<group>"; };
 		4D308BCF29155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIToastModel.swift; sourceTree = "<group>"; };
 		4D308BD229159F540070EDB7 /* DebounceSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceSearchable.swift; sourceTree = "<group>"; };
-		4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsLogic.swift; sourceTree = "<group>"; };
 		4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonAppEntity.swift; sourceTree = "<group>"; };
 		4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsQuery.swift; sourceTree = "<group>"; };
 		4D3DED4C279EDE820012CCEF /* PKMNHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNHomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -192,6 +192,9 @@
 		4D3DED7727A010500012CCEF /* PKMNSingleAbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSingleAbilityView.swift; sourceTree = "<group>"; };
 		4D3DED7C27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNHomeViewController+UISearchBar.swift"; sourceTree = "<group>"; };
 		4D3DED7E27A03E660012CCEF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4D50C5D029266CC700FDCE2E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		4D50C5D229266CD800FDCE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		4D50C5D329267DB700FDCE2E /* PokemonIntentsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsLogic.swift; sourceTree = "<group>"; };
 		4D586FBB27A1812E0067479A /* PKMNPokemonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNPokemonCoordinator.swift; sourceTree = "<group>"; };
 		4D5904A5279DBFDC001110D8 /* PokemonTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D5904A8279DBFDC001110D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,7 +375,7 @@
 		4D359F9328FFD89700A26693 /* AppIntents */ = {
 			isa = PBXGroup;
 			children = (
-				4D359F9428FFD89700A26693 /* PokemonIntentsLogic.swift */,
+				4D50C5D329267DB700FDCE2E /* PokemonIntentsLogic.swift */,
 				4D359F9528FFD89700A26693 /* PokemonAppEntity.swift */,
 				4D359F9628FFD89700A26693 /* PokemonIntentsQuery.swift */,
 				4DF9A2AF290ABA31003AC168 /* Action */,
@@ -700,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				4D59054B279E9CA5001110D8 /* Localizable.strings */,
+				4D50C5D129266CC700FDCE2E /* AppShortcuts.strings */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -1105,6 +1109,7 @@
 				4D5904D3279DC68B001110D8 /* Lato-Thin.ttf in Resources */,
 				4D5904B2279DBFDD001110D8 /* Assets.xcassets in Resources */,
 				4D590508279E90D6001110D8 /* single_pokemon_response.json in Resources */,
+				4D50C5CF29266CC700FDCE2E /* AppShortcuts.strings in Resources */,
 				4D590576279EB0BB001110D8 /* pokemons_response.json in Resources */,
 				4D5904D2279DC68B001110D8 /* Lato-LightItalic.ttf in Resources */,
 				4D5904D8279DC68B001110D8 /* Lato-BoldItalic.ttf in Resources */,
@@ -1195,6 +1200,7 @@
 				4DDEF19C291A46D0007CC75B /* ArchitectureDependencyManager.swift in Sources */,
 				4D5904F5279E8FD7001110D8 /* PKMNNetworkingDataSourceProtocol.swift in Sources */,
 				4DDEF1D0291E64C2007CC75B /* PKMNDetailHeader.swift in Sources */,
+				4D50C5D429267DB700FDCE2E /* PokemonIntentsLogic.swift in Sources */,
 				4D3DED60279EE0D50012CCEF /* _HSV.swift in Sources */,
 				4D590556279EA7DF001110D8 /* PKMNRepositoryProtocol.swift in Sources */,
 				4DF9A2F3290AD280003AC168 /* PKMNHomeSwiftUIViewModel.swift in Sources */,
@@ -1227,7 +1233,6 @@
 				4D757F8E279EBDB4000E79E5 /* PKMNHomeViewController.swift in Sources */,
 				4D308B862912779B0070EDB7 /* PKMNHomeBodyModel.swift in Sources */,
 				4D3DED4D279EDE820012CCEF /* PKMNHomeCollectionViewCell.swift in Sources */,
-				4D359F9728FFD89700A26693 /* PokemonIntentsLogic.swift in Sources */,
 				4DDEF19F291A9764007CC75B /* UseCaseDepencyManager.swift in Sources */,
 				4D59055C279EA993001110D8 /* PKMNUseCases.swift in Sources */,
 				4D59051C279E921F001110D8 /* OfficialArtworkDataSource.swift in Sources */,
@@ -1310,6 +1315,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4D50C5D129266CC700FDCE2E /* AppShortcuts.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D50C5D029266CC700FDCE2E /* it */,
+				4D50C5D229266CD800FDCE2E /* en */,
+			);
+			name = AppShortcuts.strings;
+			sourceTree = "<group>";
+		};
 		4D5904B3279DBFDD001110D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

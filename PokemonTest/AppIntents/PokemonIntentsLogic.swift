@@ -18,8 +18,7 @@ extension IntentsLogic {
 @available(iOS 16.0, *)
 extension IntentsLogic.FetchData {
   /// The logic to fetch all Pokemons.
-  /// This method use `withCheckedThrowingContinuation` to make all asynchronous.
-  struct FetchAllPokemon {
+  struct Pokemons {
     static func execute() async throws -> [PokemonAppEntity] {
       @Injected var getPokemonListUseCase: PKMNUseCases.GetPokemonsList
 
@@ -31,7 +30,7 @@ extension IntentsLogic.FetchData {
   }
   
   /// The logic to fetch a Pokemon by a given query.
-  struct FetchPokemonByQuery {
+  struct PokemonByQuery {
     static func execute(query: String) async throws -> [PokemonAppEntity] {
       @Injected var searchPokemonByNameUseCase: PKMNUseCases.SearchPokemonByName
       

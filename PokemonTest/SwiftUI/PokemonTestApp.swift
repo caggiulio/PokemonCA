@@ -9,7 +9,7 @@ import Foundation
 
 import SwiftUI
 
-//@main
+@main
 struct PokemonTestApp: App {
   /// The `DependencyManager` that adds the dependencies in the init.
   private let manager = DependencyManager()

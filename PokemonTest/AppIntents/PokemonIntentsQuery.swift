@@ -34,7 +34,7 @@ struct PKMNIntentsQuery: EntityPropertyQuery {
   /// - Parameter identifiers: The list of IDs for the Pokemons that the user selected.
   /// - Returns: The list of `[PokemonAppEntity]` found.
   func entities(for identifiers: [String]) async throws -> [PokemonAppEntity] {
-    let pokemons = try await IntentsLogic.FetchData.FetchAllPokemon.execute()
+    let pokemons = try await IntentsLogic.FetchData.Pokemons.execute()
     return identifiers.compactMap { identifier in
       return pokemons.first(where: { pokemon in
         return pokemon.id == identifier
@@ -43,24 +43,23 @@ struct PKMNIntentsQuery: EntityPropertyQuery {
   }
   
   func entities(matching comparators: [String], mode: ComparatorMode, sortedBy: [Sort<PokemonAppEntity>], limit: Int?) async throws -> [PokemonAppEntity] {
-    guard comparators.isEmpty else {
-      let name = comparators.first ?? String()
-      return try await IntentsLogic.FetchData.FetchPokemonByQuery.execute(query: name)
+    guard comparators.isEmpty, let name = comparators.first else {
+      return try await IntentsLogic.FetchData.Pokemons.execute()
     }
-    return try await IntentsLogic.FetchData.FetchAllPokemon.execute()
+    return try await IntentsLogic.FetchData.PokemonByQuery.execute(query: name)
   }
   
   /// Find Pokemon matching the given query.
   /// - Parameter query: The `String` given query.
   /// - Returns: The list of `[PokemonAppEntity]` found.
   func entities(matching query: String) async throws -> some ResultsCollection {
-    try await IntentsLogic.FetchData.FetchAllPokemon.execute().filter {
+    try await IntentsLogic.FetchData.Pokemons.execute().filter {
       return ($0.name.localizedCaseInsensitiveContains(query))
     }
   }
   
   /// Returns all Pokemon. This is what populates the list when you tap on a parameter that accepts a Pokemon.
   func suggestedEntities() async throws -> [PokemonAppEntity] {
-    try await IntentsLogic.FetchData.FetchAllPokemon.execute()
+    try await IntentsLogic.FetchData.Pokemons.execute()
   }
 }

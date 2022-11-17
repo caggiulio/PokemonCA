@@ -7,7 +7,7 @@
 
 import UIKit
 
-@main
+//@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var mainCoordinator: PKMNMainCoordinator?
   var window: UIWindow?

@@ -45,15 +45,6 @@ struct PKMNIntentsQuery: EntityPropertyQuery {
     return try await IntentsLogic.FetchData.PokemonByQuery.execute(query: name)
   }
   
-  /// Find Pokemon matching the given query.
-  /// - Parameter query: The `String` given query.
-  /// - Returns: The list of `[PokemonAppEntity]` found.
-  func entities(matching query: String) async throws -> some ResultsCollection {
-    try await IntentsLogic.FetchData.Pokemons.execute().filter {
-      return ($0.name.localizedCaseInsensitiveContains(query))
-    }
-  }
-  
   /// Returns all Pokemon. This is what populates the list when you tap on a parameter that accepts a Pokemon.
   func suggestedEntities() async throws -> [PokemonAppEntity] {
     try await IntentsLogic.FetchData.Pokemons.execute()

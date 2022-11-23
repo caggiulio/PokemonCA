@@ -41,7 +41,6 @@
 		4D3DED7827A010500012CCEF /* PKMNSingleAbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7727A010500012CCEF /* PKMNSingleAbilityView.swift */; };
 		4D3DED7D27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7C27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift */; };
 		4D3DED7F27A03E660012CCEF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DED7E27A03E660012CCEF /* Extensions.swift */; };
-		4D50C5CF29266CC700FDCE2E /* AppShortcuts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D50C5D129266CC700FDCE2E /* AppShortcuts.strings */; };
 		4D50C5D429267DB700FDCE2E /* PokemonIntentsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D329267DB700FDCE2E /* PokemonIntentsLogic.swift */; };
 		4D50C5D6292684F100FDCE2E /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D5292684F100FDCE2E /* FlowCoordinator.swift */; };
 		4D50C5D82926851900FDCE2E /* CoordinatorLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50C5D72926851900FDCE2E /* CoordinatorLink.swift */; };
@@ -125,6 +124,7 @@
 		4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */; };
 		4DA02D8A2801877600BB6CE5 /* ErrorHandeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D872801877600BB6CE5 /* ErrorHandeable.swift */; };
 		4DA02D8B2801877600BB6CE5 /* ErrorConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA02D882801877600BB6CE5 /* ErrorConvenience.swift */; };
+		4DAF7272292E25A300830E36 /* AppShortcuts.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DAF7274292E25A300830E36 /* AppShortcuts.strings */; };
 		4DDEF18F291964C7007CC75B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF18E291964C7007CC75B /* Inject.swift */; };
 		4DDEF19229196FBA007CC75B /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF19129196FBA007CC75B /* Resolver.swift */; };
 		4DDEF19429196FC5007CC75B /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF19329196FC5007CC75B /* DependencyManager.swift */; };
@@ -196,8 +196,6 @@
 		4D3DED7727A010500012CCEF /* PKMNSingleAbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSingleAbilityView.swift; sourceTree = "<group>"; };
 		4D3DED7C27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PKMNHomeViewController+UISearchBar.swift"; sourceTree = "<group>"; };
 		4D3DED7E27A03E660012CCEF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		4D50C5D029266CC700FDCE2E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
-		4D50C5D229266CD800FDCE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
 		4D50C5D329267DB700FDCE2E /* PokemonIntentsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonIntentsLogic.swift; sourceTree = "<group>"; };
 		4D50C5D5292684F100FDCE2E /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		4D50C5D72926851900FDCE2E /* CoordinatorLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorLink.swift; sourceTree = "<group>"; };
@@ -286,6 +284,8 @@
 		4DA02D862801877600BB6CE5 /* SportXPHandleErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportXPHandleErrorManager.swift; sourceTree = "<group>"; };
 		4DA02D872801877600BB6CE5 /* ErrorHandeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandeable.swift; sourceTree = "<group>"; };
 		4DA02D882801877600BB6CE5 /* ErrorConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorConvenience.swift; sourceTree = "<group>"; };
+		4DAF7273292E25A300830E36 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
+		4DAF7275292E25A600830E36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AppShortcuts.strings; sourceTree = "<group>"; };
 		4DDEF18E291964C7007CC75B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		4DDEF19129196FBA007CC75B /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		4DDEF19329196FC5007CC75B /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
@@ -721,7 +721,7 @@
 			isa = PBXGroup;
 			children = (
 				4D59054B279E9CA5001110D8 /* Localizable.strings */,
-				4D50C5D129266CC700FDCE2E /* AppShortcuts.strings */,
+				4DAF7274292E25A300830E36 /* AppShortcuts.strings */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -1129,7 +1129,7 @@
 				4D5904D3279DC68B001110D8 /* Lato-Thin.ttf in Resources */,
 				4D5904B2279DBFDD001110D8 /* Assets.xcassets in Resources */,
 				4D590508279E90D6001110D8 /* single_pokemon_response.json in Resources */,
-				4D50C5CF29266CC700FDCE2E /* AppShortcuts.strings in Resources */,
+				4DAF7272292E25A300830E36 /* AppShortcuts.strings in Resources */,
 				4D590576279EB0BB001110D8 /* pokemons_response.json in Resources */,
 				4D5904D2279DC68B001110D8 /* Lato-LightItalic.ttf in Resources */,
 				4D5904D8279DC68B001110D8 /* Lato-BoldItalic.ttf in Resources */,
@@ -1339,15 +1339,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4D50C5D129266CC700FDCE2E /* AppShortcuts.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D50C5D029266CC700FDCE2E /* it */,
-				4D50C5D229266CD800FDCE2E /* en */,
-			);
-			name = AppShortcuts.strings;
-			sourceTree = "<group>";
-		};
 		4D5904B3279DBFDD001110D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1364,6 +1355,15 @@
 				4D59054D279E9CB0001110D8 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		4DAF7274292E25A300830E36 /* AppShortcuts.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DAF7273292E25A300830E36 /* it */,
+				4DAF7275292E25A600830E36 /* en */,
+			);
+			name = AppShortcuts.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

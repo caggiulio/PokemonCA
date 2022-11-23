@@ -18,4 +18,4 @@
 "appIntents.open.title" = "Show Pokemon Information";
 "appIntents.open.description" = "This action will be show the information about the choosen Pokemon";
 "appIntents.open.pokemonParameterDescription" = "The Pokemon to show";
-"appIntents.open.dialog" = "Which Pokemon will you choose?";
+"appIntents.open.dialog" = "Which Pokemon want to catch?";

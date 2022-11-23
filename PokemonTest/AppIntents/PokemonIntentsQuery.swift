@@ -18,7 +18,7 @@ struct PKMNIntentsQuery: EntityPropertyQuery {
   static var properties = EntityQueryProperties<PokemonAppEntity, String> {
     Property(\.$name) {
       EqualToComparator { $0 }
-      ContainsComparator { $0 } 
+      ContainsComparator { $0 }
     }
   }
   

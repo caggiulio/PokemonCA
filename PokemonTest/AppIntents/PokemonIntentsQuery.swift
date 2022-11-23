@@ -35,15 +35,11 @@ struct PKMNIntentsQuery: EntityPropertyQuery {
   /// - Returns: The list of `[PokemonAppEntity]` found.
   func entities(for identifiers: [String]) async throws -> [PokemonAppEntity] {
     let pokemons = try await IntentsLogic.FetchData.Pokemons.execute()
-    return identifiers.compactMap { identifier in
-      return pokemons.first(where: { pokemon in
-        return pokemon.id == identifier
-      })
-    }
+    return pokemons.filter { identifiers.contains($0.id) }
   }
   
   func entities(matching comparators: [String], mode: ComparatorMode, sortedBy: [Sort<PokemonAppEntity>], limit: Int?) async throws -> [PokemonAppEntity] {
-    guard comparators.isEmpty, let name = comparators.first else {
+    guard !comparators.isEmpty, let name = comparators.first else {
       return try await IntentsLogic.FetchData.Pokemons.execute()
     }
     return try await IntentsLogic.FetchData.PokemonByQuery.execute(query: name)

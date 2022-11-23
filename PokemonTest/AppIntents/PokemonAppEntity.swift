@@ -25,10 +25,6 @@ struct PokemonAppEntity: AppEntity, Identifiable {
   @Property(title: "Name")
   var name: String
   
-  /// The `@Property` for the image.
-  @Property(title: "Image URL")
-  var image: String
-  
   /// The `DisplayRepresentation` type planned by the `AppEntity`.
   /// A type that describes the user interface presentation of a custom type.
   var displayRepresentation: DisplayRepresentation {
@@ -41,10 +37,9 @@ struct PokemonAppEntity: AppEntity, Identifiable {
   
   // MARK: - Init
   
-  init(id: String, name: String, image: String) {
+  init(id: String, name: String) {
     self.id = id
     self.name = name
-    self.image = image
   }
 }
 

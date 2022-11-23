@@ -24,7 +24,7 @@ extension IntentsLogic.FetchData {
 
       let list = try await getPokemonListUseCase.execute(queryItems: nil)
       return list.pokemonItems.map {
-        return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
+        return PokemonAppEntity(id: $0.id, name: $0.name)
       }
     }
   }
@@ -36,7 +36,7 @@ extension IntentsLogic.FetchData {
       
       let list = try await searchPokemonByNameUseCase.execute(name: query)
       return list.map {
-        return PokemonAppEntity(id: $0.id, name: $0.name, image: $0.imageURL)
+        return PokemonAppEntity(id: $0.id, name: $0.name)
       }
     }
   }

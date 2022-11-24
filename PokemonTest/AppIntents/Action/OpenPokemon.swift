@@ -1,5 +1,5 @@
 //
-//  OpenPokemon.swift
+//  CatchPokemon.swift
 //  PokemonTest
 //
 //  Created by Nunzio Giulio Caggegi on 27/10/22.
@@ -10,7 +10,7 @@ import SwiftUI
 
 /// This is the real implementation of `AppIntent`. Is the action to show the information about a `PokemonAppEntity`.
 @available(iOS 16, *)
-struct OpenPokemon: AppIntent {
+struct CatchPokemon: AppIntent {
   /// The title of the action in the `Shortcut` app.
   static var title: LocalizedStringResource = PKMNString.AppIntents.title
   

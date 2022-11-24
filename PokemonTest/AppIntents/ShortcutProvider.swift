@@ -8,12 +8,12 @@
 import AppIntents
 
 @available(iOS 16.0, *)
-/// The `AppShortcutsProvider` for `OpenPokemon()` `AppIntent`.
-struct OpenPokemonShortcut: AppShortcutsProvider {
+/// The `AppShortcutsProvider` for `CatchPokemon()` `AppIntent`.
+struct CatchPokemonShortcut: AppShortcutsProvider {
   @AppShortcutsBuilder
   static var appShortcuts: [AppShortcut] {
     AppShortcut(
-      intent: OpenPokemon(),
+      intent: CatchPokemon(),
       phrases: ["shortcut.show.pokemons"]
     )
   }

@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - Closures UseCases Implementation
-
 enum PKMNUseCases {
   
   // MARK: - Mock Methods Implementation

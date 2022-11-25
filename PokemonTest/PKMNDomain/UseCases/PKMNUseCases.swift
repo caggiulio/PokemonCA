@@ -87,4 +87,13 @@ enum PKMNUseCases {
       pokemonRepository.getSelectedID()
     }
   }
+  
+  /// Get the current weather condition for the current location.
+  struct GetCurrentWeather: GetCurrentWeatherProtocol {
+    @Injected private var weatherRepository: PKMNWeatherRepository
+    
+    func execute() async throws -> CurrentWeather {
+      try await weatherRepository.getCurrentWeather()
+    }
+  }
 }

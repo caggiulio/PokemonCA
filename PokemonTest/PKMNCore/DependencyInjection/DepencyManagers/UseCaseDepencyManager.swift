@@ -48,6 +48,11 @@ struct UseCaseDepencyManager {
     PKMNUseCases.GetSelectedPokemonID()
   }
   
+  /// Get the current weather for the current location.
+  var getCurrentWeatherUseCase: GetCurrentWeatherProtocol {
+    PKMNUseCases.GetCurrentWeather()
+  }
+  
   // MARK: - Init
   
   /// The init of the manager.
@@ -67,5 +72,6 @@ struct UseCaseDepencyManager {
     resolver.add(asyncSearchPokemonByNameUseCase)
     resolver.add(setSelectedPokemonID)
     resolver.add(getSelectedPokemonID)
+    resolver.add(getCurrentWeatherUseCase)
   }
 }

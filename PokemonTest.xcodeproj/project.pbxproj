@@ -135,6 +135,12 @@
 		4DDEF1C9291D54ED007CC75B /* ShortcutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1C8291D54ED007CC75B /* ShortcutProvider.swift */; };
 		4DDEF1D0291E64C2007CC75B /* PKMNDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1CF291E64C2007CC75B /* PKMNDetailHeader.swift */; };
 		4DDEF1D2291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEF1D1291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift */; };
+		4DF8C0ED2931085C00DAD994 /* PKMNWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0EC2931085C00DAD994 /* PKMNWeatherManager.swift */; };
+		4DF8C0F0293108BE00DAD994 /* PKMNWeatherWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0EF293108BE00DAD994 /* PKMNWeatherWorker.swift */; };
+		4DF8C0F2293108D200DAD994 /* PKMNWeatherWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F1293108D200DAD994 /* PKMNWeatherWorkerProtocol.swift */; };
+		4DF8C0F429310B6B00DAD994 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F329310B6B00DAD994 /* CurrentWeather.swift */; };
+		4DF8C0F629310FFD00DAD994 /* PKMNWeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F529310FFD00DAD994 /* PKMNWeatherProtocol.swift */; };
+		4DF8C0F82931103F00DAD994 /* PKMNWeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F72931103F00DAD994 /* PKMNWeatherRepository.swift */; };
 		4DF9A2AE290ABA2D003AC168 /* OpenPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */; };
 		4DF9A2B1290AC51E003AC168 /* PokemonInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */; };
 		4DF9A2EA290ACD06003AC168 /* PKMNSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */; };
@@ -296,6 +302,12 @@
 		4DDEF1C8291D54ED007CC75B /* ShortcutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutProvider.swift; sourceTree = "<group>"; };
 		4DDEF1CF291E64C2007CC75B /* PKMNDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailHeader.swift; sourceTree = "<group>"; };
 		4DDEF1D1291E64F4007CC75B /* PKMNDetailsAbilitiesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNDetailsAbilitiesList.swift; sourceTree = "<group>"; };
+		4DF8C0EC2931085C00DAD994 /* PKMNWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherManager.swift; sourceTree = "<group>"; };
+		4DF8C0EF293108BE00DAD994 /* PKMNWeatherWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherWorker.swift; sourceTree = "<group>"; };
+		4DF8C0F1293108D200DAD994 /* PKMNWeatherWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherWorkerProtocol.swift; sourceTree = "<group>"; };
+		4DF8C0F329310B6B00DAD994 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		4DF8C0F529310FFD00DAD994 /* PKMNWeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherProtocol.swift; sourceTree = "<group>"; };
+		4DF8C0F72931103F00DAD994 /* PKMNWeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherRepository.swift; sourceTree = "<group>"; };
 		4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPokemon.swift; sourceTree = "<group>"; };
 		4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInformation.swift; sourceTree = "<group>"; };
 		4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIViewModel.swift; sourceTree = "<group>"; };
@@ -640,6 +652,7 @@
 				4D590579279EB15E001110D8 /* PokemonListItem.swift */,
 				4D703B8428F167CA005AFB0C /* PKMNModel.swift */,
 				4D703B8628F169F7005AFB0C /* Empty.swift */,
+				4DF8C0F329310B6B00DAD994 /* CurrentWeather.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -659,6 +672,7 @@
 			children = (
 				4D59053E279E98C6001110D8 /* Network */,
 				4D59053F279E98DC001110D8 /* JSON */,
+				4DF8C0EE2931086000DAD994 /* Weather */,
 			);
 			path = PKMNData;
 			sourceTree = "<group>";
@@ -696,6 +710,7 @@
 			isa = PBXGroup;
 			children = (
 				4D590555279EA7DF001110D8 /* PKMNRepositoryProtocol.swift */,
+				4DF8C0F529310FFD00DAD994 /* PKMNWeatherProtocol.swift */,
 			);
 			path = RepositoryProtocol;
 			sourceTree = "<group>";
@@ -704,6 +719,7 @@
 			isa = PBXGroup;
 			children = (
 				4D590558279EA839001110D8 /* PKMNRepository.swift */,
+				4DF8C0F72931103F00DAD994 /* PKMNWeatherRepository.swift */,
 			);
 			path = RepositoryImplementation;
 			sourceTree = "<group>";
@@ -899,6 +915,16 @@
 				4D07F6F6290FC2BD006B91AD /* AbilityView.swift */,
 			);
 			path = Abilities;
+			sourceTree = "<group>";
+		};
+		4DF8C0EE2931086000DAD994 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				4DF8C0EC2931085C00DAD994 /* PKMNWeatherManager.swift */,
+				4DF8C0EF293108BE00DAD994 /* PKMNWeatherWorker.swift */,
+				4DF8C0F1293108D200DAD994 /* PKMNWeatherWorkerProtocol.swift */,
+			);
+			path = Weather;
 			sourceTree = "<group>";
 		};
 		4DF9A2AF290ABA31003AC168 /* Action */ = {
@@ -1219,6 +1245,7 @@
 				4DF9A2EA290ACD06003AC168 /* PKMNSwiftUIViewModel.swift in Sources */,
 				4DF9A308290D0301003AC168 /* PKMNHomeModel.swift in Sources */,
 				4DDEF19C291A46D0007CC75B /* ArchitectureDependencyManager.swift in Sources */,
+				4DF8C0F82931103F00DAD994 /* PKMNWeatherRepository.swift in Sources */,
 				4D5904F5279E8FD7001110D8 /* PKMNNetworkingDataSourceProtocol.swift in Sources */,
 				4DDEF1D0291E64C2007CC75B /* PKMNDetailHeader.swift in Sources */,
 				4D50C5D429267DB700FDCE2E /* PokemonIntentsLogic.swift in Sources */,
@@ -1250,6 +1277,7 @@
 				4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */,
 				4D590518279E91F9001110D8 /* AbilityDataSource.swift in Sources */,
 				4D15A27129054873009E5314 /* PKMNHomeViewController+UICollectionView.swift in Sources */,
+				4DF8C0F429310B6B00DAD994 /* CurrentWeather.swift in Sources */,
 				4DDEF19429196FC5007CC75B /* DependencyManager.swift in Sources */,
 				4D3DED61279EE0D50012CCEF /* _PixelFormat.swift in Sources */,
 				4D50C5DA29268B6B00FDCE2E /* CoordinatorFlowStateProtocol.swift in Sources */,
@@ -1261,15 +1289,18 @@
 				4D59051C279E921F001110D8 /* OfficialArtworkDataSource.swift in Sources */,
 				4DF9A311290E7B03003AC168 /* PKMNSwiftUIDetail.swift in Sources */,
 				4D308BD029155E2C0070EDB7 /* PKMNSwiftUIToastModel.swift in Sources */,
+				4DF8C0F0293108BE00DAD994 /* PKMNWeatherWorker.swift in Sources */,
 				4D757F81279EB844000E79E5 /* PKMNViewController.swift in Sources */,
 				4D590514279E91A3001110D8 /* PokemonListDataSource.swift in Sources */,
 				4D3DED7D27A035E80012CCEF /* PKMNHomeViewController+UISearchBar.swift in Sources */,
 				4D3DED5F279EE0D50012CCEF /* _RGB.swift in Sources */,
 				4D590551279E9E9D001110D8 /* PKMNNetworkingDataSourceWorker.swift in Sources */,
 				4DA02D812801822400BB6CE5 /* PKMNViewModel.swift in Sources */,
+				4DF8C0F2293108D200DAD994 /* PKMNWeatherWorkerProtocol.swift in Sources */,
 				4D07F6F9290FC369006B91AD /* AbilityModel.swift in Sources */,
 				4DA02D8A2801877600BB6CE5 /* ErrorHandeable.swift in Sources */,
 				4D757F94279EBEEA000E79E5 /* LoadingState.swift in Sources */,
+				4DF8C0ED2931085C00DAD994 /* PKMNWeatherManager.swift in Sources */,
 				4DF9A314290EEF2A003AC168 /* PKMNDetailModel.swift in Sources */,
 				4D590554279EA06D001110D8 /* PKMNErrorManager.swift in Sources */,
 				4D590559279EA839001110D8 /* PKMNRepository.swift in Sources */,
@@ -1278,6 +1309,7 @@
 				4D5904E1279DC9F1001110D8 /* PKMNButtonStyles.swift in Sources */,
 				4D590530279E9491001110D8 /* Species.swift in Sources */,
 				4DDEF1A3291B131C007CC75B /* SwiftUIAssembler.swift in Sources */,
+				4DF8C0F629310FFD00DAD994 /* PKMNWeatherProtocol.swift in Sources */,
 				4D5904C5279DC62A001110D8 /* PKMNFont.swift in Sources */,
 				4D590520279E923D001110D8 /* SpeciesDataSource.swift in Sources */,
 				4D590522279E924C001110D8 /* SpritesDataSource.swift in Sources */,
@@ -1503,7 +1535,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1533,7 +1565,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

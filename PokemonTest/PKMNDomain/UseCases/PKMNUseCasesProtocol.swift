@@ -46,3 +46,8 @@ protocol SetSelectedPokemonIDProtocol: Injectable {
 protocol GetSelectedPokemonIDProtocol: Injectable {
   func execute() -> String
 }
+
+/// Get the current weather information for the current location.
+protocol GetCurrentWeatherProtocol: Injectable {
+  func execute() async throws -> CurrentWeather
+}

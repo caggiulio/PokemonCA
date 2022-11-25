@@ -7,17 +7,17 @@
 
 import WeatherKit
 
-/// The manager for the networking workers.
+/// The manager for the weather workers.
 struct PKMNWeatherManager: Injectable {
- /// The concrete implementation of `AloyNetworkingProtocol`.
- private let weatherService: WeatherService = {
-   WeatherService()
- }()
+  /// The Apple weather service.
+  private let weatherService: WeatherService = {
+    WeatherService()
+  }()
   
- /// The concrete implementation of `PKMNWeatherProtocol`.
- var weatherWorker: PKMNWeatherProtocol
+  /// The concrete implementation of `PKMNWeatherProtocol`.
+  var weatherWorker: PKMNWeatherProtocol
 
- init() {
-   weatherWorker = PKMNWeatherWorker(service: weatherService)
- }
+  init() {
+    weatherWorker = PKMNWeatherWorker(service: weatherService)
+  }
 }

@@ -31,6 +31,11 @@ struct ArchitectureDependencyManager {
     PKMNWeatherManager()
   }
   
+  /// The location manager to make `CoreLocation` calls.
+  private var locationManager: PKMNLocationManager {
+    PKMNLocationManager()
+  }
+  
   /// The repository that stores and contains the `Pokemon` and `PokemonListItem` object fetched.
   private var pokemonRepository: PKMNRepositoryProtocol {
     PKMNRepository(networkingWorker: networkingManager.networkingDataSource, jsonWorker: jsonManager.jsonDataSource)
@@ -38,7 +43,8 @@ struct ArchitectureDependencyManager {
   
   /// The repository that stores and contains the fetched `Weather` objects.
   private var weatherRepository: PKMNWeatherRepositoryProtocol {
-    PKMNWeatherRepository(weatherWorker: weatherManager.weatherWorker)
+    PKMNWeatherRepository(weatherWorker: weatherManager.weatherWorker, locationWorker: locationManager.locationWorker
+    )
   }
     
   // MARK: - Init
@@ -59,5 +65,6 @@ struct ArchitectureDependencyManager {
     resolver.add(assembler)
     resolver.add(weatherManager)
     resolver.add(weatherRepository)
+    resolver.add(locationManager)
   }
 }

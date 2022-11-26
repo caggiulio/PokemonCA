@@ -10,5 +10,5 @@ import Foundation
 /// The protocol with the weather method.
 protocol PKMNWeatherProtocol {
   /// Get the current weather condition.
-  func getCurrentWeather() async throws -> CurrentWeather
+  func getCurrentWeather(location: CurrentLocation) async throws -> CurrentWeather
 }

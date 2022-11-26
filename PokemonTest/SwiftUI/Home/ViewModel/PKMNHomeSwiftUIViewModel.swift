@@ -19,6 +19,9 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// The use case to set the selected `Pokemon` id for the next step.
   @Injected private var setSelectedPokemonUseCase: PKMNUseCases.SetSelectedPokemonID
   
+  /// The use case to get the current weather for the current location.
+  @Injected private var getCurrentWeatherUseCase: PKMNUseCases.GetCurrentWeather
+  
   // MARK: - Computed Properties
   
   /// In this variable it's stored the url for the next page.

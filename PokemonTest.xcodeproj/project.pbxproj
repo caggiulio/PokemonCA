@@ -141,6 +141,10 @@
 		4DF8C0F429310B6B00DAD994 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F329310B6B00DAD994 /* CurrentWeather.swift */; };
 		4DF8C0F629310FFD00DAD994 /* PKMNWeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F529310FFD00DAD994 /* PKMNWeatherProtocol.swift */; };
 		4DF8C0F82931103F00DAD994 /* PKMNWeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F72931103F00DAD994 /* PKMNWeatherRepository.swift */; };
+		4DF8C0FA2932632E00DAD994 /* PKMNLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0F92932632E00DAD994 /* PKMNLocationProtocol.swift */; };
+		4DF8C0FC2932635D00DAD994 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0FB2932635D00DAD994 /* CurrentLocation.swift */; };
+		4DF8C0FF2932646D00DAD994 /* PKMNLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0FE2932646D00DAD994 /* PKMNLocationManager.swift */; };
+		4DF8C101293264AF00DAD994 /* PKMNLocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C100293264AF00DAD994 /* PKMNLocationWorker.swift */; };
 		4DF9A2AE290ABA2D003AC168 /* OpenPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */; };
 		4DF9A2B1290AC51E003AC168 /* PokemonInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */; };
 		4DF9A2EA290ACD06003AC168 /* PKMNSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */; };
@@ -308,6 +312,10 @@
 		4DF8C0F329310B6B00DAD994 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4DF8C0F529310FFD00DAD994 /* PKMNWeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherProtocol.swift; sourceTree = "<group>"; };
 		4DF8C0F72931103F00DAD994 /* PKMNWeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherRepository.swift; sourceTree = "<group>"; };
+		4DF8C0F92932632E00DAD994 /* PKMNLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNLocationProtocol.swift; sourceTree = "<group>"; };
+		4DF8C0FB2932635D00DAD994 /* CurrentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
+		4DF8C0FE2932646D00DAD994 /* PKMNLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNLocationManager.swift; sourceTree = "<group>"; };
+		4DF8C100293264AF00DAD994 /* PKMNLocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNLocationWorker.swift; sourceTree = "<group>"; };
 		4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPokemon.swift; sourceTree = "<group>"; };
 		4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInformation.swift; sourceTree = "<group>"; };
 		4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIViewModel.swift; sourceTree = "<group>"; };
@@ -653,6 +661,7 @@
 				4D703B8428F167CA005AFB0C /* PKMNModel.swift */,
 				4D703B8628F169F7005AFB0C /* Empty.swift */,
 				4DF8C0F329310B6B00DAD994 /* CurrentWeather.swift */,
+				4DF8C0FB2932635D00DAD994 /* CurrentLocation.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -923,8 +932,19 @@
 				4DF8C0EC2931085C00DAD994 /* PKMNWeatherManager.swift */,
 				4DF8C0EF293108BE00DAD994 /* PKMNWeatherWorker.swift */,
 				4DF8C0F1293108D200DAD994 /* PKMNWeatherWorkerProtocol.swift */,
+				4DF8C0FD2932644000DAD994 /* Location */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		4DF8C0FD2932644000DAD994 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				4DF8C0F92932632E00DAD994 /* PKMNLocationProtocol.swift */,
+				4DF8C0FE2932646D00DAD994 /* PKMNLocationManager.swift */,
+				4DF8C100293264AF00DAD994 /* PKMNLocationWorker.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		4DF9A2AF290ABA31003AC168 /* Action */ = {
@@ -1260,6 +1280,7 @@
 				4D590578279EB124001110D8 /* PokemonsList.swift in Sources */,
 				4D5904F9279E9076001110D8 /* PKMNNetworkingManager.swift in Sources */,
 				4D3DED50279EE0A90012CCEF /* UIImageView+Download.swift in Sources */,
+				4DF8C0FA2932632E00DAD994 /* PKMNLocationProtocol.swift in Sources */,
 				4D308BD329159F540070EDB7 /* DebounceSearchable.swift in Sources */,
 				4D5904F7279E902E001110D8 /* Constants.swift in Sources */,
 				4D5904BD279DC36C001110D8 /* PKMNAppAssets.swift in Sources */,
@@ -1275,6 +1296,7 @@
 				4D359F9928FFD89700A26693 /* PokemonIntentsQuery.swift in Sources */,
 				4D50C5DC2926928500FDCE2E /* Binding+Extension.swift in Sources */,
 				4DA02D892801877600BB6CE5 /* SportXPHandleErrorManager.swift in Sources */,
+				4DF8C0FF2932646D00DAD994 /* PKMNLocationManager.swift in Sources */,
 				4D590518279E91F9001110D8 /* AbilityDataSource.swift in Sources */,
 				4D15A27129054873009E5314 /* PKMNHomeViewController+UICollectionView.swift in Sources */,
 				4DF8C0F429310B6B00DAD994 /* CurrentWeather.swift in Sources */,
@@ -1301,6 +1323,7 @@
 				4DA02D8A2801877600BB6CE5 /* ErrorHandeable.swift in Sources */,
 				4D757F94279EBEEA000E79E5 /* LoadingState.swift in Sources */,
 				4DF8C0ED2931085C00DAD994 /* PKMNWeatherManager.swift in Sources */,
+				4DF8C101293264AF00DAD994 /* PKMNLocationWorker.swift in Sources */,
 				4DF9A314290EEF2A003AC168 /* PKMNDetailModel.swift in Sources */,
 				4D590554279EA06D001110D8 /* PKMNErrorManager.swift in Sources */,
 				4D590559279EA839001110D8 /* PKMNRepository.swift in Sources */,
@@ -1325,6 +1348,7 @@
 				4D590539279E97ED001110D8 /* JSONFileNames.swift in Sources */,
 				4D3DED62279EE0D50012CCEF /* NSImage+Colors.swift in Sources */,
 				4DF9A2F1290AD23D003AC168 /* PKMNBaseSwiftUIView.swift in Sources */,
+				4DF8C0FC2932635D00DAD994 /* CurrentLocation.swift in Sources */,
 				4D3DED6A279EF2C40012CCEF /* PKMNDetailViewModel.swift in Sources */,
 				4D3DED66279EE7AB0012CCEF /* IndexPath+Extension.swift in Sources */,
 				4D590528279E9297001110D8 /* Pokemon.swift in Sources */,
@@ -1531,6 +1555,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonTest/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ask Location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1561,6 +1586,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonTest/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ask Location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

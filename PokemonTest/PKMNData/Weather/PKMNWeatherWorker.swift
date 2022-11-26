@@ -22,9 +22,9 @@ struct PKMNWeatherWorker: PKMNWeatherProtocol, Injectable {
     self.service = service
   }
   
-  func getCurrentWeather() async throws -> CurrentWeather {
+  func getCurrentWeather(location: CurrentLocation) async throws -> CurrentWeather {
     do {
-      let weather = try await service.weather(for: CLLocation(latitude: 37.7749, longitude: 122.4194), including: .current)
+      let weather = try await service.weather(for: CLLocation(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude), including: .current)
       return CurrentWeather(temperature: weather.temperature.value, condition: weather.condition.description, symbolName: weather.symbolName)
     } catch let error {
       throw PKMNError.genericError(error.localizedDescription)

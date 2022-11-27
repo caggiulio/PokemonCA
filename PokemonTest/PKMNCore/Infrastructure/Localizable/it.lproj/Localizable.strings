@@ -12,7 +12,7 @@
 "standard_search" = "Cerca";
 "resource_not_found" = "Qualcosa è andata storta! Il pokemon è fuggito";
 "home_title" = "Pokedex";
-"home.weather.title" = "È un grande giorno per catturare Pokemon. La temperatura è di %@º e le condizioni sono %@";
+"home.weather.title" = "È un grande giorno a %@ per catturare Pokemon. La temperatura è di %@º e le condizioni sono %@";
 
 // MARK: - App Intents
 

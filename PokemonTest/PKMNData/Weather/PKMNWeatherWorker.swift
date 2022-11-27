@@ -8,6 +8,7 @@
 import WeatherKit
 import CoreLocation
 
+@available(iOS 16.0, *)
 /// The concrete implementation of `PKMNWeatherProtocol`.
 struct PKMNWeatherWorker: PKMNWeatherProtocol, Injectable {
   // MARK: - Stored Properties
@@ -25,7 +26,7 @@ struct PKMNWeatherWorker: PKMNWeatherProtocol, Injectable {
   func getCurrentWeather(location: CurrentLocation) async throws -> CurrentWeather {
     do {
       let weather = try await service.weather(for: CLLocation(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude), including: .current)
-      return CurrentWeather(temperature: weather.temperature.value, condition: weather.condition.description, symbolName: weather.symbolName)
+      return CurrentWeather(weather: weather, cityName: location.cityName)
     } catch let error {
       throw PKMNError.genericError(error.localizedDescription)
     }

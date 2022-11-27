@@ -46,7 +46,9 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
       })
     }
     
-    getWeatherInformation()
+    if #available(iOS 16.0, *) {
+      getWeatherInformation()
+    }
   }
   
   /// The method to trigger the `getPokemonsListUseCase`.
@@ -92,6 +94,7 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
 private extension PKMNHomeSwiftUIViewModel {
   /// Get the current weather information and update the model.
   /// After 5 seconds, the state will change to hide the current weather view.
+  /// This method is available only for iOS 16.0 and next.
   @MainActor
   private func getWeatherInformation() {
     Task {

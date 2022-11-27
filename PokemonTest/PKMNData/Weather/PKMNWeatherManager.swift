@@ -8,6 +8,7 @@
 import WeatherKit
 
 /// The manager for the weather workers.
+@available(iOS 16.0, *)
 struct PKMNWeatherManager: Injectable {
   /// The Apple weather service.
   private let weatherService: WeatherService = {

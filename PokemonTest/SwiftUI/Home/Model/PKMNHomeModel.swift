@@ -46,7 +46,7 @@ struct PKMNHomeModel: PKMNModel {
       return String()
     }
     
-    return PKMNString.weatherTitle(String(format: "%.f", currentWeather.temperature), currentWeather.condition)
+    return PKMNString.weatherTitle(currentWeather.cityName, String(format: "%.f", currentWeather.temperature), currentWeather.condition)
   }
   
   /// Wheter the `PKMNHomeWeatherInformation` is visible or not.

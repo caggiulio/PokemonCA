@@ -12,7 +12,7 @@
 "standard_search" = "Search";
 "resource_not_found" = "Something went wrong! The pokemon has escaped";
 "home_title" = "Pokedex";
-"home.weather.title" = "It's a great day to catch Pokemons. The temperature is %@º and the condition is %@";
+"home.weather.title" = "It's a great day in %@ to catch Pokemons. The temperature is %@º and the condition is %@";
 
 // MARK: - App Intents
 

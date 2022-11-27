@@ -27,6 +27,7 @@ struct ArchitectureDependencyManager {
   }
   
   /// The weather manager to make weather calls.
+  @available(iOS 16.0, *)
   private var weatherManager: PKMNWeatherManager {
     PKMNWeatherManager()
   }
@@ -41,6 +42,7 @@ struct ArchitectureDependencyManager {
     PKMNRepository(networkingWorker: networkingManager.networkingDataSource, jsonWorker: jsonManager.jsonDataSource)
   }
   
+  @available(iOS 16.0, *)
   /// The repository that stores and contains the fetched `Weather` objects.
   private var weatherRepository: PKMNWeatherRepositoryProtocol {
     PKMNWeatherRepository(weatherWorker: weatherManager.weatherWorker, locationWorker: locationManager.locationWorker
@@ -52,6 +54,9 @@ struct ArchitectureDependencyManager {
   /// The init of the manager.
   init() {
     addDependencies()
+    if #available(iOS 16.0, *) {
+      addWeatherDependencies()
+    }
   }
     
   // MARK: - Private Methods
@@ -63,6 +68,12 @@ struct ArchitectureDependencyManager {
     resolver.add(jsonManager)
     resolver.add(pokemonRepository)
     resolver.add(assembler)
+  }
+  
+  /// This method add the depencies to shared `Resolver` instance for the weather manager and repository.
+  @available(iOS 16.0, *)
+  private func addWeatherDependencies() {
+    let resolver = Resolver.shared
     resolver.add(weatherManager)
     resolver.add(weatherRepository)
     resolver.add(locationManager)

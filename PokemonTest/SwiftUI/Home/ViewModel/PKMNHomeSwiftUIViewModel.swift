@@ -27,9 +27,9 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   /// In this variable it's stored the url for the next page.
   private var nextPage: String?
   
-  /// In this variable are stored the fetched `PokemonListItem`
+  /// In this variable are stored the fetched `PokemonListItem`.
   private var fetchedPokemons: [PokemonListItem] = []
-    
+  
   /// The method to trigger the `getPokemonsListUseCase`.
   /// - Parameter queryItems: the array of the `URLQueryItem` to pass to the API.
   @MainActor
@@ -39,12 +39,14 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     
     Task {
       try await processTask(function: {
-        let list = try await getPokemonsListUseCase.execute(queryItems: queryItems)
+        let list = try await self.getPokemonsListUseCase.execute(queryItems: queryItems)
         nextPage = list.next
         fetchedPokemons.append(contentsOf: list.pokemonItems)
-        return PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [])
+        return PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [], currentWeather: lastValueModel?.currentWeather)
       })
     }
+    
+    getWeatherInformation()
   }
   
   /// The method to trigger the `getPokemonsListUseCase`.
@@ -60,7 +62,7 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
       try await processTask(function: {        
         let filteredList = try await self.searchPokemonByNameUseCase.execute(name: name)
         nextPage = nil
-        return PKMNHomeModel(pokemonList: [], filteredPokemonList: filteredList)
+        return PKMNHomeModel(pokemonList: [], filteredPokemonList: filteredList, currentWeather: lastValueModel?.currentWeather)
       })
     }
   }
@@ -84,5 +86,22 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
   func setSelectedPokemon(id: String) {
     setSelectedPokemonUseCase.execute(id: id)
     activeLink = .detail
+  }
+}
+
+private extension PKMNHomeSwiftUIViewModel {
+  /// Get the current weather information and update the model.
+  /// After 5 seconds, the state will change to hide the current weather view.
+  @MainActor
+  private func getWeatherInformation() {
+    Task {
+      do {
+        let currentWeather = try await getCurrentWeatherUseCase.execute()
+        self.loadingState = .success(PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [], currentWeather: currentWeather))
+        
+        try await Task.sleep(nanoseconds: 5_000_000_000)
+        self.loadingState = .success(PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [], currentWeather: nil))
+      } catch {}
+    }
   }
 }

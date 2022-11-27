@@ -145,6 +145,8 @@
 		4DF8C0FC2932635D00DAD994 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0FB2932635D00DAD994 /* CurrentLocation.swift */; };
 		4DF8C0FF2932646D00DAD994 /* PKMNLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C0FE2932646D00DAD994 /* PKMNLocationManager.swift */; };
 		4DF8C101293264AF00DAD994 /* PKMNLocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C100293264AF00DAD994 /* PKMNLocationWorker.swift */; };
+		4DF8C1032933800D00DAD994 /* PKMNWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C1022933800D00DAD994 /* PKMNWeatherView.swift */; };
+		4DF8C1052933805300DAD994 /* PKMNWeatherHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8C1042933805300DAD994 /* PKMNWeatherHomeModel.swift */; };
 		4DF9A2AE290ABA2D003AC168 /* OpenPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */; };
 		4DF9A2B1290AC51E003AC168 /* PokemonInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */; };
 		4DF9A2EA290ACD06003AC168 /* PKMNSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */; };
@@ -316,6 +318,8 @@
 		4DF8C0FB2932635D00DAD994 /* CurrentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
 		4DF8C0FE2932646D00DAD994 /* PKMNLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNLocationManager.swift; sourceTree = "<group>"; };
 		4DF8C100293264AF00DAD994 /* PKMNLocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNLocationWorker.swift; sourceTree = "<group>"; };
+		4DF8C1022933800D00DAD994 /* PKMNWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherView.swift; sourceTree = "<group>"; };
+		4DF8C1042933805300DAD994 /* PKMNWeatherHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNWeatherHomeModel.swift; sourceTree = "<group>"; };
 		4DF9A2AD290ABA2D003AC168 /* OpenPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPokemon.swift; sourceTree = "<group>"; };
 		4DF9A2B0290AC51E003AC168 /* PokemonInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInformation.swift; sourceTree = "<group>"; };
 		4DF9A2E9290ACD06003AC168 /* PKMNSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKMNSwiftUIViewModel.swift; sourceTree = "<group>"; };
@@ -1005,6 +1009,7 @@
 				4DF9A2EE290AD1FC003AC168 /* PKMNSwiftUIHome.swift */,
 				4D308B8729127F780070EDB7 /* PKMNSwiftUIHomeBody.swift */,
 				4DF9A2F9290BBC1F003AC168 /* PKMNSwiftUIHomeCell.swift */,
+				4DF8C1022933800D00DAD994 /* PKMNWeatherView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1040,6 +1045,7 @@
 			children = (
 				4DF9A307290D0301003AC168 /* PKMNHomeModel.swift */,
 				4D308B852912779B0070EDB7 /* PKMNHomeBodyModel.swift */,
+				4DF8C1042933805300DAD994 /* PKMNWeatherHomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1257,6 +1263,7 @@
 				4D590543279E9ACB001110D8 /* PKMNError.swift in Sources */,
 				4D3DED72279FFA7A0012CCEF /* PKMNSingleStatView.swift in Sources */,
 				4DF9A2F5290AE487003AC168 /* SwiftUIHandleLoadingState.swift in Sources */,
+				4DF8C1052933805300DAD994 /* PKMNWeatherHomeModel.swift in Sources */,
 				4D703B8528F167CA005AFB0C /* PKMNModel.swift in Sources */,
 				4D59052E279E9427001110D8 /* Forms.swift in Sources */,
 				4DDEF18F291964C7007CC75B /* Inject.swift in Sources */,
@@ -1319,6 +1326,7 @@
 				4D590551279E9E9D001110D8 /* PKMNNetworkingDataSourceWorker.swift in Sources */,
 				4DA02D812801822400BB6CE5 /* PKMNViewModel.swift in Sources */,
 				4DF8C0F2293108D200DAD994 /* PKMNWeatherWorkerProtocol.swift in Sources */,
+				4DF8C1032933800D00DAD994 /* PKMNWeatherView.swift in Sources */,
 				4D07F6F9290FC369006B91AD /* AbilityModel.swift in Sources */,
 				4DA02D8A2801877600BB6CE5 /* ErrorHandeable.swift in Sources */,
 				4D757F94279EBEEA000E79E5 /* LoadingState.swift in Sources */,

@@ -27,14 +27,14 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject, Coordinator
   // MARK: - Init
   
   /// At the `init` observes the `loadingState` value in order to update always the `lastValueModel`.
-  init() {    
+  init() {
     self.$loadingState.sink { [weak self] state in
       guard let newValue = state.value else {
         return
       }
       self?.lastValueModel = newValue
     }
-    .store(in: &cancellables)    
+    .store(in: &cancellables)
   }
   
   // MARK: - Methods
@@ -42,7 +42,7 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject, Coordinator
   /// The func to process a `Task` that throws an error or a `Model`.
   /// If there is an error, the `loadingState` will be `failure` with a `PKMNError`.
   @MainActor
-  func processTask(function: () async throws -> Model) async rethrows {
+  func process(_ function: () async throws -> Model) async rethrows {
     loadingState = .loading(true)
     
     do {

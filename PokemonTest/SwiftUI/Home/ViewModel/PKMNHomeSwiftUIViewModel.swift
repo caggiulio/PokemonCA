@@ -38,12 +38,12 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     loadingState = .loading(true)
     
     Task {
-      try await processTask(function: {
+      try await process {
         let list = try await self.getPokemonsListUseCase.execute(queryItems: queryItems)
         nextPage = list.next
         fetchedPokemons.append(contentsOf: list.pokemonItems)
         return PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [], currentWeather: lastValueModel?.currentWeather)
-      })
+      }
     }
     
     if #available(iOS 16.0, *) {
@@ -61,11 +61,11 @@ class PKMNHomeSwiftUIViewModel: PKMNSwiftUIViewModel<PKMNHomeModel> {
     }
     
     Task {
-      try await processTask(function: {        
+      try await process {
         let filteredList = try await self.searchPokemonByNameUseCase.execute(name: name)
         nextPage = nil
         return PKMNHomeModel(pokemonList: [], filteredPokemonList: filteredList, currentWeather: lastValueModel?.currentWeather)
-      })
+      }
     }
   }
   

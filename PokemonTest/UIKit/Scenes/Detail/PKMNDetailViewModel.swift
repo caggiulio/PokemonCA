@@ -21,9 +21,9 @@ class PKMNDetailViewModel: PKMNViewModel<Pokemon>, PKMNDetailViewModelProtocol {
 
   func loadPokemon() {
     Task {
-      try await processTask(function: {
+      try await process {
         try await asyncGetPokemonByIDUseCase.execute()
-      })
+      }
     }
   }
 }

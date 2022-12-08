@@ -22,11 +22,11 @@ class PKMNSwiftUIDetailViewModel: PKMNSwiftUIViewModel<PKMNDetailModel> {
   @MainActor
   func getPokemonDetails() {
     Task {
-      try await processTask(function: {
+      try await process {
         let pokemon = try await getPokemonDetailUseCase.execute()
         let pokemonOverall = try await getPokemonOverallUseCase.execute()
         return PKMNDetailModel(pokemon: pokemon, overallModel: OverallModel(title: PKMNString.overall, value: pokemonOverall))
-      })
+      }
     }
   }
 }

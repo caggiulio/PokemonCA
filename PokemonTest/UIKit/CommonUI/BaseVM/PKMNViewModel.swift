@@ -14,7 +14,7 @@ open class PKMNViewModel<Model: PKMNModel>: NSObject {
   /// The func to process a `Task` that throw an error or a `Model`.
   /// If there is an error, the `loadingState` will be `failure` with a `PKMNError`.
   @MainActor
-  func processTask(function: () async throws -> Model) async rethrows {
+  func process(function: () async throws -> Model) async rethrows {
     loadingState = .loading(true)
     
     do {

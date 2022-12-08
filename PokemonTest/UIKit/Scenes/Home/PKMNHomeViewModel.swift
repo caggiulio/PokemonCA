@@ -44,7 +44,7 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
     queryItems == nil ? fetchedPokemons.removeAll() : nil
     
     Task {
-      try await processTask {
+      try await process {
         let pokemonList = try await asyncGetPokemonsListUseCase.execute(queryItems: queryItems)
         self.nextPage = pokemonList.next
         let pokemonItems = pokemonList.pokemonItems
@@ -86,7 +86,7 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
     }
 
     let task = Task {
-      try await processTask {
+      try await process {
         try await Task.sleep(nanoseconds: 500_000_000)
         let pokemons = try await self.asyncSearchPokemonByNameUseCase.execute(name: name)
         self.fetchedPokemons = pokemons

@@ -39,7 +39,7 @@ open class PKMNSwiftUIViewModel<Model: PKMNModel>: ObservableObject, Coordinator
   
   // MARK: - Methods
     
-  /// The func to process a `Task` that throw an error or a `Model`.
+  /// The func to process a `Task` that throws an error or a `Model`.
   /// If there is an error, the `loadingState` will be `failure` with a `PKMNError`.
   @MainActor
   func processTask(function: () async throws -> Model) async rethrows {

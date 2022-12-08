@@ -8,7 +8,6 @@
 import Foundation
 
 /// The model for the `AbilityView`.
-
 struct AbilityModel: Identifiable {
   
   // MARK: - Stored Properties

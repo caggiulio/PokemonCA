@@ -29,10 +29,15 @@ struct PKMNSwiftUIHome: View {
       Color(uiColor: AppAsset.primary.color).edgesIgnoringSafeArea(.all)
       
       if let model = viewModel.lastValueModel {
-        PKMNHomeBody(model: model.bodyModel) {
-          viewModel.getNextPage()
-        } pokemonDidSelect: { pokemonID in
-          viewModel.setSelectedPokemon(id: pokemonID)
+        VStack {
+          if model.isWeatherInformationVisible {
+            PKMNWeatherInformation(model: model.weatherModel)
+          }
+          PKMNHomeBody(model: model.bodyModel) {
+            viewModel.getNextPage()
+          } pokemonDidSelect: { pokemonID in
+            viewModel.setSelectedPokemon(id: pokemonID)
+          }
         }
       }
     }, viewModel: viewModel)

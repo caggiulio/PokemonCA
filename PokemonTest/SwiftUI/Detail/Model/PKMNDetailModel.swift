@@ -14,6 +14,9 @@ struct PKMNDetailModel: PKMNModel {
   /// The `Pokemon` used to fill the details.
   let pokemon: Pokemon
   
+  /// The model used to fill the gauge.
+  let overallModel: OverallModel
+  
   // MARK: - Computed Properties
   
   /// The list of the abilities. Build the right `AbilityModel`.

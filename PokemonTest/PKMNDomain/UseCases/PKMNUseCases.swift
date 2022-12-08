@@ -87,4 +87,27 @@ enum PKMNUseCases {
       pokemonRepository.getSelectedID()
     }
   }
+  
+  /// Get the overall for the selected `Pokemon`.
+  struct GetPokemonOverall: GetOverallProtocol {
+    @Injected private var pokemonRepository: PKMNRepository
+    
+    func execute() async throws -> Float {
+      let id = pokemonRepository.getSelectedID()
+      let pokemon = try await pokemonRepository.asyncGetPokemon(id: id)
+      let totalValue = pokemon.stats.reduce(into: 0) { partial, stat in
+        partial += stat.baseStat
+      }
+      return Float(totalValue / pokemon.stats.count) / 100
+    }
+  }
+  
+  /// Get the current weather condition for the current location.
+  struct GetCurrentWeather: GetCurrentWeatherProtocol {
+    @Injected private var weatherRepository: PKMNWeatherRepository
+    
+    func execute() async throws -> CurrentWeather {
+      try await weatherRepository.getCurrentWeather()
+    }
+  }
 }

@@ -15,6 +15,10 @@ struct PKMNString {
   static let standardSearch = PKMNString.tr("Localizable", "standard_search")
   static let resourceNotFound = PKMNString.tr("Localizable", "resource_not_found")
   static let homeTitle = PKMNString.tr("Localizable", "home_title")
+  static let overall = PKMNString.tr("Localizable", "detail.overall")
+  static func weatherTitle(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
+    PKMNString.tr("Localizable", "home.weather.title", String(describing: p1), String(describing: p2), String(describing: p3))
+  }
 }
 
 extension PKMNString {

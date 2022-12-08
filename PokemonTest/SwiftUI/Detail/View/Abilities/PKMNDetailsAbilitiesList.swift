@@ -26,13 +26,10 @@ struct PKMNDetailAbilitiesList: View {
   
   var body: some View {
     VStack {
-      ScrollView {
-        ForEach(abilities) { ability in
-          AbilityView(model: ability)
-        }
+      ForEach(abilities) { ability in
+        AbilityView(model: ability)
       }
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Color(uiColor: AppAsset.tertiary.color))
     .clipShape(RoundedRectangle(cornerRadius: 20))
   }

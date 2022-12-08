@@ -17,6 +17,25 @@ struct AbilityView: View {
   /// The value of the `ProgressView`. Initially is `.zero` to animate the `View`.
   @State private var progress: Float = .zero
   
+  /// The `LinearGradient` used to style the gauge.
+  private var gradient = LinearGradient(
+    colors:
+      [
+        Color(uiColor: AppAsset.primary.color),
+        Color(uiColor: AppAsset.background.color)
+      ],
+    startPoint: .trailing,
+    endPoint: .leading
+  )
+  
+  // MARK: - Init
+  
+  /// The `init` of the `View`.
+  /// - Parameter model: The model for the single `Ability`.
+  init(model: AbilityModel) {
+    self.model = model
+  }
+  
   // MARK: - View
   
   var body: some View {
@@ -25,14 +44,11 @@ struct AbilityView: View {
         .fontWeight(.bold)
         .font(.title3)
         .foregroundColor(Color(uiColor: AppAsset.secondary.color))
-      HStack {
-        ProgressView(value: progress)
-          .animation(.easeInOut(duration: 1), value: progress)
-          .progressViewStyle(.linear)
-          .tint(Color(uiColor: AppAsset.primary.color))
-          .scaleEffect(x: 1, y: 1.75, anchor: .center)
-      }
+      
+      Gauge(value: progress) {}
+      .animation(.interactiveSpring(response: 0.8, dampingFraction: 0.8, blendDuration: 0.8), value: progress)
     }
+    .tint(gradient)
     .padding()
     .onAppear {
       Task {

@@ -20,13 +20,13 @@ struct PKMNSwiftUIDetail: View {
       PKMNBaseSwiftUIView({
         ZStack {
           PKMNDetailBackground().edgesIgnoringSafeArea(.all)
-          VStack {
+          ScrollView {
             if let model = viewModel.lastValueModel {
-              PKMNDetailHeader(pokemon: model.pokemon)
+              PKMNDetailHeader(pokemon: model.pokemon, overallModel: model.overallModel)
+              Spacer(minLength: 30)
               PKMNDetailAbilitiesList(abilities: model.abilities)
             }
           }
-          .frame(maxWidth: .infinity)
           .onAppear {
             viewModel.getPokemonDetails()
           }
@@ -48,7 +48,8 @@ private struct PKMNDetailBackground: View {
             Color(uiColor: AppAsset.secondary.color.withAlphaComponent(0.75))
           ],
         startPoint: .top,
-        endPoint: .bottom)
+        endPoint: .bottom
+      )
     }
   }
 }

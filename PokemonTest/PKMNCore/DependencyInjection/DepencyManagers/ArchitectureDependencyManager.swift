@@ -45,8 +45,7 @@ struct ArchitectureDependencyManager {
   @available(iOS 16.0, *)
   /// The repository that stores and contains the fetched `Weather` objects.
   private var weatherRepository: PKMNWeatherRepositoryProtocol {
-    PKMNWeatherRepository(weatherWorker: weatherManager.weatherWorker, locationWorker: locationManager.locationWorker
-    )
+    PKMNWeatherRepository(weatherWorker: weatherManager.weatherWorker, locationWorker: locationManager.locationWorker)
   }
     
   // MARK: - Init

@@ -14,12 +14,18 @@ struct PKMNDetailHeader: View {
   /// The `Pokemon` handeld by the `View`.
   private let pokemon: Pokemon
   
+  /// The `OverallModel` for the `OverallView`.
+  private let overallModel: OverallModel
+  
   // MARK: - Init
   
   /// The init of the `View`.
-  /// - Parameter pokemon: the `Pokemon` handeld by the `View`.
-  init(pokemon: Pokemon) {
+  /// - Parameters:
+  ///   - pokemon: The `Pokemon` handeld by the `View`.
+  ///   - overallModel: The `OverallModel` for the `OverallView`.
+  init(pokemon: Pokemon, overallModel: OverallModel) {
     self.pokemon = pokemon
+    self.overallModel = overallModel
   }
   
   // MARK: - View
@@ -28,9 +34,12 @@ struct PKMNDetailHeader: View {
     VStack {
       Text(pokemon.name.capitalized)
         .fontWeight(.bold)
-        .font(.title)
+        .font(.largeTitle)
         .foregroundColor(Color(uiColor: AppAsset.background.color))
-      ZStack {
+      
+      Spacer(minLength: 30)
+      
+      OverallView({
         Image(uiImage: AppAsset.pokeball.image)
           .resizable()
           .frame(width: 250, height: 250)
@@ -47,8 +56,7 @@ struct PKMNDetailHeader: View {
             Image(uiImage: AppAsset.pokeball.image)
           }
         }
-      }
-      .frame(height: 200)
+      }, model: overallModel)
     }
   }
 }

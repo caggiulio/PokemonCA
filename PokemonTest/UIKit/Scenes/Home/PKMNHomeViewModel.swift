@@ -87,7 +87,7 @@ class PKMNHomeViewModel: PKMNViewModel<Empty>, PKMNHomeViewModelProtocol {
 
     let task = Task {
       try await process {
-        try await Task.sleep(nanoseconds: 500_000_000)
+        try await Task.sleep(for: .seconds(0.5))
         let pokemons = try await self.asyncSearchPokemonByNameUseCase.execute(name: name)
         self.fetchedPokemons = pokemons
         

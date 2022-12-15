@@ -102,7 +102,7 @@ private extension PKMNHomeSwiftUIViewModel {
         let currentWeather = try await getCurrentWeatherUseCase.execute()
         self.loadingState = .success(PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [], currentWeather: currentWeather))
         
-        try await Task.sleep(nanoseconds: 5_000_000_000)
+        try await Task.sleep(for: .seconds(5))
         self.loadingState = .success(PKMNHomeModel(pokemonList: fetchedPokemons, filteredPokemonList: [], currentWeather: nil))
       } catch {}
     }

@@ -54,7 +54,7 @@ struct OverallView<Content: View>: View {
     .onAppear {
       Task {
         do {
-          try await Task.sleep(nanoseconds: 500_000_000)
+          try await Task.sleep(for: .seconds(0.5))
           progress = model.value
         } catch {}
       }

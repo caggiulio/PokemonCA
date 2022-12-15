@@ -71,7 +71,7 @@ struct PKMNSwiftUIToast: View {
     .transition(.move(edge: .top).combined(with: .opacity))
     .task {
       do {
-        try await Task.sleep(nanoseconds: 2_000_000_000)
+        try await Task.sleep(for: .seconds(2))
         withAnimation {
           isShowing.wrappedValue.toggle()
         }

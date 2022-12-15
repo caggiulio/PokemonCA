@@ -98,7 +98,7 @@ enum PKMNUseCases {
       let totalValue = pokemon.stats.reduce(into: 0) { partial, stat in
         partial += stat.baseStat
       }
-      return Float(totalValue / pokemon.stats.count) / 100
+      return Float(totalValue)
     }
   }
   

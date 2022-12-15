@@ -9,12 +9,12 @@ import Foundation
 
 struct Stat: PKMNModel {
   let name: String
-  let baseStat: Int
+  let baseStat: Float
   let percentStat: Float
 
   init(statDataSource: StatsDataSource) {
     name = statDataSource.stat.name
-    baseStat = statDataSource.baseStat
+    baseStat = Float(statDataSource.baseStat)
     percentStat = Float(baseStat) / 100
   }
 }

@@ -22,7 +22,7 @@ struct PKMNDetailModel: PKMNModel {
   /// The list of the abilities. Build the right `AbilityModel`.
   var abilities: [AbilityModel] {
     pokemon.stats.map { ability in
-      AbilityModel(title: ability.name, value: ability.percentStat)
+      AbilityModel(title: ability.name, baseValue: ability.baseStat, percentValue: ability.percentStat)
     }
   }
 }

@@ -37,10 +37,11 @@ struct OverallGaugeStyle<Content: View>: GaugeStyle {
     VStack {
       ZStack {
         content
+        
         Circle()
-          .trim(from: 0, to: configuration.value)
+          .trim(from: 0, to: configuration.value * 0.75)
           .stroke(gradient, style: StrokeStyle(lineWidth: 20, lineCap: .round))
-          .rotationEffect(.degrees(180))
+          .rotationEffect(.degrees(135))
           .frame(width: 250, height: 250)
       }
       

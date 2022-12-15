@@ -18,6 +18,9 @@ struct AbilityModel: Identifiable {
   /// The title of the `Ability`.
   let title: String
   
-  /// The value of the `Ability`.
-  let value: Float
+  /// The base stat of the `Ability`.
+  let baseValue: Float
+  
+  /// The percent stat of the `Ability`.
+  let percentValue: Float
 }

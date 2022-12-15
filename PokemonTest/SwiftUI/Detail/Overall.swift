@@ -9,6 +9,14 @@ import SwiftUI
 
 /// The `View` for the single ability. Contains a `ProgressView`, a title and a value.
 struct OverallView<Content: View>: View {
+  // MARK: - Constants
+  
+  /// The minimun value for the `Gauge`.
+  let minimumGaugeValue: Float = 0
+  
+  /// The maximum value for the `Gauge`.
+  let maximumGaugeValue: Float = 1000
+  
   // MARK: - Stored Properties
   
   /// The model for the `OverallView`.
@@ -34,17 +42,14 @@ struct OverallView<Content: View>: View {
   // MARK: - View
   
   var body: some View {
-    Gauge(value: progress) {
-      EmptyView()
-    } currentValueLabel: {
+    Gauge(value: progress, in: minimumGaugeValue...maximumGaugeValue) {} currentValueLabel: {
       VStack {
-        Text("\(model.title): \((model.value * 100).formatted(.number))")
+        Text("\(model.title): \((model.value).formatted(.number))")
       }
     }
     .gaugeStyle(OverallGaugeStyle {
       content
     })
-    .tint(Color(uiColor: AppAsset.primary.color))
     .animation(.interactiveSpring(response: 1, dampingFraction: 0.8, blendDuration: 0.8), value: progress)
     .onAppear {
       Task {

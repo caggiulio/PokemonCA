@@ -9,6 +9,14 @@ import SwiftUI
 
 /// The `View` for the single ability. Contains a `ProgressView`, a title and a value.
 struct AbilityView: View {
+  // MARK: - Constants
+  
+  /// The minimun value for the `Gauge`.
+  let minimumGaugeValue: Float = 0
+  
+  /// The maximum value for the `Gauge`.
+  let maximumGaugeValue: Float = 120
+  
   // MARK: - Stored Properties
   
   /// The model for the single `Ability`.
@@ -45,16 +53,16 @@ struct AbilityView: View {
         .font(.title3)
         .foregroundColor(Color(uiColor: AppAsset.secondary.color))
       
-      Gauge(value: progress) {}
-      .animation(.interactiveSpring(response: 0.8, dampingFraction: 0.8, blendDuration: 0.8), value: progress)
+      Gauge(value: progress, in: minimumGaugeValue...maximumGaugeValue) {}
+        .animation(.interactiveSpring(response: 0.8, dampingFraction: 0.8, blendDuration: 0.8), value: progress)
     }
-    .tint(gradient)
+    .tint(Color(AppAsset.primary.color))
     .padding()
     .onAppear {
       Task {
         do {
           try await Task.sleep(nanoseconds: 1_000_000_000)
-          progress = model.value
+          progress = model.baseValue
         } catch {}
       }
     }
@@ -63,6 +71,6 @@ struct AbilityView: View {
 
 struct AbilityView_Previews: PreviewProvider {
   static var previews: some View {
-    AbilityView(model: .init(title: "Test", value: 0.3))
+    AbilityView(model: .init(title: "Stat Name", baseValue: 100, percentValue: 0.83))
   }
 }
